@@ -7,7 +7,7 @@ use app\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\models\forms\LoginForm;
 use yii\helpers\Url;
 //use app\models\ContactForm;
 
@@ -47,28 +47,13 @@ class SiteController extends Controller {
     }
 
     public function actionLogin() {
-//        if (!Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
-//        $model = new LoginForm();
-////        var_dump($user->getId());
-//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            $user = new User();
-//            $userRole = Yii::$app->authManager->getRole('admin');
-////            var_dump($user->getId());die;
-//            Yii::$app->authManager->assign($userRole, 1);
-//            return $this->goBack();
-//        }
-//        return $this->render('login', [
-//            'model' => $model,
-//        ]);
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->loginAdmin()) {
-            return Yii::$app->getResponse()->redirect(Url::toRoute(['admin/admin']));
+            return Yii::$app->getResponse()->redirect(Url::toRoute(['/admin']));
         } else {
             return $this->render('login', [
                 'model' => $model,
