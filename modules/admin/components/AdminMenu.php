@@ -57,9 +57,26 @@ class AdminMenu extends Widget {
                     'name' => 'Статьи',
                     'controller' => 'articles'
                 ],
+//                [
+//                    'name' => 'Видео',
+//                    'controller' => 'video'
+//                ],
+            ]
+        ],
+        [
+            'name' => 'Заявки',
+            'submenu' => [
                 [
-                    'name' => 'Видео',
-                    'controller' => 'video'
+                    'name' => 'Дисконтная карта',
+                    'controller' => 'card'
+                ],
+                [
+                    'name' => 'Вызов мастера',
+                    'controller' => 'master'
+                ],
+                [
+                    'name' => 'Консультация',
+                    'controller' => 'callback'
                 ],
             ]
         ],

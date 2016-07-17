@@ -9,7 +9,8 @@
             autoPlay: false, //Автоматическая прокрутка слайдов
             animationSpeed: 1000, //Скорость анимации слайдов в милесекундах
             sliderSpeed: 2500, //Скорость прокрутки слайдов в милесекундах
-            overStop: false //Будет ли слайдер останавливаться при наведении
+            overStop: false, //Будет ли слайдер останавливаться при наведении
+            animation: 'carousel' //Способ перелистывания картинок ('fade', 'carousel')
         };
 
         var options = $.extend(defoultOptions, _options);
@@ -33,14 +34,21 @@
                 indexButton,
                 thisImage,
                 thisActive,
+                indexFade = 0,
                 banSlide = 0;
 
 
             //Размер слайдера
             function sliderSize() {
-                if (options.sliderSize >= numberOfImages) {
-                    options.sliderSize = numberOfImages - 1
+                if (options.animation == 'carousel') {
+                    if (options.sliderSize >= numberOfImages) {
+                        options.sliderSize = numberOfImages - 1
+                    }
                 }
+                if (options.animation == 'fade') {
+                    options.sliderSize = 1;
+                }
+
                 HbKSlider = thisElement.width();
                 sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
 
@@ -55,33 +63,60 @@
                 wrapWidth = sliderWrapperWidth / options.sliderSize;
                 blockWrapperWidth = wrapWidth * images.length;
                 thisElement.find('.wrap').css('width', wrapWidth + 'px');
-                Blockswrapper.css({
-                    width: blockWrapperWidth + 'px'
-                });
+                if (options.animation == 'carousel') {
+                    Blockswrapper.css({
+                        width: blockWrapperWidth + 'px'
+                    });
+                }
+                if (options.animation == 'fade') {
+                    Blockswrapper.css({
+                        height: wrap.height()
+                    });
+                }
             }
 
             //Показать слайдер после загрузки
             function opacityNone() {
-                Blockswrapper.find('.wrap').css('opacity', 1);
+                Blockswrapper.find('.wrap').css('display', 'block');
             }
 
             //Смещение вправо
             function nextSlide() {
                 if (banSlide == 0) {
                     banSlide = 1;
-                    firstElemnt = Blockswrapper.find('.wrap').eq(0);
-                    thisActive = Blockswrapper.children('.wrap').eq(1).attr('id');
-                    Blockswrapper.stop().animate({
-                        marginLeft: -wrapWidth
-                    }, options.animationSpeed, function() {
-                        Blockswrapper.append(firstElemnt).css('margin-left', 0);
-                        banSlide = 0;
-                    });
+                    if (options.animation == 'carousel') {
+                        firstElemnt = Blockswrapper.find('.wrap').eq(0);
+                        thisActive = Blockswrapper.children('.wrap').eq(1).attr('id');
+                        Blockswrapper.stop().animate({
+                            marginLeft: -wrapWidth
+                        }, options.animationSpeed, function() {
+                            Blockswrapper.append(firstElemnt).css('margin-left', 0);
+                            banSlide = 0;
+                        });
+                    }
+
                     if (options.navigationRadioButtons == true && options.sliderSize == 1) {
                         autoActive();
                     }
-                }
 
+                    if (options.animation == 'fade') {
+                        indexFade++;
+                        if (wrap.eq(indexFade).length > 0) {
+                            wrap.removeClass('active');
+                            wrap.eq(indexFade).addClass('active');
+                            banSlide = 0;
+                        }
+                        else {
+                            indexFade = 0;
+                            wrap.removeClass('active');
+                            wrap.eq(indexFade).addClass('active');
+                            banSlide = 0;
+                        }
+                        removeActive();
+                        checkButtons.children('li').eq(indexFade).addClass('active');
+                        return thisActive = wrap.eq(indexFade).attr('id');
+                    }
+                }
             }
 
             //Смещение влево
@@ -89,12 +124,31 @@
                 if (banSlide == 0) {
                     banSlide = 1;
                     lastElemnt = Blockswrapper.find('.wrap').eq(-1);
-                    Blockswrapper.prepend(lastElemnt).css({marginLeft: -wrapWidth}).stop().animate({
-                        marginLeft: 0
-                    }, options.animationSpeed, function() {
-                        banSlide = 0;
-                    });
-                    return thisActive = Blockswrapper.find('.wrap').eq(0).attr('id');
+                    if (options.animation == 'carousel') {
+                        Blockswrapper.prepend(lastElemnt).css({marginLeft: -wrapWidth}).stop().animate({
+                            marginLeft: 0
+                        }, options.animationSpeed, function () {
+                            banSlide = 0;
+                        });
+                        return thisActive = Blockswrapper.find('.wrap').eq(0).attr('id');
+                    }
+                    if (options.animation == 'fade') {
+                        indexFade--;
+                        if (wrap.eq(indexFade).length > 0) {
+                            wrap.removeClass('active');
+                            wrap.eq(indexFade).addClass('active');
+                            banSlide = 0;
+                        }
+                        else {
+                            indexFade = wrap.length - 1;
+                            wrap.removeClass('active');
+                            wrap.eq(indexFade).addClass('active');
+                            banSlide = 0;
+                        }
+                        removeActive();
+                        checkButtons.children('li').eq(indexFade).addClass('active');
+                        return thisActive = wrap.eq(indexFade).attr('id');
+                    }
                 }
             }
 
@@ -103,8 +157,13 @@
                 var sliderArrows = thisElement.find('.sliderArrows');
                 var wrapArrows = thisElement.find('.wrapArrows');
 
-                if (options.sliderSize >= numberOfImages) {
-                    options.sliderSize = numberOfImages - 1
+                if (options.animation == 'carousel') {
+                    if (options.sliderSize >= numberOfImages) {
+                        options.sliderSize = numberOfImages - 1
+                    }
+                }
+                if (options.animation == 'fade') {
+                    options.sliderSize = 1;
                 }
                 HbKSlider = thisElement.width();
                 sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
@@ -124,9 +183,16 @@
                 wrapWidth = sliderWrapperWidth / options.sliderSize;
                 blockWrapperWidth = wrapWidth * images.length;
                 thisElement.find('.wrap').css('width', wrapWidth + 'px');
-                Blockswrapper.css({
-                    width: blockWrapperWidth + 'px'
-                });
+                if (options.animation == 'carousel') {
+                    Blockswrapper.css({
+                        width: blockWrapperWidth + 'px'
+                    });
+                }
+                if (options.animation == 'fade') {
+                    Blockswrapper.css({
+                        height: wrap.height()
+                    });
+                }
 
                 //Центрование стрелок по-вертикали
                 if (images.height() <= 63) {
@@ -163,33 +229,42 @@
                         if (banSlide == 0) {
                             removeActive();
                             indexButton = $(this).addClass('active').index();
-                            if (indexButton > thisActive) {
-                                banSlide = 1;
-                                res = indexButton - thisActive;
-                                Blockswrapper.animate({
-                                    marginLeft: -wrapWidth * res
-                                }, options.animationSpeed, function () {
-                                    for (var slide = 0; slide < res; slide++) {
-                                        firstElemnt = Blockswrapper.find('.wrap').eq(0);
-                                        Blockswrapper.append(firstElemnt).css('margin-left', 0);
-                                        banSlide = 0;
-                                    }
-                                });
+
+                            if (options.animation == 'fade') {
+                                wrap.removeClass('active');
+                                wrap.eq(indexButton).addClass('active');
+                                indexFade = indexButton;
                             }
-                            else if (indexButton < thisActive) {
-                                banSlide = 1;
-                                res = thisActive - indexButton;
-                                for (var slide = 0; slide < res; slide++) {
-                                    lastElemnt = Blockswrapper.find('.wrap').eq(-1);
-                                    Blockswrapper.prepend(lastElemnt).css('margin-left', -(res * wrapWidth));
+
+                            if (options.animation == 'carousel') {
+                                if (indexButton > thisActive) {
+                                    banSlide = 1;
+                                    res = indexButton - thisActive;
+                                    Blockswrapper.animate({
+                                        marginLeft: -wrapWidth * res
+                                    }, options.animationSpeed, function () {
+                                        for (var slide = 0; slide < res; slide++) {
+                                            firstElemnt = Blockswrapper.find('.wrap').eq(0);
+                                            Blockswrapper.append(firstElemnt).css('margin-left', 0);
+                                            banSlide = 0;
+                                        }
+                                    });
                                 }
-                                Blockswrapper.animate({
-                                    marginLeft: 0
-                                }, options.animationSpeed, function() {
-                                    banSlide = 0;
-                                });
+                                else if (indexButton < thisActive) {
+                                    banSlide = 1;
+                                    res = thisActive - indexButton;
+                                    for (var slide = 0; slide < res; slide++) {
+                                        lastElemnt = Blockswrapper.find('.wrap').eq(-1);
+                                        Blockswrapper.prepend(lastElemnt).css('margin-left', -(res * wrapWidth));
+                                    }
+                                    Blockswrapper.animate({
+                                        marginLeft: 0
+                                    }, options.animationSpeed, function () {
+                                        banSlide = 0;
+                                    });
+                                }
+                                thisActive = indexButton;
                             }
-                            thisActive = indexButton;
                         }
                     });
                 }
@@ -244,10 +319,21 @@
                 }
             }
 
+            //Тип перелистывания
+            if (options.animation == 'carousel') {
+                thisElement.find('.wrap').addClass('carousel');
+            }
+            if (options.animation == 'fade') {
+                thisElement.find('.wrap').addClass('fade');
+                thisElement.find('.wrap').eq(0).addClass('active');
+            }
+
             //Условия отображения радио кнопок
             function autoActiveCheck() {
                 if (options.navigationRadioButtons == true && options.sliderSize == 1) {
-                    autoActive();
+                    if (options.animation == 'carousel') {
+                        autoActive();
+                    }
                 }
                 else {
                     options.navigationRadioButtons = false;
@@ -279,8 +365,10 @@
             else {
                 opacityNone();
                 sliderSize();
-                autoActive();
                 autoPlay();
+                if (options.animation == 'carousel') {
+                    autoActive();
+                }
                 $(window).resize(function() {
                     sliderSize();
                 });

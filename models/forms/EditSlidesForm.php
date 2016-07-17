@@ -23,7 +23,7 @@ class EditSlidesForm extends Model {
     }
 
     public function upload($path) {
-        if ($this->image->name) {
+        if (isset($this->image->name) && !is_null($this->image->name)) {
             $translate = new Translate();
             $this->image->name = $translate->translate($this->image->name);
             if ($this->image->saveAs(Yii::$app->params['params']['pathToImage'] . $path . $this->image->name)) {

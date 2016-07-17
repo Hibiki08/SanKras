@@ -27,7 +27,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <!--start wrapper-->
-<div class="wrapper">
+<div class="wrapper <?php echo $action == 'index' ? 'bg' : ''; ?>">
     <!--start header-->
     <header id="header">
         <div class="header width">
@@ -35,46 +35,25 @@ AppAsset::register($this);
                 <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип"></a>
             </div>
             <div class="description">
-                Монтаж отопления, канализации, водоснабжения <span>в Краснодаре</span>
+                <span>Монтаж отопления, канализации,</span> водоснабжения <span>в Краснодаре</span>
             </div>
-            <div id="menu">
-                <div id="hidden-menu" onclick="menuBlock()">
-                    <div class="ico">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="word">Меню</div>
-                    <div class="arrow"></div>
-                </div>
-                <div id="menu">
-                    <div id="hidden-menu" onclick="menuBlock()">
-                        <div class="ico">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="word">Меню</div>
-                        <div class="arrow"></div>
-                    </div>
-                    <nav id="main" class="menu" style="display: block;">
-                        <ul>
-                            <li><a href="<?php echo Yii::$app->homeUrl; ?>">Главная</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" <?php if ($action == 'prices') { ?>class="active"<?php } ?>>Цены</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" <?php if ($action == 'about') { ?>class="active"<?php } ?>>О нас</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" <?php if ($action == 'contacts') { ?>class="active"<?php } ?>>Контакты</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            <nav id="main" class="menu" style="display: block;">
+                <ul>
+                    <li><a href="<?php echo Yii::$app->homeUrl; ?>">Главная</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" <?php if ($action == 'prices') { ?>class="active"<?php } ?>>Цены</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" <?php if ($action == 'about') { ?>class="active"<?php } ?>>О нас</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" <?php if ($action == 'contacts') { ?>class="active"<?php } ?>>Контакты</a></li>
+                </ul>
+            </nav>
             <div class="phone" id="phone">
                 +7 <span>(918)</span> 684 79 99
             </div>
         </div>
-        <div class="clear"></div>
     </header>
     <!--end header-->
-<?php echo $content; ?>
+    <div class="conten-wrapper">
+        <?php echo $content; ?>
+    </div>
     <!--start footer -->
     <div class="footer">
         <div class="width">
