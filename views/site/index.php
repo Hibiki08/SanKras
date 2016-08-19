@@ -2,11 +2,12 @@
 use app\components\SliderTop;
 use app\components\SliderBottom;
 use yii\helpers\Url;
+$this->title = 'Сантехники Краснодара';
 ?>
 <div class="call-block">
     <div class="block">
         <div class="form">
-            <div><img src="/images/system/spinner.gif"></div>
+            <div class="loading"><img src="/images/system/spinner4.gif"></div>
             <div class="close"></div>
             <span>Заказать звонок</span><br>
             <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
@@ -35,7 +36,7 @@ use yii\helpers\Url;
                 <li>Консультирование, помощь в подборе<br>материала и составление схемы<br>проекта</li>
                 <li>Составление сметы, закупка и доставка<br>материала</li>
                 <li>Согласование и решение вопросов с<br>прорабом отделочников</li>
-                <li>Монтаж труб водоснабжения и<br>канализации со штроблением</li>
+                <li><strong>Монтаж труб водоснабжения</strong> и<br>канализации со штроблением</li>
                 <li>Вынос мусора</li>
             </ul>
             <span>Второй этап работ после отделки:</span>
@@ -55,16 +56,16 @@ use yii\helpers\Url;
                 <li>Консультирование, помощь в подборе материала и составление схемы проекта</li>
                 <li>Составление сметы, закупка и доставка материала</li>
                 <li>Согласование и решение вопросов с прорабом отделочников</li>
-                <li>Монтаж системы отопления, обвязка котельной</li>
-                <li>Монтаж радиаторов, теплого пола</li>
-                <li>Монтаж системы водоснабжения, обвязка скважины</li>
+                <li><strong>Монтаж системы отопления</strong>, обвязка котельной</li>
+                <li><strong>Монтаж радиаторов, теплого пола</strong></li>
+                <li><strong>Монтаж системы водоснабжения</strong>, <strong>обвязка скважины</strong></li>
                 <li>Монтаж систем водоподготовки и фильтрации</li>
-                <li>Земельные работы, монтаж канализации, установка септика</li>
+                <li>Земельные работы, <strong>монтаж канализации</strong>, <strong>установка септика</strong></li>
                 <li>Вынос мусора</li>
             </ul>
             <span>Второй этап работ после отделки:</span>
             <ul>
-                <li>Установка санфаянса на стадии финишных работ</li>
+                <li><strong>Установка санфаянса</strong> на стадии финишных работ</li>
                 <li>Установка бытовой техники (стиральная / посудомоечная машина и др.)</li>
                 <li>Ввод в эксплуатацию установленного оборудования (котел, бойлер косвенного<br>нагрева, накопительный водонагреватель, газовая колонка)</li>
                 <li>Запуск и наладка всей системы</li>
@@ -249,6 +250,7 @@ use yii\helpers\Url;
             </div>
             <div class="form">
                 <div class="close"></div>
+                <div class="loading"><img src="/images/system/spinner4.gif"></div>
                 <span>вызвать мастера</span>
                 <div class="field">
                     <img src="/images/system/main-name.png">
@@ -312,7 +314,7 @@ use yii\helpers\Url;
                 <td>полипропиленом FV Plast (Чехия) по тройниковой системе до 10 точек</td>
             </tr>
             <tr>
-                <td>Монтаж канализации</td>
+                <td><strong>монтаж канализации</strong></td>
                 <td>бесшумная канализация ПВХ Ostendorf (Германия)</td>
                 <td>ПВХ Ostendorf (Германия) до 5 точек</td>
                 <td>ПВХ Политэк (Россия) до 5 точек</td>
@@ -677,6 +679,7 @@ use yii\helpers\Url;
         </div>
         <div class="form">
             <div class="close"></div>
+            <div class="loading"><img src="/images/system/spinner25.gif"></div>
             <span>получите<br><span>бесплатную консультацию</span><br>от мастера по интересующей услуге:</span>
             <div class="field">
                 <img src="/images/system/callback-name.png">

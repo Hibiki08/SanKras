@@ -14,6 +14,9 @@ body {
 .wrapper {
     margin: 0 auto;
 }
+strong {
+    font-weight: 300;
+}
 
 /*header//////////////////////////////////////////////////////////////*/
 header {
@@ -234,6 +237,16 @@ header > div > div{
     display: table-cell;
     vertical-align: middle;
 }
+.loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+}
+.call-block .loading {
+    top: 130px;
+}
 .call-block .form {
     padding: 30px 70px 45px;
     display: inline-block;
@@ -251,6 +264,9 @@ header > div > div{
     top: 20px;
     cursor: pointer;
     display: none;
+}
+.call-master .call .form .loading {
+    top: 125px;
 }
 .call-block .form .success,
 .card .form .success,
@@ -1424,6 +1440,9 @@ header > div > div{
 }
 .callback .form .field {
     margin-bottom: 15px;
+}
+.callback .form .loading {
+    top: 225px;
 }
 .callback .form input {
     background: transparent;

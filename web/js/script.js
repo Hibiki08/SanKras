@@ -64,6 +64,8 @@ $(document).ready(function() {
 
     //Вызов мастера
     $('.master button').click(function() {
+        $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.call-master .call .form .loading').css('display', 'block');
         var errors = false;
         var masterName = $(this).parents('.form').find('input[name=name]').val();
         var masterPhone = $(this).parents('.form').find('input[name=phone]').val();
@@ -90,8 +92,8 @@ $(document).ready(function() {
             data: {masterName: masterName, masterPhone: masterPhone},
         success: function (response) {
             if (response.status == true) {
-                $('.call-master .form *:not(.close)').css('visibility', 'hidden');
                 $('.call-master .form .success, .call-master .form .close').css('display', 'block');
+                $('.call-master .call .form .loading').css('display', 'none');
                 $('.call-master .form .success span').css('visibility', 'visible');
             }
         },
@@ -102,6 +104,8 @@ $(document).ready(function() {
 
     //Консультация
     $('.callback button').click(function() {
+        $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.callback .form .loading').css('display', 'block');
         var errors = false;
         var $this = $(this);
         var callbackName = $(this).parents('.form').find('input[name=name]').val();
@@ -129,9 +133,9 @@ $(document).ready(function() {
             data: {callbackName: callbackName, callbackPhone: callbackPhone, callbackMessage: callbackMessage},
             success: function (response) {
                 if (response.status == true) {
-                    $('.callback .form *:not(.close)').css('visibility', 'hidden');
                     $('.callback .form .success, .callback .form .close').css('display', 'block');
                     $('.callback .form .success span').css('visibility', 'visible');
+                    $('.callback .form .loading').css('display', 'none');
                 }
             },
             error: function () {
@@ -141,6 +145,8 @@ $(document).ready(function() {
 
     //Обратный звонок
     $('.call-block .form button').click(function() {
+        $('.call-block .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.call-block .loading').css('display', 'block');
         var callPhone = $(this).parents('.form').find('input[name=phone]').val();
 
         if (callPhone.length == 0) {
@@ -155,9 +161,9 @@ $(document).ready(function() {
             data: {callPhone: callPhone},
             success: function (response) {
                 if (response.status == true) {
-                    $('.call-block .form *:not(.close)').css('visibility', 'hidden');
                     $('.call-block .form .success').css('display', 'block');
-                    $('.call-block .form .success span').css('visibility', 'visible')
+                    $('.call-block .form .success span').css('visibility', 'visible');
+                    $('.call-block .loading').css('display', 'none');
                 }
             },
             error: function () {
@@ -200,7 +206,7 @@ $(document).ready(function() {
     $('.call-master .form .close').click(function() {
         $('.call-master .form input[name="name"]').val($('.call-master .form input[name="hide-name"]').val());
         $('.call-master .form input[name="phone"]').val('');
-        $('.call-master .form *:not(.close)').css('visibility', 'visible');
+        $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.call-master .form .success, .call-master .form .close').css('display', 'none');
         $('.call-master .form .success span').css('visibility', 'hidden')
     });
@@ -209,7 +215,7 @@ $(document).ready(function() {
     $('.callback .form .close').click(function() {
         $('.callback .form input[name="name"]').val($('.callback .form input[name="hide-name"]').val());
         $('.callback .form input[name="phone"]').val('');
-        $('.callback .form *:not(.close)').css('visibility', 'visible');
+        $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.callback .form .success, .callback .form .close').css('display', 'none');
         $('.callback .form .success span').css('visibility', 'hidden');
     });

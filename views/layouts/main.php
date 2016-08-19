@@ -35,7 +35,7 @@ AppAsset::register($this);
                 <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип"></a>
             </div>
             <div class="description">
-                <span>Монтаж отопления, канализации,<br></span> водоснабжения <span>в Краснодаре</span>
+                <strong><span>Монтаж отопления, канализации,<br></span> водоснабжения <span>в Краснодаре</span></strong>
             </div>
             <!--<nav id="main" class="menu" style="display: block;">
                <ul>
