@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Слой без названия</name>
+		<NetworkLink>
+			<name>Мы работаем</name>
+			<Link>
+				<href>http://www.google.com/maps/d/kml?forcekml=1&amp;mid=1k9dr12FLEeVRGvALgDdCpJU18KY&amp;lid=zWC44lCeK8ig.kwiSzpRnYvEo</href>
+			</Link>
+		</NetworkLink>
+	</Document>
+</kml>

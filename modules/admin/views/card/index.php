@@ -15,12 +15,14 @@ $this->title = 'Дисконтная карта';
         </tr>
         </thead>
         <tbody>
+        <?php if ($requests) { ?>
         <?php foreach ($requests as $card) { ?>
             <tr>
                 <td><?php echo $card->id; ?></td>
                 <td><?php echo $card->email; ?></td>
                 <td><?php echo Yii::$app->formatter->asDate($card->date, 'd MMMM yyyy'); ?></td>
             </tr>
+            <?php } ?>
         <?php } ?>
         </tbody>
     </table>

@@ -66,35 +66,107 @@ class SiteController extends Controller {
     }
 
     public function actionIndex() {
-        Yii::$app->mailer->compose()
-            ->setFrom('devilcatt@rambler.ru')
-            ->setTo('devilcatt1@gmail.com')
-            ->setSubject('Получить дисконтную карту')
-            ->setTextBody('Вам будет оформлена дисконтная карта!')
-            ->setHtmlBody('<b>HTML content</b>')
-            ->attach('images/blog/articles/edit_icon.png')
-            ->send();
         if (Yii::$app->request->isAjax) {
-            $status = false;
-            $form = new CardForm();
             Yii::$app->response->format = Response::FORMAT_JSON;
-            $email = Yii::$app->request->get('email');
-            $email = trim(Html::encode($email));
 
-            $there = Requests::findOne(['email' => $email]);
-            if (empty($there)) {
-//                $request = new Requests();
-//                $request->email = $email;
-//                $request->type_id = 1;
-//                $request->save();
+            $callPhone = Yii::$app->request->get('callPhone');
+            $callPhone = trim(Html::encode($callPhone));
+
+            if ($callPhone) {
+                $status = false;
+                    $request = new Requests();
+                    $request->phone = $callPhone;
+                    $request->type_id = 4;
+                    $request->save();
+
+                    $status = Yii::$app->mailer->compose()
+                        ->setFrom(Yii::$app->params['adminEmail'])
+                        ->setTo(Yii::$app->params['adminEmail'])
+                        ->setSubject('Заявка на обратный звонок')
+                        ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
+                        ->setHtmlBody('<b>HTML content</b>')
+                        ->send();
+
+                    return [
+                        'status' => $status,
+                    ];
+            }
+
+            $cardMail = Yii::$app->request->get('cardMail');
+            $cardMail = trim(Html::encode($cardMail));
+
+            if ($cardMail) {
+                $status = false;
+                $there = Requests::findOne(['email' => $cardMail, 'type_id' => 1]);
+                if (empty($there)) {
+                    $request = new Requests();
+                    $request->email = $cardMail;
+                    $request->type_id = 1;
+                    $request->save();
+
+                    $status = Yii::$app->mailer->compose()
+                        ->setFrom(Yii::$app->params['adminEmail'])
+                        ->setTo($cardMail)
+                        ->setSubject('Получить дисконтную карту')
+                        ->setTextBody('Вам будет оформлена дисконтная карта!')
+                        ->setHtmlBody('<b>HTML content</b>')
+                        ->attach('images/blog/articles/edit_icon.png')
+                        ->send();
+
+                    return [
+                        'status' => $status,
+                    ];
+                }
+            }
+
+            $masterName = Yii::$app->request->get('masterName');
+            $masterPhone = Yii::$app->request->get('masterPhone');
+            $masterName = trim(Html::encode($masterName));
+            $masterPhone = trim(Html::encode($masterPhone));
+
+            if ($masterName) {
+                $status = false;
+                $request = new Requests();
+                $request->name = $masterName;
+                $request->phone = $masterPhone;
+                $request->type_id = 2;
+                $request->save();
 
                 $status = Yii::$app->mailer->compose()
-                    ->setFrom('devilcatt@rambler.ru')
-                    ->setTo($email)
-                    ->setSubject('Получить дисконтную карту')
-                    ->setTextBody('Вам будет оформлена дисконтная карта!')
+                    ->setFrom(Yii::$app->params['adminEmail'])
+                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setSubject('Вызов мастера')
+                    ->setTextBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                     ->setHtmlBody('<b>HTML content</b>')
-                    ->attach('/images/blog/articles/edit_icon.png')
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+
+            $callbackName = Yii::$app->request->get('callbackName');
+            $callbackPhone = Yii::$app->request->get('callbackPhone');
+            $callbackMessage = Yii::$app->request->get('callbackMessage');
+            $callbackName = trim(Html::encode($callbackName));
+            $callbackPhone = trim(Html::encode($callbackPhone));
+            $callbackMessage = trim(Html::encode($callbackMessage));
+
+            if ($callbackName) {
+                $status = false;
+                $request = new Requests();
+                $request->name = $callbackName;
+                $request->phone = $callbackPhone;
+                $request->text = $callbackMessage;
+                $request->type_id = 3;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->params['adminEmail'])
+                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setSubject('Заявка на консультацию')
+                    ->setTextBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
+                    ->setHtmlBody('<b>HTML content</b>')
                     ->send();
 
                 return [

@@ -76,6 +76,10 @@ class AdminMenu extends Widget {
                 ],
                 [
                     'name' => 'Консультация',
+                    'controller' => 'advice'
+                ],
+                [
+                    'name' => 'Обратный звонок',
                     'controller' => 'callback'
                 ],
             ]

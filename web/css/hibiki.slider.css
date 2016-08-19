@@ -41,7 +41,6 @@
 
 /*Стрелки/////////////*/
 .wrapArrows {
-    cursor: pointer;
     margin: 0 auto;
     position: relative;
 }
@@ -53,11 +52,13 @@
     height: 100%;
 }
 .sliderArrows.left {
+    cursor: pointer;
     left: 0;
     background: url('images/17.png') no-repeat center center;
     background-size: 100% auto;
 }
 .sliderArrows.right {
+    cursor: pointer;
     right: 0;
     background: url('images/18.png') no-repeat center center;
     background-size:  auto 100%;

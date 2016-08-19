@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'devilcatt1@gmail.com',
     'params' => [
         'pathToImage' => 'images/'
     ]

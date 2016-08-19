@@ -167,15 +167,15 @@
                 }
                 HbKSlider = thisElement.width();
                 sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                wrapArrowsWidth = sliderWrapperWidth + 80;
+                wrapArrowsWidth = sliderWrapperWidth + sliderArrows * 2;
 
                 if (wrapArrowsWidth >= HbKSlider) {
                     wrapArrowsWidth = HbKSlider;
-                    sliderWrapperWidth = wrapArrowsWidth - 80;
+                    sliderWrapperWidth = wrapArrowsWidth - sliderArrows * 2;
                 }
                 else {
                     sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                    wrapArrowsWidth = sliderWrapperWidth + 80;
+                    wrapArrowsWidth = sliderWrapperWidth + sliderArrows * 2;
                 }
 
                 wrapArrows.width(wrapArrowsWidth);
@@ -190,7 +190,7 @@
                 }
                 if (options.animation == 'fade') {
                     Blockswrapper.css({
-                        height: wrap.height()
+                        height: images.height()
                     });
                 }
 
