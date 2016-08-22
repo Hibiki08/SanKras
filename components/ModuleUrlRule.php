@@ -34,7 +34,7 @@ class ModuleUrlRule extends UrlRule {
         $pathToController = '';
         $route = '';
         if (in_array($url[0], $this->appModules)) {
-            $pathToController = Yii::$app->basePath . '/modules/' . $url[0] . '/controllers';
+            $pathToController = Yii::$app->basePath . '/modules/' . ucfirst ($url[0]) . '/controllers';
             $module =  !empty($url[1]) ?  $url[1] :  $url[0];
 
             if (file_exists($pathToController . '/' .  $module . 'Controller.php')) {
