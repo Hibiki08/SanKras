@@ -1,17 +1,19 @@
-Options +FollowSymLinks
-IndexIgnore */*
+# Mod_Autoindex
+<IfModule mod_autoindex.c>
+  # Disable indexes
+  Options -Indexes
+</IfModule>
 
-RewriteEngine on
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+  # Enable symlinks
+  Options +FollowSymlinks
+  # Enable mod_rewrite
+  RewriteEngine On
 
-# if a directory or a file exists, use it directly
-RewriteCond %{THE_REQUEST} \s/+(.+?)/+[?\s]
-RewriteRule /$ /%1 [R,L]
-
-#RewriteCond %{HTTP_HOST} ^www.san-kras.ru$ [NC]
-#RewriteRule ^(.*)$ http://san-kras.ru/$1 [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# otherwise forward it to index.php
-RewriteRule . index.php
+  # If a directory or a file exists, use the request directly
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  # Otherwise forward the request to index.php
+  RewriteRule . index.php
+</IfModule>
