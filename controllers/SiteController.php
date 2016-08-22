@@ -84,7 +84,7 @@ class SiteController extends Controller {
                         ->setTo(Yii::$app->params['adminEmail'])
                         ->setSubject('Заявка на обратный звонок')
                         ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
-                        ->setHtmlBody('<b>HTML content</b>')
+//                        ->setHtmlBody('<b>HTML content</b>')
                         ->send();
 
                     return [
@@ -137,7 +137,7 @@ class SiteController extends Controller {
                     ->setTo(Yii::$app->params['adminEmail'])
                     ->setSubject('Вызов мастера')
                     ->setTextBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
-                    ->setHtmlBody('<b>HTML content</b>')
+//                    ->setHtmlBody('<b>HTML content</b>')
                     ->send();
 
                 return [
@@ -166,7 +166,7 @@ class SiteController extends Controller {
                     ->setTo(Yii::$app->params['adminEmail'])
                     ->setSubject('Заявка на консультацию')
                     ->setTextBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
-                    ->setHtmlBody('<b>HTML content</b>')
+//                    ->setHtmlBody('<b>HTML content</b>')
                     ->send();
 
                 return [
