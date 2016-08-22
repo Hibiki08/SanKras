@@ -64,8 +64,6 @@ $(document).ready(function() {
 
     //Вызов мастера
     $('.master button').click(function() {
-        $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
-        $('.call-master .call .form .loading').css('display', 'block');
         var errors = false;
         var masterName = $(this).parents('.form').find('input[name=name]').val();
         var masterPhone = $(this).parents('.form').find('input[name=phone]').val();
@@ -84,6 +82,8 @@ $(document).ready(function() {
         if (errors) {
             return false;
         }
+        $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.call-master .call .form .loading').css('display', 'block');
 
         $.ajax({
             url: 'site/index',
@@ -104,8 +104,6 @@ $(document).ready(function() {
 
     //Консультация
     $('.callback button').click(function() {
-        $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
-        $('.callback .form .loading').css('display', 'block');
         var errors = false;
         var $this = $(this);
         var callbackName = $(this).parents('.form').find('input[name=name]').val();
@@ -125,6 +123,8 @@ $(document).ready(function() {
         if (errors) {
             return false;
         }
+        $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.callback .form .loading').css('display', 'block');
 
         $.ajax({
             url: 'site/index',
@@ -145,14 +145,14 @@ $(document).ready(function() {
 
     //Обратный звонок
     $('.call-block .form button').click(function() {
-        $('.call-block .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
-        $('.call-block .loading').css('display', 'block');
         var callPhone = $(this).parents('.form').find('input[name=phone]').val();
 
         if (callPhone.length == 0) {
             $(this).parents('.form').find('input[name=phone]').addClass('error');
             return false;
         }
+        $('.call-block .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.call-block .loading').css('display', 'block');
 
         $.ajax({
             url: 'site/index',
