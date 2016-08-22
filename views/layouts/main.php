@@ -65,7 +65,7 @@ AppAsset::register($this);
                                                        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:33225778,lang:'ru'});return false}catch(e){}" /></a>
                 <!-- /Yandex.Metrika informer -->
             </div>
-            <div class="site"><a href="#" target="_blank">Разработка сайта</a></div>
+            <div class="site"><a href="https://vk.com/thishibiki" target="_blank">Разработка сайта</a></div>
             <div>© 2016 «SanKras»</div>
         </div>
     </footer>
