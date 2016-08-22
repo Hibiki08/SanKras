@@ -67,5 +67,4 @@ class ModuleUrlRule extends UrlRule {
         }
         return [$route, $params];
     }
-
 }
