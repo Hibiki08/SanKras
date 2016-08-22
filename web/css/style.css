@@ -1092,6 +1092,9 @@ header > div > div{
     margin-left: 60px;
     border-top: none;
 }
+.works .w2 h3 {
+    margin-top: 40px;
+}
 .works .w2 .checkWrapper {
     position: absolute;
     top: -13px;
@@ -1113,6 +1116,10 @@ header > div > div{
     top: inherit;
     background: #34495e;
     line-height: 4px;
+}
+.works .sliderWrapper,
+.works .sliderWrapper .wrap {
+    width: 100% !important;
 }
 .works .checkButtons li {
     padding: 3px 0;
@@ -1599,7 +1606,7 @@ header > div > div{
     -webkit-box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 110px;
-    z-index: 2000;
+    z-index: 999;
 }
 .contacts .cont .cnt > div,
 .contacts .cont img {

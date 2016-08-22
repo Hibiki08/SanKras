@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
     public $css = [
         '/css/hibiki.slider.css',
         'css/style.css',
+        'css/media.css',
     ];
     public $js = [
         'js/jquery-2.1.4.min.js',

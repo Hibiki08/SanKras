@@ -1,0 +1,177 @@
+/*1680*/
+@media screen and (max-width: 1680px) {
+    .slider .Blockswrapper .wrap .text {
+        padding-top: 195px;
+    }
+
+}
+/*1370*/
+@media screen and (max-width: 1370px) {
+    .key .title-big:after {
+        bottom: -180px;
+    }
+    .key {
+        background: url(/images/system/key-bg2.jpg) no-repeat right;
+        background-size: auto 100%;
+    }
+    .slider .Blockswrapper .wrap .text {
+        padding-top: 160px;
+    }
+}
+
+/*1280*/
+@media screen and (max-width: 1280px) {
+    .slider .Blockswrapper .wrap .text {
+        padding-top: 140px;
+    }
+    .key .title-big:after {
+        bottom: -166px;
+    }
+    .simple {
+        background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+}
+
+/*1152*/
+@media screen and (max-width: 1152px) {
+    html {
+        overflow-x: hidden;
+    }
+    .width {
+        width: 985px;
+    }
+    .slider .Blockswrapper .wrap .text {
+        padding-top: 110px;
+    }
+    .slider .Blockswrapper .wrap:first-of-type p:first-of-type {
+        font-size: 25px;
+    }
+    .slider .Blockswrapper .wrap:first-of-type .text p:last-of-type {
+        font-size: 20px;
+    }
+    .key .width > div {
+        padding: 45px 20px;
+    }
+    .key .width > div.flat {
+        width: 365px;
+    }
+    .key .width > div.house {
+        width: 600px;
+    }
+    .key .width > div.flat, .key .width > div.house {
+        min-height: 650px;
+    }
+    .key .width > div.build,
+    .key .width > div.better {
+        width: 480px;
+    }
+    .key .width > div ul li {
+        font-size: 14px;
+    }
+    .key .width > div.build, .key .width > div.better {
+        min-height: 437px;
+    }
+    .key {
+        background: url(/images/system/key-bg2.jpg) no-repeat right;
+        background-size: auto 100%;
+    }
+    .key .title-big:after {
+        bottom: -130px;
+    }
+    .quality .col {
+        width: 237px;
+    }
+    .quality .col h3,
+    .quality .col div {
+        font-size: 14px;
+    }
+    .quality .col img {
+        width: 150px;
+    }
+    .quality .col:not(:last-of-type) {
+        margin-right: 10px;
+    }
+    .quality .columns {
+        margin-top: -135px;
+    }
+    .slider .Blockswrapper .wrap .text p:first-of-type {
+        margin-bottom: 5px;
+    }
+    .slider .Blockswrapper .wrap .text ul {
+        font-size: 16px;
+    }
+    .how-work .how > figure:nth-of-type(odd) > img {
+        width: 100px;
+    }
+    .how-work .how figcaption {
+        font-size: 14px;
+    }
+    .how-work .how > figure:nth-of-type(odd) {
+        width: 164px;
+    }
+    .call-master .call ul, .works .description ul {
+        font-size: 16px;
+    }
+    .call-master .master > figure img {
+        width: 517px;
+    }
+    .call-master .call ul, .works .description ul {
+        position: relative;
+        z-index: 3;
+    }
+    .call-master .call h3 {
+        z-index: 3;
+        position: relative;
+        font-size: 16px;
+    }
+    .why .clear > div {
+        padding: 40px 35px 50px 35px;
+        width: 412px;
+        min-height: 456px;
+    }
+    .why .clear > div h3 {
+        font-size: 15px;
+    }
+    .work .Blockswrapper .wrap img,
+    .work .Blockswrapper .wrap,
+    .work .Blockswrapper,
+    .work .sliderWrapper,
+    .work .wrapArrows,
+    .work {
+        width: 450px !important;
+    }
+    .works h3 {
+        font-size: 17px;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+    .works .w1 .work {
+        margin-right: 30px;
+    }
+    .works .w2 .work {
+        margin-top: 30px;
+    }
+    .works .w2 h3 {
+        margin-top: 25px;
+    }
+    .reviews .review .block .text {
+        width: 370px;
+    }
+    .reviews .review .block {
+        padding: 30px;
+    }
+    .reviews .review .block span {
+        font-size: 15px;
+    }
+    .reviews .review .block img {
+        margin-right: 20px;
+    }
+    .reviews blockquote {
+        font-size: 19px;
+        width: 265px;
+    }
+
+
+}

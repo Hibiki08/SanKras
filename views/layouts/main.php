@@ -30,7 +30,7 @@ AppAsset::register($this);
 <div class="wrapper <?php echo $action == 'index' ? 'bg' : ''; ?>">
     <!--start header-->
     <header id="header">
-        <div class="header width">
+        <div class="header width clear">
             <div class="logo">
                 <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип"></a>
             </div>

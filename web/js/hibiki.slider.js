@@ -167,15 +167,15 @@
                 }
                 HbKSlider = thisElement.width();
                 sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                wrapArrowsWidth = sliderWrapperWidth + sliderArrows * 2;
+                wrapArrowsWidth = sliderWrapperWidth + sliderArrows.width() * 2;
 
                 if (wrapArrowsWidth >= HbKSlider) {
                     wrapArrowsWidth = HbKSlider;
-                    sliderWrapperWidth = wrapArrowsWidth - sliderArrows * 2;
+                    sliderWrapperWidth = wrapArrowsWidth - sliderArrows.width() * 2;
                 }
                 else {
                     sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                    wrapArrowsWidth = sliderWrapperWidth + sliderArrows * 2;
+                    wrapArrowsWidth = sliderWrapperWidth + sliderArrows.width() * 2;
                 }
 
                 wrapArrows.width(wrapArrowsWidth);
