@@ -5,10 +5,10 @@
     }
 
 }
-/*1370*/
-@media screen and (max-width: 1370px) {
+/*1366*/
+@media screen and (max-width: 1366px) {
     .key .title-big:after {
-        bottom: -180px;
+        bottom: -170px;
     }
     .key {
         background: url(/images/system/key-bg2.jpg) no-repeat right;
@@ -16,6 +16,10 @@
     }
     .slider .Blockswrapper .wrap .text {
         padding-top: 160px;
+    }
+    .callback {
+        background: url(/images/system/callback-bg.jpg) no-repeat top center;
+        background-attachment: fixed;
     }
 }
 
@@ -25,7 +29,7 @@
         padding-top: 140px;
     }
     .key .title-big:after {
-        bottom: -166px;
+        bottom: -160px;
     }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
@@ -78,7 +82,7 @@
         background-size: auto 100%;
     }
     .key .title-big:after {
-        bottom: -130px;
+        bottom: -120px;
     }
     .quality .col {
         width: 237px;
