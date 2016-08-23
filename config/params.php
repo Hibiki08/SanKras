@@ -2,7 +2,7 @@
 
 return [
 //    'adminEmail' => 'devilcatt1@gmail.com',
-    'adminEmail' => 'devilcatt@rambler.ru',
+    'adminEmail' => 'devilcatt1@gmail.com',
     'params' => [
         'pathToImage' => 'images/'
     ]
