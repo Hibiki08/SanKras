@@ -21,11 +21,6 @@
         background: url(/images/system/callback-bg.jpg) no-repeat top center;
         background-attachment: fixed;
     }
-    .simple {
-        background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
-        background-size: 100%;
-        background-attachment: fixed;
-    }
 }
 
 /*1280*/
@@ -35,6 +30,11 @@
     }
     .key .title-big:after {
         bottom: -160px;
+    }
+    .simple {
+        background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
     }
 }
 
