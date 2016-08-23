@@ -3,13 +3,20 @@
     .slider .Blockswrapper .wrap .text {
         padding-top: 195px;
     }
-
 }
-/*1366*/
-@media screen and (max-width: 1366px) {
+
+/*1440*/
+@media screen and (max-width: 1440px) {
     .key .title-big:after {
         bottom: -170px;
     }
+    .key:after {
+        bottom: 20px;
+    }
+}
+
+/*1366*/
+@media screen and (max-width: 1366px) {
     .key {
         background: url(/images/system/key-bg2.jpg) no-repeat right;
         background-size: auto 100%;
@@ -20,6 +27,9 @@
     .callback {
         background: url(/images/system/callback-bg.jpg) no-repeat top center;
         background-attachment: fixed;
+    }
+    .key:after {
+        bottom: 16px;
     }
 }
 
@@ -68,17 +78,12 @@
         width: 600px;
     }
     .key .width > div.flat, .key .width > div.house {
-        min-height: 650px;
+        min-height: 704px;
     }
     .key .width > div.build,
     .key .width > div.better {
-        width: 480px;
-    }
-    .key .width > div ul li {
-        font-size: 14px;
-    }
-    .key .width > div.build, .key .width > div.better {
-        min-height: 437px;
+        width: 483px;
+        min-height: 486px;
     }
     .key {
         background: url(/images/system/key-bg2.jpg) no-repeat right;
@@ -178,6 +183,9 @@
     .reviews blockquote {
         font-size: 19px;
         width: 265px;
+    }
+    .how-work .how > .red-arrow {
+        margin-top: 40px;
     }
 }
 
