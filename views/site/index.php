@@ -753,7 +753,7 @@ $this->title = 'Сантехники Краснодара';
     $(window).load(function() {
         $('.slider').HbKSlider({
             sliderSize: 1,
-            autoPlay: false,
+            autoPlay: true,
             overStop: true,
             navigationArrows: true,
             navigationRadioButtons: true,
