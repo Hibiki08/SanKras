@@ -215,6 +215,7 @@ $(document).ready(function() {
     $('.callback .form .close').click(function() {
         $('.callback .form input[name="name"]').val($('.callback .form input[name="hide-name"]').val());
         $('.callback .form input[name="phone"]').val('');
+        $('.callback .form textarea[name="message"]').val('');
         $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.callback .form .success, .callback .form .close').css('display', 'none');
         $('.callback .form .success span').css('visibility', 'hidden');

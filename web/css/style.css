@@ -11,6 +11,7 @@ body {
     color: #141518;
     font-weight: 300;
     overflow: auto;
+    min-width: 990px;
 }
 .wrapper {
     margin: 0 auto;
@@ -1475,6 +1476,8 @@ header > div > div{
     outline: none;
     margin-top: -19px;
     margin-left: -10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
 .callback .form input[placeholder] {
     color: #fff;
