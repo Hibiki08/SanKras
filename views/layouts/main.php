@@ -19,7 +19,15 @@ AppAsset::register($this);
 <head lang="en">
     <meta charset="UTF-8">
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <?php echo Html::csrfMetaTags() ?>
+    <?php echo Html::csrfMetaTags(); ?>
+    <?php $this->registerMetaTag([
+        'name' => 'description',
+        'content' => 'Описание'
+    ]);
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => 'монтаж отопления, монтаж канализации, монтаж водоснабжения, проектирование отопления, обустройство скважины'
+    ]); ?>
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="/images/system/mini-logo.png" rel="shortcut icon" type="image/x-icon">
@@ -32,10 +40,10 @@ AppAsset::register($this);
     <header id="header">
         <div class="header width clear">
             <div class="logo">
-                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип"></a>
+                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип" title="лого"></a>
             </div>
             <div class="description">
-                <strong><span>Монтаж отопления, канализации,<br></span> водоснабжения <span>в Краснодаре</span></strong>
+                <h1><span>Монтаж отопления, канализации,<br></span> водоснабжения <span>в Краснодаре</span></h1>
             </div>
             <!--<nav id="main" class="menu" style="display: block;">
                <ul>

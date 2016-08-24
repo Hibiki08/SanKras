@@ -2,17 +2,17 @@
 use app\components\SliderTop;
 use app\components\SliderBottom;
 use yii\helpers\Url;
-$this->title = 'Сантехники Краснодара';
+$this->title = 'Монтаж отопления | Монтаж водоснабжения';
 ?>
 <div class="call-block">
     <div class="block">
         <div class="form">
-            <div class="loading"><img src="/images/system/spinner4.gif"></div>
+            <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
             <div class="close"></div>
             <span>Заказать звонок</span><br>
             <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
             <div class="field">
-                <img src="/images/system/main-tel.png">
+                <img src="/images/system/main-tel.png" alt="phone" title="Ваш телефон">
                 <input name="phone" type="text" placeholder="Ваш телефон*" class="phone-mask" required><br>
                 <button class="pulse">перезвоните мне</button>
             </div>
@@ -57,15 +57,15 @@ $this->title = 'Сантехники Краснодара';
                 <li>Составление сметы, закупка и доставка материала</li>
                 <li>Согласование и решение вопросов с прорабом отделочников</li>
                 <li><strong>Монтаж системы отопления</strong>, обвязка котельной</li>
-                <li><strong>Монтаж радиаторов, теплого пола</strong></li>
-                <li><strong>Монтаж системы водоснабжения</strong>, <strong>обвязка скважины</strong></li>
+                <li>Монтаж радиаторов, теплого пола</li>
+                <li>Монтаж системы водоснабжения, обвязка скважины</li>
                 <li>Монтаж систем водоподготовки и фильтрации</li>
-                <li>Земельные работы, <strong>монтаж канализации</strong>, <strong>установка септика</strong></li>
+                <li>Земельные работы, монтаж канализации, установка септика</li>
                 <li>Вынос мусора</li>
             </ul>
             <span>Второй этап работ после отделки:</span>
             <ul>
-                <li><strong>Установка санфаянса</strong> на стадии финишных работ</li>
+                <li>Установка санфаянса на стадии финишных работ</li>
                 <li>Установка бытовой техники (стиральная / посудомоечная машина и др.)</li>
                 <li>Ввод в эксплуатацию установленного оборудования (котел, бойлер косвенного нагрева, накопительный водонагреватель, газовая колонка)</li>
                 <li>Запуск и наладка всей системы</li>
@@ -105,22 +105,22 @@ $this->title = 'Сантехники Краснодара';
     <div class="grey"></div>
     <div class="columns clear width">
         <div class="col">
-            <img src="/images/system/main-col-1.png">
+            <img src="/images/system/main-col-1.png" alt="гарантия" title="гарантия">
             <h3>гарантия от 1 года до 5 лет<br>на наши работы</h3>
             <div>Мы уверены в высоком качестве нашей работы, потому что она выполняется квалифицированными специалистами с использованием надежных материалов. В течении гарантийного срока мы бесплатно устраним неисправности монтажа.</div>
         </div>
         <div class="col">
-            <img src="/images/system/main-col-2.png">
+            <img src="/images/system/main-col-2.png" alt="отношение" title="отношение">
             <h3>заботливое отношение<br>ко всем вашим пожеланиям</h3>
             <div>С учетом всех Ваших потребностей мы составляем несколько оптимальных решений, из которых Вы выбираете наиболее подходящее по соотношению цены и качества. Также предлагаем  скидку 10% на материал и бесплатную доставку.</div>
         </div>
         <div class="col">
-            <img src="/images/system/main-col-3.png">
+            <img src="/images/system/main-col-3.png" alt="поддержка" title="поддержка">
             <h3>обслуживание и поддержка при эксплуатации</h3>
             <div>После проведения монтажа мы не прекращаем сотрудничество с Вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, помогаем в настройке оборудования и при необходимости проводим профилактику системы.</div>
         </div>
         <div class="col">
-            <img src="/images/system/main-col-4.png">
+            <img src="/images/system/main-col-4.png" alt="материалы" title="материалы">
             <h3>качественные материалы известных производителей</h3>
             <div>Мы работаем с производителями материалов и оборудования, зарекомендовавших себя на рынке сантехнических услуг и имеющих сертификат качества и гарантию. Это такие бренды, как: Rehau, FAR, Frankische, APE, Oventrop, Ostendorf, Caleffi, FIV, KAN, Wolf, Vogel & Noot, Viessmann, Protherm, Fondital, Meibes.</div>
         </div>
@@ -192,35 +192,35 @@ $this->title = 'Сантехники Краснодара';
     <div class="title-small">Простая схема сотрудничества</div>
     <div class="how clear width">
         <figure>
-            <img src="/images/system/main-how-1.png" alt="Звонок и консультация">
+            <img src="/images/system/main-how-1.png" alt="Звонок и консультация" title="звонок на консультацию">
             <figcaption>Заявка с сайта, звонок и<br>консультация</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png">
+            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img src="/images/system/main-how-2.png" alt="Встреча и подбор оптимального решения">
+            <img src="/images/system/main-how-2.png" alt="Встреча и подбор оптимального решения" title="Встреча и подбор оптимального решения">
             <figcaption>Осмотр объекта, подбор<br>решения, составление<br>нескольких смет</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png">
+            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
             <img src="/images/system/main-how-5.png" alt="Закупка материала и доставка">
             <figcaption>Закупка материала и доставка</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png">
+            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img src="/images/system/main-how-3.png" alt="Монтаж с учётом Ваших потребностей">
+            <img src="/images/system/main-how-3.png" alt="Монтаж с учётом Ваших потребностей" title="Монтаж">
             <figcaption>Монтаж с учётом Ваших потребностей</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png">
+            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img src="/images/system/main-how-4.png" alt="Введение в эксплуатацию и обслуживание">
+            <img src="/images/system/main-how-4.png" alt="Введение в эксплуатацию и обслуживание" title="Введение в эксплуатацию">
             <figcaption>Введение в эксплуатацию и обслуживание</figcaption>
         </figure>
     </div>
@@ -229,7 +229,7 @@ $this->title = 'Сантехники Краснодара';
     <div class="title-big">вызвать мастера для составления сметы</div>
     <div class="master width">
         <figure>
-            <img src="/images/system/call-master.png">
+            <img src="/images/system/call-master.png" alt="вызвать мастера" title="вызвать мастера">
         </figure>
         <div class="call clear">
             <div class="about">
@@ -250,15 +250,15 @@ $this->title = 'Сантехники Краснодара';
             </div>
             <div class="form">
                 <div class="close"></div>
-                <div class="loading"><img src="/images/system/spinner4.gif"></div>
+                <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
                 <span>вызвать мастера</span>
                 <div class="field">
-                    <img src="/images/system/main-name.png">
+                    <img src="/images/system/main-name.png" alt="ваше имя" title="ваше имя">
                     <input type="text" name="name" value="Ваше имя*" class="focus" required><br>
                     <input type="hidden" value="Ваше имя*" name="hide-name" class="hidden">
                 </div>
                 <div class="field">
-                    <img src="/images/system/main-tel.png">
+                    <img src="/images/system/main-tel.png" alt="ваш телефон" title="ваше телефон">
                     <input type="text" placeholder="Ваш телефон*" name="phone" class="phone-mask" required><br>
                     <button class="pulse">вызвать на осмотр</button>
                 </div>
@@ -275,10 +275,10 @@ $this->title = 'Сантехники Краснодара';
                     <span>бесплатно</span><br>
                     <span>Вызов мастера не обязывает Вас<br>к дальнейшему сотрудничеству</span>
                 </div>
-                <img src="/images/system/master-free.png">
+                <img src="/images/system/master-free.png" alt="бесплатно" title="бесплатно">
             </div>
             <div class="bf-2">
-                <img src="/images/system/master-fast.png">
+                <img src="/images/system/master-fast.png" alt="быстро" title="быстро">
                 <div>
                     <span>быстро</span><br>
                     <span>Получите точную стоимость<br>в течении 48 часов</span>
@@ -303,9 +303,9 @@ $this->title = 'Сантехники Краснодара';
             <tbody>
             <tr>
                 <td>Составление сметы и доставка материала (бесплатно)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Монтаж водоснабжения</td>
@@ -321,63 +321,63 @@ $this->title = 'Сантехники Краснодара';
             </tr>
             <tr>
                 <td>Шумоизоляция канализационного стояка энергофлексом</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Монтаж выводов под полотенцесушитель</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Штробление под точки водоснабжения, их дальнейшее крепление и опрессовка</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Установка редукторов давления, сетчатых фильтров 500 мкм, арматура Itap, FIV (Италия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Защита трубопровода в энергофлекс Super Protect (Россия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Установка компенсаторов от гидроударов FAR (Италия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Установка промывных фильтров Honeywell (Германия) / FAR (Италия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Установка фильтров тонкой очистки Atoll (США)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Работа по дизайн проекту</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Уборка помещения и вынос мусора</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr class="guarantee">
                 <td>Гарантия на монтаж</td>
@@ -413,21 +413,21 @@ $this->title = 'Сантехники Краснодара';
             <tbody>
             <tr>
                 <td>Составление сметы и доставка материала (бесплатно)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Расчет теплопотерь здания</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Гидравлический расчет системы водоснабжения и отопления, технический проект инженерных сантехнический сетей</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Котёл</td>
@@ -437,15 +437,15 @@ $this->title = 'Сантехники Краснодара';
             </tr>
             <tr>
                 <td>Бойлер косвенного нагрева Viessmann (Германия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Группа безопасности</td>
                 <td>Системы отопления и ГВС</td>
                 <td>Системы отопления</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
             </tr>
             <tr>
                 <td>Система отопления</td>
@@ -491,15 +491,15 @@ $this->title = 'Сантехники Краснодара';
             </tr>
             <tr>
                 <td>Погодозависимая автоматика Viessmann (Германия)</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr>
                 <td>Работа по дизайн проекту</td>
-                <td class="ico"><img src="/images/system/yes.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
-                <td class="ico"><img src="/images/system/no.png"></td>
+                <td class="ico"><img src="/images/system/yes.png" alt="yes" title="есть"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
+                <td class="ico"><img src="/images/system/no.png" alt="no" title="нет"></td>
             </tr>
             <tr class="guarantee">
                 <td>Гарантия на монтаж</td>
@@ -529,12 +529,12 @@ $this->title = 'Сантехники Краснодара';
         <div class="title-small">Почему Вы сэкономите, сотрудничая с нами?</div>
         <div class="clear">
             <div class="left">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . '/system/price-down.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . '/system/price-down.png'; ?>" alt="вниз" title="вниз">
                 <h3>На многие наши позиции<br>цены ниже рыночных</h3>
                 <p>Например, установка радиатора отопления у нас стоит 1 700 рублей, тогда как на рынке – 2 000 рублей; или монтаж точки водоснабжения – 450 против 600 рублей. Вы не переплачиваете, потому что мы используем профессиональный инструмент, сокращающий время работы и, соответственно, снижающий её стоимость. Мы занимаемся монтажем сантехники более 11 лет, за это время было накоплено много опыта в решении различных задач, что позволяет нам выполнять работу быстро и качественно.</p>
             </div>
             <div class="right">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . '/system/price-up.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . '/system/price-up.png'; ?>" alt="вверх" title="вверх">
                 <h3>На некоторые позиции наши<br>цены не самые низкие на<br>рынке</h3>
                 <p>Самая низкая цена – не всегда синоним качества, а зачастую совсем наоборот. Сэкономив на монтаже, Вы можете попасть в неприятную стуацию: в системе появляются неисправности, а мастер, производивший монтаж, «исчезает». Мы не раз сталкивались с заказчиками, которые просили исправить, например, негреющую систему отопления после некомпетентного мастера. И в этом случае заказчику приходилось платить дважды, что в сумме выходило дороже, чем изначальное сотрудничество с профессиональными монтажниками. Мы дорожим своими клиентами, поэтому производим обслуживание в течении эксплуатации системы и гарантийное бесплатное устранение неисправностей монтажа.</p>
             </div>
@@ -549,28 +549,28 @@ $this->title = 'Сантехники Краснодара';
                 <div class="sliderWrapper">
                     <div class="Blockswrapper">
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-1.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-1.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-2.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-2.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-3.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-3.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-4.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-4.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-5.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-5.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-6.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-6.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-7.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-7.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-8.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work1-8.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                     </div>
                 </div>
@@ -597,16 +597,16 @@ $this->title = 'Сантехники Краснодара';
                 <div class="sliderWrapper">
                     <div class="Blockswrapper">
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-1.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-1.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-2.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-2.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-3.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-3.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                         <div class="wrap">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-4.jpg'; ?>">
+                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'sliders/works/work2-4.jpg'; ?>" alt="монтаж отопления" title="наши работы">
                         </div>
                     </div>
                 </div>
@@ -635,7 +635,7 @@ $this->title = 'Сантехники Краснодара';
         <div class="title-big">отзывы наших клиентов</div>
         <div class="review">
             <div class="block">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
                     <span><span class="red">Николай Дрига,</span> предприниматель и владелец дома<br>с полным автономным энергообеспечением</span>
                     <p>Когда я впервые увидел с какой аккуратностью Артем подходит к решению технических вопросов при монтаже систем отопления и водоснабжения, сразу понял — наш человек! :)  Заказчику всегда предлагается выбор из нескольких вариантов с описанием всех плюсов и минусов каждого, соответственно, человек может делать осознанный выбор в соответствии с индивидуальными особенностями и возможностями.</p>
@@ -646,7 +646,7 @@ $this->title = 'Сантехники Краснодара';
         <div class="review rw-2">
             <blockquote>Работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают организационные вопросы</blockquote>
             <div class="block">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-2.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-2.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
                     <span><span class="red">Роман,</span> руководитель строительной фирмы "Краснодарский дизайн-салон"</span>
                     <p>Долгое время я искал специалиста по сантехнике, на которого можно положиться. Надоедало постоянно перепроверять работу и тратить время на то, чтобы держать все под контролем. С Артемом познакомился на одном из объектов. Сразу понравилось как он подходит к монтажу: работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают возникающие организационные вопросы. По привычке я все перепроверял, но быстро понял что в этом нет необходимости, возникло доверие и желание сотрудничать. Совместно мы выполнили несколько десятков объктов, за это время ни разу не были сорваны сроки, претензий от заказчиков не поступало.</p>
@@ -655,7 +655,7 @@ $this->title = 'Сантехники Краснодара';
         </div>
         <div class="review">
             <div class="block">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-3.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-3.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
                     <span><span class="red">Сергей,</span> руководитель инженерного отдела</span>
                     <p>Хотелось бы сказать несколько слов благодарности ребятам из СанКрас! Когда у меня возник вопрос о проведении ремонта в новой квартире, я посоветовался со своими знакомыми, к какой фирме лучше обратиться. Бригаду по ремонту квартиры нашёл довольно быстро. Но возникла проблема с поиском специалистов по сантехнике, так как подобрать умелого мастера оказалось проблематично. Воплотить мой проект в жизнь мне помогли ребята из СанКрас. На первых этапах нашего сотрудничества они показали свою высокую компетентность и добропорядочность. Подобрали качественный материал, решили все вопросы с прорабом отделочников, практически полностью исключив меня из процесса ремонта. Могу охаректеризовать их действия как "приехали, увидели, победили". Сердечное спасибо, так держать!</p>
@@ -679,19 +679,19 @@ $this->title = 'Сантехники Краснодара';
         </div>
         <div class="form">
             <div class="close"></div>
-            <div class="loading"><img src="/images/system/spinner25.gif"></div>
+            <div class="loading"><img src="/images/system/spinner25.gif" alt="loading"></div>
             <span>получите<br><span>бесплатную консультацию</span><br>от мастера по интересующей услуге:</span>
             <div class="field">
-                <img src="/images/system/callback-name.png">
+                <img src="/images/system/callback-name.png" alt="ваше имя" title="ваше имя">
                 <input type="text" name="name" value="Ваше имя*" class="focus" required><br>
                 <input type="hidden" value="Ваше имя*" name="hide-name" class="hidden">
             </div>
             <div class="field">
-                <img src="/images/system/callback-phone.png">
+                <img src="/images/system/callback-phone.png" alt="ваше телефон" title="ваше телефон">
                 <input type="text" placeholder="Ваш телефон*" name="phone" class="phone-mask" required><br>
             </div>
             <div class="field textarea">
-                <img src="/images/system/callback-message.png">
+                <img src="/images/system/callback-message.png" alt="описание" title="описание">
                 <label for="text">Услуга / описание проблемы</label>
                 <textarea id="text" name="message"></textarea>
             </div>
@@ -718,28 +718,28 @@ $this->title = 'Сантехники Краснодара';
         <div class="cont">
             <span>Мы работаем<br>в Краснодаре и пригороде</span>
             <div class="cnt">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-phone.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-phone.png'; ?>" alt="телефон" title="телефон">
                 <div>
                     <span>Телефон</span><br>
                     <span>8 (918) 694 79 99</span>
                 </div>
             </div>
             <div class="cnt">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-skype.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-skype.png'; ?>" alt="skype" title="skype">
                 <div>
                     <span>Skype</span><br>
                     <span>sankras_pro</span>
                 </div>
             </div>
             <div class="cnt">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-email.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-email.png'; ?>" alt="email" title="email">
                 <div>
                     <span>Email</span><br>
                     <span>sankras.pro@rambler.ru</span>
                 </div>
             </div>
             <div class="cnt">
-                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-time.png'; ?>">
+                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-time.png'; ?>" alt="время работы" title="время работы">
                 <div>
                     <span>Время работы</span><br>
                     <span>Ежедневно с 8:00 до 21:00</span>

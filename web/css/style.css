@@ -65,6 +65,10 @@ header > div > div{
     font-size: 15px;
     margin-right: 60px;
 }
+.header .description h1 {
+    font-size: 15px;
+    font-weight: 300;
+}
 .header .description span:first-of-type {
     padding-left: 10px;
 }
