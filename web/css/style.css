@@ -1557,7 +1557,7 @@ header > div > div{
     -moz-box-shadow: 0 12px 36px 6px #405b79;
     -o-box-shadow: 0 12px 36px 6px #405b79;
     -webkit-box-shadow: 0 12px 36px 6px #405b79;
-    z-index: 999;
+    z-index: 998;
 }
 .contacts .width {
     position: relative;
@@ -1569,7 +1569,7 @@ header > div > div{
     padding-bottom: 20px;
     padding-top: 30px;
     text-align: center;
-    z-index: 800;
+    z-index: 999;
     position: relative;
 }
 .contacts .soc .center {
