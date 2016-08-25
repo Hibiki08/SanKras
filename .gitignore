@@ -18,6 +18,7 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+
 # composer itself is not needed
 #composer.phar
 
@@ -31,3 +32,4 @@ phpunit.phar
 
 #DataBase
 /config/db.php
+/.htaccess
