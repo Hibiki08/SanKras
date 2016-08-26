@@ -750,7 +750,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
     <div id="map_canvas"></div>
 </section>
 <script type="text/javascript">
-    $(window).load(function() {
+    $(document).ready(function() {
         $('.slider').HbKSlider({
             sliderSize: 1,
             autoPlay: true,
@@ -760,6 +760,8 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             sliderSpeed: 5500,
             animation: 'fade'
         });
+    });
+    $(window).load(function() {
         $('.work').HbKSlider({
             sliderSize: 1,
             autoPlay: false,
