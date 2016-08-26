@@ -2,7 +2,7 @@
 use app\components\SliderTop;
 use app\components\SliderBottom;
 use yii\helpers\Url;
-$this->title = 'Монтаж отопления | Монтаж водоснабжения';
+$this->title = 'Монтаж отопления, водоснабжения, канализации, котельных, обустройство скважины в Краснодаре';
 ?>
 <div class="call-block">
     <div class="block">
