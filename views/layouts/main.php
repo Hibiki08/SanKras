@@ -22,7 +22,7 @@ AppAsset::register($this);
     <?php echo Html::csrfMetaTags(); ?>
     <?php $this->registerMetaTag([
         'name' => 'description',
-        'content' => 'Описание'
+        'content' => 'Профессиональный монтаж сантехнических коммуникаций "под ключ" от 450 р/м2 с гарантией до 5 лет'
     ]);
     $this->registerMetaTag([
         'name' => 'keywords',
