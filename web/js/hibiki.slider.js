@@ -62,11 +62,11 @@
                     Blockswrapper.css('width', blockWrapperWidth + 'px');
                 }
                 if (options.animation == 'fade') {
-                    var imagesHeight = thisElement.find('.wrap[id=0]').css('position', 'relative').height();
-                    wrap.css('position', 'absolute');
-                    Blockswrapper.css({
-                        height: imagesHeight
-                    });
+                    //var imagesHeight = thisElement.find('.wrap[id=0]').css('position', 'relative').height();
+                    //wrap.css('position', 'absolute');
+                    //Blockswrapper.css({
+                    //    height: imagesHeight
+                    //});
                 }
             }
 
