@@ -198,4 +198,7 @@
     .call-master .master > figure {
         right: 312px;
     }
+    .key {
+        margin-top: -26px;
+    }
 }
