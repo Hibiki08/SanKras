@@ -56,6 +56,7 @@
 
                 wrapWidth = sliderWrapperWidth / options.sliderSize;
                 blockWrapperWidth = wrapWidth * numberOfImages;
+                Blockswrapper.css('width', blockWrapperWidth + 'px');
 
                 if (options.animation == 'carousel') {
                     wrap.css('width', wrapWidth + 'px');
@@ -65,7 +66,6 @@
                         height: wrap.height()
                     });
                 }
-                Blockswrapper.css('width', blockWrapperWidth + 'px');
             }
 
             //Показать слайдер после загрузки
