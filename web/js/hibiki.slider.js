@@ -56,14 +56,16 @@
 
                 wrapWidth = sliderWrapperWidth / options.sliderSize;
                 blockWrapperWidth = wrapWidth * numberOfImages;
-                Blockswrapper.css('width', blockWrapperWidth + 'px');
 
                 if (options.animation == 'carousel') {
                     wrap.css('width', wrapWidth + 'px');
+                    Blockswrapper.css('width', blockWrapperWidth + 'px');
                 }
                 if (options.animation == 'fade') {
+                    var imagesHeight = thisElement.find('.wrap[id=0]').css('position', 'relative').height();
+                    wrap.css('position', 'absolute');
                     Blockswrapper.css({
-                        height: wrap.height()
+                        height: imagesHeight
                     });
                 }
             }
