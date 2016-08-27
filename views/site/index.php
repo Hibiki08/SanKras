@@ -753,7 +753,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
     $(document).ready(function() {
         $('.slider').HbKSlider({
             sliderSize: 1,
-            autoPlay: false,
+            autoPlay: true,
             overStop: true,
             navigationArrows: true,
             navigationRadioButtons: true,
@@ -771,7 +771,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         });
         $('.coop').HbKSlider({
             sliderSize: 4,
-            autoPlay: false,
+            autoPlay: true,
             overStop: true,
             navigationArrows: true,
             sliderSpeed: 5500,
