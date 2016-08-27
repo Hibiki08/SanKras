@@ -164,6 +164,7 @@
     }
     .works .w2 .work {
         margin-top: 30px;
+        max-height: 337px;
     }
     .works .w2 h3 {
         margin-top: 25px;

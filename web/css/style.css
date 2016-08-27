@@ -120,7 +120,7 @@ header > div > div{
 
 /*Контент/////////////////////*/
 .key {
-    margin-top: -20px;
+    margin-top: -23px;
     background: url(/images/system/key-bg2.jpg) no-repeat right;
     background-size: 120% auto;
     padding-bottom: 80px;
@@ -1097,6 +1097,8 @@ header > div > div{
 }
 .works .w2 > div {
     float: right;
+    position: relative;
+    top: 14px;
 }
 .works .w1 .work {
     margin-right: 60px;
@@ -1106,15 +1108,23 @@ header > div > div{
     margin-left: 60px;
     border-top: none;
 }
+.works .w2 .work img {
+    top: -1px;
+}
 .works .w2 h3 {
     margin-top: 40px;
 }
 .works .w2 .checkWrapper {
     position: absolute;
-    top: -13px;
+    top: -9px;
+}
+.works .Blockswrapper .wrap img {
+    position: relative;
+    /*border: 1px solid #b2bac2;*/
 }
 .works .work {
     width: 584px;
+    max-height: 437px;
     position: relative;
     border: 1px solid #b2bac2;
 }
@@ -1130,6 +1140,7 @@ header > div > div{
     top: inherit;
     background: #34495e;
     line-height: 4px;
+    margin-top: -4px;
 }
 .works .sliderWrapper,
 .works .sliderWrapper .wrap {

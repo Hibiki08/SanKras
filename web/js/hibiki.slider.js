@@ -17,22 +17,18 @@
 
         return $(this).each(function() {
             var thisElement = $(this),
-                images = thisElement.find('.wrap img').attr('height', 'auto'),
+                images = thisElement.find('.wrap img'),
                 numberOfImages = images.length,
-                imgWidth = images[0].clientWidth,
-                realWidth = images[0].naturalWidth,
                 blockWrapperWidth,
                 sliderWrapper = thisElement.find('.sliderWrapper'),
                 sliderWrapperWidth,
                 wrap = thisElement.find('.wrap'),
                 wrapWidth,
                 HbKSlider,
-                wrapArrowsWidth,
                 Blockswrapper = thisElement.find('.Blockswrapper'),
                 firstElemnt,
                 lastElemnt,
                 indexButton,
-                thisImage,
                 thisActive,
                 indexFade = 0,
                 banSlide = 0;
@@ -40,6 +36,15 @@
 
             //Размер слайдера
             function sliderSize() {
+                HbKSlider = thisElement.width();
+                sliderWrapperWidth = HbKSlider;
+
+                if (options.navigationArrows == true) {
+                    var sliderArrows = thisElement.find('.sliderArrows');
+                    var sliderArrowsPerc =  sliderArrows.width() * 100 / thisElement.width();
+                    var sliderWrapperWidtPerc = 100 - sliderArrowsPerc;
+                    sliderWrapperWidth = thisElement.find('.sliderWrapper').width(sliderWrapperWidtPerc + '%').width();
+                }
                 if (options.animation == 'carousel') {
                     if (options.sliderSize >= numberOfImages) {
                         options.sliderSize = numberOfImages - 1
@@ -49,30 +54,18 @@
                     options.sliderSize = 1;
                 }
 
-                HbKSlider = thisElement.width();
-                sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-
-                if (sliderWrapperWidth >= HbKSlider) {
-                    sliderWrapperWidth = HbKSlider;
-                }
-                else {
-                    sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                }
-
-                sliderWrapper.css('width', sliderWrapperWidth + 'px');
                 wrapWidth = sliderWrapperWidth / options.sliderSize;
-                blockWrapperWidth = wrapWidth * images.length;
-                thisElement.find('.wrap').css('width', wrapWidth + 'px');
+                blockWrapperWidth = wrapWidth * numberOfImages;
+
                 if (options.animation == 'carousel') {
-                    Blockswrapper.css({
-                        width: blockWrapperWidth + 'px'
-                    });
+                    wrap.css('width', wrapWidth + 'px');
                 }
                 if (options.animation == 'fade') {
                     Blockswrapper.css({
                         height: wrap.height()
                     });
                 }
+                Blockswrapper.css('width', blockWrapperWidth + 'px');
             }
 
             //Показать слайдер после загрузки
@@ -149,57 +142,6 @@
                         checkButtons.children('li').eq(indexFade).addClass('active');
                         return thisActive = wrap.eq(indexFade).attr('id');
                     }
-                }
-            }
-
-            //navigationArrows
-            function navigationArrows() {
-                var sliderArrows = thisElement.find('.sliderArrows');
-                var wrapArrows = thisElement.find('.wrapArrows');
-
-                if (options.animation == 'carousel') {
-                    if (options.sliderSize >= numberOfImages) {
-                        options.sliderSize = numberOfImages - 1
-                    }
-                }
-                if (options.animation == 'fade') {
-                    options.sliderSize = 1;
-                }
-                HbKSlider = thisElement.width();
-                sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                wrapArrowsWidth = sliderWrapperWidth + sliderArrows.width() * 2;
-
-                if (wrapArrowsWidth >= HbKSlider) {
-                    wrapArrowsWidth = HbKSlider;
-                    sliderWrapperWidth = wrapArrowsWidth - sliderArrows.width() * 2;
-                }
-                else {
-                    sliderWrapperWidth = options.imageSize * options.sliderSize || options.sliderSize * realWidth;
-                    wrapArrowsWidth = sliderWrapperWidth + sliderArrows.width() * 2;
-                }
-
-                wrapArrows.width(wrapArrowsWidth);
-                sliderWrapper.width(sliderWrapperWidth);
-                wrapWidth = sliderWrapperWidth / options.sliderSize;
-                blockWrapperWidth = wrapWidth * images.length;
-                thisElement.find('.wrap').css('width', wrapWidth + 'px');
-                if (options.animation == 'carousel') {
-                    Blockswrapper.css({
-                        width: blockWrapperWidth + 'px'
-                    });
-                }
-                if (options.animation == 'fade') {
-                    Blockswrapper.css({
-                        height: images.height()
-                    });
-                }
-
-                //Центрование стрелок по-вертикали
-                if (images.height() <= 63) {
-                    sliderArrows.css('background-size', 'auto 100%');
-                }
-                else {
-                    sliderArrows.css('background-size', '100% auto');
                 }
             }
 
@@ -344,7 +286,8 @@
                 sliderWrapper.wrap('<div class="wrapArrows"></div>');
                 thisElement.find('.wrapArrows').append('<div class="sliderArrows left"></div><div class="sliderArrows right"></div>');
                 opacityNone();
-                navigationArrows();
+                sliderSize();
+
                 //Навигация по стрелкам
                 var sliderArrowsLeft = thisElement.find('.sliderArrows.left');
                 var sliderArrowsRight = thisElement.find('.sliderArrows.right');
@@ -359,16 +302,13 @@
                 });
                 autoPlay();
                 $(window).resize(function() {
-                    navigationArrows();
+                    sliderSize();
                 });
             }
             else {
                 opacityNone();
                 sliderSize();
                 autoPlay();
-                if (options.animation == 'carousel') {
-                    autoActive();
-                }
                 $(window).resize(function() {
                     sliderSize();
                 });
