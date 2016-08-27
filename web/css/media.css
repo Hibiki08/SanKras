@@ -195,4 +195,7 @@
     .key .title-big:after {
         bottom: -100px;
     }
+    .call-master .master > figure {
+        right: 312px;
+    }
 }
