@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Exo 2';
+    src: url('/fonts/exothin.eot');
+    src: url('/fonts/exothin.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/exothin.woff2') format('woff2'),
+    url('/fonts/exothin.woff') format('woff'),
+    url('/fonts/exothin.ttf') format('truetype'),
+    url('/fonts/exothin.otf') format('opentype');
+    /*font-weight: 100;*/
+    font-style: normal;
+}
+/*@font-face {*/
+/*font-family: 'Exo 2';*/
+/*src: url('/fonts/exo2.0-light.eot') format('eot'),*/
+/*url('/fonts/Exo2.0-Light.woff') format('woff'),*/
+/*url('/fonts/exo2.0-light.ttf')  format('truetype'),*/
+/*url('/fonts/Exo2.0-Light.otf') format('opentype');*/
+/*font-weight: 300;*/
+/*}*/
+/*@font-face {*/
+/*font-family: 'Exo 2';*/
+/*src: url('/fonts/Exo2-Regular.eot') format('eot'),*/
+/*url('/fonts/Exo2-Regular.woff') format('woff'),*/
+/*url('/fonts/Exo2-Regular.ttf')  format('truetype'),*/
+/*url('/fonts/Exo2-Regular.otf') format('opentype');*/
+/*font-weight: 400;*/
+/*}*/
+/*@font-face {*/
+/*font-family: 'Exo 2';*/
+/*src: url('/fonts/Exo2-Medium.eot') format('eot'),*/
+/*url('/fonts/Exo2-Medium.woff') format('woff'),*/
+/*url('/fonts/exo2.0-medium.ttf')  format('truetype'),*/
+/*url('/fonts/Exo2-Medium.otf') format('opentype');*/
+/*font-weight: 500;*/
+/*}*/
