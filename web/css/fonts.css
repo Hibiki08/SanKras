@@ -169,7 +169,7 @@
 
 /*Roboto_condensed////////////////////////////////////////////////////////////////////*/
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Condensed';
     src: url('/fonts/roboto_condensed/RobotoCondensed-Light.eot');
     src: url('/fonts/roboto_condensed/RobotoCondensed-Light.eot?#iefix') format('embedded-opentype'),
         url('/fonts/roboto_condensed/RobotoCondensed-Light.woff2') format('woff2'),
@@ -180,7 +180,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Condensed';
     src: url('/fonts/roboto_condensed/RobotoCondensed-LightItalic.eot');
     src: url('/fonts/roboto_condensed/RobotoCondensed-LightItalic.eot?#iefix') format('embedded-opentype'),
         url('/fonts/roboto_condensed/RobotoCondensed-LightItalic.woff2') format('woff2'),
@@ -191,7 +191,7 @@
     font-style: italic;
 }
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Condensed';
     src: url('/fonts/roboto_condensed/RobotoCondensed-Regular.eot');
     src: url('/fonts/roboto_condensed/RobotoCondensed-Regular.eot?#iefix') format('embedded-opentype'),
         url('/fonts/roboto_condensed/RobotoCondensed-Regular.woff2') format('woff2'),
@@ -202,7 +202,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Condensed';
     src: url('/fonts/roboto_condensed/RobotoCondensed-Bold.eot');
     src: url('/fonts/roboto_condensed/RobotoCondensed-Bold.eot?#iefix') format('embedded-opentype'),
         url('/fonts/roboto_condensed/RobotoCondensed-Bold.woff2') format('woff2'),
