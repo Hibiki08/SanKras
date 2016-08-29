@@ -117,7 +117,6 @@ header > div > div{
 
 /*Контент/////////////////////*/
 .key {
-    margin-top: -23px;
     background: url(/images/system/key-bg2.jpg) no-repeat right;
     background-size: 120% auto;
     padding-bottom: 80px;
@@ -459,7 +458,7 @@ header > div > div{
 .quality {
     position: relative;
     padding-top: 30px;
-    margin-top: -19px;
+    margin-top: -24px;
     background: #fff;
 }
 .quality .columns {
