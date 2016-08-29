@@ -457,7 +457,7 @@ header > div > div{
 }
 .quality {
     position: relative;
-    padding-top: 30px;
+    padding-top: 60px;
     margin-top: -24px;
     background: #fff;
 }
@@ -699,7 +699,7 @@ header > div > div{
 
 .how-work {
     background: #fff;
-    padding-top: 60px;
+    padding-top: 30px;
 }
 .how-work .how {
     margin-top: 47px;
