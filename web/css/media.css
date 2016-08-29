@@ -10,9 +10,6 @@
     .key .title-big:after {
         bottom: -170px;
     }
-    .key:after {
-        bottom: 20px;
-    }
 }
 
 /*1366*/
@@ -27,9 +24,6 @@
     .callback {
         background: url(/images/system/callback-bg.jpg) no-repeat top center;
         background-attachment: fixed;
-    }
-    .key:after {
-        bottom: 16px;
     }
 }
 
