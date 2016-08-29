@@ -899,7 +899,6 @@ header > div > div{
 }
 .options table tr td {
     padding: 20px 20px 20px 0;
-    vertical-align: top;
     box-shadow: 0 1px 1px #fff;
     -o-box-shadow: 0 1px 1px #fff;
     -moz-box-shadow: 0 1px 1px #fff;
