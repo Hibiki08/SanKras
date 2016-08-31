@@ -4,26 +4,6 @@ use app\components\SliderBottom;
 use yii\helpers\Url;
 $this->title = 'Монтаж отопления, водоснабжения, канализации, котельных, обустройство скважины в Краснодаре';
 ?>
-<div class="call-block">
-    <div class="block">
-        <div class="form">
-            <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
-            <div class="close"></div>
-            <span>Заказать звонок</span><br>
-            <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
-            <div class="field">
-                <img src="/images/system/main-tel.png" alt="phone" title="Ваш телефон">
-                <input name="phone" type="text" placeholder="Ваш телефон*" class="phone-mask" required><br>
-                <button class="pulse">перезвоните мне</button>
-            </div>
-            <span>*Ваши данные никогда не будут переданы третьим лицам</span>
-            <div class="success">
-                <span>Спасибо за заявку!</span><br>
-                <span>Мастер перезвонит Вам в течениe 15<br>минут и проконсультирует по всем<br>интересующим вопросам</span>
-            </div>
-        </div>
-    </div>
-</div>
 <?php echo SliderTop::widget(); ?>
 <section class="quality">
     <div class="title-small">Вы получаете надежную <span class="title-big">долговечную</span> систему,<br>потому что мы ответственно подходим к работе</div>
@@ -749,6 +729,26 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
     </div>
     <div id="map_canvas"></div>
 </section>
+<div class="call-block">
+    <div class="block">
+        <div class="form">
+            <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
+            <div class="close"></div>
+            <span>Заказать звонок</span><br>
+            <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
+            <div class="field">
+                <img src="/images/system/main-tel.png" alt="phone" title="Ваш телефон">
+                <input name="phone" type="text" placeholder="Ваш телефон*" class="phone-mask" required><br>
+                <button class="pulse">перезвоните мне</button>
+            </div>
+            <span>*Ваши данные никогда не будут переданы третьим лицам</span>
+            <div class="success">
+                <span>Спасибо за заявку!</span><br>
+                <span>Мастер перезвонит Вам в течениe 15<br>минут и проконсультирует по всем<br>интересующим вопросам</span>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.slider').HbKSlider({
