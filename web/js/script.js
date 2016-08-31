@@ -50,15 +50,15 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             data: {cardMail: cardMail},
-        success: function (response) {
-            if (response.status == true) {
-                $('.card .form *:not(.close)').css('visibility', 'hidden');
-                $('.card .form .success, .card .form .close').css('display', 'block');
-                $('.card .form .success span').css('visibility', 'visible')
+            success: function (response) {
+                if (response.status == true) {
+                    $('.card .form *:not(.close)').css('visibility', 'hidden');
+                    $('.card .form .success, .card .form .close').css('display', 'block');
+                    $('.card .form .success span').css('visibility', 'visible')
+                }
+            },
+            error: function () {
             }
-        },
-        error: function () {
-        }
         });
     });
 
@@ -90,16 +90,16 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             data: {masterName: masterName, masterPhone: masterPhone},
-        success: function (response) {
-            if (response.status == true) {
-                $('.call-master .form .success, .call-master .form .close').css('display', 'block');
-                $('.call-master .call .form .loading').css('display', 'none');
-                $('.call-master .form .success span').css('visibility', 'visible');
+            success: function (response) {
+                if (response.status == true) {
+                    $('.call-master .form .success, .call-master .form .close').css('display', 'block');
+                    $('.call-master .call .form .loading').css('display', 'none');
+                    $('.call-master .form .success span').css('visibility', 'visible');
+                }
+            },
+            error: function () {
             }
-        },
-        error: function () {
-        }
-    });
+        });
     });
 
     //Консультация
@@ -178,10 +178,10 @@ $(document).ready(function() {
     });
 
     //Форма обратного звонка
-     $('.call-block').click(function(e) {
+    $('.call-block').click(function(e) {
         var classHover = $(e.target).attr('class');
         if (classHover == 'block' || classHover == 'close') {
-            $('.call-block').css('display', 'none');
+            $('.call-block').removeClass('visible');
             $('.call-block .form *:not(.close)').css('visibility', 'visible');
             $('.call-block .form .success').css('display', 'none');
             $('.call-block .form .success span').css('visibility', 'hidden');
@@ -191,7 +191,7 @@ $(document).ready(function() {
     });
 
     $('#callback').click(function() {
-        $('.call-block').css('display', 'table');
+        $('.call-block').addClass('visible');
     });
 
     //Закрыть "спасибо за заказ" (дисконтная карта)

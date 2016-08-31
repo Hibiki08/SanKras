@@ -36,6 +36,10 @@
 .Blockswrapper .fade.active.wrap {
     opacity: 1;
     position: relative;
+    display: none;
+}
+.Blockswrapper .fade.active.wrap:first-of-type {
+    display: block;
 }
 .Blockswrapper .wrap img {
     width: 100%;

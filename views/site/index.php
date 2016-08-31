@@ -29,22 +29,22 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
     <div class="title-small">Вы получаете надежную <span class="title-big">долговечную</span> систему,<br>потому что мы ответственно подходим к работе</div>
     <div class="grey"></div>
     <div class="columns clear width">
-        <div class="col">
+        <div class="col wow zoomIn">
             <img src="/images/system/main-col-1.png" alt="гарантия" title="гарантия">
             <h3>гарантия от 1 года до 5 лет<br>на наши работы</h3>
             <div>Мы уверены в высоком качестве нашей работы, потому что она выполняется квалифицированными специалистами с использованием надежных материалов. В течении гарантийного срока мы бесплатно устраним неисправности монтажа.</div>
         </div>
-        <div class="col">
+        <div class="col wow zoomIn" data-wow-delay="0.3s">
             <img src="/images/system/main-col-2.png" alt="отношение" title="отношение">
             <h3>заботливое отношение<br>ко всем вашим пожеланиям</h3>
             <div>С учетом всех Ваших потребностей мы составляем несколько оптимальных решений, из которых Вы выбираете наиболее подходящее по соотношению цены и качества. Также предлагаем  скидку 10% на материал и бесплатную доставку.</div>
         </div>
-        <div class="col">
+        <div class="col wow zoomIn" data-wow-delay="0.6s">
             <img src="/images/system/main-col-3.png" alt="поддержка" title="поддержка">
             <h3>обслуживание и поддержка при эксплуатации</h3>
             <div>После проведения монтажа мы не прекращаем сотрудничество с Вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, помогаем в настройке оборудования и при необходимости проводим профилактику системы.</div>
         </div>
-        <div class="col">
+        <div class="col wow zoomIn" data-wow-delay="0.9s">
             <img src="/images/system/main-col-4.png" alt="материалы" title="материалы">
             <h3>качественные материалы известных производителей</h3>
             <div>Мы работаем с производителями материалов и оборудования, зарекомендовавших себя на рынке сантехнических услуг и имеющих сертификат качества и гарантию. Это такие бренды, как: Rehau, FAR, Frankische, APE, Oventrop, Ostendorf, Caleffi, FIV, KAN, Wolf, Vogel & Noot, Viessmann, Protherm, Fondital, Meibes.</div>
@@ -57,37 +57,37 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         <div class="smpl">Вы сэкономите на сантехнических коммуникациях минимум 22% за счет наших скидок</div>
         <div class="sml-col clear">
             <div class="sub-col">
-                <div class="col">
+                <div class="col wow slideInLeft" data-wow-delay="0.1s">
                     <span>скидка на материал</span>
                     <div><span class="number">10</span><sup>%</sup></div>
                 </div>
-                <div class="col">
+                <div class="col wow slideInLeft" data-wow-delay="0.2s">
                     <span> скидка на монтаж<br>для постоянных клиентов</span>
                     <div><span class="number">12</span><sup>%</sup></div>
                 </div>
-                <div class="col">
+                <div class="col wow slideInLeft" data-wow-delay="0.3s">
                     <span>консультация, составление<br>сметы и доставка материала</span>
                     <div><span class="number">0</span>р.</div>
                 </div>
-                <div class="col">
+                <div class="col wow slideInLeft" data-wow-delay="0.4s">
                     <span>проект котельной в подарок<br>при заказе системы отопления</span>
                     <div></div>
                 </div>
             </div>
             <div class="sub-col">
-                <div class="col">
+                <div class="col wow slideInRight" data-wow-delay="0.1s">
                     <div><span class="number">11</span><span class="plus">+</span></div>
                     <span>лет опыт работы в сфере<br>сантехнических услуг</span>
                 </div>
-                <div class="col">
+                <div class="col wow slideInRight" data-wow-delay="0.2s">
                     <div><span class="number">18</span><span class="plus">+</span></div>
                     <span>крупных объектов<br>за последний год</span>
                 </div>
-                <div class="col">
+                <div class="col wow slideInRight" data-wow-delay="0.3s">
                     <div>до<span class="number">5</span></div>
                     <span>лет гарантии на наши<br>работы</span>
                 </div>
-                <div class="col">
+                <div class="col wow slideInRight" data-wow-delay="0.4s">
                     <div><span class="number">24</span>ч</div>
                     <span>составление сметы в течении<br>суток с момента обращения</span>
                 </div>
@@ -196,28 +196,28 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             <figcaption>Заявка с сайта, звонок и<br>консультация</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
+            <img class="wow fadeInLeft" src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
             <img src="/images/system/main-how-2.png" alt="Встреча и подбор оптимального решения" title="Встреча и подбор оптимального решения">
             <figcaption>Осмотр объекта, подбор<br>решения, составление<br>нескольких смет</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
+            <img class="wow fadeInLeft" data-wow-delay="0.2s" src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
             <img src="/images/system/main-how-5.png" alt="Закупка материала и доставка">
             <figcaption>Закупка материала и доставка</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
+            <img class="wow fadeInLeft" data-wow-delay="0.4s" src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
             <img src="/images/system/main-how-3.png" alt="Монтаж с учётом Ваших потребностей" title="Монтаж">
             <figcaption>Монтаж с учётом Ваших потребностей</figcaption>
         </figure>
         <figure class="red-arrow">
-            <img src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
+            <img class="wow fadeInLeft" data-wow-delay="0.6s" src="/images/system/main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
             <img src="/images/system/main-how-4.png" alt="Введение в эксплуатацию и обслуживание" title="Введение в эксплуатацию">
@@ -270,14 +270,14 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             </div>
         </div>
         <div class="benefit">
-            <div class="bf-1">
+            <div class="bf-1 wow bounceInLeft">
                 <div>
                     <span>бесплатно</span><br>
                     <span>Вызов мастера не обязывает Вас<br>к дальнейшему сотрудничеству</span>
                 </div>
                 <img src="/images/system/master-free.png" alt="бесплатно" title="бесплатно">
             </div>
-            <div class="bf-2">
+            <div class="bf-2 wow bounceInRight">
                 <img src="/images/system/master-fast.png" alt="быстро" title="быстро">
                 <div>
                     <span>быстро</span><br>
@@ -633,7 +633,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
 <section class="reviews">
     <div class="width">
         <div class="title-big">отзывы наших клиентов</div>
-        <div class="review">
+        <div class="review wow bounceInLeft">
             <div class="block">
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
@@ -643,7 +643,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             </div>
             <blockquote>Заказчику всегда предлагается выбор из нескольких вариантов с описанием плюсов и минусов каждого</blockquote>
         </div>
-        <div class="review rw-2">
+        <div class="review rw-2 wow bounceInRight">
             <blockquote>Работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают организационные вопросы</blockquote>
             <div class="block">
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-2.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
@@ -653,7 +653,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 </div>
             </div>
         </div>
-        <div class="review">
+        <div class="review wow bounceInLeft">
             <div class="block">
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-3.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
@@ -777,6 +777,9 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             sliderSpeed: 5500,
             animation: 'carousel'
         });
+
+        //Эффекты на сайте
+        new WOW().init();
     });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf-hsTgqnZkyUEnOtvyinarywEN1hDLMc&callback=initMap"></script>

@@ -270,6 +270,7 @@
             if (options.animation == 'fade') {
                 thisElement.find('.wrap').addClass('fade');
                 thisElement.find('.wrap').eq(0).addClass('active');
+                //Blockswrapper.find('.wrap').css('display', 'block');
             }
 
             //Условия отображения радио кнопок
