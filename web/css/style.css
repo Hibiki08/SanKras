@@ -429,6 +429,7 @@ header > div > div{
     right: inherit;
     left: 41%;
     z-index: 10;
+    transition: background 0.3s;
 }
 .slider .sliderArrows.right:hover {
     background: url('/images/system/slider-top-button-hover.png') no-repeat center center;
