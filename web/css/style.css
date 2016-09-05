@@ -1411,6 +1411,7 @@ header > div > div{
     display: inline-block;
     margin-bottom: 10px;
     letter-spacing: -1px;
+    font-weight: 300;
 }
 .callback .width .end .clb-title span,
 .callback .width .end .clb-title:first-letter {
@@ -1675,18 +1676,15 @@ header > div > div{
 .contacts .cont .cnt > div span:last-of-type {
     font-size: 16px;
 }
-.contacts .cont > span {
-    font-family: 'Exo 2', sans-serif;
-    text-transform: uppercase;
-    font-size: 18px;
-    display: block;
-    text-align: center;
-}
-.contacts .cont > span:first-of-type {
+.contacts .cont > h2 {
     font-size: 19px;
     display: block;
     line-height: 1.6;
     margin-bottom: 30px;
+    font-family: 'Exo 2', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 300;
 }
 
 /*footer/////////////////////////*/
