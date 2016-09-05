@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin
 Disallow: /login
-http://san-kras.ru/sitemap.xml
+Sitemap: http://san-kras.ru/sitemap.xml
