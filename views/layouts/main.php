@@ -69,7 +69,7 @@ AppAsset::register($this);
             <div class="metrika">
                 <!-- Yandex.Metrika informer -->
                 <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
-                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/33225778/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/39483720/3_0_FFFFFFFF_EFEFEFFF_0_uniques"
                                                        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:33225778,lang:'ru'});return false}catch(e){}" /></a>
                 <!-- /Yandex.Metrika informer -->
             </div>
