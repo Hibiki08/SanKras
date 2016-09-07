@@ -68,9 +68,9 @@ AppAsset::register($this);
         <div class="width clear">
             <div class="metrika">
                 <!-- Yandex.Metrika informer -->
-                <a href="https://metrika.yandex.ru/stat/?id=33225778&amp;from=informer"
-                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/33225778/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                                       style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:33225778,lang:'ru'});return false}catch(e){}" /></a>
+                <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
+                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/39483720/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                                       style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
                 <!-- /Yandex.Metrika informer -->
             </div>
             <div class="site"><a href="https://vk.com/thishibiki" target="_blank">Разработка сайта</a></div>
@@ -85,8 +85,8 @@ AppAsset::register($this);
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
-                w.yaCounter33225778 = new Ya.Metrika({
-                    id:33225778,
+                w.yaCounter39483720 = new Ya.Metrika({
+                    id:39483720,
                     clickmap:true,
                     trackLinks:true,
                     accurateTrackBounce:true
@@ -106,7 +106,7 @@ AppAsset::register($this);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/33225778" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <?php $this->endBody() ?>
 </body>

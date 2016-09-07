@@ -95,6 +95,7 @@ $(document).ready(function() {
                     $('.call-master .form .success, .call-master .form .close').css('display', 'block');
                     $('.call-master .call .form .loading').css('display', 'none');
                     $('.call-master .form .success span').css('visibility', 'visible');
+                    yaCounter39483720.reachGoal('master');
                 }
             },
             error: function () {
@@ -136,6 +137,7 @@ $(document).ready(function() {
                     $('.callback .form .success, .callback .form .close').css('display', 'block');
                     $('.callback .form .success span').css('visibility', 'visible');
                     $('.callback .form .loading').css('display', 'none');
+                    yaCounter39483720.reachGoal('advice');
                 }
             },
             error: function () {
@@ -164,6 +166,7 @@ $(document).ready(function() {
                     $('.call-block .form .success').css('display', 'block');
                     $('.call-block .form .success span').css('visibility', 'visible');
                     $('.call-block .loading').css('display', 'none');
+                    yaCounter39483720.reachGoal('callback');
                 }
             },
             error: function () {
