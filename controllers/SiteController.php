@@ -136,8 +136,8 @@ class SiteController extends Controller {
                     ->setFrom(Yii::$app->params['adminEmail'])
                     ->setTo(Yii::$app->params['adminEmail'])
                     ->setSubject('Вызов мастера')
-                    ->setTextBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
-//                    ->setHtmlBody('<b>HTML content</b>')
+//                    ->setTextBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
+                    ->setHtmlBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                     ->send();
 
                 return [
@@ -165,8 +165,8 @@ class SiteController extends Controller {
                     ->setFrom(Yii::$app->params['adminEmail'])
                     ->setTo(Yii::$app->params['adminEmail'])
                     ->setSubject('Заявка на консультацию')
-                    ->setTextBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
-//                    ->setHtmlBody('<b>HTML content</b>')
+//                    ->setTextBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
+                    ->setHtmlBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
                     ->send();
 
                 return [
