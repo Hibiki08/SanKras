@@ -34,34 +34,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter39483720 = new Ya.Metrika({
-                    id:39483720,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 <!--start wrapper-->
 <div class="wrapper <?php echo $action == 'index' ? 'bg' : ''; ?>">
     <!--start header-->
@@ -97,7 +69,7 @@ AppAsset::register($this);
             <div class="metrika">
                 <!-- Yandex.Metrika informer -->
                 <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
-                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/39483720/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+                   target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/39483720/3_0_607B99FF_405B79FF_1_pageviews"
                                                        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
                 <!-- /Yandex.Metrika informer -->
             </div>
@@ -108,6 +80,35 @@ AppAsset::register($this);
     <!--end footer -->
 </div>
 <!-- end content-wrapper -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter39483720 = new Ya.Metrika({
+                    id:39483720,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <?php $this->endBody() ?>
 </body>
 </html>
