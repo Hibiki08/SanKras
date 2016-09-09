@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /admin
 Disallow: /login
 Sitemap: http://san-kras.ru/sitemap.xml
+Host: http://san-kras.ru
