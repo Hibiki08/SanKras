@@ -366,16 +366,16 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <td>2 года</td>
             </tr>
             <tr class="cost">
-                <td>Стоимость монтажа*</td>
-                <td class="footer-comfort"><span>27</span> т. руб.</td>
-                <td class="footer-standart"><span>17</span> т. руб.</td>
-                <td class="footer-mini"><span>12</span> т. руб.</td>
-            </tr>
-            <tr class="cost">
                 <td>Стоимость материала*</td>
                 <td class="footer-comfort"><span>55</span> т. руб.</td>
                 <td class="footer-standart"><span>26</span> т. руб.</td>
                 <td class="footer-mini"><span>14</span> т. руб.</td>
+            </tr>
+            <tr class="cost">
+                <td>Стоимость монтажа*</td>
+                <td class="footer-comfort"><span>27</span> т. руб.</td>
+                <td class="footer-standart"><span>17</span> т. руб.</td>
+                <td class="footer-mini"><span>12</span> т. руб.</td>
             </tr>
             </tbody>
         </table>
@@ -488,16 +488,16 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <td>2 года</td>
             </tr>
             <tr class="cost">
-                <td>Стоимость монтажа*</td>
-                <td class="footer-comfort"><span>800</span> руб./м<sup>2</sup></td>
-                <td class="footer-standart"><span>650</span> руб./м<sup>2</sup></td>
-                <td class="footer-mini"><span>450</span> руб./м<sup>2</sup></td>
-            </tr>
-            <tr class="cost">
                 <td>Стоимость материала*</td>
                 <td class="footer-comfort"><span>3 000</span> руб./м<sup>2</sup></td>
                 <td class="footer-standart"><span>2 000</span> руб./м<sup>2</sup></td>
                 <td class="footer-mini"><span>1 050</span> руб./м<sup>2</sup></td>
+            </tr>
+            <tr class="cost">
+                <td>Стоимость монтажа*</td>
+                <td class="footer-comfort"><span>800</span> руб./м<sup>2</sup></td>
+                <td class="footer-standart"><span>650</span> руб./м<sup>2</sup></td>
+                <td class="footer-mini"><span>450</span> руб./м<sup>2</sup></td>
             </tr>
             </tbody>
         </table>
