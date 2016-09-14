@@ -37,8 +37,10 @@
     }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
+        background-size: auto 100%;
+    }
+    .callback {
+        background: url(/images/system/callback-bg.jpg) no-repeat top center;
     }
     .width {
         padding: 0 10px;
