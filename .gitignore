@@ -35,5 +35,5 @@ phpunit.phar
 /web/.htaccess
 
 # images
-!/web/images/system/
 /web/images/*
+!system
