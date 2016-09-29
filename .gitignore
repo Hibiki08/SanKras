@@ -36,3 +36,4 @@ phpunit.phar
 
 # images
 /web/images
+!/web/images/system
