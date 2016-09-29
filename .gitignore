@@ -35,9 +35,5 @@ phpunit.phar
 /web/.htaccess
 
 # images
-/web/images/blog/articles/*
-/web/images/blog/news/*
-/web/images/sliders/top/*
-/web/images/sliders/bottom/*
-/web/images/sliders/works/*
-/web/images/works/*
+/web/images
+!/web/images/system
