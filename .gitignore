@@ -33,3 +33,7 @@ phpunit.phar
 #DataBase
 /config/db.php
 /web/.htaccess
+
+# images
+!/web/images/system/
+/web/images/*
