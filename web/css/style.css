@@ -78,7 +78,8 @@ header > div > div{
 .header .description span:last-of-type {
     color: #a63c31;
 }
-.header button {
+.header button,
+#price-flat button {
     position: relative;
     background: #f44336;
     color: #fff;
@@ -885,7 +886,7 @@ header > div > div{
 }
 
 .options {
-    padding: 70px 0;
+    padding: 70px 0 60px 0;
     background: #f5f6f7;
 }
 .options h2 {
@@ -1255,7 +1256,36 @@ header > div > div{
     line-height: 1.5;
     min-height: 420px;
 }
-.why .clear > div h3 {
+#price-flat .price-list {
+    margin-top: 45px;
+    text-align: right;
+    width: 100%;
+}
+#price-flat .price-list > div {
+    width: 900px;
+    display: inline-block;
+    text-align: left;
+}
+#price-flat .price-list > div span {
+    font-size: 36px;
+    vertical-align: middle;
+    display: inline-block;
+    color: #34495e;
+    font-family: 'Exo 2', sans-serif;
+    text-transform: uppercase;
+}
+#price-flat button {
+    margin-right: 0;
+    vertical-align: middle;
+    float: right;
+    width: 266px;
+}
+#price-flat a {
+    color: #fff;
+    text-decoration: none;
+}
+.why .clear > div h3,
+#price-flat .price-list {
     display: inline-block;
     vertical-align: middle;
     color: #f44336;
