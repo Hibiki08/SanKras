@@ -4,7 +4,6 @@ use app\components\SliderBottom;
 use yii\helpers\Url;
 $this->title = 'Монтаж отопления, водоснабжения, канализации, котельных, обустройство скважины в Краснодаре';
 ?>
-<!--тест-->
 <?php echo SliderTop::widget(); ?>
 <section class="quality" id="better">
     <h3 class="title-small">Вы получаете надежную <span class="title-big">долговечную</span> систему,<br>потому что мы ответственно подходим к работе</h3>
