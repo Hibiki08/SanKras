@@ -32,4 +32,8 @@ phpunit.phar
 
 #DataBase
 /config/db.php
+
+# robots.txt
+/web/robots.txt
+
 /web/.htaccess
