@@ -66,10 +66,10 @@ class ImageResize {
         $height = $this->getSize()[1];
 
         if (!empty($this->width) && empty($this->height)) {
-            return round(($height / ($width / 100)) / 100, 1);
+            return ($height / ($width / 100)) / 100;
         }
         elseif (empty($this->width) && !empty($this->height)) {
-            return round(($width / ($height / 100)) / 100, 1);
+            return ($width / ($height / 100)) / 100;
         }
         else {
             return true;
@@ -82,10 +82,10 @@ class ImageResize {
             }
 
             if (!empty($this->width) && empty($this->height)) {
-                $this->height = round($this->width * $this->getCoef());
+                $this->height = $this->width * $this->getCoef();
             }
             if (empty($this->width) && !empty($this->height)) {
-                $this->width = round($this->height * $this->getCoef());
+                $this->width = $this->height * $this->getCoef();
             }
 
         if (!file_exists($this->to . $this->prx . '_' . $this->width . '_' . $this->height . '_' . $this->file)) {

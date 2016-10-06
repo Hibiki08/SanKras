@@ -109,7 +109,7 @@
 #sort-table .ui-state-highlight {
     background: rgba(213, 178, 40, 0.16);
     padding: 22px .7em;
-    height: 20px;
+    height: 50px;
     border: 1px dashed #d58512;
 }
 #sort-table {
@@ -152,6 +152,35 @@
     font-weight: bold;
 }
 
+.row-fluid.filter {
+    margin-top: 20px;
+    display: flex;
+}
+.row-fluid.filter .form-control {
+    width: auto;
+    margin-right: 10px;
+}
+#filter .form-control {
+    margin-right: 10px;
+}
+.row-fluid.pager {
+    display: flex;
+    justify-content: center;
+}
+.certificate-label {
+    margin-bottom: 15px;
+}
+.certificate-label input[type="file"] {
+    margin-top: -28px;
+    margin-left: 47px;
+    position: relative;
+    outline: none;
+}
+.certificate-label div {
+    position: relative;
+    z-index: 2;
+}
+
 @media (max-width: 992px) {
     .col-md-7 {
         width: 58.33333333%;
@@ -174,19 +203,4 @@
     .col-md-4 {
         padding-left: 23px;
     }
-}
-.row-fluid.filter {
-    margin-top: 20px;
-    display: flex;
-}
-.row-fluid.filter .form-control {
-    width: auto;
-    margin-right: 10px;
-}
-#filter .form-control {
-    margin-right: 10px;
-}
-.row-fluid.pager {
-    display: flex;
-    justify-content: center;
 }

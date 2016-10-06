@@ -15,6 +15,14 @@ class AdminMenu extends Widget {
                     'controller' => 'contacts'
                 ],
             ]
+        ], [
+            'name' => 'Сертификаты',
+            'submenu' => [
+                [
+                    'name' => 'Список',
+                    'controller' => 'certificates'
+                ],
+            ]
         ],
         [
             'name' => 'Слайдеры',
