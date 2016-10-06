@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
+use yii\web\HttpException;
 use app\models\Slides;
 use app\components\ImageResize;
 use app\models\forms\EditSlidesForm;
@@ -31,38 +32,42 @@ class SliderbottomController extends AdminController {
 
         $form = new EditSlidesForm();
         $slides = new Slides();
-        $model = $id ? $slides->findByColumn(['id' => $id])[0] : new Slides();
+        $model = $id ? $slides->findOne(['id' => $id]) : new Slides();
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $form->image = UploadedFile::getInstance($form, 'image');
-            if (!$id) {
-                if (!$form->image->name) {
-                    $errors['emptyImage'] = 'Не выбрано изображение!';
+        if (!empty($model)) {
+            if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+                $form->image = UploadedFile::getInstance($form, 'image');
+                if (!$id) {
+                    if (!$form->image->name) {
+                        $errors['emptyImage'] = 'Не выбрано изображение!';
+                    }
+                }
+
+                if (empty($errors)) {
+                    if ($form->upload(Slides::IMG_FOLDER_SLIDER_BOT)) {
+                        $resize = new ImageResize($form->image->name, Slides::IMG_FOLDER_SLIDER_BOT, Slides::IMG_FOLDER_SLIDER_BOT, 200, '', 'admin');
+                        $resize->resize();
+                    }
+                    $model->text = Yii::$app->request->post('EditSlidesForm')['text'];
+                    $model->type_id = 2;
+                    $model->image = !empty($form->image->name) ? $form->image->name : Yii::$app->request->post('EditSlidesForm')['hidden'];
+                    $model->link = Yii::$app->request->post('EditSlidesForm')['link'];
+                    $model->sort = Yii::$app->request->post('EditSlidesForm')['sort'];
+                    $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
+                    $model->save();
+                    $id = $id ? $id : Yii::$app->db->lastInsertID;
+                    Yii::$app->getResponse()->redirect(Url::toRoute(['sliderbottom/edit', 'id' => $id]));
                 }
             }
 
-            if (empty($errors)) {
-                if ($form->upload(Slides::IMG_FOLDER_SLIDER_BOT)) {
-                    $resize = new ImageResize($form->image->name, Slides::IMG_FOLDER_SLIDER_BOT, Slides::IMG_FOLDER_SLIDER_BOT, 200, '', 'admin');
-                    $resize->resize();
-                }
-                $model->text = Yii::$app->request->post('EditSlidesForm')['text'];
-                $model->type_id = 2;
-                $model->image = !empty($form->image->name) ? $form->image->name : Yii::$app->request->post('EditSlidesForm')['hidden'];
-                $model->link = Yii::$app->request->post('EditSlidesForm')['link'];
-                $model->sort = Yii::$app->request->post('EditSlidesForm')['sort'];
-                $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
-                $model->save();
-                $id = $id ? $id : Yii::$app->db->lastInsertID;
-                Yii::$app->getResponse()->redirect(Url::toRoute(['sliderbottom/edit', 'id' => $id]));
-            }
+            return $this->render('edit', [
+                'edit' => $form,
+                'errors' => $errors,
+                'model' => $model
+            ]);
+        } else {
+            throw new HttpException(404 ,'Такой страницы нет!');
         }
-
-        return $this->render('edit', [
-            'edit' => $form,
-            'errors' => $errors,
-            'model' => $model
-        ]);
     }
 
     public function actionSort() {

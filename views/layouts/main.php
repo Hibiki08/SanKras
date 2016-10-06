@@ -54,7 +54,8 @@ AppAsset::register($this);
                 </ul>
             </nav>-->
             <div class="phone" id="phone">
-                +7 <span class="red">(918)</span> 684 79 99
+<!--                +7 <span class="red">(918)</span> 684 79 99-->
+                <?php echo Yii::$app->system->get('phone'); ?>
             </div>
             <button class="pulse" id="callback">Заказать звонок</button>
         </div>

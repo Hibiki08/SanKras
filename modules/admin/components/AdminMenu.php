@@ -8,6 +8,15 @@ class AdminMenu extends Widget {
 
     public $menu = [
         [
+            'name' => 'Система',
+            'submenu' => [
+                [
+                    'name' => 'Контакты',
+                    'controller' => 'contacts'
+                ],
+            ]
+        ],
+        [
             'name' => 'Слайдеры',
             'submenu' => [
                 [
@@ -46,23 +55,23 @@ class AdminMenu extends Widget {
                 ],
             ]
         ],
-        [
-            'name' => 'Блог',
-            'submenu' => [
-                [
-                    'name' => 'Новости',
-                    'controller' => 'news'
-                ],
-                [
-                    'name' => 'Статьи',
-                    'controller' => 'articles'
-                ],
+//        [
+//            'name' => 'Блог',
+//            'submenu' => [
+//                [
+//                    'name' => 'Новости',
+//                    'controller' => 'news'
+//                ],
+//                [
+//                    'name' => 'Статьи',
+//                    'controller' => 'articles'
+//                ],
 //                [
 //                    'name' => 'Видео',
 //                    'controller' => 'video'
 //                ],
-            ]
-        ],
+//            ]
+//        ],
         [
             'name' => 'Заявки',
             'submenu' => [

@@ -45,8 +45,8 @@ $this->title = 'Список';
                 <td><?php echo $work->id; ?></td>
                 <td><?php echo $work->title; ?></td>
                 <td><img src="/<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/mini_' . $work->preview; ?>"></td>
-                <td><?php echo $work->category->title; ?></td>
-                <td><?php echo $work->allCategory->title; ?></td>
+                <td><?php echo isset($work->category->title) ? $work->category->title : ''; ?></td>
+                <td><?php echo isset($work->allCategory->title)? $work->allCategory->title : ''; ?></td>
                 <td><?php echo $work->place; ?></td>
                 <td class="status"><?php echo $work->active ? 'Да' : 'Нет'; ?></td>
                 <td>

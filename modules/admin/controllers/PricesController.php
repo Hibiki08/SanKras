@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
+use yii\web\HttpException;
 use app\models\Prices;
 use app\models\PricesCat;
 use app\models\forms\EditPricesForm;
@@ -86,24 +87,28 @@ class PricesController extends AdminController {
             }
         }
 
-        $model = $id ? $options->findByColumn(['id' => $id])[0] : new Prices();
+        $model = $id ? $options->findOne(['id' => $id]) : new Prices();
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $model->title = Yii::$app->request->post('EditPricesForm')['title'];
-            $model->price = Yii::$app->request->post('EditPricesForm')['price'];
-            $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
-            $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
-            $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
-            $model->save();
-            $id = $id ? $id : Yii::$app->db->lastInsertID;
-            Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
+        if (!empty($model)) {
+            if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+                $model->title = Yii::$app->request->post('EditPricesForm')['title'];
+                $model->price = Yii::$app->request->post('EditPricesForm')['price'];
+                $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
+                $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
+                $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
+                $model->save();
+                $id = $id ? $id : Yii::$app->db->lastInsertID;
+                Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
+            }
+
+            return $this->render('edit', [
+                'edit' => $form,
+                'categories' => $parentCat,
+                'model' => $model
+            ]);
+        } else {
+            throw new HttpException(404 ,'Такой страницы нет!');
         }
-
-        return $this->render('edit', [
-            'edit' => $form,
-            'categories' => $parentCat,
-            'model' => $model
-        ]);
     }
 
     public function actionActive() {

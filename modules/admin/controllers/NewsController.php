@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
+use yii\web\HttpException;
 use app\models\Blog;
 use yii\data\Pagination;
 use app\models\forms\EditNewsForm;
@@ -39,31 +40,36 @@ class NewsController extends AdminController {
         $blog = new Blog();
         $model = $id ? $blog->findOne(['id' => $id]) : new Blog();
 
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $form->preview = UploadedFile::getInstance($form, 'preview');
+        if (!empty($model)) {
+            if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+                $form->preview = UploadedFile::getInstance($form, 'preview');
 
-            if (empty($errors)) {
-                if ($form->upload(Blog::IMG_FOLDER_NEWS, $form->preview)) {
-                    $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_NEWS, Blog::IMG_FOLDER_NEWS, 172, '', 'mini');
-                    $resize->resize();
+                if (empty($errors)) {
+                    if ($form->upload(Blog::IMG_FOLDER_NEWS, $form->preview)) {
+                        $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_NEWS, Blog::IMG_FOLDER_NEWS, 172, '', 'mini');
+                        $resize->resize();
+                    }
+                    $model->title = Yii::$app->request->post('EditNewsForm')['title'];
+                    $model->text = Yii::$app->request->post('EditNewsForm')['text'];
+                    $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $form->preview->name;
+                    $model->cat_id = 1;
+                    $model->active = isset(Yii::$app->request->post('EditNewsForm')['active']) ? 1 : 0;
+                    $model->save();
+                    $id = $id ? $id : Yii::$app->db->lastInsertID;
+
+                    Yii::$app->getResponse()->redirect(Url::toRoute(['news/edit', 'id' => $id]));
                 }
-                $model->title = Yii::$app->request->post('EditNewsForm')['title'];
-                $model->text = Yii::$app->request->post('EditNewsForm')['text'];
-                $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $form->preview->name;
-                $model->cat_id = 1;
-                $model->active = isset(Yii::$app->request->post('EditNewsForm')['active']) ? 1 : 0;
-                $model->save();
-                $id = $id ? $id : Yii::$app->db->lastInsertID;
-
-                Yii::$app->getResponse()->redirect(Url::toRoute(['news/edit', 'id' => $id]));
             }
+
+            return $this->render('edit', [
+                'edit' => $form,
+                'model' => $model,
+                'errors' => $errors
+            ]);
+        } else {
+            throw new HttpException(404 ,'Такой страницы нет!');
         }
 
-        return $this->render('edit', [
-            'edit' => $form,
-            'model' => $model,
-            'errors' => $errors
-        ]);
     }
 
     public function actionDeleteSlide() {

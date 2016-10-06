@@ -12,6 +12,9 @@ $config = [
     'timezone' => 'Europe/Moscow',
     'bootstrap' => ['log'],
     'components' => [
+        'system' => [
+            'class' => 'app\components\SystemComponent'
+        ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
         ],
