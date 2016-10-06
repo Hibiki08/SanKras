@@ -8,6 +8,15 @@ class AdminMenu extends Widget {
 
     public $menu = [
         [
+            'name' => 'Сертификаты',
+            'submenu' => [
+                [
+                    'name' => 'Список',
+                    'controller' => 'certificates'
+                ],
+            ]
+        ],
+        [
             'name' => 'Слайдеры',
             'submenu' => [
                 [
