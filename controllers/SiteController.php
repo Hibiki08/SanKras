@@ -102,7 +102,7 @@ class SiteController extends Controller {
                 $request->save();
 
                 $status = Yii::$app->mailer->compose()
-                    ->setFrom([Yii::$app->system->get('email') => 'San-Kras'])
+                    ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
                     ->setSubject('Получить дисконтную карту')
                     ->setTextBody('Вам будет оформлена дисконтная карта!')
