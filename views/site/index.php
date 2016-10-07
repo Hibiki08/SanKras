@@ -720,7 +720,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-email.png'; ?>" alt="email" title="email">
                 <div>
                     <span>Email</span><br>
-                    <span>sankras.pro@rambler.ru</span>
+                    <span><?php echo Yii::$app->system->get('email'); ?></span>
                 </div>
             </div>
             <div class="cnt">
