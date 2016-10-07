@@ -47,4 +47,26 @@ class MasterController extends AdminController {
         Yii::$app->end();
     }
 
+    public function actionDelete() {
+        if (Yii::$app->request->isAjax) {
+            $response = false;
+
+            $id = (int)Yii::$app->request->getQueryParams()['id'];
+
+            $requests = new Requests();
+            $requests = $requests->findOne($id);
+            if ($requests) {
+                if ($requests->delete() !== false) {
+                    $response = true;
+                }
+            }
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'status' => $response,
+            ];
+        }
+        Yii::$app->end();
+    }
+
 }

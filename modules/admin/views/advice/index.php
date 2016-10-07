@@ -19,19 +19,25 @@ $this->title = 'Консультация';
         </thead>
         <tbody>
         <?php if ($requests) { ?>
-            <?php foreach ($requests as $card) { ?>
+            <?php foreach ($requests as $advice) { ?>
                 <tr>
-                    <td><?php echo $card->id; ?></td>
-                    <td><?php echo $card->name; ?></td>
-                    <td><?php echo $card->phone; ?></td>
-                    <td><?php echo Yii::$app->formatter->asDate($card->date, 'd MMMM yyyy'); ?></td>
-                    <td class="status"><?php echo $card->processe ? 'Да' : 'Нет'; ?></td>
+                    <td><?php echo $advice->id; ?></td>
+                    <td><?php echo $advice->name; ?></td>
+                    <td><?php echo $advice->phone; ?></td>
+                    <td><?php echo Yii::$app->formatter->asDate($advice->date, 'd MMMM yyyy H:m'); ?></td>
+                    <td class="status"><?php echo $advice->processe ? 'Да' : 'Нет'; ?></td>
                     <td>
                         <div class="btn-group-vertical">
-                            <a class="btn btn-primary btn-xs btn-activate" data-value="<?php echo $card->processe == 1 ? 0 : 1; ?>" data-id="<?= $card->id; ?>">
-                                <span><?php echo $card->processe ? 'Не обработана' : 'Обработана'; ?></span>
+                            <a class="btn btn-primary btn-xs btn-activate" data-value="<?php echo $advice->processe == 1 ? 0 : 1; ?>" data-id="<?= $advice->id; ?>">
+                                <span><?php echo $advice->processe ? 'Не обработана' : 'Обработана'; ?></span>
                                 <div class="progress progress-striped active" style="border-radius: 0;margin: 0;height: 3px; display: none">
                                     <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                            </a>
+                            <a class="btn btn-danger btn-xs btn-delete" data-id="<?= $advice->id; ?>">
+                                Удалить
+                                <div class="progress progress-striped active" style="border-radius: 0;margin: 0;height: 3px; display: none">
+                                    <div class="progress-bar progress-bar-danger" style="width: 100%"></div>
                                 </div>
                             </a>
                         </div>
@@ -72,6 +78,11 @@ $this->title = 'Консультация';
                     $this.find('.progress').hide();
                 }
             });
+        });
+
+        $('.btn-delete').click(function () {
+            var $this = $(this);
+            deleteAjax($this, '<?php echo Url::toRoute('advice/delete'); ?>');
         });
     });
 </script>

@@ -19,19 +19,25 @@ $this->title = 'Вызов мастера';
         </thead>
         <tbody>
         <?php if ($requests) { ?>
-            <?php foreach ($requests as $card) { ?>
+            <?php foreach ($requests as $master) { ?>
                 <tr>
-                    <td><?php echo $card->id; ?></td>
-                    <td><?php echo $card->name; ?></td>
-                    <td><?php echo $card->phone; ?></td>
-                    <td><?php echo Yii::$app->formatter->asDate($card->date, 'd MMMM yyyy'); ?></td>
-                    <td class="status"><?php echo $card->processe ? 'Да' : 'Нет'; ?></td>
+                    <td><?php echo $master->id; ?></td>
+                    <td><?php echo $master->name; ?></td>
+                    <td><?php echo $master->phone; ?></td>
+                    <td><?php echo Yii::$app->formatter->asDate($master->date, 'd MMMM yyyy H:m'); ?></td>
+                    <td class="status"><?php echo $master->processe ? 'Да' : 'Нет'; ?></td>
                     <td>
                         <div class="btn-group-vertical">
-                            <a class="btn btn-primary btn-xs btn-activate" data-value="<?php echo $card->processe == 1 ? 0 : 1; ?>" data-id="<?= $card->id; ?>">
-                                <span><?php echo $card->processe ? 'Не обработана' : 'Обработана'; ?></span>
+                            <a class="btn btn-primary btn-xs btn-activate" data-value="<?php echo $master->processe == 1 ? 0 : 1; ?>" data-id="<?= $master->id; ?>">
+                                <span><?php echo $master->processe ? 'Не обработана' : 'Обработана'; ?></span>
                                 <div class="progress progress-striped active" style="border-radius: 0;margin: 0;height: 3px; display: none">
                                     <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                            </a>
+                            <a class="btn btn-danger btn-xs btn-delete" data-id="<?= $master->id; ?>">
+                                Удалить
+                                <div class="progress progress-striped active" style="border-radius: 0;margin: 0;height: 3px; display: none">
+                                    <div class="progress-bar progress-bar-danger" style="width: 100%"></div>
                                 </div>
                             </a>
                         </div>
@@ -72,6 +78,12 @@ $this->title = 'Вызов мастера';
                     $this.find('.progress').hide();
                 }
             });
+        });
+
+
+        $('.btn-delete').click(function () {
+            var $this = $(this);
+            deleteAjax($this, '<?php echo Url::toRoute('master/delete'); ?>');
         });
     });
 </script>
