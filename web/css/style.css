@@ -642,8 +642,7 @@ header > div > div{
     height: 470px;
     position: absolute;
     top: -59px;
-    left: -200px;
-    z-index: 2;
+    left: -177px;
 }
 .card .form .loading {
     top: 90px;
