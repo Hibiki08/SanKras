@@ -96,26 +96,23 @@ class SiteController extends Controller {
 
             if ($cardMail) {
                 $status = false;
-                $there = Requests::findOne(['email' => $cardMail, 'type_id' => 1]);
-                if (empty($there)) {
-                    $request = new Requests();
-                    $request->email = $cardMail;
-                    $request->type_id = 1;
-                    $request->save();
+                $request = new Requests();
+                $request->email = $cardMail;
+                $request->type_id = 1;
+                $request->save();
 
-                    $status = Yii::$app->mailer->compose()
-                        ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo($cardMail)
-                        ->setSubject('Получить дисконтную карту')
-                        ->setTextBody('Вам будет оформлена дисконтная карта!')
-                        ->setHtmlBody('<b>HTML content</b>')
-                        ->attach('images/blog/articles/edit_icon.png')
-                        ->send();
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom([Yii::$app->system->get('email') => 'San-Kras'])
+                    ->setTo($cardMail)
+                    ->setSubject('Получить дисконтную карту')
+                    ->setTextBody('Вам будет оформлена дисконтная карта!')
+                    ->setHtmlBody('<b>HTML content</b>')
+                    ->attach('images/blog/articles/edit_icon.png')
+                    ->send();
 
-                    return [
-                        'status' => $status,
-                    ];
-                }
+                return [
+                    'status' => $status,
+                ];
             }
 
             $masterName = Yii::$app->request->get('masterName');
