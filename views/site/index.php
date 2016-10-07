@@ -706,14 +706,14 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-phone.png'; ?>" alt="телефон" title="телефон">
                 <div>
                     <span>Телефон</span><br>
-                    <span>8 (918) 694 79 99</span>
+                    <span><?php echo Yii::$app->system->get('phone'); ?></span>
                 </div>
             </div>
             <div class="cnt">
                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/cont-skype.png'; ?>" alt="skype" title="skype">
                 <div>
                     <span>Skype</span><br>
-                    <span>sankras_pro</span>
+                    <span><?php echo Yii::$app->system->get('skype'); ?></span>
                 </div>
             </div>
             <div class="cnt">
