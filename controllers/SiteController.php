@@ -84,7 +84,6 @@ class SiteController extends Controller {
                         ->setTo(Yii::$app->params['adminEmail'])
                         ->setSubject('Заявка на обратный звонок')
                         ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
-//                        ->setHtmlBody('<b>HTML content</b>')
                         ->send();
 
                     return [
