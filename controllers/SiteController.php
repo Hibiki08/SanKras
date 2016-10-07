@@ -103,6 +103,14 @@ class SiteController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Получение дисконтной карты')
+                    ->setHtmlBody('Заявка на получение дисконтной карты от: ' . $cardMail)
+                    ->attach('images/blog/articles/edit_icon.png')
+                    ->send();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
                     ->setSubject('Получить дисконтную карту')
                     ->setTextBody('Вам будет оформлена дисконтная карта!')
