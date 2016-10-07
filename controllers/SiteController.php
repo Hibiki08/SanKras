@@ -80,8 +80,8 @@ class SiteController extends Controller {
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
-                        ->setFrom(Yii::$app->params['adminEmail'])
-                        ->setTo(Yii::$app->params['adminEmail'])
+                        ->setFrom(Yii::$app->system->get('email'))
+                        ->setTo(Yii::$app->system->get('email'))
                         ->setSubject('Заявка на обратный звонок')
                         ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
                         ->send();
@@ -104,7 +104,7 @@ class SiteController extends Controller {
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
-                        ->setFrom(Yii::$app->params['adminEmail'])
+                        ->setFrom(Yii::$app->system->get('email'))
                         ->setTo($cardMail)
                         ->setSubject('Получить дисконтную карту')
                         ->setTextBody('Вам будет оформлена дисконтная карта!')
@@ -132,10 +132,9 @@ class SiteController extends Controller {
                 $request->save();
 
                 $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->params['adminEmail'])
-                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
                     ->setSubject('Вызов мастера')
-//                    ->setTextBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                     ->setHtmlBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                     ->send();
 
@@ -161,10 +160,9 @@ class SiteController extends Controller {
                 $request->save();
 
                 $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->params['adminEmail'])
-                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
                     ->setSubject('Заявка на консультацию')
-//                    ->setTextBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
                     ->setHtmlBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
                     ->send();
 
