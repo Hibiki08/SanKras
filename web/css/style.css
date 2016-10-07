@@ -635,6 +635,10 @@ header > div > div{
 .card .form {
     background: #f5f6f7;
 }
+.card .form .field input {
+    position: relative;
+    z-index: 2;
+}
 .card .form:before {
     content: '';
     background: url('/images/system/discount.png') no-repeat;
@@ -666,6 +670,10 @@ header > div > div{
 .call-master .call .form img {
     vertical-align: bottom;
     margin-right: 5px;
+}
+.card .form .field img {
+    position: relative;
+    z-index: 2;
 }
 .card .form .field input,
 .call-master .call .form input,
