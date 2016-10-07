@@ -73,24 +73,25 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 </div>
             </div>
         </div>
-<!--        <div class="card">-->
-<!--            <div class="title-big">Получите дисконтную карту</div>-->
-<!--            <div class="form">-->
-<!--                <div class="close"></div>-->
-<!--                <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>-->
-<!--                <div class="field">-->
-<!--                    <img src="/images/system/main-email.png">-->
-<!--                    <input name="email" type="email" value="Ваш e-mail*" class="focus" required><br>-->
-<!--                    <input type="hidden" value="Ваш e-mail*" class="hidden">-->
-<!--                    <button class="pulse">получить скидку</button>-->
-<!--                </div>-->
-<!--                <div class="success">-->
-<!--                    <span>Спасибо за заявку!</span><br>-->
-<!--                    <span>В течение 15 минут Вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <span>*ваши данные не будут переданы третьим лицам; акция действует с 15.07.2016 по 15.09.2016</span>-->
-<!--        </div>-->
+        <div class="card">
+            <div class="title-big">Получите дисконтную карту</div>
+            <div class="form">
+                <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
+                <div class="close"></div>
+                <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>
+                <div class="field">
+                    <img src="/images/system/card-email.png" alt="email" title="email">
+                    <input name="email" type="email" value="Ваш e-mail*" class="focus" required><br>
+                    <input type="hidden" value="Ваш e-mail*" class="hidden">
+                    <button class="pulse">получить скидку</button>
+                </div>
+                <div class="success">
+                    <span>Спасибо за заявку!</span><br>
+                    <span>В течение 15 минут Вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>
+                </div>
+            </div>
+            <span>*ваши данные не будут переданы третьим лицам; акция действует с 07.10.2016 по 31.12.2016</span>
+        </div>
     </div>
 </section>
 <section class="key">

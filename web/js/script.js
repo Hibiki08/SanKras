@@ -45,6 +45,10 @@ $(document).ready(function() {
             $(this).parents('.field').find('input[name=email]').addClass('error');
             return false;
         }
+
+        $('.card .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('.card .form .loading').css('display', 'block');
+
         $.ajax({
             url: 'site/index',
             type: 'get',
@@ -52,9 +56,9 @@ $(document).ready(function() {
             data: {cardMail: cardMail},
             success: function (response) {
                 if (response.status == true) {
-                    $('.card .form *:not(.close)').css('visibility', 'hidden');
                     $('.card .form .success, .card .form .close').css('display', 'block');
-                    $('.card .form .success span').css('visibility', 'visible')
+                    $('.card .form .loading').css('display', 'none');
+                    $('.card .form .success span').css('visibility', 'visible');
                 }
             },
             error: function () {
