@@ -498,7 +498,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <td>Стоимость монтажа*</td>
                 <td class="footer-comfort"><span>800</span> руб./м<sup>2</sup></td>
                 <td class="footer-standart"><span>650</span> руб./м<sup>2</sup></td>
-                <td class="footer-mini"><span>450</span> руб./м<sup>2</sup></td>
+                <td class="footer-mini" id="price"><span>450</span> руб./м<sup>2</sup></td>
             </tr>
             </tbody>
         </table>
@@ -690,7 +690,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         </div>
     </div>
 </section>
-<section class="contacts">
+<section class="contacts" id="contacts">
     <div class="width">
         <div class="soc">
             <div class="center">

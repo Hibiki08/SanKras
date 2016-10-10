@@ -69,17 +69,6 @@
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('/fonts/roboto/Roboto-ThinItalic.eot');
-    src: url('/fonts/roboto/Roboto-ThinItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/roboto/Roboto-ThinItalic.woff2') format('woff2'),
-        url('/fonts/roboto/Roboto-ThinItalic.woff') format('woff'),
-        url('/fonts/roboto/Roboto-ThinItalic.ttf') format('truetype'),
-        url('/fonts/roboto/Roboto-ThinItalic.otf') format('opentype');
-    font-weight: 100;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Roboto';
     src: url('/fonts/roboto/Roboto-Light.eot');
     src: url('/fonts/roboto/Roboto-Light.eot?#iefix') format('embedded-opentype'),
         url('/fonts/roboto/Roboto-Light.woff2') format('woff2'),
