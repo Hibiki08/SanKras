@@ -35,7 +35,11 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-//            'viewPath' => '@app/views/layouts/emails',
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => ['info@san-kras.ru' => 'SanKras'],
+            ],
+            'viewPath' => '@app/mail',
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.

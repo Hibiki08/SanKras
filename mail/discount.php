@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +9,7 @@
     <title>Получить дисконтную карту</title>
 </head>
 <body style="width: 690px;margin: auto;">
+<?php $this->beginBody() ?>
 <div style="background: url('<?php echo $homeUrl; ?>/images/system/texture-mail.png') repeat;padding: 45px;padding-left: 10px;">
     <div style="background: url(<?php echo $homeUrl; ?>/images/system/letter.png) no-repeat top center;height: 160px;width: 670px;padding-top: 835px;">
         <a href="<?php echo $homeUrl; ?>/#call-master" target="_blank" style="background: #f44336;color: #fff;text-transform: uppercase;font-size: 15px;padding: 10px 0;border-radius: 3px;border-bottom: 2px solid #cb372c;width: 200px;text-align: center;display: block;text-decoration: none;font-family: Arial,sans-serif;margin-left: 85px;">Заполнить заявку</a>
@@ -34,5 +39,7 @@
         <div style="display: table;width: 100%;clear: both;"></div>
     </footer>
 </div>
+<?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>

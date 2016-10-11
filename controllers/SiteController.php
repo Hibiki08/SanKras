@@ -108,7 +108,7 @@ class SiteController extends Controller {
                     ->setHtmlBody('Заявка на получение дисконтной карты от: ' . $cardMail)
                     ->send();
 
-                $homeUrl = Yii::$app->homeUrl;
+                $homeUrl = Yii::$app->params['params']['host'];
                 $status = Yii::$app->mailer->compose('discount', ['homeUrl' => $homeUrl])
                     ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
