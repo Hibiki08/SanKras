@@ -24,9 +24,9 @@ use yii\helpers\Html;
         </ul>
         <div style="float: right;width: 300px;line-height: 1.9;margin-top: 11px;">
             <div style="float: left">
-                <div><img src="<?php echo $homeUrl; ?>/images/system/phone-letter.png" alt="Телефон" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="tel:+78612035106" style="color: #9db7d1;">+7 (861) 203-51-06</a></div>
-                <div style=";color: #9db7d1;"><img src="<?php echo $homeUrl; ?>/images/system/skype-letter.png" alt="skype" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">skype sankras_pro</div>
-                <div><img src="<?php echo $homeUrl; ?>/images/system/mail-letter.png" alt="email" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;">info@san-kras.ru</a></div>
+                <div><img src="<?php echo $homeUrl; ?>/images/system/phone-letter.png" alt="Телефон" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="tel:<?php echo $adminPhone; ?>" style="color: #9db7d1;"><?php echo $adminPhone; ?></a></div>
+                <div style=";color: #9db7d1;"><img src="<?php echo $homeUrl; ?>/images/system/skype-letter.png" alt="skype" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><?php echo $adminSkype; ?></div>
+                <div><img src="<?php echo $homeUrl; ?>/images/system/mail-letter.png" alt="email" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;"><?php echo $adminEmail; ?></a></div>
                 <div style="color: #9db7d1;"><img src="<?php echo $homeUrl; ?>/images/system/work-letter.png" alt="Режим работы" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">ежедневно с 8:00 до 21:00</div>
             </div>
             <div style="float: right;margin-top: -9px;">

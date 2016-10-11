@@ -7,6 +7,7 @@ use yii\web\HttpException;
 use app\models\System;
 use app\models\forms\EditContactsForm;
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 class ContactsController extends AdminController {
 
@@ -32,8 +33,8 @@ class ContactsController extends AdminController {
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
 
                 if (empty($errors)) {
-                    $model->description = Yii::$app->request->post('EditContactsForm')['description'];
-                    $model->value = !empty(Yii::$app->request->post('EditContactsForm')['value']) ? Yii::$app->request->post('EditContactsForm')['value'] : null;
+                    $model->description = trim(Html::encode(Yii::$app->request->post('EditContactsForm')['description']));
+                    $model->value = !empty(trim(Html::encode(Yii::$app->request->post('EditContactsForm')['value']))) ? trim(Html::encode(Yii::$app->request->post('EditContactsForm')['value'])) : null;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
