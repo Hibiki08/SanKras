@@ -5,13 +5,12 @@
     <title>Получить дисконтную карту</title>
 </head>
 <body style="width: 690px;margin: auto;">
-<div style="background: url('http://test.san-kras.ru/images/system/texture-mail.png') repeat;padding: 45px;">
-    <div style="position: relative">
-        <img src="http://test.san-kras.ru/images/system/letter.png" style="margin-left: -38px;margin-top: -5px;">
-        <a href="http://test.san-kras.ru/#call-master" target="_blank" style="background: #f44336;color: #fff;text-transform: uppercase;font-size: 15px;padding: 10px 0;border-radius: 3px;border-bottom: 2px solid #cb372c;width: 200px;text-align: center;display: block;text-decoration: none;    position: absolute;bottom: 115px;left: 50px;font-family: Arial,sans-serif;">Заполнить заявку</a>
+<div style="background: url('http://test.san-kras.ru/images/system/texture-mail.png') repeat;padding: 45px;padding-left: 10px;">
+    <div style="background: url(http://test.san-kras.ru/images/system/letter.png) no-repeat top center;height: 160px;width: 670px;padding-top: 835px;">
+        <a href="http://test.san-kras.ru/#call-master" target="_blank" style="background: #f44336;color: #fff;text-transform: uppercase;font-size: 15px;padding: 10px 0;border-radius: 3px;border-bottom: 2px solid #cb372c;width: 200px;text-align: center;display: block;text-decoration: none;font-family: Arial,sans-serif;margin-left: 85px;">Заполнить заявку</a>
     </div>
     <footer style="font-family: Arial,sans-serif;">
-        <ul style="float: left;line-height: 1.4;color: #9db7d1">
+        <ul style="float: left;line-height: 1.4;color: #9db7d1;list-style-type: none;">
             <li><a href="http://test.san-kras.ru/#price" target="_blank" style="color: #9db7d1;font-size: 14px;">Прайс-лист</a></li>
             <li><a href="http://test.san-kras.ru/#price-flat" target="_blank" style="color: #9db7d1;font-size: 14px;">Стоимость пакетов услуг</a></li>
             <li><a href="http://test.san-kras.ru/#works" target="_blank" style="color: #9db7d1;font-size: 14px;">Наши работы</a></li>
@@ -20,10 +19,10 @@
         </ul>
         <div style="float: right;width: 300px;line-height: 1.9;margin-top: 11px;">
             <div style="float: left">
-                <div style="position: relative;color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/phone-letter.png" alt="Телефон" style="position: absolute;top: 6px;left: -30px;">+7 (861) 203-51-06</div>
-                <div style="position: relative;color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/skype-letter.png" alt="skype" style="position: absolute;top: 8px;left: -30px;">skype sankras_pro</div>
-                <div style="position: relative;"><img src="http://test.san-kras.ru/images/system/mail-letter.png" alt="email" style="position: absolute;top: 8px;left: -30px;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;">info@san-kras.ru</a></div>
-                <div style="position: relative;color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/work-letter.png" alt="Режим работы" style="position: absolute;top: 7px;left: -30px;">ежедневно с 8:00 до 21:00</div>
+                <div style=";color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/phone-letter.png" alt="Телефон" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">+7 (861) 203-51-06</div>
+                <div style=";color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/skype-letter.png" alt="skype" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">skype sankras_pro</div>
+                <div><img src="http://test.san-kras.ru/images/system/mail-letter.png" alt="email" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;">info@san-kras.ru</a></div>
+                <div style="color: #9db7d1;"><img src="http://test.san-kras.ru/images/system/work-letter.png" alt="Режим работы" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">ежедневно с 8:00 до 21:00</div>
             </div>
             <div style="float: right;margin-top: -9px;">
                 <a href="https://vk.com/sankras" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img src="http://test.san-kras.ru/images/system/vk.png" alt="vk"></a>
