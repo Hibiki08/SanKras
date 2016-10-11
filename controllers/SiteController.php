@@ -113,7 +113,7 @@ class SiteController extends Controller {
                     ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
                     ->setSubject('Получить дисконтную карту')
-                    ->attach('images/blog/articles/edit_icon.png')
+                    ->attach('files/Blank_discount_card.docx')
                     ->send();
 
                 return [
