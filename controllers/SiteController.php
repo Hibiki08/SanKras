@@ -116,7 +116,8 @@ class SiteController extends Controller {
                 $status = Yii::$app->mailer->compose('discount', [
                     'homeUrl' => $homeUrl,
                     'adminEmail' => $adminEmail,
-                    'adminPhone' => $adminPhone
+                    'adminPhone' => $adminPhone,
+                    'adminSkype' => $adminSkype,
                 ])
                     ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
