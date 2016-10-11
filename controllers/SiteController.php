@@ -109,7 +109,7 @@ class SiteController extends Controller {
                     ->send();
 
                 $homeUrl = Yii::$app->homeUrl;
-                $status = Yii::$app->mailer->compose(['html' =>'discount'], ['homeUrl' => $homeUrl])
+                $status = Yii::$app->mailer->compose('discount', ['homeUrl' => $homeUrl])
                     ->setFrom(Yii::$app->system->get('email'))
                     ->setTo($cardMail)
                     ->setSubject('Получить дисконтную карту')
