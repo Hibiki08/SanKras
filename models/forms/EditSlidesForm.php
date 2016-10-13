@@ -19,6 +19,7 @@ class EditSlidesForm extends Model {
         return [
             [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['sort'], 'integer'],
+            [['link', 'text'], 'filter', 'filter' => 'trim'],
         ];
     }
 
@@ -32,4 +33,11 @@ class EditSlidesForm extends Model {
         }
         return false;
     }
+
+    public function attributeLabels(){
+        return [
+            'image' => 'Слайд',
+        ];
+    }
+
 }

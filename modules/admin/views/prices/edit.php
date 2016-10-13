@@ -10,7 +10,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 <?php $form = ActiveForm::begin([
     'options' => ['class' => 'form-horizontal',],
     'fieldConfig' => [
-        'template' => '{label}<div class="col-lg-10">{input}</div>',
+        'template' => '<label class="col-lg-2 control-label"></label>{error}{label}<div class="col-lg-10">{input}</div>',
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
     ],
 ]); ?>

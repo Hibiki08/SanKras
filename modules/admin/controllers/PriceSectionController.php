@@ -8,6 +8,7 @@ use app\models\PricesCat;
 use yii\web\Response;
 use app\models\forms\EditPriceSectionForm;
 use yii\helpers\Url;
+use yii\helpers\Html;
 use app\modules\admin\controllers\AdminController;
 
 class PriceSectionController extends AdminController {
@@ -22,6 +23,7 @@ class PriceSectionController extends AdminController {
     }
 
     public function actionEdit() {
+        $errors = [];
         $id = Yii::$app->request->getQueryParam('id') ? Yii::$app->request->getQueryParam('id') : null;
 
         $form = new EditPriceSectionForm();
@@ -40,6 +42,7 @@ class PriceSectionController extends AdminController {
 
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $model->title = Yii::$app->request->post('EditPriceSectionForm')['title'];
+                $model->link = Yii::$app->request->post('EditPriceSectionForm')['link'];
                 $model->parent_id = $parent_id == 0 ? null : $parent_id;
                 $model->active = isset(Yii::$app->request->post('EditPriceSectionForm')['active']) ? 1 : 0;
                 $model->save();
@@ -50,7 +53,8 @@ class PriceSectionController extends AdminController {
             return $this->render('edit', [
                 'edit' => $form,
                 'categories' => $parentCat,
-                'model' => $model
+                'model' => $model,
+                'errors' => $errors
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');
@@ -102,6 +106,9 @@ class PriceSectionController extends AdminController {
             $id = (int)Yii::$app->request->getQueryParams()['id'];
 
             $cat = PricesCat::findOne($id);
+            if ($cat->parent_id == null) {
+                PricesCat::deleteAll('parent_id = :parent_id', [':parent_id' => $id]);
+            }
             if ($cat->delete() !== false) {
                 $response = true;
             }

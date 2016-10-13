@@ -1,3 +1,9 @@
+.clear:after {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
 .navbar .nav>li>a {
     font-size: 11px;
     line-height: 22px;
@@ -52,12 +58,11 @@
 .sections .table {
     margin: 0;
 }
+#accordion a {
+    text-decoration: none;
+}
 #accordion > li {
     position: relative;
-}
-#accordion .col-md-1 {
-    width: 8.33333333%;
-    min-width: 100px;
 }
 #accordion > li:not(:last-of-type) {
     margin-bottom: 5px;
@@ -67,8 +72,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 41%;
     justify-content: flex-end;
+}
+.ui-accordion .ui-accordion-header {
+    height: 65px;
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon, .ui-button:hover .ui-icon, .ui-button:focus .ui-icon, .ui-state-default .ui-icon {
+    background: none;
+    display: none;
 }
 #accordion .data .status {
     margin: auto 20px auto 0;
@@ -77,16 +88,21 @@
     padding: 0 !important;
 }
 #accordion .sub-cat li {
-    display: flex;
     padding: 10px 0;
-    justify-content: flex-end;
     background: #fff;
+    position: relative;
 }
-#accordion .sub-cat .status.col-md-1,
+#accordion .sub-cat .data.col-md-1,
 #accordion .sub-cat .btn-group-vertical {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin: auto;
+}
+#accordion .sub-cat .data.col-md-1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 #accordion .sub-cat .btn-group-vertical a {
     display: block;
@@ -182,25 +198,27 @@
 }
 
 @media (max-width: 992px) {
-    .col-md-7 {
-        width: 58.33333333%;
-    }
-    .col-md-6 {
-        width: 50%;
-    }
-    .col-md-4 {
-        width: 33.33333333%;
-        padding-left: 23px;
-    }
     .col-md-1 {
-        width: 8.33333333%;
+        width: 5%;
     }
-    .col-md-9 {
-        width: 75%;
-    }
-}
-@media (min-width: 992px) {
     .col-md-4 {
-        padding-left: 23px;
+        width: 40%;
+    }
+    .col-md-3 {
+        width: 20%;
+    }
+    .col-md-2 {
+    }
+    .col-md-1,
+    .col-md-4,
+    .col-md-3,
+    .col-md-2,
+    .table .col-md-1,
+    .table .col-md-4,
+    .table .col-md-3,
+    .table .col-md-2 {
+        display: inline-block;
+        padding-left: 1%;
+        padding-right: 1%;
     }
 }

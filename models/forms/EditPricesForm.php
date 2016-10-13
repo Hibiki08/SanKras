@@ -16,6 +16,15 @@ class EditPricesForm extends Model {
     public function rules() {
         return [
             [['title', 'price', 'unit', 'cat_id'], 'required'],
+            [['title', 'unit', 'price'], 'filter', 'filter' => 'trim'],
+        ];
+    }
+
+    public function attributeLabels(){
+        return [
+            'title' => 'Название',
+            'price' => 'Цена',
+            'unit' => 'Единица',
         ];
     }
 

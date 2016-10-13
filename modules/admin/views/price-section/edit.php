@@ -7,16 +7,16 @@ use yii\helpers\Url;
 $this->title = Yii::$app->request->get('id') ? 'Редактировать' : 'Добавить';
 ?>
 <h1><?php echo 'Разделы > ' . $this->title; ?></h1>
-
 <?php $form = ActiveForm::begin([
     'options' => ['class' => 'form-horizontal',],
     'fieldConfig' => [
-        'template' => '{label}<div class="col-lg-10">{input}</div>',
+        'template' => '<label class="col-lg-2 control-label"></label>{error}{label}<div class="col-lg-10">{input}</div>',
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
     ],
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название'); ?>
 <?php echo $form->field($edit, 'parent_id')->dropDownList($categories, ['options' => [ $model->parent_id => ['selected ' => true]]])->label('Родительский раздел'); ?>
+<?php echo $form->field($edit, 'link')->input('text', ['value' => $model->link])->label('Ссылка'); ?>
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',
@@ -29,4 +29,3 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 </div>
 
 <?php ActiveForm::end(); ?>
-

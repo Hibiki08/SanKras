@@ -22,25 +22,31 @@ $this->title = 'Разделы';
         <thead>
         <tr>
             <th class="col-md-1">#</th>
-            <th class="col-md-6">Название</th>
-            <th class="col-md-5">Активность</th>
+            <th class="col-md-4">Название</th>
+            <th class="col-md-3">Ссылка</th>
+            <th class="col-md-2">Активность</th>
+            <th class="col-md-2"></th>
         </tr>
         </thead>
     </table>
     <ul id="accordion" class="sortable">
         <?php foreach ($categories as $category) { ?>
             <?php if ($category->parent_id == null) { ?>
-        <li data-sort="<?php echo $category->sort; ?>" data-id="<?php echo $category->id; ?>"><a href="#id<?php echo $category->id; ?>">
-                <span class="col-md-1"><?php echo $category->id; ?></span><?php echo $category->title; ?>
+        <li class="clear" data-sort="<?php echo $category->sort; ?>" data-id="<?php echo $category->id; ?>"><a href="#id<?php echo $category->id; ?>">
+                <span class="col-md-1"><?php echo $category->id; ?></span>
+                <span class="col-md-4"><?php echo $category->title; ?></span>
+                <span class="col-md-3"><?php echo $category->link; ?></span>
+                <span class="status col-md-2" data-id="<?php echo $category->id; ?>"><?php echo $category->active ? 'Да' : 'Нет'; ?></span>
             </a>
             <ul class="sub-cat sortable">
                 <?php foreach ($categories as $cat) { ?>
                     <?php if ($cat->parent_id == $category->id) { ?>
-                <li id="id<?php echo $cat->id; ?>" data-sort="<?php echo $cat->sort; ?>" data-id="<?php echo $cat->id; ?>">
+                <li class="clear" id="id<?php echo $cat->id; ?>" data-sort="<?php echo $cat->sort; ?>" data-id="<?php echo $cat->id; ?>">
                     <div class="col-md-1"><?php echo $cat->id; ?></div>
-                    <div class="col-md-6"><?php echo $cat->title; ?></div>
-                    <div class="status col-md-4"><?php echo $cat->active ? 'Да' : 'Нет'; ?></div>
-                    <div class="status col-md-1">
+                    <div class="col-md-4"><?php echo $cat->title; ?></div>
+                    <span class="col-md-3"><?php echo $cat->link; ?></span>
+                    <div class="status col-md-2" data-id="<?php echo $cat->id; ?>"><?php echo $cat->active ? 'Да' : 'Нет'; ?></div>
+                    <div class="data col-md-1" data-id="<?php echo $cat->id; ?>">
                         <div class="btn-group-vertical">
                             <a href="<?php echo Url::toRoute(['price-section/edit', 'id' => $cat->id]); ?>" class="btn btn-default btn-xs" title="Редактировать"></a>
                             <a class="btn btn-primary btn-xs btn-activate mini" data-value="<?php echo $cat->active == 1 ? 0 : 1; ?>" data-id="<?= $cat->id; ?>" title="<?= $cat->active ? 'Деактивировать' : 'Активировать'; ?>">
@@ -60,7 +66,6 @@ $this->title = 'Разделы';
                 <?php } ?>
             </ul>
             <div class="data">
-                <div class="status col-md-9"><?php echo $category->active ? 'Да' : 'Нет'; ?></div>
                 <div class="btn-group-vertical">
                     <a href="<?php echo Url::toRoute(['price-section/edit', 'id' => $category->id]); ?>" class="btn btn-default btn-xs">Редактировать</a>
                     <a class="btn btn-primary btn-xs btn-activate" data-value="<?php echo $category->active == 1 ? 0 : 1; ?>" data-id="<?= $category->id; ?>">
@@ -90,8 +95,8 @@ $this->title = 'Разделы';
 
         $('.btn-activate').click(function () {
             var $this = $(this);
-            var value = $this.attr('data-value');
             var id = $this.data().id;
+            var value = $this.attr('data-value');
             $this.find('.progress').show();
             $.ajax({
                 url: '<?php echo Url::toRoute('price-section/active'); ?>',
@@ -102,42 +107,14 @@ $this->title = 'Разделы';
                     if (response.status == true) {
                         if (value == 1) {
                             $this.find('span').text('Деактивировать');
+                            $('.btn-activate.mini[data-id=' + id + ']').attr('title', 'Деактивировать');
                             $this.attr('data-value', 0);
-                            $this.closest('.data').find('.status').text('Да');
+                            $('.status[data-id=' + id + ']').text('Да');
                         } else {
                             $this.find('span').text('Активировать');
+                            $('.btn-activate.mini[data-id=' + id + ']').attr('title', 'Активировать');
                             $this.attr('data-value', 1);
-                            $this.closest('.data').find('.status').text('Нет');
-                        }
-                    }
-                    $this.find('.progress').hide();
-                },
-                error: function () {
-                    $this.find('.progress').hide();
-                }
-            });
-        });
-
-        $('.btn-activate.mini').click(function () {
-            var $this = $(this);
-            var value = $this.attr('data-value');
-            var id = $this.data().id;
-            $this.find('.progress').show();
-            $.ajax({
-                url: '<?php echo Url::toRoute('price-section/active'); ?>',
-                type: 'get',
-                dataType: 'json',
-                data: {id: id, value: value},
-                success: function (response) {
-                    if (response.status == true) {
-                        if (value == 1) {
-                            $this.attr('title', 'Деактивировать');
-                            $this.attr('data-value', 0);
-                            $this.closest('.status').prev('.status').text('Да');
-                        } else {
-                            $this.attr('title', 'Активировать');
-                            $this.attr('data-value', 1);
-                            $this.closest('.status').prev('.status').text('Нет');
+                            $('.status[data-id=' + id + ']').text('Нет');
                         }
                     }
                     $this.find('.progress').hide();
