@@ -61,9 +61,11 @@ $this->title = 'Контакты';
             <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
             <span>Напишите нам:</span>
             <?php $form = ActiveForm::begin([
-                'enableAjaxValidation' => true,
+                'enableAjaxValidation' => false,
                 'enableClientValidation' => true,
-                'id' => 'write-us',
+                'options' => [
+                    'id' => 'writeUs-form_submit_' . rand(1, 255),
+                ]
             ]);?>
             <?php echo $form->field($write, 'name', [
                 'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}</div>',

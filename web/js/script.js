@@ -177,8 +177,9 @@ $(document).ready(function() {
 
     //Закрыть (Напишите нам)
     $('.cooperation .form .close').click(function() {
-        $('.cooperation .form #writeusform-name').val($('.callback .form input[name="hide-name"]').val());
+        $('.cooperation .form #writeusform-name').val('');
         $('.cooperation .form #writeusform-phone').val('');
+        $('.cooperation .form #writeusform-email').val('');
         $('.cooperation .form #writeusform-message').val('');
         $('.cooperation .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.cooperation .form .success, .cooperation .form .close').css('display', 'none');
