@@ -155,7 +155,6 @@ $(document).ready(function() {
             url: 'site/contacts',
             dataType: 'json',
             method: 'post',
-            async: false,
             data: {
                 writeUsName: writeUsName,
                 writeUsPhone: writeUsPhone,
@@ -165,7 +164,7 @@ $(document).ready(function() {
             },
             success: function (response) {
                 if (response.status == true) {
-                    $('.cooperation .form .success, .callback .form .close').css('display', 'block');
+                    $('.cooperation .form .success, .cooperation .form .close').css('display', 'block');
                     $('.cooperation .form .success span').css('visibility', 'visible');
                     $('.cooperation .form .loading').css('display', 'none');
                     yaCounter39483720.reachGoal('writeUs');
@@ -175,6 +174,16 @@ $(document).ready(function() {
             }
         });
     };
+
+    //Закрыть (Напишите нам)
+    $('.cooperation .form .close').click(function() {
+        $('.cooperation .form #writeusform-name').val($('.callback .form input[name="hide-name"]').val());
+        $('.cooperation .form #writeusform-phone').val('');
+        $('.cooperation .form #writeusform-message').val('');
+        $('.cooperation .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
+        $('.cooperation .form .success, .cooperation .form .close').css('display', 'none');
+        $('.cooperation .form .success span').css('visibility', 'hidden');
+    });
 
     $('input').focus(function() {
         if ($(this).hasClass('error')) {
@@ -221,13 +230,4 @@ $(document).ready(function() {
         $('.call-master .form .success span').css('visibility', 'hidden')
     });
 
-    //Закрыть "спасибо заказ" (консультация)
-    $('.callback .form .close').click(function() {
-        $('.callback .form input[name="name"]').val($('.callback .form input[name="hide-name"]').val());
-        $('.callback .form input[name="phone"]').val('');
-        $('.callback .form textarea[name="message"]').val('');
-        $('.callback .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
-        $('.callback .form .success, .callback .form .close').css('display', 'none');
-        $('.callback .form .success span').css('visibility', 'hidden');
-    });
 });
