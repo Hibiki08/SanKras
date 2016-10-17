@@ -23,6 +23,7 @@ class OtherAsset extends AssetBundle
     public $js = [
         'js/jquery-2.1.4.min.js',
         'js/jquery-ui.min.js',
+        'js/map.js',
         'js/script.js',
     ];
     public $depends = [

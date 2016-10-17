@@ -97,7 +97,7 @@
              */
             else if (scrollHeight > windowHeight &&
                 (body.offsetHeight <= windowHeight ||
-                    html.offsetHeight <= windowHeight)) {
+                html.offsetHeight <= windowHeight)) {
                 root.style.height = "auto";
                 if (root.offsetHeight <= windowHeight) {
                     var underlay = document.createElement("div");

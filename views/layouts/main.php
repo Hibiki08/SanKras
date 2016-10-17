@@ -35,29 +35,35 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <!--start wrapper-->
-<div class="wrapper <?php echo $action == 'index' ? 'bg' : ''; ?>">
+<div class="wrapper">
     <!--start header-->
     <header id="header">
+        <div class="description">
+            <div class="width clear">
+                <h1>Монтаж отопления, канализации, водоснабжения <span>в Краснодаре</span></h1>
+                <div class="address">
+                    <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
+                    <address><?php echo Yii::$app->system->get('address'); ?></address>
+                </div>
+            </div>
+        </div>
         <div class="header width clear">
             <div class="logo">
-                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="/images/system/logo.png" alt="Логотип" title="лого"></a>
+                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
             </div>
-            <div class="description">
-                <h1><span>Монтаж отопления, канализации,<br></span> водоснабжения <span>в Краснодаре</span></h1>
-            </div>
-            <!--<nav id="main" class="menu" style="display: block;">
-               <ul>
+            <nav class="menu exo asphalt">
+                <ul>
                     <li><a href="<?php echo Yii::$app->homeUrl; ?>">Главная</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" <?php if ($action == 'prices') { ?>class="active"<?php } ?>>Цены</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" <?php if ($action == 'works') { ?>class="active"<?php } ?>>Наши работы</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" <?php if ($action == 'about') { ?>class="active"<?php } ?>>О нас</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" <?php if ($action == 'contacts') { ?>class="active"<?php } ?>>Контакты</a></li>
                 </ul>
-            </nav>-->
-            <div class="phone" id="phone">
-<!--                +7 <span class="red">(918)</span> 684 79 99-->
+            </nav>
+            <div class="phone exo" id="phone">
                 <?php echo Yii::$app->system->get('phone'); ?>
             </div>
-            <button class="pulse" id="callback">Заказать звонок</button>
+            <button class="pulse exo" id="callback">Заказать звонок</button>
         </div>
     </header>
     <!--end header-->
@@ -65,17 +71,72 @@ AppAsset::register($this);
         <?php echo $content; ?>
     </div>
     <!--start footer -->
-    <footer class="footer">
-        <div class="width clear">
-            <div class="metrika">
-                <!-- Yandex.Metrika informer -->
-                <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
-                   target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/39483720/3_0_607B99FF_405B79FF_1_pageviews"
-                                                       style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
-                <!-- /Yandex.Metrika informer -->
+    <footer class="footer clear">
+        <div class="width">
+            <div class="links clear">
+                    <div class="cell info">
+                        <div class="exo">Информация</div>
+                        <ul>
+                            <li><a href="">О нас</a></li>
+                            <li><a href="">Наши работы</a></li>
+                            <li><a href="">Отзывы</a></li>
+                            <li><a href="">Сертификаты</a></li>
+                            <li><a href="">Видео работ</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell usl">
+                        <div class="exo">Услуги</div>
+                        <ul>
+                            <li><a href="">Монтаж отопления</a></li>
+                            <li><a href="">Монтаж водоснабжения</a></li>
+                            <li><a href="">Монтаж водоотведения</a></li>
+                            <li><a href="">Установка санфаянса</a></li>
+                            <li><a href="">Обвязка котлов</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell price">
+                        <div class="exo">Цены</div>
+                        <ul>
+                            <li><a href="">Прайс-лист</a></li>
+                            <li><a href="">Пакеты услуг</a></li>
+                            <li><a href="">Рассчитать стоимость</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell soc">
+                        <a href="" class="ok"></a>
+                        <a href="" class="vk"></a>
+                        <a href="" class="facebook"></a>
+                        <a href="" class="youtube"></a>
+                    </div>
             </div>
-            <div class="site"><a href="https://vk.com/thishibiki" target="_blank">Разработка сайта</a></div>
-            <div>© 2016 «SanKras»</div>
+            <div class="cont clear">
+                <div>
+                    <div class="exo">Контакты</div>
+                    <div class="phone-number"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'phone-letter.png'; ?>" alt="Телефон"><?php echo Yii::$app->system->get('phone'); ?></div>
+                    <div class="skype"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'skype-letter.png'; ?>" alt="Skype"><?php echo Yii::$app->system->get('skype'); ?></div>
+                    <div class="email"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'mail-letter.png'; ?>" alt="Email"><a href="mailto:<?php echo Yii::$app->system->get('email'); ?>"><?php echo Yii::$app->system->get('email'); ?></a></div>
+                    <div class="time-work"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'work-letter.png'; ?>" alt="Режим работы">ежедневно с 8:00 до 21:00</div>
+                    <div class="address"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'addres-blue.png'; ?>" alt="Адрес"><?php echo Yii::$app->system->get('address'); ?></div>
+                </div>
+            </div>
+            <div class="sub-footer clear">
+                <div class="sub clear">
+                    <div class="metrika">
+                        <!-- Yandex.Metrika informer -->
+                        <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
+                           target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/39483720/3_0_607B99FF_405B79FF_1_pageviews"
+                                                               style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
+                        <!-- /Yandex.Metrika informer -->
+                    </div>
+                    <div class="copy">© 2016 «SanKras»</div>
+                    <div class="conf"><a href="">Политика конфиденциальности</a></div>
+                </div>
+                <div class="codedex clear">
+                    <div class="width">
+                        <div class="site"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'code-dex.png'; ?>" alt=""><a href="https://vk.com/thishibiki" target="_blank">Разработка сайта</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <!--end footer -->

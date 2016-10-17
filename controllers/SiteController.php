@@ -8,11 +8,12 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\forms\LoginForm;
-use app\models\forms\CardForm;
+use app\models\forms\WriteUsForm;
 use yii\helpers\Url;
 use app\models\Requests;
 use yii\helpers\Html;
 use yii\web\Response;
+use yii\widgets\ActiveForm;
 //use app\models\ContactForm;
 
 class SiteController extends Controller {
@@ -154,36 +155,38 @@ class SiteController extends Controller {
                     'status' => $status,
                 ];
             }
+        }
+        return $this->render('index');
+    }
 
-            $callbackName = Yii::$app->request->get('callbackName');
-            $callbackPhone = Yii::$app->request->get('callbackPhone');
-            $callbackMessage = Yii::$app->request->get('callbackMessage');
-            $callbackName = trim(Html::encode($callbackName));
-            $callbackPhone = trim(Html::encode($callbackPhone));
-            $callbackMessage = trim(Html::encode($callbackMessage));
+    public function actionContacts() {
+        $form = new WriteUsForm();
 
-            if ($callbackName) {
-                $status = false;
-                $request = new Requests();
-                $request->name = $callbackName;
-                $request->phone = $callbackPhone;
-                $request->text = $callbackMessage;
-                $request->type_id = 3;
-                $request->save();
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $writeName = Yii::$app->request->post('writeUsName');
+                $writePhone = Yii::$app->request->post('writeUsPhone');
+                $writeEmail = Yii::$app->request->post('writeUsEmail');
+                $writeMessage = Yii::$app->request->post('writeUsMessage');
 
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
+                $validate = Yii::$app->mailer->compose()
+                    ->setFrom($writeEmail)
                     ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Заявка на консультацию')
-                    ->setHtmlBody('Заявка на консультацию.<br>Имя: ' . $callbackName . '<br>Телефон: ' . $callbackPhone . '<br>Сообщение: ' . $callbackMessage)
+                    ->setSubject('Сообщение со страницы "Контакты"')
+                    ->setHtmlBody('Имя: ' . $writeName . '<br>Телефон: ' . $writePhone . '<br>Email: ' . $writeEmail . '<br>Сообщение: ' . $writeMessage)
                     ->send();
 
                 return [
-                    'status' => $status,
+                    'status' => $validate
                 ];
             }
         }
-        return $this->render('index');
+
+        return $this->render('contacts', [
+            'write' => $form
+        ]);
     }
 
 }
