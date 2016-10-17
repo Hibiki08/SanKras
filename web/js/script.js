@@ -6,6 +6,7 @@ $(document).ready(function() {
         focusVal = $(this).attr('placeholder');
         $(this).attr('placeholder', '');
     }).focusout(function() {
+        $(this).attr('placeholder', focusVal);
         if ($(this).val().length == 0) {
             $(this).attr('placeholder', focusVal);
         }
