@@ -1523,7 +1523,7 @@ a:hover {
     line-height: 1.5;
     display: block;
     text-align: center;
-    font-size: 19px;
+    font-size: 24px;
     font-family: 'Exo 2', sans-serif;
     text-transform: uppercase;
     font-weight: 300;
@@ -1637,7 +1637,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 .cooperation .form .success {
     position: absolute;
     text-align: center;
-    top: 160px;
+    top: 75px;
     right: 0;
     left: 0;
     display: none;
@@ -1649,9 +1649,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     margin-bottom: 50px;
 }
 .cooperation .form .success span:nth-of-type(2) {
-    font-size: 18px;
+    font-size: 21px;
     line-height: 1.5;
-    letter-spacing: 1px;
 }
 .cooperation .form .close {
     background: url("/images/system/close-form-callback.png") no-repeat;

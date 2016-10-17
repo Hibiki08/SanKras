@@ -92,8 +92,8 @@ $this->title = 'Контакты';
             <span>*обязательные поля; ваши данные не будут переданы третьим лицам </span>
             <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
             <div class="success">
-                <span>Благодарим вас за заявку!</span><br>
-                <span>Ваш заказ принят.<br>Мы свяжемся с Вами в течение<br>15 минут</span>
+                <span class="exo">Ваше сообщение<br>отправлено!</span><br>
+                <span>В ближайшее время<br>мы ответим Вам на почту или<br>перезвоним.</span>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
