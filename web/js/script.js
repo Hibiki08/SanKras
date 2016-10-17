@@ -12,6 +12,16 @@ $(document).ready(function() {
         }
     });
 
+    //Шапка
+    $(document).scroll(function() {
+        var scroll = $(window).scrollTop();
+        if (scroll > 0) {
+            $('#header .description').slideUp();
+        } else {
+            $('#header .description').slideDown();
+        }
+    });
+
     // Объект для которого будет применён эффект
     $(".pulse").click(function(e) {
         var ripple = $(this);
