@@ -55,14 +55,21 @@ class ModuleUrlRule extends UrlRule {
                 return false;
             }
         } else {
-            if (empty($url[0])) {
-                $route = 'site/index';
-            } else {
-                if (empty($url[1])) {
-                    $route = 'site/' . $url[0];
+            if (count($url) > 0) {
+                $pathToController = Yii::$app->basePath . '/controllers/' . $url[0] . 'controller.php';
+                if (count($url) == 1) {
+                    if (file_exists($pathToController)) {
+                        $route = $url[0] . '/index';
+                    } else {
+                        $route = 'site/' . $url[0];
+                    }
+                } elseif (count($url) == 2) {
+                    $route = $url[0] . '/' . $url[1];
                 } else {
                     return false;
                 }
+            } else {
+                $route = 'site/index';
             }
         }
         return [$route, $params];

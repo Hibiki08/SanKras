@@ -17,6 +17,7 @@ class EditPricesForm extends Model {
         return [
             [['title', 'price', 'unit', 'cat_id'], 'required'],
             [['title', 'unit', 'price'], 'filter', 'filter' => 'trim'],
+            [['price'], 'number'],
         ];
     }
 

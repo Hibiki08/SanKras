@@ -38,7 +38,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     <div class="form-group">
         <label class="col-lg-2"></label>
         <figure class="col-lg-10">
-            <img class="img-rounded" src="/<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . '/admin_' . $model->image; ?>">
+            <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . '/admin_' . $model->image; ?>">
         </figure>
     </div>
 <?php } ?>

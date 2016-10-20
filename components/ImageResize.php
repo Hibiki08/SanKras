@@ -15,8 +15,8 @@ class ImageResize {
 
     public function __construct($file, $from, $to, $width = '', $height = '', $prx = '') {
         $this->file = $file;
-        $this->from = Yii::$app->params['params']['pathToImage'] . $from;
-        $this->to = Yii::$app->params['params']['pathToImage'] . $to;
+        $this->from = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $from;
+        $this->to = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $to;
         $this->width = $width;
         $this->height = $height;
         $this->prx = $prx;

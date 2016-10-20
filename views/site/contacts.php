@@ -99,5 +99,4 @@ $this->title = 'Контакты';
         </div>
     </div>
 </section>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf-hsTgqnZkyUEnOtvyinarywEN1hDLMc&callback=initMap"></script>

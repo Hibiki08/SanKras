@@ -1,9 +1,4 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace app\assets;
 
@@ -19,7 +14,6 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         '/css/hibiki.slider.css',
-        '/lib/WOW-master/animate.css',
         'css/style.css',
         'css/media.css',
         'css/fonts.css',
@@ -28,7 +22,6 @@ class AppAsset extends AssetBundle
         'js/smoothscroll.js',
         'js/maskedinput.js',
         '/js/hibiki.slider.js',
-        '/lib/WOW-master/wow.js',
     ];
     public $depends = [
         'app\assets\OtherAsset'

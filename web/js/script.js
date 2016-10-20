@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('.phone-mask').mask("+7 (999) 999-99-99");
     var focusVal = '';
+    var documentScroll = '';
 
     $('.focus').focus(function() {
         focusVal = $(this).attr('placeholder');
@@ -12,14 +13,33 @@ $(document).ready(function() {
         }
     });
 
+    $(window).load(function() {
+        if (window.location.hash == '#calc') {
+            $('.price .tabs li').removeClass('active');
+            $('.price .tabs .calc').addClass('active');
+            $('.table table').addClass('calculater');
+            $('.sum').css('display', 'block');
+            sumPosition();
+        }
+    });
+
+    function headScroll() {
+        var scroll = $(window).scrollTop();
+        var description = $('#header .description');
+        if (scroll > 0) {
+            if (description.css('display') == 'block') {
+                description.slideUp();
+            }
+        } else {
+            if (description.css('display') == 'none') {
+                description.stop().slideDown();
+            }
+        }
+    }
+
     //Шапка
     $(document).scroll(function() {
-        var scroll = $(window).scrollTop();
-        if (scroll > 0) {
-            $('#header .description').slideUp();
-        } else {
-            $('#header .description').slideDown();
-        }
+        headScroll();
     });
 
     // Объект для которого будет применён эффект
@@ -242,4 +262,131 @@ $(document).ready(function() {
         $('.call-master .form .success span').css('visibility', 'hidden')
     });
 
+
+    //Правое меню
+    $('.price .nav-menu > ul > li > a').click(function() {
+        $('.price .nav-menu > ul li').removeClass('active');
+        var id = $(this).attr('href').slice(1);
+        $('.price .nav-menu > ul > li ul').stop().slideUp();
+        $(this).parent('li').addClass('active').find('ul').stop().slideToggle();
+        $('.price .table table').removeClass('active');
+        $('.price .table table#' + id ).addClass('active');
+        sumPosition();
+    });
+    $('.price .nav-menu > ul > li > ul a').click(function(e) {
+        e.preventDefault();
+        $('.price .nav-menu > ul li > ul li').removeClass('active');
+        $(this).parent('li').addClass('active');
+        var id = $(this).attr('href').slice(1);
+        var headerHeight = $('.header').innerHeight();
+        $('body, html').animate({
+            scrollTop: $('#' + id).offset().top - headerHeight
+        }, 700);
+    });
+
+    //Калькулятор
+    $('.calc').click(function() {
+        $('.price .tabs li').removeClass('active');
+        $(this).addClass('active');
+        $('.table table').addClass('calculater');
+        $('.sum').css('display', 'block');
+        sumPosition();
+    });
+
+    $('.table-number input').focus(function() {
+        var val = $(this).val();
+        if (val == 0) {
+            $(this).val('');
+        }
+    }).focusout(function() {
+        var val = $(this).val();
+        if (val == '') {
+            $(this).val(0);
+        }
+    }).keyup(function() {
+        var val = parseInt($(this).val());
+        val = isNaN(val) ? '' : val;
+        $(this).val(val);
+        var price = parseInt($(this).parents('tr').find('.table-price').text());
+        val = val == '' ? 0 : val;
+        var cost = val * price;
+        $(this).parents('tr').find('.table-cost').text(cost);
+        cost = 0;
+        $('.table table .table-cost').each(function() {
+            cost += isNaN(parseInt($(this).text())) ? 0 : parseInt($(this).text());
+            $('.sum .result .res').html(cost);
+        });
+
+        var data = {};
+        var print = false;
+        $('.table-number').each(function() {
+            if ($(this).find('input').val() != 0) {
+                print = true;
+                data[$(this).data('id')] = {
+                    id : $(this).data('id'),
+                    tableNumber : $(this).find('input').val(),
+                    tableCost : $(this).parents('tr').find('.table-cost').text()
+                };
+            }
+        });
+
+        if (print) {
+            document.cookie = 'data_print=' + JSON.stringify(data);
+        }
+    });
+
+    //Очистить всё
+    $('.reset').click(function() {
+        $('.table-number input').val(0);
+        $('.table-cost.hidden').text(0);
+        $('.sum .result .res').text(0);
+        var date = new Date();
+        date.setMinutes(23-date.getMinutes());
+        document.cookie = 'data_print=';
+    });
+
+    //Вверх
+    $('.price .up').click(function() {
+        $('body, html').animate({
+            scrollTop: 0
+        }, 300);
+    });
+
 });
+
+//Панель с итогом у Калькулятора
+function sumPosition() {
+    var table = $('.price table.active');
+    var sum = $('.sum');
+    var documentScroll = $(window).scrollTop() + $(window).height() - sum.height();
+    var heightTable = table.height();
+    var limitTable = table.offset().top + heightTable;
+    if (documentScroll < limitTable) {
+        sum.css('position', 'fixed');
+    } else {
+        sum.css('position', 'relative');
+    }
+}
+
+//Кнопка вверх
+function buttonUp() {
+    var menu = $('.price .nav-menu');
+    var button = $('.price .up');
+    var footer = $('footer');
+    var heightMenu = menu.height();
+    var limitMenu = menu.offset().top + heightMenu;
+    var documentScroll = $(window).scrollTop() + $(window).height() - button.height() - 380 - 40;
+    var limitFooter = footer.offset().top;
+
+    if (documentScroll > limitMenu) {
+        button.css({
+            display: 'block'
+            //right: 'inherit'
+        })
+    } else {
+        button.css({
+            display: 'none'
+            //right: '-50%'
+        })
+    }
+}

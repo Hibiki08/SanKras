@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.clear {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+.width {
+    width: 1070px;
+    margin: 0 auto;
+}
+.header {
+    margin-top: 15px;
+    border-bottom: 1px solid #000;
+}
+.header .logo {
+    margin-top: 25px;
+    float: left;
+}
+.header .adress {
+    text-align: right;
+    font-size: 23px;
+    float: right;
+    line-height: 1.3;
+}
+.header .adress span {
+    text-decoration: underline;
+}
+.print-list {
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+    background: url('/images/system/printer.png') no-repeat;
+    background-size: 100% auto;
+    width: 100px;
+    height: 100px;
+}
+.content {
+    margin-top: 90px;
+}
+.content h1 {
+    font-family: 'Timas New Roman', serif;
+    font-size: 33px;
+    margin-bottom: 65px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.strings {
+    font-family: 'Timas New Roman', serif;
+    font-size: 28px;
+    margin-bottom: 63px;
+}
+.strings .name, .strings .write, .strings .line {
+    display: inline-block;
+}
+.strings .name {
+    padding-right: 7px;
+    position: relative;
+    background: white;
+    z-index: 1;
+}
+.strings .line:not(:first-of-type) {
+    top: -30px;
+}
+.strings .line {
+    border-bottom: 1px solid #000;
+    background: black;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    top: -30px;
+}
+table {
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #000;
+}
+.title:first-of-type {
+    width: 675px;
+}
+table td {
+    padding: 5px 10px;
+    font-size: 21px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+table tr td:not(:first-of-type) {
+    text-align: right;
+}
+table tr td:nth-of-type(3) {
+    text-align: left;
+}
+table tr td.title {
+    padding: 0 10px;
+    vertical-align: middle;
+    height: 75px;
+    text-align: center;
+    font-weight: bold;
+}
+.title.quantity {
+    width: 80px;
+}
+.title.unit, .title.price {
+    width: 95px;
+}
+.title.cost {
+    width: 110px;
+}
+.res {
+    font-family: 'Timas New Roman', serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 100px;
+}
+.strings {
+    font-family: 'Timas New Roman', serif;
+    font-size: 28px;
+    margin-bottom: 63px;
+}
+.signature {
+    width: 510px;
+}
+.string:not(:first-of-type) {
+    margin-top: -10px;
+}
+.strings .write {
+    top: -67px;
+    font-size: 20px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    text-align: right;
+}
+.strings .write span {
+    display: inline-block;
+    background: #fff;
+}

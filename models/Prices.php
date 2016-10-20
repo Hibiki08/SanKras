@@ -9,7 +9,8 @@ use app\models\PricesCat;
 class Prices extends AbstractModel {
 
     public function getCategory() {
-        return $this->hasOne(PricesCat::className(), ['id' => 'cat_id']);
+        return $this->hasOne(PricesCat::className(), ['id' => 'cat_id'])
+            ->joinWith('parentCat');
     }
 
     public function getAllCat($order = ['id' => SORT_ASC], $request = true) {

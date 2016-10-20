@@ -113,8 +113,14 @@ class SliderbottomController extends AdminController {
             $id = (int)Yii::$app->request->getQueryParams()['id'];
 
             $slides = Slides::findOne($id);
-            if ($slides->delete() !== false) {
-                $response = true;
+            $image = '';
+            if ($slides) {
+                $image = $slides->image;
+                if ($slides->delete() !== false) {
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . 'admin_' . $image);
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . $image);
+                    $response = true;
+                }
             }
 
             Yii::$app->response->format = Response::FORMAT_JSON;

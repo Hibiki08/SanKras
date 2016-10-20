@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\PricesCat;
 use Yii;
+use yii\web\View;
 use app\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -14,6 +16,7 @@ use app\models\Requests;
 use yii\helpers\Html;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
+use app\models\Prices;
 //use app\models\ContactForm;
 
 class SiteController extends Controller {
@@ -160,6 +163,7 @@ class SiteController extends Controller {
     }
 
     public function actionContacts() {
+        $this->view->registerJsFile('/js/map.js', ['position' => View::POS_HEAD]);
         $form = new WriteUsForm();
 
         if (Yii::$app->request->isAjax) {
@@ -186,6 +190,12 @@ class SiteController extends Controller {
 
         return $this->render('contacts', [
             'write' => $form
+        ]);
+    }
+
+    public function actionRates() {
+        return $this->render('rates', [
+//            'write' => $form
         ]);
     }
 

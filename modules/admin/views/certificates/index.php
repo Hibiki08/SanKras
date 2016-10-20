@@ -41,7 +41,7 @@ $this->title = 'Список';
             <?php foreach ($certificates as $certificate) { ?>
                 <tr data-sort="<?php echo $certificate->sort; ?>" data-id="<?php echo $certificate->id; ?>">
                     <td><?php echo $certificate->id; ?></td>
-                    <td><img src="/<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . 'mini_' . $certificate->img; ?>"></td>
+                    <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . 'mini_' . $certificate->img; ?>"></td>
                     <td class="status"><?php echo $certificate->active ? 'Да' : 'Нет'; ?></td>
                     <td>
                         <div class="btn-group-vertical">

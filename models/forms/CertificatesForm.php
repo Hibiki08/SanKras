@@ -20,7 +20,7 @@ class CertificatesForm extends Model {
         if (isset($this->img->name) && !is_null($this->img->name)) {
             $translate = new Translate();
             $this->img->name = $translate->translate($this->img->name);
-            if ($this->img->saveAs(Yii::$app->params['params']['pathToImage'] . $path . $this->img->name)) {
+            if ($this->img->saveAs(Yii::$app->basePath . '/web' .  Yii::$app->params['params']['pathToImage'] . $path . $this->img->name)) {
                 return true;
             }
         }
