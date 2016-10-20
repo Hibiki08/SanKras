@@ -56,7 +56,7 @@ class ModuleUrlRule extends UrlRule {
             }
         } else {
             if (count($url) > 0) {
-                $pathToController = Yii::$app->basePath . '/controllers/' . $url[0] . 'controller.php';
+                $pathToController = Yii::$app->basePath . '/controllers/' . ucfirst($url[0]) . 'Controller.php';
                 if (count($url) == 1) {
                     if (file_exists($pathToController)) {
                         $route = $url[0] . '/index';
