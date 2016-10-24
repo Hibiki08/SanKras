@@ -45,12 +45,6 @@ $this->title = $work->title;
                                 <br><span>Время выполнения — <?php echo $work->time; ?></span>
                             <?php } ?>
                         </div>
-<!--                        --><?php //if ($prev && $next != null) { ?>
-<!--                            <div class="prev-next">-->
-<!--                                <a href="--><?php //echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $prev]); ?><!--" class="prev exo"><img src="--><?php //echo Yii::$app->params['params']['pathToImageSystem'] . 'work-prev.png'; ?><!--" alt="prev">Предыдущая работы</a>-->
-<!--                                <a href="--><?php //echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $next]); ?><!--" class="next exo">Следующая работа<img src="--><?php //echo Yii::$app->params['params']['pathToImageSystem'] . 'work-next.png'; ?><!--" alt="next"></a>-->
-<!--                            </div>-->
-<!--                        --><?php //} ?>
                     </div>
                     <?php if ($prev && $next != null) { ?>
                         <div class="prev-next">

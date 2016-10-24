@@ -11,12 +11,12 @@ class PrintAsset extends AssetBundle
         '/css/print.css',
     ];
     public $js = [
-        'js/jquery-2.1.4.min.js',
     ];
     public $depends = [
-
+        'yii\web\JqueryAsset'
     ];
     public $jsOptions = [
         'position' => \yii\web\View::POS_HEAD
     ];
+
 }

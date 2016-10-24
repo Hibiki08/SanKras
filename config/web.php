@@ -14,7 +14,10 @@ $config = [
     'components' => [
         'assetManager' => [
             'bundles' => [
-                'yii\web\JqueryAsset' => false, //отключаем генерацию по умолчанию JQuery
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'js' => ['/js/jquery-2.1.4.min.js'] // тут путь до Вашего экземпляра jquery
+                ],
             ],
         ],
         'system' => [
