@@ -13,11 +13,15 @@ class Prices extends AbstractModel {
             ->joinWith('parentCat');
     }
 
-    public function getAllCat($order = ['id' => SORT_ASC], $request = true) {
+    public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {
         $query = Prices::find()
             ->joinWith('category')
             ->orderBy($order)
             ->alias('t');
+
+        if ($where) {
+            $query->where($where);
+        }
 
         if ($request) {
             return $query->all();

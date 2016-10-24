@@ -71,7 +71,7 @@
     cursor: pointer;
     right: 0;
     background: url('images/18.png') no-repeat center center;
-    background-size:  auto 100%;
+    background-size: 100% auto;
 }
 .checkWrapper {
     width: 100%;

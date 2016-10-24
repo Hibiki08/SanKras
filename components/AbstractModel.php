@@ -97,7 +97,7 @@ abstract class AbstractModel extends ActiveRecord {
         }
     }
 
-    public function filter($object, $options) {
+    public function filter($object, $options = []) {
         if (!empty($options)) {
             if (count($options) > 1) {
                 foreach ($options as $key => $value) {

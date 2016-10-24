@@ -12,6 +12,11 @@ $config = [
     'timezone' => 'Europe/Moscow',
     'bootstrap' => ['log'],
     'components' => [
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => false, //отключаем генерацию по умолчанию JQuery
+            ],
+        ],
         'system' => [
             'class' => 'app\components\SystemComponent'
         ],

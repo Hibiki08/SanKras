@@ -7,7 +7,7 @@ $this->title = 'Прайс-лист';
             <ul>
                 <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>">Прайс-лист</a></li>
                 <li class="exo asphalt calc"><a href="/prices#calc">Рассчитать стоимость</a></li>
-                <li class="exo asphalt" ><a href="<?php echo Yii::$app->urlManager->createUrl('rates'); ?>">Пакеты услуг</a></li>
+                <li class="exo asphalt" ><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
             </ul>
         </div>
         <section class="price-list clear">

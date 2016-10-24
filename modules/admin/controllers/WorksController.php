@@ -19,27 +19,19 @@ class WorksController extends AdminController {
     public function actionIndex() {
         $status = false;
         $works = new Works();
-        $query = $works->getAllCat(['works.id' => SORT_ASC], false);
+        $query = $works->getAllCat(false, ['works.id' => SORT_DESC], false);
 
         $cat = new WorksCat();
         $subCat = [];
 
         $catId = Yii::$app->request->getQueryParam('cat_id') ? Yii::$app->request->getQueryParam('cat_id') : false;
-        $subId = Yii::$app->request->getQueryParam('sub_id') ? Yii::$app->request->getQueryParam('sub_id') : false;
 
         if ($catId) {
-            $items = $cat->findByColumn([['parent_id' => $catId], ['active' => 1]], 'and');
-            foreach ($items as $item) {
-                $subCat[$item->id] = $item->title;
-            }
-            $status = true;
-        }
-
-        if ($subId) {
-            $items = $works->filter($query, ['cat_id' => $subId]);
+            $items = $works->filter($query, ['cat_id' => $catId]);
         } else {
             $items = $works->filter($query, []);
         }
+
 
         $categories = $cat->findByColumn(['parent_id' => null]);
         foreach ($categories as $item) {
@@ -67,7 +59,6 @@ class WorksController extends AdminController {
             'subCat' => $subCat,
             'pager' => $pager,
             'catId' => $catId,
-            'subId' => $subId
         ]);
     }
 
@@ -81,14 +72,12 @@ class WorksController extends AdminController {
         $worksCat = new WorksCat();
         $image = new WorksSlides();
         $slides = $id ? $image->findAll(['work_id' => $id]) : new WorksSlides();
-        $model = $id ? $works->findOne(['id' => $id]) : new Works();
+        $model = $id ? $works->getAllCat(['works.id' => $id])[0] : new Works();
 
         if (!empty($model)) {
-            $categories = $worksCat->getAllCat('cat.parent_id IS NOT NULL', true, ['cat.id' => SORT_ASC]);
+            $categories = $works->getAllCat();
             foreach ($categories as $item) {
-                if ($item->parent_id == $item->category->id) {
-                    $parentCat[$item->category->title][$item->id] = $item->title;
-                }
+                $parentCat[$item->category->id] = $item->category->title;
             }
 
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
@@ -103,36 +92,76 @@ class WorksController extends AdminController {
                 }
 
                 if (empty($errors)) {
-                    if ($form->upload(Works::IMG_FOLDER, $form->preview)) {
-                        $resize = new ImageResize($form->preview->name, Works::IMG_FOLDER, Works::IMG_FOLDER, 172, '', 'mini');
-                        $resize->resize();
+                    $previewItems = [];
+                    $workItems = [];
+
+                    $items = explode(',', $form->preview_items);
+                    foreach ($items as $item) {
+                        if (!empty($item)) {
+                            $previewItems[] = trim($item);
+                        } else {
+                            continue;
+                        }
                     }
-                    $model->title = Yii::$app->request->post('EditWorksForm')['title'];
-                    $model->text = Yii::$app->request->post('EditWorksForm')['text'];
-                    $model->place = Yii::$app->request->post('EditWorksForm')['place'];
+                    $previewItems = implode(",\n", $previewItems);
+
+                    $items = explode(',', $form->work_items);
+                    foreach ($items as $item) {
+                        if (!empty($item)) {
+                            $workItems[] = trim($item);
+                        } else {
+                            continue;
+                        }
+                    }
+                    $workItems = implode(",\n", $workItems);
+
+                    $model->title = $form->title;
+                    $model->text = $form->text;
+                    $model->cat_id = $form->cat_id;
+                    $model->year = $form->year;
+                    $model->area = $form->area;
+                    $model->cost_install = $form->cost_install;
+                    $model->cost_material = $form->cost_material;
+                    $model->time = !empty($form->time) ? $form->time : null;
+                    $model->video = !empty($form->video) ? $form->video : null;
+                    $model->preview_items = $previewItems;
+                    $model->work_items = $workItems;
                     $model->preview = !empty($form->preview->name) ? $form->preview->name : Yii::$app->request->post('EditWorksForm')['hidden'];
                     $model->preview_text = isset(Yii::$app->request->post('EditWorksForm')['preview_text']) ?
                         Yii::$app->request->post('EditWorksForm')['preview_text'] : null;
-                    $model->cat_id = Yii::$app->request->post('EditWorksForm')['cat_id'];
                     $model->active = isset(Yii::$app->request->post('EditWorksForm')['active']) ? 1 : 0;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
-                    if (!empty($form->slides)) {
-                        $images = [];
-                        $i = 0;
-                        foreach ($form->slides as $slide) {
-                            if ($form->upload(Works::IMG_FOLDER, $slide)) {
-                                $resize = new ImageResize($slide->name, Works::IMG_FOLDER, Works::IMG_FOLDER, 172, '', 'mini');
-                                $resize->resize();
+                    $path = Works::IMG_FOLDER . 'work(' . $id . ')/';
+                    $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
 
-                                $images[$i]['slide'] = $slide->name;
-                                $images[$i]['work_id'] = $id;
-                                ++$i;
-                            }
+                    if ($create) {
+                        if ($form->upload($path, $form->preview)) {
+                            $resizeAdminPrev = new ImageResize($form->preview->name, $path, $path, 172, '', 'mini_prev');
+                            $resizeAdminPrev->resize();
+                            $resizePrev = new ImageResize($form->preview->name, $path, $path, 370, '', 'prev');
+                            $resizePrev->resize();
                         }
 
-                        $image->insertData(WorksSlides::tableName(), $images);
+                        if (!empty($form->slides)) {
+                            $images = [];
+                            $i = 0;
+                            foreach ($form->slides as $slide) {
+                                if ($form->upload($path, $slide)) {
+                                    $resizeAdminPrev = new ImageResize($slide->name, $path, $path, 172, '', 'mini');
+                                    $resizeAdminPrev->resize();
+                                    $resizeSlider = new ImageResize($slide->name, $path, $path, 225, '', 'mini_slider');
+                                    $resizeSlider->resize();
+
+                                    $images[$i]['slide'] = $slide->name;
+                                    $images[$i]['work_id'] = $id;
+                                    ++$i;
+                                }
+                            }
+
+                            $image->insertData(WorksSlides::tableName(), $images);
+                        }
                     }
 
                     if (isset(Yii::$app->request->post('EditWorksForm')['slide'])) {
@@ -174,7 +203,12 @@ class WorksController extends AdminController {
             }
             if ($slide_id) {
                 $slide = WorksSlides::findOne($slide_id);
+                $path = Works::IMG_FOLDER . 'work(' . $slide->work_id . ')/';
+                $slideName = $slide->slide;
                 if ($slide->delete() !== false) {
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $slideName);
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $slideName);
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $slideName);
                     $response = true;
                 }
             }
@@ -215,10 +249,17 @@ class WorksController extends AdminController {
             $id = (int)Yii::$app->request->getQueryParams()['id'];
 
             $slides = Works::findOne($id);
+            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $id . ')/';
             if ($slides->delete() !== false) {
                 $slide = WorksSlides::findAll(['work_id' => $id]);
                 if ($slide) {
                     WorksSlides::deleteAll(['work_id' => $id]);
+                    if ($objs = glob($path . "/*")) {
+                        foreach($objs as $obj) {
+                            unlink($obj);
+                        }
+                        rmdir($path);
+                    }
                 }
                 $response = true;
             }

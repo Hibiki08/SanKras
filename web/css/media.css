@@ -142,29 +142,6 @@
     .why .clear > div h3 {
         font-size: 15px;
     }
-    .work .Blockswrapper .wrap img,
-    .work .Blockswrapper .wrap,
-    .work .Blockswrapper,
-    .work .sliderWrapper,
-    .work .wrapArrows,
-    .work {
-        width: 450px !important;
-    }
-    .works h3 {
-        font-size: 17px;
-        margin-bottom: 20px;
-        margin-top: 0;
-    }
-    .works .w1 .work {
-        margin-right: 30px;
-    }
-    .works .w2 .work {
-        margin-top: 30px;
-        max-height: 337px;
-    }
-    .works .w2 h3 {
-        margin-top: 25px;
-    }
     .reviews .review .block .text {
         width: 370px;
     }

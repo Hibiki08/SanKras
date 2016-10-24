@@ -16,7 +16,7 @@ class PricesController extends AdminController {
     public function actionIndex() {
         $status = false;
         $options = new Prices();
-        $query = $options->getAllCat(['t.sort' => SORT_ASC], false);
+        $query = $options->getAllCat(false, ['t.sort' => SORT_ASC], false);
 
         $cat = new PricesCat();
         $subCat = [];

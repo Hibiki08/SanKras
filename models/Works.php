@@ -14,20 +14,23 @@ class Works extends AbstractModel {
     }
 
     public function getCategory() {
-        return $this->hasOne(WorksCat::className(), ['id' => 'cat_id'])->alias('sub_cat');
+        return $this->hasOne(WorksCat::className(), ['id' => 'cat_id'])->alias('cat');
     }
 
-    public function getAllCategory() {
-        return $this->hasOne(WorksCat::className(), ['id' => 'parent_id'])
-            ->via('category')
-            ->alias('parent_cat');
-    }
+//    public function getAllCategory() {
+//        return $this->hasOne(WorksCat::className(), ['id' => 'parent_id'])
+//            ->via('category')
+//            ->alias('parent_cat');
+//    }
 
-    public function getAllCat($order = ['id' => SORT_ASC], $request = true) {
+    public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {
         $query = Works::find()
-            ->joinWith('allCategory')
+            ->joinWith('category')
             ->orderBy($order)
             ->alias('works');
+        if ($where) {
+            $query->where($where);
+        }
 
         if ($request) {
             return $query->all();

@@ -53,10 +53,10 @@ class AdminMenu extends Widget {
         [
             'name' => 'Работы',
             'submenu' => [
-                [
-                    'name' => 'Разделы',
-                    'controller' => 'works-section'
-                ],
+//                [
+//                    'name' => 'Разделы',
+//                    'controller' => 'works-section'
+//                ],
                 [
                     'name' => 'Список',
                     'controller' => 'works'

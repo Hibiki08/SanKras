@@ -5,14 +5,12 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\Prices;
-use yii\web\Session;
-
 
 class PricesController extends Controller {
 
     public function actionIndex() {
             $prices = new Prices();
-            $prices = $prices->getAllCat(['t.sort' => SORT_ASC]);
+            $prices = $prices->getAllCat(['t.active' => 1], ['t.sort' => SORT_ASC]);
             $pricesArr = [];
             $catsArr = [];
             foreach ($prices as $price) {
@@ -74,6 +72,10 @@ class PricesController extends Controller {
         return $this->render('print', [
             'data' => $table_data,
         ]);
+    }
+
+    public function actionRates() {
+        return $this->render('rates');
     }
 
 }

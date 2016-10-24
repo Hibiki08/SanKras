@@ -37,11 +37,14 @@
             //Размер слайдера
             function sliderSize() {
                 HbKSlider = thisElement.width();
+                if (options.imageSize) {
+                    HbKSlider = options.imageSize * options.sliderSize;
+                }
                 sliderWrapperWidth = HbKSlider;
 
                 if (options.navigationArrows == true) {
                     var sliderArrows = thisElement.find('.sliderArrows');
-                    var sliderArrowsPerc =  sliderArrows.width() * 100 / thisElement.width();
+                    var sliderArrowsPerc =  sliderArrows.width() * 100 / HbKSlider;
                     var sliderWrapperWidtPerc = 100 - sliderArrowsPerc;
                     sliderWrapperWidth = thisElement.find('.sliderWrapper').width(sliderWrapperWidtPerc + '%').width();
                 }

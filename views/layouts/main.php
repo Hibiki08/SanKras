@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+$controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
 
 AppAsset::register($this);
@@ -54,10 +55,10 @@ AppAsset::register($this);
             <nav class="menu exo asphalt">
                 <ul>
                     <li><a href="<?php echo Yii::$app->homeUrl; ?>">Главная</a></li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" <?php if ($action == 'prices') { ?>class="active"<?php } ?>>Цены</a></li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" <?php if ($action == 'works') { ?>class="active"<?php } ?>>Наши работы</a></li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" <?php if ($action == 'about') { ?>class="active"<?php } ?>>О нас</a></li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" <?php if ($action == 'contacts') { ?>class="active"<?php } ?>>Контакты</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" class="<?php echo $controller == 'prices' ? 'active' : $action == 'prices' ? 'active' : ''; ?>">Цены</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" class="<?php echo $controller == 'works' ? 'active' : $action == 'works' ? 'active' : ''; ?>">Наши работы</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" class="<?php echo $controller == 'about' ? 'active' : $action == 'about' ? 'active' : ''; ?>">О нас</a></li>
+                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="<?php echo $controller == 'contacts' ? 'active' : $action == 'contacts' ? 'active' : ''; ?>">Контакты</a></li>
                 </ul>
             </nav>
             <div class="phone exo" id="phone">

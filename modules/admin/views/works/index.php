@@ -12,14 +12,9 @@ $this->title = 'Список';
 </div>
 <?php echo Html::beginForm(['works/index'], 'get', ['data-pjax' => 1, 'class' => 'form-inline', 'id' => 'filter']); ?>
 <?php echo Html::dropDownList('cat_id', null, $categories, [
-    'prompt' => 'Главный раздел',
+    'prompt' => 'Все',
     'class' => 'form-control',
     'options' => [$catId => ['selected ' => true]]
-]); ?>
-<?php echo Html::dropDownList('sub_id', null, $subCat, [
-    'prompt' => '-----',
-    'class' => 'form-control',
-    'options' => [$subId => ['selected ' => true]]
 ]); ?>
 <button type="button" class="btn btn-danger" id="reset">Сбросить</button>
 <?php echo Html::endForm(); ?>
@@ -34,8 +29,7 @@ $this->title = 'Список';
             <th>Название</th>
             <th>Превью</th>
             <th>Раздел</th>
-            <th>Главный раздел</th>
-            <th>Местоположение</th>
+            <th>Видео</th>
             <th>Активность</th>
             <th></th>
         </tr>
@@ -44,10 +38,9 @@ $this->title = 'Список';
             <tr>
                 <td><?php echo $work->id; ?></td>
                 <td><?php echo $work->title; ?></td>
-                <td><img src="/<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/mini_' . $work->preview; ?>"></td>
+                <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' .  $work->id . ')/mini_prev_' . $work->preview; ?>"></td>
                 <td><?php echo isset($work->category->title) ? $work->category->title : ''; ?></td>
-                <td><?php echo isset($work->allCategory->title)? $work->allCategory->title : ''; ?></td>
-                <td><?php echo $work->place; ?></td>
+                <td><?php echo !empty($work->video) ? 'Да' : 'Нет'; ?></td>
                 <td class="status"><?php echo $work->active ? 'Да' : 'Нет'; ?></td>
                 <td>
                     <div class="btn-group-vertical">
@@ -88,43 +81,15 @@ $this->title = 'Список';
         });
 
         $('select.form-control[name=cat_id]').change(function() {
-            var $this = $(this);
-            $('select.form-control[name=sub_id]').html('<option>-----</option>');
-            if ($this.val() > 0) {
-                $.ajax({
-                    url: '<?php echo Url::toRoute('works/index'); ?>',
-                    type: 'get',
-                    dataType: 'json',
-                    data: {cat_id: $this.val()},
-                    success: function (response) {
-                        if (response.status == true) {
-                            if (Object.keys(response.subCat).length > 0) {
-                                var html = '<option>Все</option>';
-                                for (var i in response.subCat) {
-                                    html += '<option value="' + i + '">' + response.subCat[i] + '</option>';
-                                }
-
-                                $('select.form-control[name=sub_id]').html(html);
-                            }
-                        }
-                        else {
-                            $('select.form-control[name=sub_id]').html('<option>-----</option>');
-                        }
-                    },
-                    error: function () {
-                    }
-                });
-            } else {
+            if ($(this).val() == '') {
                 window.location.search='';
+            } else {
+                $('#filter').submit();
             }
         });
 
-        $('select.form-control[name=sub_id]').change(function() {
-            $('#filter').submit();
-        });
         $('#reset').click(function() {
             window.location.search='';
         });
-
-    });
+});
 </script>
