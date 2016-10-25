@@ -70,6 +70,7 @@ class SiteController extends Controller {
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
 
+            ///Консультация мастера
             $adviceName = Yii::$app->request->post('adviceName');
             $advicePhone = Yii::$app->request->post('advicePhone');
 
@@ -93,6 +94,7 @@ class SiteController extends Controller {
                 ];
             }
 
+            //Обратный звонок
             $callPhone = Yii::$app->request->post('callPhone');
             $callPhone = trim(Html::encode($callPhone));
 
@@ -115,6 +117,7 @@ class SiteController extends Controller {
                     ];
             }
 
+            //Дисконтная карта
             $cardMail = Yii::$app->request->post('cardMail');
             $cardMail = trim(Html::encode($cardMail));
 
@@ -154,6 +157,7 @@ class SiteController extends Controller {
                 ];
             }
 
+            //Вызвать мастера
             $masterName = Yii::$app->request->post('masterName');
             $masterPhone = Yii::$app->request->post('masterPhone');
             $masterName = trim(Html::encode($masterName));

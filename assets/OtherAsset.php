@@ -17,6 +17,7 @@ class OtherAsset extends AssetBundle
         'js/script.js',
     ];
     public $depends = [
+        'yii\web\YiiAsset',
         'yii\web\JqueryAsset'
     ];
     public $jsOptions = [
