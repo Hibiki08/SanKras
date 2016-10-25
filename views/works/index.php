@@ -3,6 +3,7 @@ use yii\widgets\LinkPager;
 use app\models\Works;
 
 $this->title = 'Наши работы';
+$group = Yii::$app->request->get('group');
 ?>
 <section class="works" id="works">
     <div class="width">
@@ -10,9 +11,9 @@ $this->title = 'Наши работы';
             <h2 class="title exo asphalt">Наши работы</h2>
             <div class="tabs">
                 <ul>
-                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'all']); ?>">Все работы</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
+                    <li class="exo asphalt <?php echo empty($group) || $group == 'all' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'all']); ?>">Все работы</a></li>
+                    <li class="exo asphalt <?php echo $group == 'house' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
+                    <li class="exo asphalt <?php echo $group == 'flat' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
                     <li class="exo asphalt" ><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео</a></li>
                 </ul>
             </div>

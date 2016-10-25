@@ -2,13 +2,9 @@
 
 namespace app\controllers;
 
-use app\models\PricesCat;
 use Yii;
 use yii\web\View;
-use app\models\User;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
 use app\models\forms\LoginForm;
 use app\models\forms\WriteUsForm;
 use yii\helpers\Url;
@@ -16,8 +12,7 @@ use app\models\Requests;
 use yii\helpers\Html;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
-use app\models\Prices;
-//use app\models\ContactForm;
+use app\models\Works;
 
 class SiteController extends Controller {
 //    public function behaviors() {
@@ -70,10 +65,35 @@ class SiteController extends Controller {
     }
 
     public function actionIndex() {
+        $works = Works::find()->where(['active' => 1])->orderBy('id')->limit(3)->all();
+
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
 
-            $callPhone = Yii::$app->request->get('callPhone');
+            $adviceName = Yii::$app->request->post('adviceName');
+            $advicePhone = Yii::$app->request->post('advicePhone');
+
+            if ($advicePhone && $adviceName) {
+                $status = false;
+                $request = new Requests();
+                $request->name = $adviceName;
+                $request->phone = $advicePhone;
+                $request->type_id = 3;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Заявка на консультацию мастера')
+                    ->setHtmlBody('Заявка на консультацию мастера.<br>Имя: ' . $adviceName .'<br>Телефон: ' . $advicePhone)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+
+            $callPhone = Yii::$app->request->post('callPhone');
             $callPhone = trim(Html::encode($callPhone));
 
             if ($callPhone) {
@@ -95,7 +115,7 @@ class SiteController extends Controller {
                     ];
             }
 
-            $cardMail = Yii::$app->request->get('cardMail');
+            $cardMail = Yii::$app->request->post('cardMail');
             $cardMail = trim(Html::encode($cardMail));
 
             if ($cardMail) {
@@ -134,8 +154,8 @@ class SiteController extends Controller {
                 ];
             }
 
-            $masterName = Yii::$app->request->get('masterName');
-            $masterPhone = Yii::$app->request->get('masterPhone');
+            $masterName = Yii::$app->request->post('masterName');
+            $masterPhone = Yii::$app->request->post('masterPhone');
             $masterName = trim(Html::encode($masterName));
             $masterPhone = trim(Html::encode($masterPhone));
 
@@ -159,7 +179,9 @@ class SiteController extends Controller {
                 ];
             }
         }
-        return $this->render('index');
+        return $this->render('index', [
+            'works' => $works
+        ]);
     }
 
     public function actionContacts() {

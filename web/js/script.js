@@ -70,7 +70,7 @@ $(document).ready(function() {
         var hiddenMail = $(this).parents('.field').find('input[type=hidden]').val();
 
         if (cardMail == hiddenMail) {
-            $(this).parents('.field').find('input[name=email]').addClass('error');
+            $(this).parents('.field').find('input[name=email]').addClass('has-error');
             return false;
         }
 
@@ -79,9 +79,12 @@ $(document).ready(function() {
 
         $.ajax({
             url: 'site/index',
-            type: 'get',
+            type: 'post',
             dataType: 'json',
-            data: {cardMail: cardMail},
+            data: {
+                cardMail: cardMail,
+                _csrf: yii.getCsrfToken()
+            },
             success: function (response) {
                 if (response.status == true) {
                     $('.card .form .success, .card .form .close').css('display', 'block');
@@ -103,11 +106,11 @@ $(document).ready(function() {
 
 
         if (masterName == hiddenName) {
-            $(this).parents('.form').find('input[name=name]').addClass('error');
+            $(this).parents('.form').find('input[name=name]').addClass('has-error');
             errors = true;
         }
         if (masterPhone.length == 0) {
-            $(this).parents('.form').find('input[name=phone]').addClass('error');
+            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
             errors = true;
         }
 
@@ -119,9 +122,13 @@ $(document).ready(function() {
 
         $.ajax({
             url: 'site/index',
-            type: 'get',
+            type: 'post',
             dataType: 'json',
-            data: {masterName: masterName, masterPhone: masterPhone},
+            data: {
+                masterName: masterName,
+                masterPhone: masterPhone,
+                _csrf: yii.getCsrfToken()
+            },
             success: function (response) {
                 if (response.status == true) {
                     $('.call-master .form .success, .call-master .form .close').css('display', 'block');
@@ -140,7 +147,7 @@ $(document).ready(function() {
         var callPhone = $(this).parents('.form').find('input[name=phone]').val();
 
         if (callPhone.length == 0) {
-            $(this).parents('.form').find('input[name=phone]').addClass('error');
+            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
             return false;
         }
         $('.call-block .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
@@ -148,9 +155,12 @@ $(document).ready(function() {
 
         $.ajax({
             url: 'site/index',
-            type: 'get',
+            type: 'post',
             dataType: 'json',
-            data: {callPhone: callPhone},
+            data: {
+                callPhone: callPhone,
+                _csrf: yii.getCsrfToken()
+            },
             success: function (response) {
                 if (response.status == true) {
                     $('.call-block .form .success').css('display', 'block');
@@ -162,6 +172,48 @@ $(document).ready(function() {
             error: function () {
             }
         });
+    });
+
+    //Консультация мастера
+    $('#advice .form button').click(function() {
+        var adviceName = $(this).parents('.form').find('input[name=name]').val();
+        var advicePhone = $(this).parents('.form').find('input[name=phone]').val();
+        var error = false;
+
+        if (adviceName.length == 0) {
+            $(this).parents('.form').find('input[name=name]').addClass('has-error');
+            error = true;
+        }
+        if (advicePhone.length == 0) {
+            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
+            error = true;
+        }
+
+        if (!error) {
+            $('#advice .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+            $('#advice .loading').css('display', 'block');
+
+            $.ajax({
+                url: 'site/index',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    advicePhone: advicePhone,
+                    adviceName: adviceName,
+                    _csrf: yii.getCsrfToken()
+                },
+                success: function (response) {
+                    if (response.status == true) {
+                        $('#advice .form .success').css('display', 'block');
+                        $('#advice .form .success span').css('visibility', 'visible');
+                        $('#advice .loading').css('display', 'none');
+                        yaCounter39483720.reachGoal('callback');
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
     });
 
     //Напишите нам
@@ -218,13 +270,13 @@ $(document).ready(function() {
     });
 
     $('input').focus(function() {
-        if ($(this).hasClass('error')) {
-            $(this).removeClass('error');
+        if ($(this).hasClass('has-error')) {
+            $(this).removeClass('has-error');
         }
     });
     $('textarea').focus(function() {
-        if ($(this).parent('.textarea').hasClass('error')) {
-            $(this).parent('.textarea').removeClass('error');
+        if ($(this).parent('.textarea').hasClass('has-error')) {
+            $(this).parent('.textarea').removeClass('has-error');
         }
     });
 

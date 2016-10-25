@@ -2,7 +2,6 @@
 use app\models\Works;
 use yii\widgets\Pjax;
 use yii\widgets\LinkPager;
-use yii\grid\GridView;
 
 $this->title = $work->title;
 ?>
@@ -64,9 +63,6 @@ $this->title = $work->title;
             <?php if ($prev && $next != null) { ?>
                     <?php Pjax::begin([
                         'timeout' => 10000,
-                    'options' => [
-                        'scrollto' => false
-                    ]
                     ]); ?>
                     <div class="other clear">
                         <div class="width">

@@ -31,7 +31,7 @@ AppAsset::register($this);
     ]); ?>
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link href="/images/system/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -70,6 +70,26 @@ AppAsset::register($this);
     <!--end header-->
     <div class="conten-wrapper">
         <?php echo $content; ?>
+        <div class="call-block">
+            <div class="block">
+                <div class="form">
+                    <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
+                    <div class="close"></div>
+                    <span>Заказать звонок</span><br>
+                    <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
+                    <div class="field">
+                        <img src="/images/system/main-tel.png" alt="phone" title="Ваш телефон">
+                        <input name="phone" type="text" placeholder="Ваш телефон*" class="phone-mask" required><br>
+                        <button class="pulse">перезвоните мне</button>
+                    </div>
+                    <span>*Ваши данные никогда не будут переданы третьим лицам</span>
+                    <div class="success">
+                        <span>Спасибо за заявку!</span><br>
+                        <span>Мастер перезвонит Вам в течениe 15<br>минут и проконсультирует по всем<br>интересующим вопросам</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--start footer -->
     <footer class="footer clear">

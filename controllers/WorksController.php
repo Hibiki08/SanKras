@@ -95,4 +95,19 @@ class WorksController extends Controller {
         ]);
     }
 
+    public function actionVideo() {
+        $videos = Works::find()->where('active = 1 AND video IS NOT NULL')->orderBy(['id' => SORT_DESC]);
+        $pager = new Pagination(['totalCount' => $videos->count(), 'pageSize' => self::PAGE_SIZE]);
+        $pager->pageSizeParam = false;
+
+        $videos = $videos->offset($pager->offset)
+            ->limit($pager->limit)
+            ->all();
+
+        return $this->render('video', [
+            'videos' => $videos,
+            'pager' => $pager
+        ]);
+    }
+
 }
