@@ -20,7 +20,7 @@ AdminAsset::register($this);
     <?php echo Html::csrfMetaTags() ?>
     <title><?php echo $this->title; ?></title>
     <?php $this->head() ?>
-    <link href="/images/system/mini-logo.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
 <?php $this->beginBody() ?>

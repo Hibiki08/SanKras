@@ -64,7 +64,7 @@ a:hover {
 #header .description  {
     font-style: italic;
     font-size: 14px;
-    padding: 15px 0;
+    padding: 10px 0;
     background: rgba(52,73,94,0.85);
     color: #aeb6bf;
 }
@@ -538,7 +538,6 @@ a:hover {
 }
 #advice .form span:last-of-type {
     font-size: 13px;
-    color: #5d6d7e;
 }
 #advice .width .form button {
     margin-bottom: 15px;
@@ -617,7 +616,7 @@ a:hover {
     font-weight: 400;
 }
 .quality .col div {
-    text-align: left;
+    text-align: justify;
     font-size: 15px;
 }
 .quality .col div strong {
@@ -830,8 +829,8 @@ a:hover {
 .cooperation .form button,
 .call-block .form button,
 #advice .form button,
-#our-works .more a,
-#reviews .more a {
+#our-works .other a,
+#reviews .other a {
     position: relative;
     overflow: hidden;
     margin-top: 35px;
@@ -890,18 +889,18 @@ a:hover {
     margin-top: 52px;
 }
 
-#our-works .more,
-#reviews .more {
+#our-works .other,
+#reviews .other {
     text-align: center;
 }
-#our-works .more a,
-#reviews .more a {
+#our-works .other a,
+#reviews .other a {
     display: inline-block;
     width: 370px;
     margin-top: 5px;
 }
-#our-works .more a:hover,
-#reviews .more a:hover {
+#our-works .other a:hover,
+#reviews .other a:hover {
     text-decoration: none;
 }
 #our-works {
@@ -913,7 +912,7 @@ a:hover {
     background: #fff;
     padding-bottom: 60px;
     background-size: 100%;
-    padding-top: 35px;
+    padding-top: 55px;
 }
 .call-master > .title-big {
     margin-bottom: 70px;
@@ -984,23 +983,28 @@ a:hover {
     margin-top: 20px;
 }
 .call-master .call .form input[placeholder],
-#advice .form input[placeholder] {
+#advice .form input[placeholder],
+#discount .form input[placeholder] {
     color: #34495e;
 }
 .call-master .call .form input::-webkit-input-placeholder,
-#advice .form input::-webkit-input-placeholder {
+#advice .form input::-webkit-input-placeholder,
+#discount .form input::-webkit-input-placeholder {
     color: #34495e;
 }
 .call-master .call .form input::-moz-placeholder,
-#advice .form input::-moz-placeholder {
+#advice .form input::-moz-placeholder,
+#discount .form input::-moz-placeholder {
     color: #34495e;
 }
 .call-master .call .form input:-moz-placeholder,
-#advice .form input:-moz-placeholder {
+#advice .form input:-moz-placeholder,
+#discount .form input:-moz-placeholder {
     color: #34495e;
 }
 .call-master .call .form input:-ms-input-placeholder,
-#advice .form input:-ms-input-placeholder {
+#advice .form input:-ms-input-placeholder,
+#discount .form input:-ms-input-placeholder {
     color: #34495e;
 }
 .call-master .call .form .field:first-of-type input {
@@ -1139,7 +1143,7 @@ a:hover {
 .reviews {
     background: #f5f6f7;
     padding-top: 50px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 .reviews .review {
     display: inline-block;
@@ -1233,7 +1237,7 @@ a:hover {
     padding-bottom: 40px;
 }
 .cooperate .title-small {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .cooperate .sliderArrows.left {
     background: url(/images/system/slider-bot-button-1.png) no-repeat center center;
@@ -2184,10 +2188,11 @@ color: #fff;
 #our-works .work:after {
     content: '';
     position: absolute;
-    background: url('/images/system/works-preview.png') no-repeat;
+    background: url('/images/system/works-preview.png') no-repeat bottom;
     bottom: 4px;
     width: 100%;
     height: 160px;
+    opacity: 0.8;
 }
 .works .wrks .work-title,
 .work .more-works .work-title,
@@ -2218,6 +2223,7 @@ color: #fff;
     background-size: 100% 100%;
     padding: 42px 45px 0;
     transition: opacity 0.5s;
+    z-index: 1;
 }
 .works .wrks .hover ul li,
 .work .more-works .hover ul li,
@@ -2584,7 +2590,7 @@ color: #fff;
 footer .links {
     background: #34495e;
     float: left;
-    width: 65%;
+    width: 68.4%;
     position: relative;
 }
 footer .links:before,
@@ -2605,13 +2611,13 @@ footer .cont:before {
 }
 footer .links .cell {
    display: table-cell;
-    padding-right: 80px;
+    padding-right: 81px;
     vertical-align: top;
 }
 footer .cont {
     background: #212f3c;
     float: left;
-    width: 35%;
+    width: 31.6%;
     position: relative;
 }
 footer .cont > div {
@@ -2626,6 +2632,7 @@ footer .cont {
 }
 footer li {
     list-style: none;
+    line-height: 1.6;
 }
 footer .cont a {
     text-decoration: underline;
@@ -2713,7 +2720,7 @@ footer .cont .time-work {
 footer .sub-footer .sub {
     background: #273746;
     float: left;
-    width: 65%;
+    width: 68.4%;
     padding: 13px 0;
     min-height: 34px;
     max-height: 34px;
@@ -2735,7 +2742,7 @@ footer .sub-footer .sub > div {
 }
 footer .sub-footer .codedex {
     float: left;
-    width: 35%;
+    width: 31.6%;
     background: #19232d;
     padding: 14px 0;
     max-height: 32px;

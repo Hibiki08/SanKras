@@ -156,8 +156,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>
                 <div class="field">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>card-email.png" alt="email" title="email">
-                    <input name="email" type="email" value="Ваш e-mail*" class="focus" required><br>
-                    <input type="hidden" value="Ваш e-mail*" class="hidden">
+                    <input name="email" type="email" placeholder="Ваш e-mail*" class="focus" required><br>
                     <button class="pulse">получить скидку</button>
                 </div>
                 <div class="success">
@@ -229,7 +228,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <?php } ?>
             <?php } ?>
         </div>
-        <div class="more">
+        <div class="other">
             <a href="<?php echo Yii::$app->urlManager->createUrl('works/'); ?>" class="button">Посмотреть все работы</a>
         </div>
     </div>
@@ -257,7 +256,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 </div>
             </div>
         </div>
-        <div class="more">
+        <div class="other">
             <a href="<?php echo Yii::$app->urlManager->createUrl('opinions/'); ?>" class="button">Посмотреть все отзывы</a>
         </div>
     </div>
@@ -291,8 +290,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <span>выезд мастера</span>
                 <div class="field">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-name.png" alt="ваше имя" title="ваше имя">
-                    <input type="text" name="name" value="Ваше имя*" class="focus" required><br>
-                    <input type="hidden" value="Ваше имя*" name="hide-name" class="hidden">
+                    <input type="text" name="name" placeholder="Ваше имя*" class="focus" required><br>
                 </div>
                 <div class="field">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-tel.png" alt="ваш телефон" title="ваше телефон">

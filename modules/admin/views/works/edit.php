@@ -15,7 +15,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 </div>
 
 <?php $form = ActiveForm::begin(['enableClientValidation' => true,
-    'options' => ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal'],
+    'options' => ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal', 'id' => 'form'],
     'fieldConfig' => [
         'template' => '<label class="col-lg-2 control-label"></label>{error}{label}<div class="col-lg-10">{input}</div>',
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
@@ -121,6 +121,15 @@ if (isset($model->preview)) { ?>
             });
         });
 
+//        $('#w0').yiiActiveForm('validateAttribute', 'preview_items');
+//        $('#w0').yiiActiveForm('add', {
+//            'id': 'editworksform-preview_items',
+//            'name': 'EditWorksForm[preview_items]',
+//            'container': '.col-lg-10',
+//            'input': '#editworksform-preview_items',
+//            'error': '.field-editworksform-preview_items'
+//        });
+
 //        $('#editworksform-preview_items, #editworksform-work_items').focusout(function() {
 //            var val = $(this).val().split(',');
 //            for (var i = 0; i < val.length; i++) {
@@ -130,5 +139,30 @@ if (isset($model->preview)) { ?>
 //                }
 //            }
 //        });
+//        $('#w0').on('afterValidateAttribute', function (e) {
+//            $('#editworksform-preview_items').focusout(function() {
+//                var preview_items = $('#editworksform-preview_items').val().split(',');
+//                var work_items = $('#editworksform-work_items').val().split(',');
+//                for (var i = 0; i < preview_items.length; i++) {
+//                    if ($.trim(preview_items[i]).length > 50) {
+//                        $('.field-editworksform-preview_items').addClass('has-error').removeClass('has-success');
+//                        return false;
+//                    }
+//                }
+//            });
+//
+//        });
     });
+//    $(window).load(function() {
+//        $('#w0').on('afterValidateAttribute', function (e) {
+//            var preview_items = $('#editworksform-preview_items').val().split(',');
+//            var work_items = $('#editworksform-work_items').val().split(',');
+//            for (var i = 0; i < preview_items.length; i++) {
+//                if ($.trim(preview_items[i]).length > 50) {
+//                    $('.field-editworksform-preview_items').removeClass('has-succes').addClass('has-error');
+//                    return false;
+//                }
+//            }
+//        });
+//    });
 </script>

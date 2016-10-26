@@ -95,7 +95,7 @@ class WorksController extends AdminController {
                     $previewItems = [];
                     $workItems = [];
 
-                    $items = explode(',', $form->preview_items);
+                    $items = explode(",\n", $form->preview_items);
                     foreach ($items as $item) {
                         if (!empty($item)) {
                             $previewItems[] = trim($item);

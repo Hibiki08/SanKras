@@ -22,7 +22,7 @@ PrintAsset::register($this);
     ]); ?>
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link href="/images/system/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
 <?php $this->beginBody() ?>

@@ -174,7 +174,7 @@ class SiteController extends Controller {
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
                     ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вызов мастера')
+                    ->setSubject('Выезд мастера')
                     ->setHtmlBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                     ->send();
 

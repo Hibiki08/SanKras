@@ -13,7 +13,6 @@ class OtherAsset extends AssetBundle
 
     ];
     public $js = [
-//        'js/jquery-ui.min.js',
         'js/script.js',
     ];
     public $depends = [
