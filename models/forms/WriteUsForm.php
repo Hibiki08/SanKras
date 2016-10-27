@@ -4,7 +4,6 @@ namespace app\models\forms;
 
 use Yii;
 use yii\base\Model;
-use app\components\Translate;
 
 class WriteUsForm extends Model {
 
@@ -18,6 +17,15 @@ class WriteUsForm extends Model {
             [['name', 'phone', 'email', 'message'], 'filter', 'filter' => 'trim'],
             [['name', 'email', 'message'], 'required'],
             [['email'], 'email'],
+        ];
+    }
+
+    public function attributeLabels(){
+        return [
+            'photo' => 'Фото',
+            'name' => 'Имя',
+            'email' => 'Email',
+            'message' => 'Сообщение',
         ];
     }
 

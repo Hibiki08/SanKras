@@ -48,25 +48,6 @@ class EditWorksForm extends Model {
         return $scenarios;
     }
 
-//    public function validateItems($attribute, $params) {
-//        $error = false;
-//        $itemsArray = explode(',', $this->$attribute);
-//        if (isset($params['max'])) {
-//            foreach ($itemsArray as $item) {
-//                if (iconv_strlen($item = trim($item), 'UTF-8') > 45) {
-//                    $error = 'Длина пункта "' . $item . '" больше ' . $params['max'] . ' символов!';
-//                    $this->addError($attribute, $error);
-//                }
-//            }
-//        }
-//        if (isset($params['count'])) {
-//            if (count($itemsArray) > $params['count']) {
-//                $error = 'Пунктов не должно быть больше ' . $params['count'] . '!';
-//                $this->addError($attribute, $error);
-//            }
-//        }
-//    }
-
     public function upload($path, $image) {
         if (isset($image->name) && !is_null($image->name)) {
             $translate = new Translate();

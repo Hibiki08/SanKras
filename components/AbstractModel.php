@@ -50,16 +50,18 @@ abstract class AbstractModel extends ActiveRecord {
 
         if (is_array($data)) {
             if ($caseColumn) {
+                $ids = [];
                 foreach ($data as $key => $items) {
-                    $dataCases[] = ' WHEN ' . $key . ' THEN ' . (!empty($items) ? '\'' . $items . '\'' : 'NULL');
+                    $dataCases[] = ' WHEN ' . $caseColumn . ' = '. $key . ' THEN ' . (!empty($items) ? '\'' . $items . '\'' : 'NULL');
+                    $ids[] = $key;
                 }
-                $dataCases[] = ' END';
-                $createCase = ' CASE ' . $caseColumn . implode(' ', $dataCases);
+                $dataCases[] = 'ELSE ' . $caseColumn . ' END WHERE ' . $caseColumn . ' in (' . implode(', ', $ids) . ')';
+                $createCase = ' CASE ' . implode(' ', $dataCases);
             }
         } else {
             return false;
         }
-
+        
         return Yii::$app->db->createCommand(
             'UPDATE ' . $table . ' SET ' . $column . '=' . $createCase
         )->execute();

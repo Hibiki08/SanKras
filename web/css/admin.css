@@ -196,6 +196,9 @@
     position: relative;
     z-index: 2;
 }
+#opinions .photo img {
+    width: 100px;
+}
 
 @media (max-width: 992px) {
     .col-md-1 {

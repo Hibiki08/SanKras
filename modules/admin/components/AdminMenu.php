@@ -81,6 +81,15 @@ class AdminMenu extends Widget {
 //            ]
 //        ],
         [
+            'name' => 'Отзывы',
+            'submenu' => [
+                [
+                    'name' => 'Список',
+                    'controller' => 'opinions'
+                ],
+            ]
+        ],
+        [
             'name' => 'Заявки',
             'submenu' => [
                 [

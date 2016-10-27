@@ -257,7 +257,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             </div>
         </div>
         <div class="other">
-            <a href="<?php echo Yii::$app->urlManager->createUrl('opinions/'); ?>" class="button">Посмотреть все отзывы</a>
+            <a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>" class="button">Посмотреть все отзывы</a>
         </div>
     </div>
 </section>
