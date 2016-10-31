@@ -88,6 +88,7 @@ class PricesController extends AdminController {
         }
 
         $model = $id ? $options->findOne(['id' => $id]) : new Prices();
+        $maxSort = $options->find()->max('sort');
 
         if (!empty($model)) {
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
@@ -95,6 +96,7 @@ class PricesController extends AdminController {
                 $model->price = Yii::$app->request->post('EditPricesForm')['price'];
                 $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
                 $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
+                $model->sort = $maxSort + 1;
                 $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
                 $model->save();
                 $id = $id ? $id : Yii::$app->db->lastInsertID;

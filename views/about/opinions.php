@@ -58,7 +58,7 @@ $this->title = 'Отзывы';
                     ]
                 ]);?>
                 <?php echo $form->field($opins, 'name', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}</div>',
+                    'template' => '<div class="field name"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
@@ -71,10 +71,10 @@ $this->title = 'Отзывы';
                 ]); ?>
                 <div class="description">Например: владелец частного дома, застройщик</div>
                 <?php echo $form->field($opins, 'photo', [
-                    'template' => '<div class="field photo"><label><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'photo.png' . '" alt="фото" title="добавить фото"><div class="false-input">Ваше фото</div>{input}</label></div>',
+                    'template' => '<div class="field photo"><label><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'photo.png' . '" alt="фото" title="добавить фото"><div class="false-input">Ваше фото</div>{input}</label>{error}</div>',
                 ])->fileInput()->label('Ваше фото'); ?>
                 <?php echo $form->field($opins, 'text', [
-                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="написать" title="написать">{label}{input}</div>',
+                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="написать" title="написать">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш отзыв*'); ?>
                 <span>*обязательные поля; ваши данные не будут переданы третьим лицам</span>
                 <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
@@ -104,6 +104,27 @@ $this->title = 'Отзывы';
         $('.text .full .more').click(function() {
             $(this).parent('.full').css('display', 'none');
             $(this).parents('.text').find('.short').css('display', 'block');
+        });
+        $('.form input[type=file]').change(function() {
+            var file = $(this).val();
+            if (file.indexOf('\\') > -1) {
+                file = file.split('\\');
+            }
+            if (file.indexOf('/') > -1) {
+                file = file.split('/');
+            }
+
+            file = file.slice(-1);
+            file = file.join('');
+
+            if (file.length > 0) {
+                if (file.length > 25) {
+                    var first = file.slice(1, 10);
+                    var last = file.slice(-10);
+                    file = first + '...' + last;
+                }
+                $(this).parent('label').find('.false-input').text(file);
+            }
         });
     });
 </script>

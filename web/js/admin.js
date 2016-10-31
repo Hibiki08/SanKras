@@ -53,7 +53,6 @@ function sortAjax(data, url) {
             dataType: 'json',
             data: {data: data},
             success: function (response) {
-                console.log(data);
                 if (response.status == true) {
                     $('#sort').removeClass('disabled');
                     $('.sections').removeClass('sort');

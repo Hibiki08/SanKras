@@ -68,26 +68,26 @@ $this->title = 'Контакты';
                 ]
             ]);?>
             <?php echo $form->field($write, 'name', [
-                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}</div>',
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
             ])->input('text', [
                 'class' => 'focus',
                 'placeholder' => 'Ваше имя*'
             ]); ?>
             <?php echo $form->field($write, 'phone', [
-                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}</div>',
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
             ])->input('text', [
                 'value' => '',
                 'class' => 'phone-mask',
                 'placeholder' => 'Ваш телефон'
             ]); ?>
             <?php echo $form->field($write, 'email', [
-                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-email.png' . '" alt="ваш email" title="ваш email">{input}</div>',
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-email.png' . '" alt="ваш email" title="ваш email">{input}{error}</div>',
             ])->input('email', [
                 'placeholder' => 'Ваш email*',
                 'class' => 'focus'
             ]); ?>
             <?php echo $form->field($write, 'message', [
-                'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}</div>',
+                'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
             ])->textarea()->label('Ваше сообщение*');?>
             <span>*обязательные поля; ваши данные не будут переданы третьим лицам </span>
             <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>

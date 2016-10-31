@@ -27,7 +27,6 @@ $this->title = 'Список';
                 <td><?php echo $opinion->id; ?></td>
                 <td><?php echo $opinion->name; ?></td>
                 <td><?php echo $opinion->description; ?></td>
-<!--                <td class="photo"><img src="--><?php //echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/' . $opinion->photo; ?><!--"></td>-->
                 <td class="photo">
                     <figure>
                         <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/' . $opinion->photo; ?>">

@@ -18,7 +18,7 @@ class EditOpinionsForm extends Model {
     public function rules() {
         return [
             [['name', 'text'], 'required'],
-            [['photo'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
+            [['photo'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true, 'maxSize' => 1048576],
             [['name', 'description'], 'string', 'max' => 255],
             [['name', 'description', 'text'], 'filter', 'filter' => 'trim'],
         ];
@@ -40,7 +40,7 @@ class EditOpinionsForm extends Model {
             'photo' => 'Фото',
             'name' => 'Имя',
             'description' => 'Подробнее',
-            'text' => 'Текст',
+            'text' => 'Отзыв',
             'active' => 'Активность'
         ];
     }

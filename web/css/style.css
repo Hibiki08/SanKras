@@ -822,7 +822,8 @@ a:hover {
 .call-master .call .form input.has-error,
 .card .form .field input.has-error,
 #advice .form .field input.has-error,
-#opinions .form .has-error input {
+#opinions .form .has-error input,
+#opinions .form .has-error .field.photo .false-input {
     border-bottom: 2px solid #f44336;
     transition: border-color 0.5s;
 }
@@ -2766,6 +2767,16 @@ color: #fff;
 #opinions .form label,
 #opinions .opin-block .form .field.textarea img {
     vertical-align: middle;
+}
+#opinions .opin-block .form .field.photo .help-block,
+#opinions .opin-block .form .field.name .help-block,
+#opinions .opin-block .form .field.textarea .help-block,
+.cooperation .form .field .help-block {
+    color: #ef847d;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 50px;
+    margin-top: 10px;
 }
 #opinions .form .textarea:before {
     width: 8px;
