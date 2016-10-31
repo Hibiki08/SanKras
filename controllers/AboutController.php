@@ -37,25 +37,25 @@ class AboutController extends Controller {
         }
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-//                $model = new Opinions();
-//                $form->photo = UploadedFile::getInstance($form, 'photo');
-//
-//                $model->name = strip_tags(trim($form->name));
-//                $model->description = strip_tags(trim($form->description));
-//                $model->photo = isset($form->photo->name) ? $form->photo->name : null;
-//                $model->text = strip_tags(trim($form->text));
-//                $model->active = 0;
-//                $model->save();
-//
-//            if (isset($form->photo->name)) {
-//                $id = Yii::$app->db->lastInsertID;
-//
-//                $path = Opinions::IMG_FOLDER . 'opinion(' . $id . ')/';
-//                $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
-//                if ($create) {
-//                    $form->upload($path, $form->photo);
-//                }
-//            }
+                $model = new Opinions();
+                $form->photo = UploadedFile::getInstance($form, 'photo');
+
+                $model->name = strip_tags(trim($form->name));
+                $model->description = strip_tags(trim($form->description));
+                $model->photo = isset($form->photo->name) ? $form->photo->name : null;
+                $model->text = strip_tags(trim($form->text));
+                $model->active = 0;
+                $model->save();
+
+            if (isset($form->photo->name)) {
+                $id = Yii::$app->db->lastInsertID;
+
+                $path = Opinions::IMG_FOLDER . 'opinion(' . $id . ')/';
+                $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
+                if ($create) {
+                    $form->upload($path, $form->photo);
+                }
+            }
 
             $session->set('success', true);
             Yii::$app->getResponse()->redirect(Url::toRoute(['about/opinions']));
