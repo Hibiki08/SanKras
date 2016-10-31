@@ -804,7 +804,8 @@ a:hover {
 .call-master .call .form input,
 .cooperation .form input,
 .call-block .form input,
-#advice .form input {
+#advice .form input,
+#opinions .form input {
     font-weight: 300;
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
@@ -817,10 +818,11 @@ a:hover {
     transition: border-color 0.5s;
 }
 .call-block .form input.has-error,
-.cooperation .form input.has-error,
+.cooperation .form .has-error input,
 .call-master .call .form input.has-error,
 .card .form .field input.has-error,
-#advice .form .field input.has-error {
+#advice .form .field input.has-error,
+#opinions .form .has-error input {
     border-bottom: 2px solid #f44336;
     transition: border-color 0.5s;
 }
@@ -830,7 +832,8 @@ a:hover {
 .call-block .form button,
 #advice .form button,
 #our-works .other a,
-#reviews .other a {
+#reviews .other a,
+#opinions .form button {
     position: relative;
     overflow: hidden;
     margin-top: 35px;
@@ -1255,11 +1258,23 @@ a:hover {
 }
 
 .cooperation {
-    background: url("/images/system/bg-recall-white.png") no-repeat bottom center;
-    background-attachment: fixed;
     padding-top: 60px;
     padding-bottom: 65px;
     background-size: auto 100%;
+}
+.cooperation:before,
+#opinions:before {
+    background: url("/images/system/bg-recall-white.png") no-repeat bottom center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    content: '';
+    background-attachment: fixed;
+    background-size: 100% auto;
+    will-change: transform;
 }
 .cooperation .width .end {
     float: left;
@@ -1324,7 +1339,9 @@ a:hover {
     vertical-align: middle;
 }
 .cooperation .form .textarea:before,
-.cooperation .form .textarea:after {
+.cooperation .form .textarea:after,
+#opinions .form .textarea:before,
+#opinions .form .textarea:after {
     content: '';
     position: absolute;
     border-top: 2px solid #aeb6bf;
@@ -1344,12 +1361,15 @@ a:hover {
     top: 19px;
     right: 0;
 }
-.cooperation .form .has-error .textarea textarea {
+.cooperation .form .has-error .textarea textarea,
+#opinions .form .has-error .textarea textarea {
     border: 2px solid #f44336;
     border-top: none;
 }
 .cooperation .form .has-error .textarea:before,
-.cooperation .form .has-error .textarea:after {
+.cooperation .form .has-error .textarea:after,
+#opinions .form .has-error .textarea:before,
+#opinions .form .has-error .textarea:after {
     border-top: 2px solid #f44336;
 }
 .cooperation .form .field {
@@ -1372,7 +1392,8 @@ a:hover {
 .cooperation .form label {
     vertical-align: middle;
 }
-.cooperation .form textarea {
+.cooperation .form textarea,
+#opinions .form textarea {
     border: 2px solid #aeb6bf;
     border-top: none;
     background: transparent;
@@ -1388,22 +1409,29 @@ a:hover {
     font-size: 15px;
     transition: border-color 0.5s;
 }
-.cooperation .form input[placeholder] {
+.cooperation .form input[placeholder],
+#opinions .form input[placeholder] {
     color: #fff;
 }
-.cooperation .form input::-webkit-input-placeholder {
+.cooperation .form input::-webkit-input-placeholder,
+#opinions .form input::-webkit-input-placeholder {
     color: #fff;
 }
-.cooperation .form input::-moz-placeholder {
+.cooperation .form input::-moz-placeholder,
+#opinions .form input::-moz-placeholder {
     color: #fff;
 }
-.cooperation .form input:-moz-placeholder {
+.cooperation .form input:-moz-placeholder,
+#opinions .form input:-moz-placeholder {
     color: #fff;
 }
-.cooperation .form input:-ms-input-placeholder {
+.cooperation .form input:-ms-input-placeholder,
+#opinions .form input:-ms-input-placeholder {
     color: #fff;
 }
-.cooperation form > span:last-of-type {
+.cooperation form > span:last-of-type,
+#opinions form > span:last-of-type,
+#opinions form .description {
     font-size: 12px;
     color: #bbc3cd;
     display: block;
@@ -2273,19 +2301,19 @@ color: #fff;
     font-size: 16px;
     text-decoration: underline;
 }
-.works .pagination {
+.pagination {
     width: 100%;
     text-align: center;
     margin-top: 5px;
 }
-.works .pagination ul,
-.works .pagination ul li {
+.pagination ul,
+.pagination ul li {
     display: inline-block;
     font-size: 17px;
     vertical-align: middle;
     font-weight: 500;
 }
-.works .pagination ul li,
+.pagination ul li,
 .work .info .other .navig .pagination li {
     cursor: pointer;
     background: url('/images/system/pagination.png') no-repeat center center;
@@ -2293,36 +2321,38 @@ color: #fff;
     height: 46px;
     overflow: hidden;
 }
-.works .pagination ul li.active a,
-.works .pagination ul li:hover a {
+.pagination ul li.active a,
+.pagination ul li:hover a {
     color: #f44336;
 }
-.works .pagination ul li.next {
+.pagination ul li.next {
     background: url('/images/system/pagination-next.png') no-repeat;
 }
-.works .pagination ul li.next:hover,
+.pagination ul li.next:hover,
 .work .info .other .navig .pagination li.next:hover {
     background: url('/images/system/pagination-next-hover.png') no-repeat;
 }
-.works .pagination ul li.prev {
+.pagination ul li.prev {
     background: url('/images/system/pagination-prev.png') no-repeat;
 }
-.works .pagination ul li:not(.disabled).prev:hover,
+.pagination ul li:not(.disabled).prev:hover,
 .work .info .other .navig .pagination li:not(.disabled).prev:hover {
     background: url('/images/system/pagination-prev-hover.png') no-repeat;
 }
-.works .pagination ul li a,
+.pagination ul li a,
 .work .info .other .navig .pagination li a {
     color: #34495e;
     text-decoration: none;
     padding: 15px 18px;
     line-height: 42px;
 }
-.works .pagination ul li.prev.disabled {
+.pagination ul li.prev.disabled {
     background: url('/images/system/pagination-disabled.png') no-repeat;
+    cursor: default;
 }
-.works .pagination ul li.next.disabled {
+.pagination ul li.next.disabled {
     background: url('/images/system/pagination-next-disabled.png') no-repeat;
+    cursor: default;
 }
 
 /*single//////////////////////////*/
@@ -2589,22 +2619,40 @@ color: #fff;
 #opinions .opin-block .op {
     background: #fff;
     padding: 40px 50px;
+    width: 620px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
+    margin-bottom: 30px;
 }
-#opinions .opin-block .op span:first-of-type,
+#opinions .pagination {
+    margin-top: 45px;
+    margin-bottom: 55px;
+}
+#opinions .opin-block .op .title,
 #opinions .opin-block .op .red {
     font-weight: 500;
     line-height: 1.4;
 }
+#opinions .opin-block .op .title {
+    font-size: 16px;
+}
+#opinions .opin-block .op p {
+    margin-top: 20px;
+}
 #opinions .opin-block .text {
-    margin-top: 25px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    width: 475px;
+    width: 465px;
+    display: inline-block;
 }
 #opinions .opin-block .op figure {
     vertical-align: top;
-    margin-right: 30px;
+    margin-right: 25px;
     -webkit-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
@@ -2615,6 +2663,7 @@ color: #fff;
     width: 124px;
     height: 124px;
     position: relative;
+    display: inline-block;
 }
 #opinions .opin-block .op figure img {
     width: 100%;
@@ -2624,6 +2673,154 @@ color: #fff;
     right: 0;
     margin: 0 auto;
 }
+#opinions .opin-block .opinion {
+    float: left;
+}
+#opinions .opin-block .form {
+    float: right;
+    margin-bottom: 60px;
+}
+#opinions:before {
+    background: transparent url('/images/system/key-bg2.jpg') no-repeat top center;
+}
+#opinions {
+    background: none;
+}
+#opinions .opin-block .form {
+    background: url('/images/system/opinion-blur.jpg') no-repeat top center;
+    background-attachment: fixed;
+    background-size: 100% auto;
+    will-change: transform;
+    width: 420px;
+    padding-top: 50px;
+    color: #fff;
+    position: relative;
+}
+#opinions .opin-block .form .close {
+    width: 21px;
+    height: 22px;
+    background: url('/images/system/close-form-callback.png') no-repeat;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    display: none;
+    cursor: pointer;
+}
+#opinions .opin-block .form .success {
+    position: absolute;
+    top: 75px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+#opinions .opin-block .form .success .title {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+#opinions .opin-block .form .success > span:not(.title) {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+#opinions .opin-block .form .success > span:nth-of-type(2) {
+    margin-bottom: 25px;
+}
+#opinions .opin-block .form .success .thank {
+    font-weight: 400;
+}
+#opinions .opin-block .form form {
+    padding: 50px 55px;
+    padding-top: 0;
+}
+#opinions .opin-block .form .title {
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+#opinions .opin-block .form input {
+    background: transparent;
+    vertical-align: bottom;
+    width: 260px;
+}
+#opinions .opin-block .form .field img {
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+#opinions .opin-block .form .field {
+    margin-bottom: 10px;
+}
+#opinions .opin-block .form .success {
+    display: none;
+}
+#opinions .opin-block .form .field.textarea {
+    position: relative;
+}
+#opinions .form textarea {
+    width: 262px;
+    max-width: 262px;
+    height: 128px;
+}
+#opinions .form label,
+#opinions .opin-block .form .field.textarea img {
+    vertical-align: middle;
+}
+#opinions .form .textarea:before {
+    width: 8px;
+    top: 19px;
+    left: -8px;
+}
+#opinions .form .textarea:after {
+    width: 156px;
+    top: 19px;
+    right: 5px;
+}
+#opinions form > span:last-of-type {
+    text-align: left;
+}
+#opinions .form button {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 200px;
+    -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+    display: block;
+}
+#opinions .form .field.photo input[type=file] {
+    display: none;
+}
+#opinions .form .field.photo .false-input {
+    display: inline-block;
+    width: 260px;
+    border-bottom: 2px solid #aeb6bf;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+#opinions .form .field.photo img {
+    cursor: pointer;
+}
+#opinions form .description {
+    padding-left: 49px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+#opinions .opin-block .text .full {
+    display: none;
+}
+#opinions .text .short .more,
+#opinions .text .full .more {
+    display: block;
+    font-size: 15px;
+    text-decoration: underline;
+    margin-top: 15px;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: 300;
+}
+
 
 
 /*video//////////////////////////*/

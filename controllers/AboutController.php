@@ -8,16 +8,20 @@ use app\models\Opinions;
 use yii\data\Pagination;
 use app\models\forms\EditOpinionsForm;
 use yii\web\UploadedFile;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
 class AboutController extends Controller {
 
-    const PAGE_SIZE = 3;
+    const PAGE_SIZE = 7;
 
     public function actionIndex() {
         return $this->render('index');
     }
 
     public function actionOpinions() {
+        session_start();
         $opinions = Opinions::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1]);
         $pager = new Pagination(['totalCount' => $opinions->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
@@ -27,32 +31,42 @@ class AboutController extends Controller {
             ->all();
 
         $form = new EditOpinionsForm();
+        $session = Yii::$app->session;
+        if (!$session->isActive) {
+            $session->open();
+        }
+
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $model = new Opinions();
-            $form->photo = UploadedFile::getInstance($form, 'photo');
+//                $model = new Opinions();
+//                $form->photo = UploadedFile::getInstance($form, 'photo');
+//
+//                $model->name = strip_tags(trim($form->name));
+//                $model->description = strip_tags(trim($form->description));
+//                $model->photo = isset($form->photo->name) ? $form->photo->name : null;
+//                $model->text = strip_tags(trim($form->text));
+//                $model->active = 0;
+//                $model->save();
+//
+//            if (isset($form->photo->name)) {
+//                $id = Yii::$app->db->lastInsertID;
+//
+//                $path = Opinions::IMG_FOLDER . 'opinion(' . $id . ')/';
+//                $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
+//                if ($create) {
+//                    $form->upload($path, $form->photo);
+//                }
+//            }
 
-            $model->name = trim($form->name);
-            $model->description = trim($form->description);
-            $model->photo = !empty($form->photo->name) ? $form->photo->name : Yii::$app->request->post('EditOpinionsForm')['hidden'];
-            $model->text = trim($form->text);
-            $model->active = isset(Yii::$app->request->post('EditOpinionsForm')['active']) ? 1 : 0;
-            $model->save();
-
-            $path = Opinions::IMG_FOLDER . 'opinion(' . $id . ')/';
-            $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
-            if ($create) {
-                if ($form->upload($path, $form->photo)) {
-                    $resizeMini = new ImageResize($form->photo->name, $path, $path, 135, '', 'mini');
-                    $resizeMini->resize();
-                }
-            }
-            Yii::$app->getResponse()->redirect(Url::toRoute(['opinions/edit', 'id' => $id]));
+            $session->set('success', true);
+            Yii::$app->getResponse()->redirect(Url::toRoute(['about/opinions']));
+            return false;
         }
 
         return $this->render('opinions', [
+            'session' => $session,
             'opinions' => $opinions,
             'pager' => $pager,
-            'opins' => $form
+            'opins' => $form,
         ]);
     }
 

@@ -196,8 +196,28 @@
     position: relative;
     z-index: 2;
 }
+#opinions .photo figure {
+    vertical-align: top;
+    margin-right: 25px;
+    -webkit-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 124px;
+    height: 124px;
+    position: relative;
+    display: inline-block;
+}
 #opinions .photo img {
-    width: 100px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 @media (max-width: 992px) {

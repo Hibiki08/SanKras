@@ -53,10 +53,9 @@ class OpinionsController extends AdminController {
                 $path = Opinions::IMG_FOLDER . 'opinion(' . $id . ')/';
                 $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
                 if ($create) {
-                    if ($form->upload($path, $form->photo)) {
-                        $resizeMini = new ImageResize($form->photo->name, $path, $path, 135, '', 'mini');
-                        $resizeMini->resize();
-                    }
+                    $form->upload($path, $form->photo);
+//                        $resizeMini = new ImageResize($form->photo->name, $path, $path, 135, '', 'mini');
+//                        $resizeMini->resize();
                 }
                 Yii::$app->getResponse()->redirect(Url::toRoute(['opinions/edit', 'id' => $id]));
             }

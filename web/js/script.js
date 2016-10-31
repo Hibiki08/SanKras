@@ -216,6 +216,7 @@ $(document).ready(function() {
         }
     });
 
+
     //Напишите нам
     $('.cooperation .form').on('beforeSubmit', function() {
         WriteUs($(this));
@@ -312,6 +313,15 @@ $(document).ready(function() {
         $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.call-master .form .success, .call-master .form .close').css('display', 'none');
         $('.call-master .form .success span').css('visibility', 'hidden')
+    });
+
+    //Закрыть "спасибо за отзыв" (отзывы)
+    $('#opinions .form .close').click(function() {
+        //$('#opinions .form #editopinionsform-name').val($('#opinions .form input[name="hide-name"]').val());
+        //$('#opinions .form input[name="phone"]').val('');
+        $('#opinions .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
+        $('#opinions .form .success, #opinions .form .close').css('display', 'none');
+        $('#opinions .form .success span').css('visibility', 'hidden')
     });
 
 

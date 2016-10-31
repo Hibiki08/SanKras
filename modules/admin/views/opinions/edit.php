@@ -23,7 +23,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     <div class="form-group">
         <label class="col-lg-2"></label>
         <figure class="col-lg-10">
-            <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/mini_' . $model->photo; ?>">
+            <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?>">
         </figure>
     </div>
 <?php } ?>
