@@ -13,7 +13,17 @@ class BaseForm extends Model {
 
     public function rules() {
         return [
-            [['email'], 'email', 'required'],
+            [['email'], 'email'],
+            [['email', 'phone', 'name'], 'required'],
+            ['phone', 'match', 'pattern' => '^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$'],
+        ];
+    }
+
+    public function attributeLabels() {
+        return [
+            'phone' => 'Телефон',
+            'name' => 'Имя',
+            'email' => 'Email',
         ];
     }
 

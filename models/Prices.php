@@ -10,7 +10,8 @@ class Prices extends AbstractModel {
 
     public function getCategory() {
         return $this->hasOne(PricesCat::className(), ['id' => 'cat_id'])
-            ->joinWith('parentCat');
+            ->joinWith('parentCat')
+            ->alias('category');
     }
 
     public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {

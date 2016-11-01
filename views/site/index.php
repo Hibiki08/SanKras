@@ -2,6 +2,8 @@
 use app\components\SliderTop;
 use app\components\SliderBottom;
 use app\models\Works;
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 
 $this->title = 'Монтаж отопления, водоснабжения, канализации, котельных, обустройство скважины в Краснодаре';
 ?>
@@ -11,17 +13,28 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             <div class="close"></div>
             <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
             <span class="exo">получите<br><span class="exo">бесплатную консультацию</span><br>от мастера</span>
-            <div class="field">
-                <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-name.png" alt="ваше имя" title="ваше имя">
-                <input type="text" name="name" placeholder="Ваше имя*" class="focus" required><br>
-                <input type="hidden" value="Ваше имя*" name="hide-name" class="hidden">
-            </div>
-            <div class="field">
-                <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>callback-phone-grey.png" alt="ваше телефон" title="ваше телефон">
-                <input type="text" placeholder="Ваш телефон*" name="phone" class="phone-mask" required><br>
-            </div>
-            <button class="pulse">заказать консультацию</button><br>
+            <?php $form = ActiveForm::begin([
+                'enableAjaxValidation' => false,
+                'enableClientValidation' => true,
+                'options' => [
+                    'id' => 'form_advice',
+                ]
+            ]);?>
+            <?php echo $form->field($letter, 'name', [
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+            ])->input('text', [
+                'class' => 'focus',
+                'placeholder' => 'Ваше имя*'
+            ]); ?>
+            <?php echo $form->field($letter, 'phone', [
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+            ])->input('text', [
+                'class' => 'phone-mask',
+                'placeholder' => 'Ваш телефон*'
+            ]); ?>
+            <?php echo Html::submitButton('заказать консультацию', ['class' => 'pulse']); ?>
             <span>*ваши данные не будут переданы 3-им лицам</span>
+            <?php ActiveForm::end(); ?>
             <div class="success">
                 <span class="exo">Спасибо за заявку!</span><br>
                 <span>Мастер перезвонит Вам<br>в течение 15 минут и<br>проконсультирует по всем<br>интересующим вопросам.</span>
@@ -154,11 +167,27 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                 <div class="close"></div>
                 <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>
-                <div class="field">
-                    <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>card-email.png" alt="email" title="email">
-                    <input name="email" type="email" placeholder="Ваш e-mail*" class="focus" required><br>
-                    <button class="pulse">получить скидку</button>
-                </div>
+                <?php $form = ActiveForm::begin([
+                    'enableAjaxValidation' => false,
+                    'enableClientValidation' => true,
+                    'options' => [
+                        'id' => 'form_discount',
+                    ]
+                ]);?>
+                <?php echo $form->field($letter, 'email', [
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'card-email.png' . '" alt="email" title="email">{input}{error}</div>',
+                ])->input('email', [
+                    'class' => 'focus',
+                    'placeholder' => 'Ваш e-mail*'
+                ]); ?>
+                <?php echo Html::submitButton('получить скидку', ['class' => 'pulse']); ?>
+<!--                <span>*ваши данные не будут переданы 3-им лицам</span>-->
+                <?php ActiveForm::end(); ?>
+<!--                <div class="field">-->
+<!--                    <img src="--><?php //echo Yii::$app->params['params']['pathToImageSystem']; ?><!--card-email.png" alt="email" title="email">-->
+<!--                    <input name="email" type="email" placeholder="Ваш e-mail*" class="focus" required><br>-->
+<!--                    <button class="pulse">получить скидку</button>-->
+<!--                </div>-->
                 <div class="success">
                     <span>Спасибо за заявку!</span><br>
                     <span>Вы закрепили за собой скидку!<br>В течение 5 минут Вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>

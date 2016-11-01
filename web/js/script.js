@@ -175,21 +175,10 @@ $(document).ready(function() {
     });
 
     //Консультация мастера
-    $('#advice .form button').click(function() {
-        var adviceName = $(this).parents('.form').find('input[name=name]').val();
-        var advicePhone = $(this).parents('.form').find('input[name=phone]').val();
-        var error = false;
-
-        if (adviceName.length == 0) {
-            $(this).parents('.form').find('input[name=name]').addClass('has-error');
-            error = true;
-        }
-        if (advicePhone.length == 0) {
-            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
-            error = true;
-        }
-
-        if (!error) {
+    $('#advice .form').on('beforeSubmit', function() {
+        var $this = $(this);
+        var adviceName = $this.find('#baseform-name').val();
+        var advicePhone = $this.find('#baseform-phone').val();
             $('#advice .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
             $('#advice .loading').css('display', 'block');
 
@@ -213,7 +202,7 @@ $(document).ready(function() {
                 error: function () {
                 }
             });
-        }
+        return false;
     });
 
 

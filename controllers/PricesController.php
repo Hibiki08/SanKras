@@ -10,35 +10,55 @@ class PricesController extends Controller {
 
     public function actionIndex() {
             $prices = new Prices();
-            $prices = $prices->getAllCat(['t.active' => 1], ['t.sort' => SORT_ASC]);
+            $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['t.sort' => SORT_ASC]);
             $pricesArr = [];
             $catsArr = [];
             foreach ($prices as $price) {
-                $catId = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : $price->category['id'];
-                $parent_link = isset($price->category->parentCat['id']) ? $price->category->parentCat['link'] : null;
+                $cat_id = $price->category->parentCat['id'];
+                $cat_title = $price->category->parentCat['title'];
+                $cat_link = $price->category->parentCat['link'];
+                $sub_id = $price->category['id'];
+                $sub_title = $price->category['title'];
+                $sub_link = $price->category['link'];
+                $price_id = $price->id;
+                
+                $pricesArr[$cat_id]['title'] = $cat_title;
+                $pricesArr[$cat_id]['link'] = $cat_link;
+                $pricesArr[$cat_id]['sub'][$sub_id]['title'] = $sub_title;
+                $pricesArr[$cat_id]['sub'][$sub_id]['link'] = $sub_link;
+                $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['title'] = $price->title;
+                $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['price_id'] = $price->id;
+                $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['price'] = $price->price;
+                $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['unit'] = $price->unit;;
+//                $price->category->parentCat['id'] =  $price->category->parentCat['id'];
+//                $parent_link = $price->category->parentCat['link'];
 
-                $pricesArr[$catId][$price['id']]['title'] = $price->title;
-                $pricesArr[$catId][$price['id']]['price_id'] = $price->id;
-                $pricesArr[$catId][$price['id']]['price'] = $price->price;
-                $pricesArr[$catId][$price['id']]['unit'] = $price->unit;
-                $pricesArr[$catId][$price['id']]['cat_id'] = $price->category['id'];
-                $pricesArr[$catId][$price['id']]['cat_title'] = $price->category['title'];
-                $pricesArr[$catId][$price['id']]['parent_link'] = $parent_link;
-                $pricesArr[$catId][$price['id']]['link'] = $price->category['link'];
-                $pricesArr[$catId][$price['id']]['parent_cat_id'] = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : null;
-                $pricesArr[$catId][$price['id']]['parent_cat_title'] = isset($price->category->parentCat['title']) ? $price->category->parentCat['title'] : null;
+//                $pricesArr[$price->category->parentCat['id']]['title'] = $price->category->parentCat['title'];
+//                $pricesArr[$price->category->parentCat['id']]['link'] = $price->category->parentCat['link'];
+//                $pricesArr[$price->category->parentCat['id']]['sub'][$price->category['id']] = $price->category->parentCat['link'];
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['title'] = $price->title;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['price_id'] = $price->id;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['price'] = $price->price;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['unit'] = $price->unit;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['cat_id'] = $price->category['title'];
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['cat_title'] = $price->category['title'];
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_link'] = $parent_link;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['link'] = $price->category['link'];
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_cat_id'] = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : null;
+//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_cat_title'] = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : null;
 
-                if ($price->category->parentCat['id'] == null) {
-                    $catsArr[$price->category['id']]['title'] = $price->category['title'];
-                    $catsArr[$price->category['id']]['link'] = $price->category['link'];
-                } else {
-                    $catsArr[$price->category->parentCat['id']]['title'] = $price->category->parentCat['title'];
-                    $catsArr[$price->category->parentCat['id']]['parent_link'] = $price->category->parentCat['link'];
-                    $catsArr[$price->category->parentCat['id']]['link'] = $price->category['link'];
-                    $catsArr[$price->category->parentCat['id']][$price->category['id']]['title'] = $price->category['title'];
-                    $catsArr[$price->category->parentCat['id']][$price->category['id']]['link'] = $price->category['link'];
-                }
+//                if ($price->category->parentCat['id'] == null) {
+//                    $catsArr[$price->category['title']]['title'] = $price->category['title'];
+//                    $catsArr[$price->category['title']]['link'] = $price->category['link'];
+//                } else {
+                $catsArr[$cat_id]['title'] = $cat_title;
+                $catsArr[$cat_id]['link'] = $cat_link;
+                $catsArr[$cat_id]['sub'][$sub_id]['title'] = $sub_title;
+                $catsArr[$cat_id]['sub'][$sub_id]['link'] = $sub_link;
+//                }
             }
+
+//        var_dump($catsArr[1]);die;
 
             return $this->render('index', [
                 'prices' => $pricesArr,

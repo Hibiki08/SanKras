@@ -519,6 +519,7 @@ a:hover {
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    width: 275px;
 }
 #advice .form > span:first-of-type {
     display: block;
@@ -534,20 +535,17 @@ a:hover {
 }
 #advice .form img {
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: 12px;
 }
 #advice .form input {
     margin-bottom: 10px;
 }
-#advice .form input:last-of-type {
-    margin-bottom: 45px;
-}
-#advice .form span:last-of-type {
+#advice #form_advice > span {
     font-size: 13px;
 }
 #advice .width .form button {
     margin-bottom: 15px;
-    margin-top: 0;
+    margin-top: 35px;
     width: 100%;
 }
 #advice .width .form input {
@@ -803,12 +801,11 @@ a:hover {
 }
 .card .form .field {
     margin-top: 30px;
-    padding-bottom: 40px;
 }
 .card .form .field img,
 .call-master .call .form img {
     vertical-align: bottom;
-    margin-right: 8px;
+    margin-right: 12px;
 }
 .card .form .field img {
     position: relative;
@@ -831,17 +828,17 @@ a:hover {
     padding-bottom: 8px;
     transition: border-color 0.5s;
 }
-.call-block .form input.has-error,
+.call-block .form .has-error input,
 .cooperation .form .has-error input,
 .call-master .call .form input.has-error,
-.card .form .field input.has-error,
-#advice .form .field input.has-error,
+#discount .form .has-error input,
+#advice .form .has-error input,
 #opinions .form .has-error input,
 #opinions .form .has-error .field.photo .false-input {
     border-bottom: 2px solid #ef847d;
     transition: border-color 0.5s;
 }
-.card .form .field button,
+.card .form #form_discount button,
 .call-master .call .form .field button,
 .cooperation .form button,
 .call-block .form button,
@@ -869,6 +866,9 @@ a:hover {
     border: none;
     cursor: pointer;
     border-bottom: 3px solid #212f3c;
+}
+.card .form #form_discount button {
+    margin-bottom: 40px;
 }
 .call-block .form button {
     margin-top: 0;
@@ -2791,12 +2791,21 @@ color: #fff;
 #opinions .opin-block .form .field.photo .help-block,
 #opinions .opin-block .form .field.name .help-block,
 #opinions .opin-block .form .field.textarea .help-block,
-.cooperation .form .field .help-block {
+.cooperation .form .field .help-block,
+#advice .form .field .help-block,
+#discount .form .help-block {
     color: #ef847d;
     font-weight: 400;
     font-size: 14px;
     padding-left: 50px;
     margin-top: 10px;
+}
+#discount .form .help-block {
+    padding-right: 59px;
+    padding-left: 0;
+}
+#advice .form .field .help-block {
+    margin-top: 0;
 }
 #opinions .form .textarea:before {
     width: 8px;

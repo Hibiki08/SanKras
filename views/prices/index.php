@@ -12,32 +12,21 @@ $this->title = 'Прайс-лист';
         </div>
         <section class="price-list clear">
             <h2 class="exo asphalt">Стоимость выполнения монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h2>
+<!--            --><?php //var_dump($prices[1]['sub'][3]); die;?>
             <div class="table">
                 <?php $cat = []; ?>
                 <?php foreach($prices as $price) { ?>
-                    <table id="<?php echo isset(current($price)['parent_link']) ? current($price)['parent_link'] : current($price)['link']; ?>">
-                        <?php foreach ($price as $group) { ?>
-                            <?php if ($group['parent_cat_id'] == null) { ?>
-                                <?php echo !in_array($group['cat_id'], $cat) ? '<caption class="exo">' . $group['cat_title'] . '</caption>' : ''; ?>
+                    <table id="<?php echo $price['link']; ?>">
+                        <?php echo '<caption class="exo">' . $price['title'] . '</caption>' ; ?>
+                        <?php foreach ($price['sub'] as $group) { ?>
+                            <?php echo '<tr id="'. $group['link'] . '" class="sub-title"><td>' . $group['title'] . '</td><td>Ед.</td><td class="hidden">Кол-во</td><td class="hidden">Цена</td><td class="table-cost">Стоимость</td></tr>'; ?>
+                            <?php foreach ($group['sub'] as $item) {?>
                                 <tr class="transition">
-                                    <td><?php echo $group['title']; ?></td>
-                                    <td class="table-unit"><?php echo $group['unit']; ?></td>
-                                    <td data-id="<?php echo $group['price_id'];?>" class="table-number hidden"><input class="transition" value="0"></td>
-                                    <td class="table-price"><?php echo $group['price']; ?></td>
+                                    <td><?php echo $item['title']; ?></td>
+                                    <td class="table-unit"><?php echo $item['unit']; ?></td>
+                                    <td data-id="<?php echo $item['price_id'];?>" class="table-number hidden"><input class="transition" value="0"></td>
+                                    <td class="table-price"><?php echo $item['price']; ?></td>
                                     <td class="table-cost hidden">0</td>
-                                    <?php $cat[$group['cat_id']] = $group['cat_id']; ?>
-                                </tr>
-                            <?php } else { ?>
-                                <?php echo !in_array($group['parent_cat_id'], $cat) ? '<caption class="exo">' . $group['parent_cat_title'] . '</caption>' : ''; ?>
-                                <?php echo !in_array($group['cat_id'], $cat) ? '<tr id="'. $group['link'] . '" class="sub-title"><td>' . $group['cat_title'] . '</td><td>Ед.</td><td class="hidden">Кол-во</td><td class="hidden">Цена</td><td class="table-cost">Стоимость</td></tr>' : ''; ?>
-                                <tr class="transition">
-                                    <td><?php echo $group['title']; ?></td>
-                                    <td class="table-unit"><?php echo $group['unit']; ?></td>
-                                    <td data-id="<?php echo $group['price_id'];?>" class="table-number hidden"><input class="transition" value="0"></td>
-                                    <td class="table-price"><?php echo $group['price']; ?></td>
-                                    <td class="table-cost hidden">0</td>
-                                    <?php $cat[$group['cat_id']] = $group['cat_id']; ?>
-                                    <?php $cat[$group['parent_cat_id']] = $group['parent_cat_id']; ?>
                                 </tr>
                             <?php } ?>
                         <?php } ?>
@@ -51,13 +40,10 @@ $this->title = 'Прайс-лист';
             </div>
             <div class="nav-menu">
                 <ul><?php foreach ($pricesCat as $cats) { ?>
-                        <?php if (count($cats) > 2) { ?><li><a class="asphalt transition" href="#<?php echo $cats['parent_link']; ?>"><?php echo $cats['title']; ?></a><ul><?php foreach ($cats as $cat) { ?>
-                                    <?php if (is_array($cat)) { ?>
-                                        <li><a class="asphalt transition" href="#<?php echo $cat['link']; ?>"><?php echo $cat['title']; ?></a></li>
-                                    <?php } ?>
-                                <?php } ?></ul></li><?php } else { ?>
-                            <li><a class="asphalt transition" href="#<?php echo $cats['link']; ?>"><?php echo $cats['title']; ?></a></li>
-                        <?php } ?>
+                    <li><a class="asphalt transition" href="#<?php echo $cats['link']; ?>"><?php echo $cats['title']; ?></a><ul>
+                        <?php foreach ($cats['sub'] as $cat) { ?>
+                                <li><a class="asphalt transition" href="#<?php echo $cat['link']; ?>"><?php echo $cat['title']; ?></a></li>
+                        <?php } ?></ul></li>
                     <?php } ?>
                 </ul>
                 <div class="up exo">Наверх</div>
