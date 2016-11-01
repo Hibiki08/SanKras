@@ -16,6 +16,11 @@ class AboutController extends Controller {
 
     const PAGE_SIZE = 7;
 
+    public function init(){
+        parent::init();
+        Yii::$app->cache->flush();
+    }
+
     public function actionIndex() {
         return $this->render('index');
     }

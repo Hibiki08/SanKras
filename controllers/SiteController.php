@@ -38,6 +38,11 @@ class SiteController extends Controller {
 //        ];
 //    }
 
+    public function init(){
+        parent::init();
+        Yii::$app->cache->flush();
+    }
+
     public function actions() {
         return [
             'error' => [

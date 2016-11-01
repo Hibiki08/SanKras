@@ -8,6 +8,11 @@ use app\models\Prices;
 
 class PricesController extends Controller {
 
+    public function init(){
+        parent::init();
+        Yii::$app->cache->flush();
+    }
+
     public function actionIndex() {
             $prices = new Prices();
             $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['t.sort' => SORT_ASC]);
@@ -30,35 +35,11 @@ class PricesController extends Controller {
                 $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['price_id'] = $price->id;
                 $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['price'] = $price->price;
                 $pricesArr[$cat_id]['sub'][$sub_id]['sub'][$price_id]['unit'] = $price->unit;;
-//                $price->category->parentCat['id'] =  $price->category->parentCat['id'];
-//                $parent_link = $price->category->parentCat['link'];
-
-//                $pricesArr[$price->category->parentCat['id']]['title'] = $price->category->parentCat['title'];
-//                $pricesArr[$price->category->parentCat['id']]['link'] = $price->category->parentCat['link'];
-//                $pricesArr[$price->category->parentCat['id']]['sub'][$price->category['id']] = $price->category->parentCat['link'];
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['title'] = $price->title;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['price_id'] = $price->id;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['price'] = $price->price;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['unit'] = $price->unit;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['cat_id'] = $price->category['title'];
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['cat_title'] = $price->category['title'];
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_link'] = $parent_link;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['link'] = $price->category['link'];
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_cat_id'] = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : null;
-//                $pricesArr[$price->category->parentCat['id']][$price->category['title']][$price['id']]['parent_cat_title'] = isset($price->category->parentCat['id']) ? $price->category->parentCat['id'] : null;
-
-//                if ($price->category->parentCat['id'] == null) {
-//                    $catsArr[$price->category['title']]['title'] = $price->category['title'];
-//                    $catsArr[$price->category['title']]['link'] = $price->category['link'];
-//                } else {
                 $catsArr[$cat_id]['title'] = $cat_title;
                 $catsArr[$cat_id]['link'] = $cat_link;
                 $catsArr[$cat_id]['sub'][$sub_id]['title'] = $sub_title;
                 $catsArr[$cat_id]['sub'][$sub_id]['link'] = $sub_link;
-//                }
             }
-
-//        var_dump($catsArr[1]);die;
 
             return $this->render('index', [
                 'prices' => $pricesArr,
