@@ -180,6 +180,7 @@ $(document).ready(function() {
                 error: function () {
                 }
             });
+        return false;
     });
 
 
@@ -266,7 +267,7 @@ $(document).ready(function() {
 
     //Закрыть "спасибо за заказ" (дисконтная карта)
     $('.card .form .close').click(function() {
-        $('.card .form input[type=email]').val($('.card .form input[type=hidden]').val());
+        $('.card .form #baseform-email').val('');
         $('.card .form *:not(.close)').css('visibility', 'visible');
         $('.card .form .success, .card .form .close').css('display', 'none');
         $('.card .form .success span').css('visibility', 'hidden')
@@ -274,8 +275,8 @@ $(document).ready(function() {
 
     //Закрыть "спасибо за заказ" (вызов мастера)
     $('.call-master .form .close').click(function() {
-        $('.call-master .form input[name="name"]').val($('.call-master .form input[name="hide-name"]').val());
-        $('.call-master .form input[name="phone"]').val('');
+        $('.call-master .form #baseform-name').val('');
+        $('.call-master .form #baseform-phone').val('');
         $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('.call-master .form .success, .call-master .form .close').css('display', 'none');
         $('.call-master .form .success span').css('visibility', 'hidden')

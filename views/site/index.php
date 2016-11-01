@@ -320,7 +320,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 ]);?>
                 <?php echo $form->field($letter, 'name', [
                     'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="Ваше имя" title="Ваше имя">{input}{error}</div>',
-                ])->input('email', [
+                ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
