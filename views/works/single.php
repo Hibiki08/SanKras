@@ -34,7 +34,7 @@ $this->title = $work->title;
                     <div class="work-items">
                         <div class="title-items exo">В систему входят следующие элементы:</div>
                         <ul>
-                            <?php $workItems = explode(",\n", $work->work_items); ?>
+                            <?php $workItems = explode(";\n", $work->work_items); ?>
                             <li><?php echo implode('</li><li>', $workItems); ?></li>
                         </ul>
                         <div class="cost">
@@ -87,7 +87,7 @@ $this->title = $work->title;
                                                 <div class="work-title exo"><?php echo $val->title; ?></div>
                                                 <div class="hover">
                                                     <div class="hover-title exo"><?php echo $val->title; ?></div>
-                                                    <?php $items = explode(",\n", $val->preview_items); ?>
+                                                    <?php $items = explode(";\n", $val->preview_items); ?>
                                                     <ul>
                                                         <li><?php echo implode('</li><li>', $items); ?></li>
                                                     </ul>

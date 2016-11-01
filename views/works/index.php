@@ -27,7 +27,7 @@ $group = Yii::$app->request->get('group');
                         <div class="work-title exo"><?php echo $work->title; ?></div>
                         <div class="hover">
                             <div class="hover-title exo"><?php echo $work->title; ?></div>
-                            <?php $items = explode(",\n", $work->preview_items); ?>
+                            <?php $items = explode(";\n", $work->preview_items); ?>
                             <ul>
                                 <li><?php echo implode('</li><li>', $items); ?></li>
                             </ul>

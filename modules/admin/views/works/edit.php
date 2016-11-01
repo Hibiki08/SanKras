@@ -56,8 +56,6 @@ if (isset($model->preview)) { ?>
         <figure>
             <img class="img-thumbnail" src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $model->id . ')' . '/mini_prev_' . $model->preview; ?>">
         </figure>
-        <?php echo $form->field($edit, 'preview_text', ['template'=>'{input}'])->input('text', ['value' => $model->preview_text, 'class' => 'form-control image'])->label(''); ?>
-        <span class="glyphicon glyphicon-remove" data-work-id="<?php echo $model->id; ?>"></span>
         <?php echo $form->field($edit, 'hidden', ['template'=>'{input}', 'options' => ['class' => '', 'id' => 'preview']])->hiddenInput(['value' => $model->preview]); ?>
     </div>
 <?php } ?>
@@ -120,4 +118,5 @@ if (isset($model->preview)) { ?>
                 }
             });
         });
+    });
 </script>

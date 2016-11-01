@@ -72,8 +72,11 @@ $this->title = 'Новости';
         });
 
         $('.btn-delete').click(function () {
-            var $this = $(this);
-            deleteAjax($this, '<?php echo Url::toRoute('news/delete'); ?>');
+            var agree = confirm('Вы действительно хотите удалить этот пункт?');
+            if (agree) {
+                var $this = $(this);
+                deleteAjax($this, '<?php echo Url::toRoute('news/delete'); ?>');
+            }
         });
     });
 </script>

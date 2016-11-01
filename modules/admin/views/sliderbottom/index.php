@@ -60,8 +60,11 @@ $this->title = 'Нижний слайдер';
         });
 
         $('.btn-delete').click(function () {
-            var $this = $(this);
-            deleteAjax($this, '<?php echo Url::toRoute('sliderbottom/delete'); ?>');
+            var agree = confirm('Вы действительно хотите удалить этот пункт?');
+            if (agree) {
+                var $this = $(this);
+                deleteAjax($this, '<?php echo Url::toRoute('sliderbottom/delete'); ?>');
+            }
         });
 
         $('input[name="show_position"]').change(function() {

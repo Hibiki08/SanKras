@@ -126,23 +126,26 @@ $this->title = 'Разделы';
         });
 
         $('.btn-delete').click(function () {
-            var $this = $(this);
-            $this.find('.progress').show();
-            $.ajax({
-                url: '<?php echo Url::toRoute('price-section/delete'); ?>',
-                type: 'get',
-                dataType: 'json',
-                data: {id: $this.data().id},
-                success: function (response) {
-                    if (response.status == true) {
-                        $('li[data-id=' + $this.data().id + ']').remove();
+            var agree = confirm('Вы действительно хотите удалить этот пункт?');
+            if (agree) {
+                var $this = $(this);
+                $this.find('.progress').show();
+                $.ajax({
+                    url: '<?php echo Url::toRoute('price-section/delete'); ?>',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {id: $this.data().id},
+                    success: function (response) {
+                        if (response.status == true) {
+                            $('li[data-id=' + $this.data().id + ']').remove();
+                        }
+                        $this.find('.progress').hide();
+                    },
+                    error: function () {
+                        $this.find('.progress').hide();
                     }
-                    $this.find('.progress').hide();
-                },
-                error: function () {
-                    $this.find('.progress').hide();
-                }
-            });
+                });
+            }
         });
 
         $('#save-sort').click(function() {

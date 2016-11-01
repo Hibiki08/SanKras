@@ -17,7 +17,7 @@ class ItemsValidations extends Validator {
     }
 
     public function validateAttribute($model, $attribute) {
-        $itemsArray = explode(',', $model->$attribute);
+        $itemsArray = explode(';', $model->$attribute);
         if (!empty($this->params['max'])) {
             foreach ($itemsArray as $item) {
                 if (iconv_strlen($item = trim($item), 'UTF-8') > $this->params['max']) {
@@ -41,7 +41,7 @@ class ItemsValidations extends Validator {
         if (!empty($this->params['max'])) {
             $max = json_encode($this->params['max']);
             $functions .= <<<JS
-            var val = value.split(',');
+            var val = value.split(';');
             for (var i = 0; i < val.length; i++) {
                 if ($.trim(val[i]).length > $max) {
                 var error = 'Длина пункта "' + val[i] + '" больше ' + $max + ' символов!';
@@ -53,7 +53,7 @@ JS;
         if (!empty($this->params['count'])) {
             $count = json_encode($this->params['count']);
             $functions .= <<<JS
-            var val = value.split(',');
+            var val = value.split(';');
             if (val.length > $count) {
             var error = 'Пунктов не должно быть больше $count!';
                 messages.push(error);

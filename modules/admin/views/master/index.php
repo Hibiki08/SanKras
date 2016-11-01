@@ -82,8 +82,11 @@ $this->title = 'Вызов мастера';
 
 
         $('.btn-delete').click(function () {
-            var $this = $(this);
-            deleteAjax($this, '<?php echo Url::toRoute('master/delete'); ?>');
+            var agree = confirm('Вы действительно хотите удалить этот пункт?');
+            if (agree) {
+                var $this = $(this);
+                deleteAjax($this, '<?php echo Url::toRoute('master/delete'); ?>');
+            }
         });
     });
 </script>

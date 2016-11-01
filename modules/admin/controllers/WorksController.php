@@ -95,7 +95,7 @@ class WorksController extends AdminController {
                     $previewItems = [];
                     $workItems = [];
 
-                    $items = explode(",\n", $form->preview_items);
+                    $items = explode(';', $form->preview_items);
                     foreach ($items as $item) {
                         if (!empty($item)) {
                             $previewItems[] = trim($item);
@@ -103,9 +103,9 @@ class WorksController extends AdminController {
                             continue;
                         }
                     }
-                    $previewItems = implode(",\n", $previewItems);
+                    $previewItems = implode(";\n", $previewItems);
 
-                    $items = explode(',', $form->work_items);
+                    $items = explode(';', $form->work_items);
                     foreach ($items as $item) {
                         if (!empty($item)) {
                             $workItems[] = trim($item);
@@ -113,7 +113,7 @@ class WorksController extends AdminController {
                             continue;
                         }
                     }
-                    $workItems = implode(",\n", $workItems);
+                    $workItems = implode(";\n", $workItems);
 
                     $model->title = $form->title;
                     $model->text = $form->text;
@@ -127,8 +127,6 @@ class WorksController extends AdminController {
                     $model->preview_items = $previewItems;
                     $model->work_items = $workItems;
                     $model->preview = !empty($form->preview->name) ? $form->preview->name : Yii::$app->request->post('EditWorksForm')['hidden'];
-                    $model->preview_text = isset(Yii::$app->request->post('EditWorksForm')['preview_text']) ?
-                        Yii::$app->request->post('EditWorksForm')['preview_text'] : null;
                     $model->active = isset(Yii::$app->request->post('EditWorksForm')['active']) ? 1 : 0;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;

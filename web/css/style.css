@@ -2291,9 +2291,8 @@ color: #fff;
 .works .wrks .hover .hover-title,
 .work .more-works .hover .hover-title,
 #our-works .work .hover .hover-title {
-    font-size: 17px;
+    font-size: 16px;
     width: 100%;
-    text-align: center;
     margin-bottom: 22px;
 }
 .works .wrks .hover .more,
@@ -2454,7 +2453,11 @@ color: #fff;
 }
 .work .info .text .full {
     margin-top: 35px;
+}
+.work .info .text .full p,
+.work .info .text .full span {
     font-size: 15px !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 .work .info .text .full > p:not(:last-of-type) {
     margin-bottom: 20px !important;

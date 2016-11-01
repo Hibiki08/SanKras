@@ -76,8 +76,11 @@ $this->title = 'Список';
         });
 
         $('.btn-delete').click(function () {
-            var $this = $(this);
-            deleteAjax($this, '<?php echo Url::toRoute('works/delete'); ?>');
+            var agree = confirm('Вы действительно хотите удалить этот пункт?');
+            if (agree) {
+                var $this = $(this);
+                deleteAjax($this, '<?php echo Url::toRoute('works/delete'); ?>');
+            }
         });
 
         $('select.form-control[name=cat_id]').change(function() {

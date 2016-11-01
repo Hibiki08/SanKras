@@ -36,7 +36,7 @@ class EditWorksForm extends Model {
             ['year', 'string', 'max' => 4],
             [['area', 'cost_install', 'cost_material'], 'double'],
             [['title', 'text', 'cat_id', 'preview_items', 'work_items', 'year', 'area', 'cost_install', 'cost_material', 'video'], 'filter','filter'=>'trim'],
-            [['preview_items'], '\app\components\ItemsValidations', 'params' => ['max' => 50, 'count' => 4], 'skipOnEmpty' => false],
+            [['preview_items'], '\app\components\ItemsValidations', 'params' => ['max' => 30, 'count' => 4], 'skipOnEmpty' => false],
             [['work_items'], '\app\components\ItemsValidations', 'params' => ['max' => 50], 'skipOnEmpty' => false],
             [['time'], 'string']
         ];
