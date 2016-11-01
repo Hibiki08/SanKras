@@ -1,8 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -68,7 +65,7 @@ AppAsset::register($this);
         </div>
     </header>
     <!--end header-->
-    <div class="conten-wrapper">
+<!--    <div class="conten-wrapper">-->
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">
@@ -90,7 +87,7 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div>
+<!--    </div>-->
     <!--start footer -->
     <footer class="footer clear">
         <div class="width">

@@ -97,7 +97,7 @@ class PricesController extends AdminController {
                 $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
                 $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
                 $model->sort = $maxSort + 1;
-                $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
+                $model->active = isset(Yii::$app->request->post('EditPricesForm')['active']) ? 1 : 0;
                 $model->save();
                 $id = $id ? $id : Yii::$app->db->lastInsertID;
                 Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));

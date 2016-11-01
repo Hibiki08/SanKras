@@ -112,38 +112,38 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         <div class="smpl">Вы сэкономите на сантехнических коммуникациях минимум 22% за счет наших скидок</div>
         <div class="sml-col clear">
             <div class="sub-col">
-                <div class="col wow slideInLeft" data-wow-delay="0.1s">
+                <div class="col" data-wow-delay="0.1s">
                     <span>скидка на материал</span>
-                    <div><span class="number">10</span><sup>%</sup></div>
+                    <div class="material"></div>
                 </div>
-                <div class="col wow slideInLeft" data-wow-delay="0.2s">
+                <div class="col" data-wow-delay="0.2s">
                     <span> скидка на монтаж<br>для постоянных клиентов</span>
-                    <div><span class="number">12</span><sup>%</sup></div>
+                    <div class="installation"></div>
                 </div>
-                <div class="col wow slideInLeft" data-wow-delay="0.3s">
+                <div class="col" data-wow-delay="0.3s">
                     <span>консультация, составление<br>сметы и доставка материала</span>
-                    <div><span class="number">0</span>р.</div>
+                    <div class="advice"></div>
                 </div>
-                <div class="col wow slideInLeft" data-wow-delay="0.4s">
+                <div class="col" data-wow-delay="0.4s">
                     <span>проект котельной в подарок<br>при заказе системы отопления</span>
                     <div></div>
                 </div>
             </div>
             <div class="sub-col">
                 <div class="col wow slideInRight" data-wow-delay="0.1s">
-                    <div><span class="number">11</span><span class="plus">лет</span></div>
+                    <div class="experience"></div>
                     <span>опыт работы в сфере<br>сантехнических услуг</span>
                 </div>
                 <div class="col wow slideInRight" data-wow-delay="0.2s">
-                    <div><span class="number">>18</span></div>
+                    <div class="years"></div>
                     <span>крупных объектов<br>за последний год</span>
                 </div>
                 <div class="col wow slideInRight" data-wow-delay="0.3s">
-                    <div><span class="number">5</span><span class="plus">лет</span></div>
+                    <div class="guarantee"></div>
                     <span>гарантии на наши<br>работы</span>
                 </div>
                 <div class="col wow slideInRight" data-wow-delay="0.4s">
-                    <div><span class="number">24</span>ч</div>
+                    <div class="time"></div>
                     <span>составление сметы в течении<br>суток с момента обращения</span>
                 </div>
             </div>
@@ -316,7 +316,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-fast.png" alt="быстро" title="быстро">
                 <div>
                     <span>быстро</span><br>
-                    <span>Получите точную стоимость<br>в течении 48 часов</span>
+                    <span>Получите точную стоимость<br>в течение 48 часов</span>
                 </div>
             </div>
         </div>
@@ -347,8 +347,5 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
             sliderSpeed: 5500,
             animation: 'carousel'
         });
-
-        //Эффекты на сайте
-//        new WOW().init();
     });
 </script>

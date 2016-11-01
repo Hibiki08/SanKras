@@ -1,14 +1,10 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use app\modules\admin\assets\AdminAsset;
 use app\modules\admin\components\AdminMenu;
-use app\modules\admin\rbac\Rbac;
 
 $action = Yii::$app->controller->action->id;
 AdminAsset::register($this);
@@ -17,6 +13,7 @@ AdminAsset::register($this);
 <!DOCTYPE html>
 <html class="fuelux">
 <head>
+    <meta charset="UTF-8">
     <?php echo Html::csrfMetaTags() ?>
     <title><?php echo $this->title; ?></title>
     <?php $this->head() ?>

@@ -45,7 +45,7 @@ $this->title = 'Прайс-лист';
                 <?php } ?>
                 <div class="sum">
                     <a target="_blank" href="<?php echo Yii::$app->urlManager->createUrl('prices/print'); ?>" class="print exo">Распечатать</a>
-                    <div class="reset exo">Очистить всё</div>
+                    <div class="reset exo pulse">Очистить всё</div>
                     <div class="result">Итого ориентировочная стоимость работ: <span class="res">0</span><span> руб.</span></div>
                 </div>
             </div>
