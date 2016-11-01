@@ -15,11 +15,6 @@ class WorksController extends Controller {
 
     const PAGE_SIZE = 9;
 
-    public function init(){
-        parent::init();
-        Yii::$app->cache->flush();
-    }
-
     public function actionIndex() {
         $works = new Works();
         $worksCat = new WorksCat();

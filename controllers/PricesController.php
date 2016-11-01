@@ -8,11 +8,6 @@ use app\models\Prices;
 
 class PricesController extends Controller {
 
-    public function init(){
-        parent::init();
-        Yii::$app->cache->flush();
-    }
-
     public function actionIndex() {
             $prices = new Prices();
             $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['t.sort' => SORT_ASC]);
