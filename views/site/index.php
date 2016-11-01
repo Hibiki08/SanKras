@@ -181,13 +181,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                     'placeholder' => 'Ваш e-mail*'
                 ]); ?>
                 <?php echo Html::submitButton('получить скидку', ['class' => 'pulse']); ?>
-<!--                <span>*ваши данные не будут переданы 3-им лицам</span>-->
                 <?php ActiveForm::end(); ?>
-<!--                <div class="field">-->
-<!--                    <img src="--><?php //echo Yii::$app->params['params']['pathToImageSystem']; ?><!--card-email.png" alt="email" title="email">-->
-<!--                    <input name="email" type="email" placeholder="Ваш e-mail*" class="focus" required><br>-->
-<!--                    <button class="pulse">получить скидку</button>-->
-<!--                </div>-->
                 <div class="success">
                     <span>Спасибо за заявку!</span><br>
                     <span>Вы закрепили за собой скидку!<br>В течение 5 минут Вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>
@@ -317,15 +311,27 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
                 <div class="close"></div>
                 <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                 <span>выезд мастера</span>
-                <div class="field">
-                    <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-name.png" alt="ваше имя" title="ваше имя">
-                    <input type="text" name="name" placeholder="Ваше имя*" class="focus" required><br>
-                </div>
-                <div class="field">
-                    <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-tel.png" alt="ваш телефон" title="ваше телефон">
-                    <input type="text" placeholder="Ваш телефон*" name="phone" class="phone-mask" required><br>
-                    <button class="pulse">заказать выезд</button>
-                </div>
+                <?php $form = ActiveForm::begin([
+                    'enableAjaxValidation' => false,
+                    'enableClientValidation' => true,
+                    'options' => [
+                        'id' => 'form_call_master',
+                    ]
+                ]);?>
+                <?php echo $form->field($letter, 'name', [
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="Ваше имя" title="Ваше имя">{input}{error}</div>',
+                ])->input('email', [
+                    'class' => 'focus',
+                    'placeholder' => 'Ваше имя*'
+                ]); ?>
+                <?php echo $form->field($letter, 'phone', [
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
+                ])->input('text', [
+                    'class' => 'phone-mask',
+                    'placeholder' => 'Ваш телефон*'
+                ]); ?>
+                <?php echo Html::submitButton('заказать выезд', ['class' => 'pulse']); ?>
+                <?php ActiveForm::end(); ?>
                 <span>*обязательные поля <br>данные не будут переданы 3-им лицам</span>
                 <div class="success">
                     <span>Спасибо за заявку!</span><br>

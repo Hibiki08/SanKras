@@ -65,17 +65,11 @@ $(document).ready(function() {
     });
 
     //Дисконтная карта
-    $('.card button').click(function() {
-        var cardMail = $(this).parents('.field').find('input[name=email]').val();
-        var hiddenMail = $(this).parents('.field').find('input[type=hidden]').val();
+    $('#discount #form_discount').on('beforeSubmit', function() {
+        var cardMail = $(this).find('#baseform-email').val();
 
-        if (cardMail == hiddenMail) {
-            $(this).parents('.field').find('input[name=email]').addClass('has-error');
-            return false;
-        }
-
-        $('.card .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
-        $('.card .form .loading').css('display', 'block');
+        $('#discount .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('#discount .form .loading').css('display', 'block');
 
         $.ajax({
             url: 'site/index',
@@ -87,36 +81,22 @@ $(document).ready(function() {
             },
             success: function (response) {
                 if (response.status == true) {
-                    $('.card .form .success, .card .form .close').css('display', 'block');
-                    $('.card .form .loading').css('display', 'none');
-                    $('.card .form .success span').css('visibility', 'visible');
+                    $('#discount .form .success, #discount .form .close').css('display', 'block');
+                    $('#discount .form .loading').css('display', 'none');
+                    $('#discount .form .success span').css('visibility', 'visible');
                 }
             },
             error: function () {
             }
         });
+        return false;
     });
 
     //Вызов мастера
-    $('.master button').click(function() {
-        var errors = false;
-        var masterName = $(this).parents('.form').find('input[name=name]').val();
-        var masterPhone = $(this).parents('.form').find('input[name=phone]').val();
-        var hiddenName = $(this).parents('.form').find('input[type=hidden]').val();
+    $('.master #form_call_master').on('beforeSubmit', function() {
+        var masterName = $(this).find('#baseform-name').val();
+        var masterPhone = $(this).find('#baseform-phone').val();
 
-
-        if (masterName == hiddenName) {
-            $(this).parents('.form').find('input[name=name]').addClass('has-error');
-            errors = true;
-        }
-        if (masterPhone.length == 0) {
-            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
-            errors = true;
-        }
-
-        if (errors) {
-            return false;
-        }
         $('.call-master .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
         $('.call-master .call .form .loading').css('display', 'block');
 
@@ -140,16 +120,13 @@ $(document).ready(function() {
             error: function () {
             }
         });
+        return false;
     });
 
     //Обратный звонок
-    $('.call-block .form button').click(function() {
-        var callPhone = $(this).parents('.form').find('input[name=phone]').val();
+    $('.call-block #form_callback').on('beforeSubmit', function() {
+        var callPhone = $(this).find('#baseform-phone').val();
 
-        if (callPhone.length == 0) {
-            $(this).parents('.form').find('input[name=phone]').addClass('has-error');
-            return false;
-        }
         $('.call-block .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
         $('.call-block .loading').css('display', 'block');
 
@@ -172,6 +149,7 @@ $(document).ready(function() {
             error: function () {
             }
         });
+        return false;
     });
 
     //Консультация мастера
@@ -202,7 +180,6 @@ $(document).ready(function() {
                 error: function () {
                 }
             });
-        return false;
     });
 
 

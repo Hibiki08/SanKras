@@ -1,13 +1,16 @@
 <?php
 
-use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+use app\models\forms\BaseForm;
 
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
+$letter = new BaseForm();
 
 AppAsset::register($this);
 ?>
@@ -65,7 +68,6 @@ AppAsset::register($this);
         </div>
     </header>
     <!--end header-->
-<!--    <div class="conten-wrapper">-->
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">
@@ -74,11 +76,21 @@ AppAsset::register($this);
                     <div class="close"></div>
                     <span>Заказать звонок</span><br>
                     <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
-                    <div class="field">
-                        <img src="/images/system/main-tel.png" alt="phone" title="Ваш телефон">
-                        <input name="phone" type="text" placeholder="Ваш телефон*" class="phone-mask" required><br>
-                        <button class="pulse">перезвоните мне</button>
-                    </div>
+                    <?php $form = ActiveForm::begin([
+                        'enableAjaxValidation' => false,
+                        'enableClientValidation' => true,
+                        'options' => [
+                            'id' => 'form_callback',
+                        ]
+                    ]);?>
+                    <?php echo $form->field($letter, 'phone', [
+                        'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
+                    ])->input('text', [
+                        'class' => 'phone-mask',
+                        'placeholder' => 'Ваш телефон*'
+                    ]); ?>
+                    <?php echo Html::submitButton('перезвоните мне', ['class' => 'pulse']); ?>
+                    <?php ActiveForm::end(); ?>
                     <span>*Ваши данные никогда не будут переданы третьим лицам</span>
                     <div class="success">
                         <span>Спасибо за заявку!</span><br>
@@ -87,7 +99,6 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-<!--    </div>-->
     <!--start footer -->
     <footer class="footer clear">
         <div class="width">

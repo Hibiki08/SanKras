@@ -389,9 +389,12 @@ a:hover {
     vertical-align: middle;
     margin-right: 8px;
 }
-.call-block .form input,
 #advice .form input {
     margin-bottom: 35px;
+}
+.call-block .form #form_callback .help-block {
+    text-align: left;
+    padding-left: 63px;
 }
 .call-block .form span:first-of-type {
     font-size: 20px;
@@ -830,7 +833,7 @@ a:hover {
 }
 .call-block .form .has-error input,
 .cooperation .form .has-error input,
-.call-master .call .form input.has-error,
+.call-master .call .form .has-error input,
 #discount .form .has-error input,
 #advice .form .has-error input,
 #opinions .form .has-error input,
@@ -839,7 +842,7 @@ a:hover {
     transition: border-color 0.5s;
 }
 .card .form #form_discount button,
-.call-master .call .form .field button,
+.call-master .form #form_call_master button,
 .cooperation .form button,
 .call-block .form button,
 #advice .form button,
@@ -869,9 +872,10 @@ a:hover {
 }
 .card .form #form_discount button {
     margin-bottom: 40px;
+    margin-top: 30px;
 }
 .call-block .form button {
-    margin-top: 0;
+    margin-top: 30px;
     font-size: 15px;
     margin-bottom: 15px;
 }
@@ -984,6 +988,11 @@ a:hover {
     border: 1px solid #c4c9d0;
     box-shadow: 0 2px 2px 1px #aeb6bf;
     position: relative;
+    width: 234px;
+}
+.call-master .form #form_call_master button {
+    width: 100%;
+    margin-bottom: 20px;
 }
 .call-master .call .form > span:first-of-type {
     width: 100%;
@@ -1024,9 +1033,6 @@ a:hover {
 #advice .form input:-ms-input-placeholder,
 #discount .form input:-ms-input-placeholder {
     color: #34495e;
-}
-.call-master .call .form .field:first-of-type input {
-    margin-top: 40px;
 }
 .call-master .call .form .field button {
     width: 220px;
@@ -2793,7 +2799,9 @@ color: #fff;
 #opinions .opin-block .form .field.textarea .help-block,
 .cooperation .form .field .help-block,
 #advice .form .field .help-block,
-#discount .form .help-block {
+#discount .form .help-block,
+.call-master .form .help-block,
+.call-block .form .help-block {
     color: #ef847d;
     font-weight: 400;
     font-size: 14px;
@@ -2801,8 +2809,10 @@ color: #fff;
     margin-top: 10px;
 }
 #discount .form .help-block {
-    padding-right: 59px;
     padding-left: 0;
+    width: 270px;
+    float: right;
+    text-align: left;
 }
 #advice .form .field .help-block {
     margin-top: 0;
