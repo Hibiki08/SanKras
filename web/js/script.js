@@ -171,7 +171,7 @@ $(document).ready(function() {
                 },
                 success: function (response) {
                     if (response.status == true) {
-                        $('#advice .form .success').css('display', 'block');
+                        $('#advice .form .success, #advice .form .close').css('display', 'block');
                         $('#advice .form .success span').css('visibility', 'visible');
                         $('#advice .loading').css('display', 'none');
                         yaCounter39483720.reachGoal('callback');
@@ -287,6 +287,15 @@ $(document).ready(function() {
         $('#opinions .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
         $('#opinions .form .success, #opinions .form .close').css('display', 'none');
         $('#opinions .form .success span').css('visibility', 'hidden')
+    });
+
+    //Закрыть "консультация мастера" (бесплатная консультация мастера)
+    $('#advice .form .close').click(function() {
+        $('#advice .form #baseform-name').val('');
+        $('#advice .form #baseform-phone').val('');
+        $('#advice .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
+        $('#advice .form .success, #advice .form .close').css('display', 'none');
+        $('#advice .form .success span').css('visibility', 'hidden')
     });
 
 
