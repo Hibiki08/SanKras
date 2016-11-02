@@ -20,6 +20,7 @@ $config = [
                 ],
             ],
             'linkAssets' => true,
+            'forceCopy' => true
         ],
         'frontCache' => [
             'class' => 'yii\caching\FileCache',
