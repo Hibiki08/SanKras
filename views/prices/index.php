@@ -12,7 +12,6 @@ $this->title = 'Прайс-лист';
         </div>
         <section class="price-list clear">
             <h2 class="exo asphalt">Стоимость выполнения монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h2>
-<!--            --><?php //var_dump($prices[1]['sub'][3]); die;?>
             <div class="table">
                 <?php $cat = []; ?>
                 <?php foreach($prices as $price) { ?>

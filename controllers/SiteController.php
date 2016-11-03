@@ -13,7 +13,6 @@ use app\models\Requests;
 use yii\helpers\Html;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
-use app\models\Works;
 
 class SiteController extends Controller {
 //    public function behaviors() {
@@ -66,7 +65,6 @@ class SiteController extends Controller {
     }
 
     public function actionIndex() {
-        $works = Works::find()->where(['active' => 1])->orderBy('id')->limit(3)->all();
         $form = new BaseForm();
 
         if (Yii::$app->request->isAjax) {
@@ -82,7 +80,7 @@ class SiteController extends Controller {
                     $request = new Requests();
                     $request->name = $adviceName;
                     $request->phone = $advicePhone;
-                    $request->type_id = 3;
+                    $request->type_id = Requests::ADVICE_ID;
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
@@ -105,7 +103,7 @@ class SiteController extends Controller {
                     $status = false;
                     $request = new Requests();
                     $request->phone = $callPhone;
-                    $request->type_id = 4;
+                    $request->type_id = Requests::CALLBACK_ID;
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
@@ -128,7 +126,7 @@ class SiteController extends Controller {
                     $status = false;
                     $request = new Requests();
                     $request->email = $cardMail;
-                    $request->type_id = 1;
+                    $request->type_id = Requests::MASTER_ID;
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
@@ -171,7 +169,7 @@ class SiteController extends Controller {
                     $request = new Requests();
                     $request->name = $masterName;
                     $request->phone = $masterPhone;
-                    $request->type_id = 2;
+                    $request->type_id = Requests::MASTER_ID;
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
@@ -190,7 +188,6 @@ class SiteController extends Controller {
 
         }
         return $this->render('index', [
-            'works' => $works,
             'letter' => $form
         ]);
     }
@@ -203,10 +200,18 @@ class SiteController extends Controller {
             Yii::$app->response->format = Response::FORMAT_JSON;
             $validate = ActiveForm::validate($form);
             if ($validate) {
-                $writeName = Yii::$app->request->post('writeUsName');
-                $writePhone = Yii::$app->request->post('writeUsPhone');
-                $writeEmail = Yii::$app->request->post('writeUsEmail');
-                $writeMessage = Yii::$app->request->post('writeUsMessage');
+                $writeName = trim(Html::encode(Yii::$app->request->post('writeUsName')));
+                $writePhone = trim(Html::encode(Yii::$app->request->post('writeUsPhone')));
+                $writeEmail = trim(Html::encode(Yii::$app->request->post('writeUsEmail')));
+                $writeMessage = trim(Html::encode(Yii::$app->request->post('writeUsMessage')));
+
+                $request = new Requests();
+                $request->name = $writeName;
+                $request->phone = $writePhone;
+                $request->email = $writeEmail;
+                $request->text = $writeMessage;
+                $request->type_id = Requests::WRITE_ID;
+                $request->save();
 
                 $validate = Yii::$app->mailer->compose()
                     ->setFrom($writeEmail)
@@ -229,6 +234,44 @@ class SiteController extends Controller {
     public function actionRates() {
         return $this->render('rates', [
 //            'write' => $form
+        ]);
+    }
+
+    public function actionFlat() {
+        $form = new BaseForm();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+
+        return $this->render('flat', [
+            'question' => $form
         ]);
     }
 

@@ -93,6 +93,14 @@ class AdminMenu extends Widget {
             'name' => 'Заявки',
             'submenu' => [
                 [
+                    'name' => 'Обратный звонок',
+                    'controller' => 'callback'
+                ],
+                [
+                    'name' => 'Консультация гл.',
+                    'controller' => 'advice'
+                ],
+                [
                     'name' => 'Дисконтная карта',
                     'controller' => 'card'
                 ],
@@ -101,13 +109,14 @@ class AdminMenu extends Widget {
                     'controller' => 'master'
                 ],
                 [
-                    'name' => 'Консультация',
-                    'controller' => 'advice'
+                    'name' => 'Вопрос мастеру',
+                    'controller' => 'question-master'
                 ],
                 [
-                    'name' => 'Обратный звонок',
-                    'controller' => 'callback'
+                    'name' => 'Напишите нам',
+                    'controller' => 'write-us'
                 ],
+
             ]
         ],
     ];

@@ -19,8 +19,8 @@ $config = [
                     'js' => ['/js/jquery-2.1.4.min.js'] // тут путь до Вашего экземпляра jquery
                 ],
             ],
-            'linkAssets' => true,
-            'forceCopy' => true
+//            'linkAssets' => true,
+//            'forceCopy' => true
         ],
         'frontCache' => [
             'class' => 'yii\caching\FileCache',

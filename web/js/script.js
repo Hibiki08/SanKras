@@ -183,7 +183,6 @@ $(document).ready(function() {
         return false;
     });
 
-
     //Напишите нам
     $('.cooperation .form').on('beforeSubmit', function() {
         WriteUs($(this));

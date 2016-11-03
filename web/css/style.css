@@ -91,7 +91,7 @@ a:hover {
     margin-right: 10px;
 }
 .header button,
-#price-flat button {
+#more .pakage button {
     position: relative;
     background: #f44336;
     color: #fff;
@@ -819,7 +819,8 @@ a:hover {
 .cooperation .form input,
 .call-block .form input,
 #advice .form input,
-#opinions .form input {
+#opinions .form input,
+#more .form input {
     font-weight: 300;
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
@@ -837,7 +838,8 @@ a:hover {
 #discount .form .has-error input,
 #advice .form .has-error input,
 #opinions .form .has-error input,
-#opinions .form .has-error .field.photo .false-input {
+#opinions .form .has-error .field.photo .false-input,
+#more .form .has-error input {
     border-bottom: 2px solid #ef847d;
     transition: border-color 0.5s;
 }
@@ -848,7 +850,8 @@ a:hover {
 #advice .form button,
 #our-works .other a,
 #reviews .other a,
-#opinions .form button {
+#opinions .form button,
+#more .form button {
     position: relative;
     overflow: hidden;
     margin-top: 45px;
@@ -1284,7 +1287,8 @@ a:hover {
     background-size: auto 100%;
 }
 .cooperation:before,
-#opinions:before {
+#opinions:before,
+#more .questions:before {
     background: url("/images/system/bg-recall-white.png") no-repeat bottom center;
     position: fixed;
     top: 0;
@@ -1294,7 +1298,7 @@ a:hover {
     z-index: -1;
     content: '';
     background-attachment: fixed;
-    background-size: 100% auto;
+    background-size: auto 100%;
     will-change: transform;
 }
 .cooperation .width .end {
@@ -1352,48 +1356,58 @@ a:hover {
     font-size: 25px;
     font-weight: 400;
 }
-.cooperation .form img {
+.cooperation .form img,
+#more .form img {
     margin-right: 12px;
     vertical-align: bottom;
 }
-.cooperation .form .textarea img {
+.cooperation .form .textarea img,
+#more .form .textarea img {
     vertical-align: middle;
 }
 .cooperation .form .textarea:before,
 .cooperation .form .textarea:after,
 #opinions .form .textarea:before,
-#opinions .form .textarea:after {
+#opinions .form .textarea:after,
+#more .form .textarea:before,
+#more .form .textarea:after {
     content: '';
     position: absolute;
     border-top: 2px solid #aeb6bf;
     transition: border-color 0.5s;
 }
-.cooperation .form .textarea {
+.cooperation .form .textarea,
+#more .form .textarea {
     position: relative;
     margin-bottom: 10px;
 }
-.cooperation .form .textarea:before {
+.cooperation .form .textarea:before,
+#more .form .textarea:before {
     width: 8px;
     top: 19px;
     left: -8px;
 }
-.cooperation .form .textarea:after {
+.cooperation .form .textarea:after,
+#more .form .textarea:after {
     width: 220px;
     top: 19px;
     right: 0;
 }
 .cooperation .form .has-error .textarea textarea,
-#opinions .form .has-error .textarea textarea {
+#opinions .form .has-error .textarea textarea,
+#more .form .has-error .textarea textarea {
     border: 2px solid #ef847d;
     border-top: none;
 }
 .cooperation .form .has-error .textarea:before,
 .cooperation .form .has-error .textarea:after,
 #opinions .form .has-error .textarea:before,
-#opinions .form .has-error .textarea:after {
+#opinions .form .has-error .textarea:after,
+#more .form .has-error .textarea:after {
     border-top: 2px solid #ef847d;
 }
-.cooperation .form .field {
+.cooperation .form .field,
+#more .form .field {
     margin-bottom: 15px;
 }
 .cooperation .form .loading {
@@ -1405,16 +1419,18 @@ a:hover {
     color: #fff;
     width: 358px;
 }
-.cooperation input:-webkit-autofill,.call-block .form img
+.cooperation input:-webkit-autofill,
 .cooperation textarea:-webkit-autofill,
 .cooperation select:-webkit-autofill {
     background: transparent;
 }
-.cooperation .form label {
+.cooperation .form label,
+#more .form label {
     vertical-align: middle;
 }
 .cooperation .form textarea,
-#opinions .form textarea {
+#opinions .form textarea,
+#more .form textarea {
     border: 2px solid #aeb6bf;
     border-top: none;
     background: transparent;
@@ -1430,24 +1446,24 @@ a:hover {
     font-size: 15px;
     transition: border-color 0.5s;
 }
-.cooperation .form input[placeholder],
-#opinions .form input[placeholder] {
-    color: #fff;
-}
 .cooperation .form input::-webkit-input-placeholder,
-#opinions .form input::-webkit-input-placeholder {
+#opinions .form input::-webkit-input-placeholder,
+#more .form input::-webkit-input-placeholder {
     color: #fff;
 }
 .cooperation .form input::-moz-placeholder,
-#opinions .form input::-moz-placeholder {
+#opinions .form input::-moz-placeholder,
+#more .form input::-moz-placeholder {
     color: #fff;
 }
 .cooperation .form input:-moz-placeholder,
-#opinions .form input:-moz-placeholder {
+#opinions .form input:-moz-placeholder,
+#more .form input:-moz-placeholder {
     color: #fff;
 }
 .cooperation .form input:-ms-input-placeholder,
-#opinions .form input:-ms-input-placeholder {
+#opinions .form input:-ms-input-placeholder,
+#more .form input:-ms-input-placeholder {
     color: #fff;
 }
 .cooperation form > span:last-of-type,
@@ -1458,6 +1474,11 @@ a:hover {
     display: block;
     text-align: left;
     letter-spacing: -0.3px;
+}
+.cooperation .form input[placeholder],
+#opinions .form input[placeholder],
+#more .form input[placeholder] {
+    color: #fff;
 }
 .cooperation .form button {
     margin: 0 auto;
@@ -2042,21 +2063,25 @@ color: #fff;
 .options .title-big {
     margin-bottom: 45px;
 }
-.options table {
+.options table,
+#more .pakage table {
     border-collapse: collapse;
     margin-bottom: 30px;
 }
-.options table tr:not(:last-of-type):not(:nth-last-of-type(2)) {
+.options table tr:not(:last-of-type):not(:nth-last-of-type(2)),
+#more .pakage table tr:not(:last-of-type):not(:nth-last-of-type(2)) {
     border-bottom: 1px solid #ced3d8;
 }
-.options table tr td {
+.options table tr td,
+#more .pakage table tr td {
     padding: 20px 20px 20px 0;
     box-shadow: 0 1px 1px #fff;
     -o-box-shadow: 0 1px 1px #fff;
     -moz-box-shadow: 0 1px 1px #fff;
     -webkit-box-shadow: 0 1px 1px #fff;
 }
-.options table .title {
+.options table .title,
+#more .pakage table .title {
     padding: 35px 20px 35px 0;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
@@ -2064,21 +2089,28 @@ color: #fff;
     letter-spacing: 1px;
 }
 .options table .title,
-.options table tr td:nth-of-type(1) {
+.options table tr td:nth-of-type(1),
+#more .pakage table .title,
+#more .pakage table tr td:nth-of-type(1) {
     text-align: left;
     color: #34495e;
 }
-.options table tr td:nth-of-type(1) {
+.options table tr td:nth-of-type(1),
+#more .pakage table tr td:nth-of-type(1) {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
-.options table tr:first-of-type td:nth-of-type(1) {
+.options table tr:first-of-type td:nth-of-type(1),
+#more .pakage table tr:first-of-type td:nth-of-type(1) {
     border-top: 1px solid #ced3d8;
 }
 .options table .comfort,
 .options table .standart,
-.options table .mini {
+.options table .mini,
+#more .pakage table .comfort,
+#more .pakage table .standart,
+#more .pakage table .mini {
     color: #fff;
     font-size: 24px;
     text-transform: uppercase;
@@ -2088,25 +2120,34 @@ color: #fff;
     width: 300px;
 }
 .options table .comfort,
-.options table tr.cost td.footer-comfort {
+.options table tr.cost td.footer-comfort,
+#more .pakage table .comfort,
+#more .pakage table tr.cost td.footer-comfort {
     background: #9b59b6;
 }
 .options table .standart,
-.options table tr.cost td.footer-standart {
+.options table tr.cost td.footer-standart,
+#more .pakage table .standart,
+#more .pakage table tr.cost td.footer-standart {
     background: #2ecc71;
 }
 .options table .mini,
-.options table tr.cost td.footer-mini {
+.options table tr.cost td.footer-mini,
+#more .pakage table .mini,
+#more .pakage table tr.cost td.footer-mini {
     background: #f1c40f;
 }
-.options table img {
+.options table img,
+#more .pakage table img {
     display: block;
     margin: 0 auto;
 }
-.options table .ico {
+.options table .ico,
+#more .pakage table .ico {
     vertical-align: middle;
 }
-.options table tr td:not(:first-of-type) {
+.options table tr td:not(:first-of-type),
+#more .pakage table tr td:not(:first-of-type) {
     background: #fbfbfc;
     border-bottom: 1px solid #ebedef;
     border-right: 1px solid #ebedef;
@@ -2117,23 +2158,29 @@ color: #fff;
     padding-left: 20px;
 }
 .options table tr td:nth-of-type(2),
-.options table .comfort {
+.options table .comfort,
+#more .pakage table tr td:nth-of-type(2),
+#more .pakage table .comfort {
     border-left: 1px solid #d6d7d8;
 }
-.options table tr td:last-of-type {
+.options table tr td:last-of-type,
+#more .pakage table tr td:last-of-type {
     border-right: 1px solid #d6d7d8;
 }
-.options table tr.guarantee td {
+.options table tr.guarantee td,
+#more .pakage table tr.guarantee td {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 1px;
     text-align: center;
 }
-.options table tr.guarantee td:first-of-type {
+.options table tr.guarantee td:first-of-type,
+#more .pakage table tr.guarantee td:first-of-type {
     text-align: left;
 }
-.options table tr.cost td:first-of-type {
+.options table tr.cost td:first-of-type,
+#more .pakage table tr.cost td:first-of-type {
     text-align: left;
     font-family: 'Exo 2', sans-serif;
     font-size: 19px;
@@ -2143,10 +2190,12 @@ color: #fff;
     word-spacing: 2px;
     color: #34495e;
 }
-.options table tr.cost td:first-of-type:first-letter {
+.options table tr.cost td:first-of-type:first-letter,
+#more .pakage table tr.cost td:first-of-type:first-letter {
     font-size: 27px;
 }
-.options table tr.cost td {
+.options table tr.cost td,
+#more .pakage table tr.cost td {
     color: #fff;
     text-align: center;
     font-size: 19px;
@@ -2154,37 +2203,45 @@ color: #fff;
     font-family: 'Exo 2', sans-serif;
     border-bottom: none;
 }
-.options table tr.cost td span {
+.options table tr.cost td span,
+#more .pakage table tr.cost td span {
     font-size: 27px;
 }
-.options table tr.cost td.footer-comfort {
+.options table tr.cost td.footer-comfort,
+#more .pakage table tr.cost td.footer-comfort {
     border-bottom: 1px solid #9b59b6;
     border-right: 1px solid #9b59b6;
 }
-.options table tr.cost td.footer-standart {
+.options table tr.cost td.footer-standart,
+#more .pakage table tr.cost td.footer-standart {
     border-bottom: 1px solid #2ecc71;
     border-right: 1px solid #2ecc71;
 }
-.options table tr.cost td.footer-mini {
+.options table tr.cost td.footer-mini,
+#more .pakage table tr.cost td.footer-mini {
     border-bottom: 1px solid #f1c40f;
     border-right: 1px solid #f1c40f;
 }
-.options table tr.cost:not(:last-of-type) td {
+.options table tr.cost:not(:last-of-type) td,
+#more .pakage table tr.cost:not(:last-of-type) td {
     padding-bottom: 0;
     padding-top: 10px;
 }
-.options table tr.cost:last-of-type td {
+.options table tr.cost:last-of-type td,
+#more .pakage table tr.cost:last-of-type td {
     padding-top: 0;
     padding-bottom: 10px;
 }
-.options .footnote {
+.options .footnote,
+#more .pakage .footnote {
     text-align: right;
     font-size: 15px;
     letter-spacing: -1px;
     word-spacing: 1px;
     padding-right: 60px;
 }
-.options table tr.cost td {
+.options table tr.cost td,
+#more .pakage table tr.cost td {
     box-shadow: none;
 }
 
@@ -2709,6 +2766,7 @@ color: #fff;
 }
 #opinions:before {
     background: transparent url('/images/system/key-bg2.jpg') no-repeat top center;
+    background-size: 100% auto;
 }
 #opinions {
     background: none;
@@ -2723,7 +2781,8 @@ color: #fff;
     color: #fff;
     position: relative;
 }
-#opinions .opin-block .form .close {
+#opinions .opin-block .form .close,
+#more .form .close {
     width: 21px;
     height: 22px;
     background: url('/images/system/close-form-callback.png') no-repeat;
@@ -2801,7 +2860,9 @@ color: #fff;
 #advice .form .field .help-block,
 #discount .form .help-block,
 .call-master .form .help-block,
-.call-block .form .help-block {
+.call-block .form .help-block,
+#more .form .help-block,
+#more .form .help-block {
     color: #ef847d;
     font-weight: 400;
     font-size: 14px;
@@ -2830,7 +2891,8 @@ color: #fff;
 #opinions form > span:last-of-type {
     text-align: left;
 }
-#opinions .form button {
+#opinions .form button,
+#more .form button {
     margin: 0 auto;
     margin-top: 30px;
     width: 200px;
@@ -2870,7 +2932,22 @@ color: #fff;
     font-style: italic;
     font-weight: 300;
 }
-
+#more .form button {
+    width: 270px;
+    margin: 0;
+    margin-top: 30px;
+}
+#more .form .success {
+    display: none;
+    position: absolute;
+    font-size: 18px;
+    top: 35px;
+}
+#more .form .success .exo {
+    font-size: 24px;
+    margin-bottom: 40px;
+    display: block;
+}
 
 
 /*video//////////////////////////*/
@@ -2889,8 +2966,332 @@ color: #fff;
     font-weight: 400;
 }
 
+/*Подробнее #more/////////////////*/
+#more h2.title {
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 45px;
+}
+#more .description {
+    position: relative;
+    padding-top: 155px;
+    background: #fff;
+}
+#more .description figure {
+    float: left;
+    position: relative;
+    z-index: 3;
+}
+#more .description .text {
+    float: right;
+    width: 550px;
+    font-size: 15px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 3;
+}
+#more .description .text p:first-of-type {
+    margin-bottom: 10px;
+}
+#more .description:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -77px;
+    background: url('/images/system/more-down.png') repeat-x;
+    height: 112px;
+    z-index: 2;
+}
+#more .steps {
+    background: #f5f6f7;
+    padding: 75px 0 95px 0;
+    position: relative;
+}
+#more .steps .step {
+    position: relative;
+    z-index: 2;
+}
+#more .steps:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: url('/images/system/more-up.png') repeat-x;
+    height: 121px;
+    bottom: 0;
+}
+#more .steps .st {
+    background: url('/images/system/more-2.png') no-repeat;
+    position: relative;
+    float: left;
+    display: block;
+    width: 190px;
+    height: 160px;
+    margin: 40px 140px 0 72px;
+}
+#more .steps .step:first-of-type {
+    margin-bottom: 60px;
+}
+#more .steps .st .number {
+    background: url('/images/system/more-one.png') no-repeat;
+    width: 98px;
+    height: 172px;
+}
+#more .steps .st span:nth-of-type(2) {
+    font-size: 30px;
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
+    top: 38px;
+}
+#more .steps .st-2 {
+    background: url('/images/system/more-1.png') no-repeat;
+    width: 255px;
+    margin-left: 128px;
+    margin-top: 50px;
+}
+#more .steps .st-2 .number {
+    background: url('/images/system/more-two.png') no-repeat;
+    width: 132px;
+    height: 172px;
+}
+#more .steps .st .number {
+    position: absolute;
+    top: -40px;
+    left: -72px;
+    display: block;
+}
+#more .steps .st-2 .number {
+    top: -50px;
+    left: -50px;
+}
+#more .steps .desc {
+    float: left;
+    width: 645px;
+    background: #fff;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.1);
+}
+#more .steps .desc figure {
+    position: absolute;
+    top: 0;
+    left: -105px;
+}
+#more .steps .desc .text ul {
+    list-style-type: none;
+    padding: 35px 40px 30px 150px;
+    font-size: 15px;
+}
+#more .steps .desc .text ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+#more .steps .desc .text ul li:before {
+    content: '';
+    background: url('/images/system/point.png') no-repeat;
+    width: 6px;
+    height: 6px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
+#more .more-key {
+    padding-bottom: 65px;
+    background: #fff;
+}
+#more .more-key .title-big {
+    color: #f44336;
+    font-size: 30px;
+    margin-bottom: 55px;
+    letter-spacing: 1px;
+}
+#more .more-key .flat {
+    position: relative;
+}
+#more .more-key .flat:first-of-type {
+    margin-bottom: 60px;
+}
+#more .more-key .flat .fl:first-of-type {
+    float: left;
+}
+#more .more-key .flat .fl:last-of-type {
+    float: right;
+}
+#more .more-key .flat .fl {
+    padding-left: 20px;
+    border-left: 5px solid #f44336;
+    position: relative;
+}
+#more .more-key .flat .fl .title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+#more .more-key .flat .fl .text {
+    font-size: 15px;
+    line-height: 1.4;
+}
+#more .more-key .flat.one .fl:first-of-type:before,
+#more .more-key .flat.one .fl:last-of-type:before,
+#more .more-key .flat.two .fl:first-of-type:before,
+#more .more-key .flat.two .fl:last-of-type:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 70px;
+    height: 70px;
+}
+#more .more-key .flat.one .fl:first-of-type:before {
+    background: url('/images/system/more-clock.png') no-repeat;
+}
+#more .more-key .flat.one .fl:last-of-type:before {
+    background: url('/images/system/more-money.png') no-repeat;
+}
+#more .more-key .flat.two .fl:first-of-type:before {
+    background: url('/images/system/more-ok.png') no-repeat;
+}
+#more .more-key .flat.two .fl:last-of-type:before {
+    background: url('/images/system/more-lic.png') no-repeat;
+}
+#more .more-key .flat .fl:first-of-type {
+    margin-left: 95px;
+}
+#more .more-key .flat .fl:first-of-type .text,
+#more .more-key .flat .fl:first-of-type .title {
+    width: 540px;
+}
+#more .more-key .flat .fl:last-of-type .text,
+#more .more-key .flat .fl:last-of-type .title {
+    width: 295px;
+}
+#more .pakage {
+    padding-top: 50px;
+    background: #f5f6f7;
+    padding-bottom: 65px;
+}
+#more .pakage > .title {
+    font-size: 30px;
+}
+#more .pakage .footnote {
+    margin-bottom: 40px;
+}
+#more .pakage span.title-big {
+    font-size: 30px;
+}
+#more .pakage .pdf {
+    text-align: right;
+}
+#more .pakage a {
+    color: #fff;
+    text-decoration: none;
+}
+#more .pakage button {
+    letter-spacing: 1px;
+    margin: 0 0 0 60px;
+    width: 300px;
+}
+#more .questions:before {
+    background: url('/images/system/more.jpg') no-repeat top center;
+    background-size: 100% auto;
+}
+#more .questions .question {
+    float: left;
+}
+#more .questions .form {
+    float: right;
+    background: url('/images/system/more-blur.jpg') no-repeat top center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    padding: 60px 50px;
+    position: relative;
+    color: #fff;
+}
+#more .questions .form .title {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 40px;
+}
+#more .questions .form .title span {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+#more .questions .question {
+    font-size: 20px;
+    padding-top: 30px;
+    width: 315px;
+    text-align: right;
+    line-height: 1.4;
+}
+#more .questions .question span:first-of-type {
+    font-size: 30px;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+#more .questions .question .qn {
+    letter-spacing: 1px;
+}
+#more .questions .question .qn:first-letter {
+    font-size: 40px;
+}
+#more .form input {
+    background: transparent;
+    vertical-align: bottom;
+}
+#more .form input {
+    width: 220px;
+}
+#more .form textarea,
+#more .form .textarea {
+    width: 400px;
+    max-width: 400px;
+}
+#more .form form > div:first-of-type {
+    float: left;
+    margin-right: 50px;
+}
+#more .form form > div:nth-of-type(2)  {
+    float: right;
+}
+#more .form textarea {
+    width: 356px;
+    max-width: 356px;
+}
+#more .form .textarea:after {
+    width: 250px;
+}
+#more .form form > span {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    margin-top: -15px;
+}
+#more .form .textarea {
+    margin-bottom: 10px;
+}
+#more .form form > div:nth-of-type(2):after {
+    content: '*обязательные поля; ваши данные не будут переданы третьим лицам';
+    display: block;
+    font-size: 13px;
+    margin-left: -15px;
+}
+#more .form .close {
+    top: 30px;
+    right: 30px;
+}
 
-/*footer/////////////////////////*/
+
+    /*footer/////////////////////////*/
 footer .links {
     background: #34495e;
     float: left;

@@ -1,9 +1,9 @@
 <?php
 use app\components\SliderTop;
 use app\components\SliderBottom;
-use app\models\Works;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use app\components\Works;
 
 $this->title = 'Монтаж отопления, водоснабжения, канализации, котельных, обустройство скважины в Краснодаре';
 ?>
@@ -228,34 +228,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         </figure>
     </div>
 </section>
-<section id="our-works">
-    <div class="width">
-        <h4 class="title-big">Наши работы</h4>
-        <div class="w1 clear">
-            <?php if (!empty($works)) { ?>
-                <?php foreach ($works as $work) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $work->id]); ?>">
-                        <div class="work">
-                            <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
-                            <div class="work-title exo"><?php echo $work->title; ?></div>
-                            <div class="hover">
-                                <div class="hover-title exo"><?php echo $work->title; ?></div>
-                                <?php $items = explode(",\n", $work->preview_items); ?>
-                                <ul>
-                                    <li><?php echo implode('</li><li>', $items); ?></li>
-                                </ul>
-                                <div class="more red exo">Посмотреть работу</div>
-                            </div>
-                        </div>
-                    </a>
-                <?php } ?>
-            <?php } ?>
-        </div>
-        <div class="other">
-            <a href="<?php echo Yii::$app->urlManager->createUrl('works/'); ?>" class="button">Посмотреть все работы</a>
-        </div>
-    </div>
-</section>
+<?php echo Works::widget(); ?>
 <section class="reviews" id="reviews">
     <div class="width">
         <h2 class="title-big">отзывы наших клиентов</h2>

@@ -10,11 +10,12 @@ class BaseForm extends Model {
     public $name;
     public $phone;
     public $email;
+    public $text;
 
     public function rules() {
         return [
             [['email'], 'email'],
-            [['email', 'phone', 'name'], 'required'],
+            [['email', 'phone', 'name', 'text'], 'required'],
             ['phone', 'match', 'pattern' => '^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$'],
         ];
     }
@@ -24,6 +25,7 @@ class BaseForm extends Model {
             'phone' => 'Телефон',
             'name' => 'Имя',
             'email' => 'Email',
+            'text' => 'Сообщение'
         ];
     }
 

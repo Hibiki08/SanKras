@@ -43,6 +43,28 @@
     font-weight: 500;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Exo 2';
+    src: url('/fonts/exo2/exo2.0-extrabold.eot');
+    src: url('/fonts/exo2/exo2.0-extrabold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/exo2/exo2.0-extrabold.woff2') format('woff2'),
+    url('/fonts/exo2/exo2.0-extrabold.woff') format('woff'),
+    url('/fonts/exo2/exo2.0-extrabold.ttf') format('truetype'),
+    url('/fonts/exo2/Exo2.0-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Exo 2';
+    src: url('/fonts/exo2/exo2.0-black.eot');
+    src: url('/fonts/exo2/exo2.0-black.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/exo2/exo2.0-black.woff2') format('woff2'),
+    url('/fonts/exo2/Exo2.0-Black.woff') format('woff'),
+    url('/fonts/exo2/Exo2.0-Black.ttf') format('truetype'),
+    url('/fonts/exo2/Exo2.0-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
 
 /*Roboto////////////////////////////////////////////////////////////////////*/
 @font-face {
