@@ -15,14 +15,6 @@ class AdminMenu extends Widget {
                     'controller' => 'contacts'
                 ],
             ]
-        ], [
-            'name' => 'Сертификаты',
-            'submenu' => [
-                [
-                    'name' => 'Список',
-                    'controller' => 'certificates'
-                ],
-            ]
         ],
         [
             'name' => 'Слайдеры',
@@ -81,11 +73,19 @@ class AdminMenu extends Widget {
 //            ]
 //        ],
         [
-            'name' => 'Отзывы',
+            'name' => 'О нас',
             'submenu' => [
                 [
-                    'name' => 'Список',
+                    'name' => 'Отзывы',
                     'controller' => 'opinions'
+                ],
+                [
+                    'name' => 'Команда',
+                    'controller' => 'team'
+                ],
+                [
+                    'name' => 'Сертификаты',
+                    'controller' => 'certificates'
                 ],
             ]
         ],

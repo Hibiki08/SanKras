@@ -4,9 +4,9 @@ use app\models\Certificates;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Список';
+$this->title = 'Сертификаты';
 ?>
-<h1><?php echo 'Сертификаты > ' . $this->title; ?></h1>
+<h1><?php echo 'О нас > ' . $this->title; ?></h1>
 <?php $form = ActiveForm::begin([
     'options' => ['enctype'=>'multipart/form-data', 'class' => 'form-inline certificate',],
     'fieldConfig' => [

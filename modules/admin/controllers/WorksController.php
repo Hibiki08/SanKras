@@ -13,6 +13,7 @@ use yii\web\Response;
 use yii\data\Pagination;
 use yii\web\UploadedFile;
 use app\components\ImageResize;
+use app\components\Translate;
 
 class WorksController extends AdminController {
 
@@ -115,6 +116,8 @@ class WorksController extends AdminController {
                     }
                     $workItems = implode(";\n", $workItems);
 
+                    $translate = new Translate();
+
                     $model->title = $form->title;
                     $model->text = $form->text;
                     $model->cat_id = $form->cat_id;
@@ -126,7 +129,7 @@ class WorksController extends AdminController {
                     $model->video = !empty($form->video) ? $form->video : null;
                     $model->preview_items = $previewItems;
                     $model->work_items = $workItems;
-                    $model->preview = !empty($form->preview->name) ? $form->preview->name : Yii::$app->request->post('EditWorksForm')['hidden'];
+                    $model->preview = !empty($form->preview->name) ? $translate->translate($form->preview->name) : Yii::$app->request->post('EditWorksForm')['hidden'];
                     $model->active = isset(Yii::$app->request->post('EditWorksForm')['active']) ? 1 : 0;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;

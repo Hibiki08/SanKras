@@ -44,8 +44,8 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 ])->input('text', ['value' => $model->cost_material])->label('Ст-ть материала*'); ?>
 <?php echo $form->field($edit, 'time')->input('text', ['value' => $model->time, 'placeholder' => '7 дней'])->label('Время выполнения'); ?>
 <?php echo $form->field($edit, 'video')->input('text', ['value' => $model->video, 'placeholder' => 'https://www.youtube.com/watch?v=UtEYIfnojM8'])->label('Видео'); ?>
-<?php $edit->preview_items = !empty($model->preview_items) ? $model->preview_items : "пункт1,\nпунтк2,\nпункт3,\nпункт4 - макс 4 пункта"; echo $form->field($edit, 'preview_items')->textarea(['rows' => '6'])->label('Пункты превью*'); ?>
-<?php $edit->work_items = !empty($model->work_items) ? $model->work_items : "пункт1,\nпунтк2,\nпункт3,\nпункт4 и т.д"; echo $form->field($edit, 'work_items')->textarea(['rows' => '10'])->label('Пункты работы*'); ?>
+<?php $edit->preview_items = !empty($model->preview_items) ? $model->preview_items : "пункт1;\nпунтк2;\nпункт3;\nпункт4 - макс 4 пункта"; echo $form->field($edit, 'preview_items')->textarea(['rows' => '6'])->label('Пункты превью*'); ?>
+<?php $edit->work_items = !empty($model->work_items) ? $model->work_items : "пункт1;\nпунтк2;\nпункт3;\nпункт4 и т.д"; echo $form->field($edit, 'work_items')->textarea(['rows' => '10'])->label('Пункты работы*'); ?>
 <?php echo $form->field($edit, 'preview', ['options' => [
     'class' => isset($errors['emptyImage']) ? 'has-error form-group' : 'form-group',
     'id' => 'preview-file'

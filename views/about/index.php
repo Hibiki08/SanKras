@@ -1,7 +1,75 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Hibiki
- * Date: 26.10.2016
- * Time: 20:11
- */
+use app\models\Team;
+use app\models\Certificates;
+$this->title = 'О нас';
+?>
+<section class="about" id="about">
+    <div class="width">
+        <div class="head">
+            <div class="tabs">
+                <ul>
+                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
+                    <!--                    <li class="exo asphalt"><a href="--><?php //echo Yii::$app->urlManager->createUrl('about/news'); ?><!--">Новости</a></li>-->
+                    <!--                    <li class="exo asphalt"><a href="--><?php //echo Yii::$app->urlManager->createUrl('about/articles'); ?><!--">Статьи</a></li>-->
+                </ul>
+            </div>
+            <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
+        </div>
+        <div class="about-block">
+            <div class="text clear">
+                <div class="txt txt-1">
+                    <figure><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>about-1.png" alt="СанКрас" title="SanKras"></figure>
+                    <p>В чем секрет успешного бизнеса? Почему люди доверяют одним компаниями, но не пользуются услугами других? Мы в СанКрас тоже задавались подобными вопросами, пока не поняли, что гнаться нужно не за деньгами и славой, а за доверием заказчиков. </p>
+                    <p>Мы подумали, что если делать работу качественно, при этом предоставлять заказчику привилегии, бонусы и не задирать цены, нас станут рекомендовать друзьям. Важно все время помнить, что</p>
+                </div>
+                <div class="txt txt-2">
+                    <p>мы работаем не для какой-то массы "клиентов", а для конкретных людей, которые будут жить в своих квартирах и домах. Нам нужно делать работу так, чтобы у этих людей не возникало проблем с отоплением и канализацией.</p>
+                    <p>Каждый должен быть на своем месте. Мы не пытаемся заниматься сторонними делами, для этого у нас есть широкий список компаний, с которыми мы сотрудничаем, все наши усилия сосредоточены именно на  монтаже сантехнических коммуникаций.</p>
+                    <p>Наши специалисты имеют большой опыт работы и постоянно повышают свою квалификацию, что подтверждают многочисленные сертификаты и грамоты. У нас имеется небольшой автопарк, который позволяет  бесплатно доставлять материал. Также мы используем профессиональный инструмент, благодаря которому существенно увеличивается скорость монтажа.</p>
+                    <p>Работа на совесть, а не за деньги - вот наше кредо. Многие наши заказчики уже оценили плюсы индивидуального подхода и гибкой системы скидок, попробуйте и вы.</p>
+                    <span class="subscribe">Артем, главный монтажник компании СанКрас</span>
+                </div>
+            </div>
+            <?php if (!empty($team)) { ?>
+            <div class="team clear">
+                <h2 class="title-big">Наша команда</h2>
+                <?php foreach ($team as $tm) {?>
+                <div class="tm">
+                    <figure><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
+                    <div class="description">
+                        <span class="name exo"><?php echo $tm->name; ?></span><span class="desc exo">, <?php echo $tm->post; ?></span>
+                        <?php $items = explode(";\n", $tm->text); ?>
+                        <span class="team-text"><p><?php echo implode('</p><p>', $items); ?></p></span>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+            <?php } ?>
+            <?php if (!empty($certificates)) { ?>
+            <div class="sertificates clear">
+                <h2 class="title-big">Наши сертификаты</h2>
+                <?php foreach ($certificates as $cert) {?>
+                <div class="sertif">
+                    <a class="fancybox" rel="group" href="<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER  . $cert->img; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . 'mini_' . $cert->img; ?>" alt="Сертификат" title="Сертификат"></a>
+                </div>
+                <?php } ?>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox({
+            openEffect	: 'elastic',
+            closeEffect	: 'elastic',
+
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            }
+        });
+    });
+</script>

@@ -275,4 +275,80 @@ class SiteController extends Controller {
         ]);
     }
 
+    public function actionHouse() {
+        $form = new BaseForm();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+
+        return $this->render('house', [
+            'question' => $form
+        ]);
+    }
+
+    public function actionCompany() {
+        $form = new BaseForm();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+
+        return $this->render('company', [
+            'question' => $form
+        ]);
+    }
+
 }

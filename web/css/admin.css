@@ -219,6 +219,12 @@
     right: 0;
     margin: 0 auto;
 }
+#team .photo figure {
+    width: 150px;
+}
+#team .photo figure img {
+    width: 100%;
+}
 
 @media (max-width: 992px) {
     .col-md-1 {

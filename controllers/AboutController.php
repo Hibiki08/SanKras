@@ -11,13 +11,26 @@ use yii\web\UploadedFile;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+use app\models\Team;
+use app\models\Certificates;
 
 class AboutController extends Controller {
 
     const PAGE_SIZE = 7;
 
     public function actionIndex() {
-        return $this->render('index');
+        $this->view->registerCssFile('/lib/fancyBox-18d1712/source/jquery.fancybox.css');
+        $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
+        $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
+
+        $team = Team::findAll(['active' => 1]);
+        $certificates = Certificates::findAll(['active' => 1]);
+
+
+        return $this->render('index', [
+            'team' => $team,
+            'certificates' => $certificates
+        ]);
     }
 
     public function actionOpinions() {

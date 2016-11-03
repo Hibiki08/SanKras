@@ -30,13 +30,13 @@ class WorksController extends Controller {
             case 'house';
                 $cat = $worksCat->findOne(['key' => 'house']);
                 if (!empty($cat)) {
-                    $items = $works->filter($query, ['works.cat_id' => $cat->id]);
+                    $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
                 break;
             case 'flat';
                 $cat = $worksCat->findOne(['key' => 'flat']);
                 if (!empty($cat)) {
-                    $items = $works->filter($query, ['works.cat_id' => $cat->id]);
+                    $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
                 break;
         }

@@ -84,6 +84,7 @@ $(document).ready(function() {
                     $('#discount .form .success, #discount .form .close').css('display', 'block');
                     $('#discount .form .loading').css('display', 'none');
                     $('#discount .form .success span').css('visibility', 'visible');
+                    yaCounter39483720.reachGoal('master');
                 }
             },
             error: function () {
@@ -180,6 +181,40 @@ $(document).ready(function() {
                 error: function () {
                 }
             });
+        return false;
+    });
+
+    //Вопрос мастеру
+    $('#more .form').on('beforeSubmit', function() {
+        var $this = $(this);
+        var questionName = $this.find('#baseform-name').val();
+        var questionPhone = $this.find('#baseform-phone').val();
+        var questionText = $this.find('#baseform-text').val();
+
+        $('#more .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
+        $('#more .loading').css('display', 'block');
+
+        $.ajax({
+            url: 'site/index',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                questionPhone: questionPhone,
+                questionName: questionName,
+                questionText: questionText,
+                _csrf: yii.getCsrfToken()
+            },
+            success: function (response) {
+                if (response.status == true) {
+                    $('#more .form .success, #advice .form .close').css('display', 'block');
+                    $('#more .form .success span').css('visibility', 'visible');
+                    $('#more .loading').css('display', 'none');
+                    yaCounter39483720.reachGoal('callback');
+                }
+            },
+            error: function () {
+            }
+        });
         return false;
     });
 

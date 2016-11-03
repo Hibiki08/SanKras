@@ -1403,6 +1403,7 @@ a:hover {
 .cooperation .form .has-error .textarea:after,
 #opinions .form .has-error .textarea:before,
 #opinions .form .has-error .textarea:after,
+#more .form .has-error .textarea:before,
 #more .form .has-error .textarea:after {
     border-top: 2px solid #ef847d;
 }
@@ -1655,7 +1656,8 @@ a:hover {
 #works,
 #work,
 #video,
-#opinions {
+#opinions,
+#about {
     padding-top: 155px;
     background: #f5f6f7;
 }
@@ -1673,7 +1675,8 @@ a:hover {
 .options .tabs ul li,
 .works .tabs ul li,
 #video .tabs ul li,
-#opinions .tabs ul li {
+#opinions .tabs ul li,
+#about .tabs ul li {
     display: inline-block;
     border: 1px solid #d6dbdf;
     border-bottom: 3px solid #34495e;
@@ -1693,7 +1696,9 @@ a:hover {
 #video .tabs ul li:hover,
 #video .tabs ul li.active,
 #opinions .tabs ul li:hover,
-#opinions .tabs ul li.active {
+#opinions .tabs ul li.active,
+#about .tabs ul li:hover,
+#about .tabs ul li.active {
     border: 1px solid #fadad8;
     border-bottom: 3px solid #f44336;
 }
@@ -1701,7 +1706,8 @@ a:hover {
 .options .tabs ul li a,
 .works .tabs ul li a,
 #video .tabs ul li a,
-#opinions .tabs ul li a {
+#opinions .tabs ul li a,
+#about .tabs ul li a {
     padding: 11px 35px 12px;
     display: block;
     background: #fff;
@@ -1715,7 +1721,9 @@ a:hover {
 #video .tabs ul li a:hover,
 #video .tabs ul li.active a,
 #opinions .tabs ul li a:hover,
-#opinions .tabs ul li.active a {
+#opinions .tabs ul li.active a,
+#about .tabs ul li a:hover,
+#about .tabs ul li.active a {
     text-decoration: none;
     color: #f44336;
 }
@@ -2270,7 +2278,8 @@ color: #fff;
 }
 .works .head,
 #video .head,
-#opinions .head {
+#opinions .head,
+#about .head {
     margin-bottom: 40px;
 }
 .works .wrks .work,
@@ -2693,11 +2702,13 @@ color: #fff;
 
 
 /*opinion////////////////////////*/
-#opinions .title {
+#opinions .title,
+#about .title {
     font-size: 30px;
     font-weight: 300;
 }
-#opinions .tabs ul {
+#opinions .tabs ul,
+#about .tabs ul {
     margin-bottom: 40px;
 }
 #opinions .opin-block .op {
@@ -3268,7 +3279,7 @@ color: #fff;
     max-width: 356px;
 }
 #more .form .textarea:after {
-    width: 250px;
+    width: 245px;
 }
 #more .form form > span {
     display: block;
@@ -3291,7 +3302,135 @@ color: #fff;
 }
 
 
-    /*footer/////////////////////////*/
+/*about///////////////////////////*/
+#about .text {
+    margin-bottom: 70px;
+}
+#about .text .txt {
+    font-size: 15px;
+    width: 570px;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    padding-bottom: 45px;
+    min-height: 537px;
+}
+#about .text .txt figure {
+    margin-bottom: 30px;
+}
+#about .text .txt figure img {
+    border-bottom: 5px solid #f44336;
+}
+#about .text .txt p {
+    padding: 0 40px;
+    line-height: 1.6;
+}
+#about .text .txt p:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+#about .text .txt-1 {
+    float: left;
+}
+#about .text .txt-2 {
+    float: right;
+}
+#about .text .txt-2 p:first-of-type {
+    padding-top: 30px;
+}
+#about .text .subscribe {
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+    font-weight: 500;
+    padding: 0 40px;
+    font-size: 16px;
+}
+#about .team .tm {
+    margin-bottom: 55px;
+}
+#about .team .tm:nth-of-type(odd) {
+    float: left;
+}
+#about .team .tm:nth-of-type(even) {
+    float: right;
+}
+#about .team .tm figure,
+#about .team .tm .description {
+    display: inline-block;
+    vertical-align: top;
+}
+#about .team .tm .description {
+    width: 240px;
+    border-left: 5px solid #f44336;
+    padding-left: 20px;
+}
+#about .team .tm figure {
+    margin-right: 40px;
+}
+#about .team .tm figure img {
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+}
+#about .team .tm .description .name,
+#about .team .tm .description .desc {
+    font-size: 18px;
+    font-weight: 800;
+}
+#about .team .tm .description .team-text {
+    font-size: 15px;
+    display: block;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+#about .sertificates {
+    margin-top: 10px;
+}
+#about .sertificates .sertif {
+    display: inline-block;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    max-height: 310px;
+    min-height: 310px;
+    vertical-align: top;
+    margin-right: 25px;
+    margin-bottom: 60px;
+    position: relative;
+}
+#about .sertificates .sertif .fancybox:hover:after {
+    display: block;
+}
+#about .sertificates .sertif .fancybox:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.51) url('/images/system/zoom.png') no-repeat center center;
+    display: none;
+    cursor: pointer;
+}
+#about .sertificates .sertif:hover {
+
+}
+#about .sertificates .sertif:last-of-type {
+    margin-right: 0;
+}
+#about .sertificates .sertif .fancybox {
+    display: table-cell;
+    vertical-align: middle;
+    height: 310px;
+}
+
+
+/*footer/////////////////////////*/
 footer .links {
     background: #34495e;
     float: left;
