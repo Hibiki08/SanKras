@@ -13,7 +13,7 @@ class OtherAsset extends AssetBundle
 
     ];
     public $js = [
-        'js/script.js?r7',
+        'js/script.js?r8',
     ];
     public $depends = [
         'yii\web\YiiAsset',

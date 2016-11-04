@@ -366,14 +366,16 @@ $(document).ready(function() {
 
     if ($('section').is('#price')) {
         var hash = window.location.hash;
-        if (hash != '#boiler') {
-            $('.price .nav-menu > ul li').removeClass('active');
-            $('.price .table table').removeClass('active');
-            $('.price .nav-menu > ul > li' + hash).addClass('active');
-            $('.price .table table' + hash).addClass('active');
-        } else {
-            $('.price .table table').removeClass('active');
-            $('.price .table table#heating').addClass('active');
+        if (hash.length > 0) {
+            if (hash != '#boiler') {
+                $('.price .nav-menu > ul li').removeClass('active');
+                $('.price .table table').removeClass('active');
+                $('.price .nav-menu > ul > li' + hash).addClass('active');
+                $('.price .table table' + hash).addClass('active');
+            } else {
+                $('.price .table table').removeClass('active');
+                $('.price .table table#heating').addClass('active');
+            }
         }
     }
 
