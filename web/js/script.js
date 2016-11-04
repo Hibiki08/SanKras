@@ -195,7 +195,7 @@ $(document).ready(function() {
         $('#more .loading').css('display', 'block');
 
         $.ajax({
-            url: 'site/index',
+            url: 'site/flat',
             type: 'post',
             dataType: 'json',
             data: {
