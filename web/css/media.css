@@ -1,274 +1,111 @@
-/*1760*/
-@media screen and (max-width: 1760px) {
-    #advice .form {
-        top: 190px;
-    }
-    .slider .Blockswrapper .wrap:first-of-type p:first-of-type {
-        font-size: 32px;
-    }
-    .slider .Blockswrapper .wrap:first-of-type .text p:last-of-type {
-        font-size: 26px;
-    }
-    .slider .Blockswrapper .wrap .text ul {
-        font-size: 19px;
-    }
-}
-/*1580*/
-@media screen and (max-width: 1580px) {
-    .slider .Blockswrapper .wrap .text {
-        padding-top: 185px;
-    }
-}
-/*1680*/
-@media screen and (max-width: 1680px) {
-    #advice .form {
-        top: 175px;
-    }
-}
-/*1505*/
-@media screen and (max-width: 1505px) {
-    #advice .form {
-        padding: 30px 30px 30px;
-    }
-}
-/*1460*/
-@media screen and (max-width: 1460px) {
-    #advice .form {
-        top: 160px;
-    }
-}
-/*1415*/
-@media screen and (max-width: 1415px) {
-    #advice .form > span:first-of-type {
-        font-size: 18px;
-    }
-    #advice .form > span:first-of-type span {
-        font-size: 19px;
-    }
-    #advice .form {
-        top: 145px;
-    }
-}
-/*1340*/
-@media screen and (max-width: 1340px) {
-    #advice .form {
-        top: 190px;
-        width: 544px;
-    }
-    #advice .form .form-group {
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 25px;
-    }
-    #advice .form .form-group:last-of-type {
-        margin-right: 0;
-    }
-    #advice .width .form input {
-        width: 210px;
-    }
-    #advice .form img {
-        margin-right: 8px;
-    }
-    #advice .form > span:first-of-type span {
-        display: inline-block;
-        font-size: 18px;
-    }
-    #advice .form > span:first-of-type {
-        letter-spacing: normal;
-    }
-    #advice .width .form button {
-        margin-top: 20px;
-    }
-    #advice #form_advice > span {
-        display: block;
-        text-align: center;
-    }
-    .wrap:first-of-type p:first-of-type {
-        font-size: 28px;
-    }
-    .wrap:first-of-type .text p:last-of-type {
-        font-size: 24px;
-    }
-    .slider .Blockswrapper .wrap .text {
-        padding-top: 165px;
-    }
-}
-/*1225*/
-@media screen and (max-width: 1225px) {
-    #advice .form {
-        top: 170px;
-    }
-    .slider .Blockswrapper .wrap .text ul {
-        font-size: 18px;
-    }
-    .slider .Blockswrapper .wrap .text ul li {
-        line-height: 1.2;
-    }
-    .width {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-}
-
-/*!*1440*!*/
-/*@media screen and (max-width: 1440px) {*/
-    /*.key .title-big:after {*/
-        /*bottom: -170px;*/
-    /*}*/
-/*}*/
-
-/*!*1366*!*/
-/*@media screen and (max-width: 1366px) {*/
-    /*.slider .Blockswrapper .wrap .text {*/
-        /*padding-top: 160px;*/
-    /*}*/
-    /*.callback {*/
-        /*background: url(/images/system/callback-bg.jpg) no-repeat top center;*/
-        /*background-attachment: fixed;*/
-    /*}*/
-/*}*/
-
-/*!*1280*!*/
-/*@media screen and (max-width: 1280px) {*/
-    /*.slider .Blockswrapper .wrap .text {*/
-        /*padding-top: 140px;*/
-    /*}*/
-    /*.key .title-big:after {*/
-        /*bottom: -160px;*/
-    /*}*/
-    /*.simple {*/
-        /*background: url(/images/system/main-bg-benefit2.jpg) no-repeat;*/
-        /*background-size: auto 100%;*/
-    /*}*/
-    /*.callback {*/
-        /*background: url(/images/system/callback-bg.jpg) no-repeat top center;*/
-    /*}*/
-    /*.width {*/
-        /*padding: 0 10px;*/
-    /*}*/
-/*}*/
-
-/*!*1152*!*/
-/*@media screen and (max-width: 1152px) {*/
-    /*html {*/
-        /*overflow-x: hidden;*/
-    /*}*/
-    /*.width {*/
-        /*width: 985px;*/
-    /*}*/
-    /*.slider .Blockswrapper .wrap .text {*/
-        /*padding-top: 110px;*/
+/*!*1760*!*/
+/*@media screen and (max-width: 1760px) {*/
+    /*#advice .form {*/
+        /*top: 190px;*/
     /*}*/
     /*.slider .Blockswrapper .wrap:first-of-type p:first-of-type {*/
-        /*font-size: 25px;*/
+        /*font-size: 32px;*/
     /*}*/
     /*.slider .Blockswrapper .wrap:first-of-type .text p:last-of-type {*/
-        /*font-size: 20px;*/
-    /*}*/
-    /*.key .width > div {*/
-        /*padding: 45px 20px;*/
-    /*}*/
-    /*.key .width > div.flat {*/
-        /*width: 365px;*/
-    /*}*/
-    /*.key .width > div.house {*/
-        /*width: 600px;*/
-    /*}*/
-    /*.key .width > div.flat, .key .width > div.house {*/
-        /*min-height: 704px;*/
-    /*}*/
-    /*.key .width > div.build,*/
-    /*.key .width > div.better {*/
-        /*width: 483px;*/
-        /*min-height: 486px;*/
-    /*}*/
-    /*.key .title-big:after {*/
-        /*bottom: -120px;*/
-    /*}*/
-    /*.quality .col {*/
-        /*width: 237px;*/
-    /*}*/
-    /*.quality .col h3,*/
-    /*.quality .col div {*/
-        /*font-size: 14px;*/
-    /*}*/
-    /*.quality .col img {*/
-        /*width: 150px;*/
-    /*}*/
-    /*.quality .col:not(:last-of-type) {*/
-        /*margin-right: 10px;*/
-    /*}*/
-    /*.quality .columns {*/
-        /*margin-top: -135px;*/
-    /*}*/
-    /*.slider .Blockswrapper .wrap .text p:first-of-type {*/
-        /*margin-bottom: 5px;*/
+        /*font-size: 26px;*/
     /*}*/
     /*.slider .Blockswrapper .wrap .text ul {*/
-        /*font-size: 16px;*/
-    /*}*/
-    /*.how-work .how > figure:nth-of-type(odd) > img {*/
-        /*width: 100px;*/
-    /*}*/
-    /*.how-work .how figcaption {*/
-        /*font-size: 14px;*/
-    /*}*/
-    /*.how-work .how > figure:nth-of-type(odd) {*/
-        /*width: 164px;*/
-    /*}*/
-    /*.call-master .call ul, .works .description ul {*/
-        /*font-size: 16px;*/
-    /*}*/
-    /*.call-master .master > figure img {*/
-        /*width: 517px;*/
-    /*}*/
-    /*.call-master .call ul, .works .description ul {*/
-        /*position: relative;*/
-        /*z-index: 3;*/
-    /*}*/
-    /*.call-master .call h3 {*/
-        /*z-index: 3;*/
-        /*position: relative;*/
-        /*font-size: 16px;*/
-    /*}*/
-    /*.why .clear > div {*/
-        /*padding: 40px 35px 50px 35px;*/
-        /*width: 412px;*/
-        /*min-height: 456px;*/
-    /*}*/
-    /*.why .clear > div h3 {*/
-        /*font-size: 15px;*/
-    /*}*/
-    /*.reviews .review .block .text {*/
-        /*width: 370px;*/
-    /*}*/
-    /*.reviews .review .block {*/
-        /*padding: 30px;*/
-    /*}*/
-    /*.reviews .review .block span {*/
-        /*font-size: 15px;*/
-    /*}*/
-    /*.reviews .review .block img {*/
-        /*margin-right: 20px;*/
-    /*}*/
-    /*.reviews blockquote {*/
         /*font-size: 19px;*/
-        /*width: 265px;*/
-    /*}*/
-    /*.how-work .how > .red-arrow {*/
-        /*margin-top: 40px;*/
     /*}*/
 /*}*/
-
-/*!*990*!*/
-/*@media screen and (max-width: 990px) {*/
-    /*.key .title-big:after {*/
-        /*bottom: -100px;*/
+/*!*1580*!*/
+/*@media screen and (max-width: 1580px) {*/
+    /*.slider .Blockswrapper .wrap .text {*/
+        /*padding-top: 185px;*/
     /*}*/
-    /*.call-master .master > figure {*/
-        /*right: 312px;*/
+/*}*/
+/*!*1680*!*/
+/*@media screen and (max-width: 1680px) {*/
+    /*#advice .form {*/
+        /*top: 175px;*/
     /*}*/
-    /*.key {*/
-        /*margin-top: -26px;*/
+/*}*/
+/*!*1505*!*/
+/*@media screen and (max-width: 1505px) {*/
+    /*#advice .form {*/
+        /*padding: 30px 30px 30px;*/
+    /*}*/
+/*}*/
+/*!*1460*!*/
+/*@media screen and (max-width: 1460px) {*/
+    /*#advice .form {*/
+        /*top: 160px;*/
+    /*}*/
+/*}*/
+/*!*1415*!*/
+/*@media screen and (max-width: 1415px) {*/
+    /*#advice .form > span:first-of-type {*/
+        /*font-size: 18px;*/
+    /*}*/
+    /*#advice .form > span:first-of-type span {*/
+        /*font-size: 19px;*/
+    /*}*/
+    /*#advice .form {*/
+        /*top: 145px;*/
+    /*}*/
+/*}*/
+/*!*1340*!*/
+/*@media screen and (max-width: 1340px) {*/
+    /*#advice .form {*/
+        /*top: 190px;*/
+        /*width: 544px;*/
+    /*}*/
+    /*#advice .form .form-group {*/
+        /*display: inline-block;*/
+        /*vertical-align: top;*/
+        /*margin-right: 25px;*/
+    /*}*/
+    /*#advice .form .form-group:last-of-type {*/
+        /*margin-right: 0;*/
+    /*}*/
+    /*#advice .width .form input {*/
+        /*width: 210px;*/
+    /*}*/
+    /*#advice .form img {*/
+        /*margin-right: 8px;*/
+    /*}*/
+    /*#advice .form > span:first-of-type span {*/
+        /*display: inline-block;*/
+        /*font-size: 18px;*/
+    /*}*/
+    /*#advice .form > span:first-of-type {*/
+        /*letter-spacing: normal;*/
+    /*}*/
+    /*#advice .width .form button {*/
+        /*margin-top: 20px;*/
+    /*}*/
+    /*#advice #form_advice > span {*/
+        /*display: block;*/
+        /*text-align: center;*/
+    /*}*/
+    /*.wrap:first-of-type p:first-of-type {*/
+        /*font-size: 28px;*/
+    /*}*/
+    /*.wrap:first-of-type .text p:last-of-type {*/
+        /*font-size: 24px;*/
+    /*}*/
+    /*.slider .Blockswrapper .wrap .text {*/
+        /*padding-top: 165px;*/
+    /*}*/
+/*}*/
+/*!*1225*!*/
+/*@media screen and (max-width: 1225px) {*/
+    /*#advice .form {*/
+        /*top: 170px;*/
+    /*}*/
+    /*.slider .Blockswrapper .wrap .text ul {*/
+        /*font-size: 18px;*/
+    /*}*/
+    /*.slider .Blockswrapper .wrap .text ul li {*/
+        /*line-height: 1.2;*/
+    /*}*/
+    /*.width {*/
+        /*padding-left: 10px !important;*/
+        /*padding-right: 10px !important;*/
     /*}*/
 /*}*/
