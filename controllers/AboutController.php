@@ -63,7 +63,7 @@ class AboutController extends Controller {
 
                 $model->name = strip_tags(trim($form->name));
                 $model->description = strip_tags(trim($form->description));
-                $model->photo = isset($form->photo->name) ? $form->photo->name : null;
+                $model->photo = isset($form->photo->name) ? $form->photo->name : '../../system/no-photo.jpg';
                 $model->text = strip_tags(trim($form->text));
                 $model->active = 0;
                 $model->save();

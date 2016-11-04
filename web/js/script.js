@@ -332,6 +332,16 @@ $(document).ready(function() {
         $('#advice .form .success span').css('visibility', 'hidden')
     });
 
+    //Закрыть вопрос мастеру
+    $('#more .close').click(function() {
+        $('#more .form #baseform-name').val('');
+        $('#more .form #baseform-phone').val('');
+        $('#more .form #baseform-text').val('');
+        $('#more .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
+        $('#more .form .success, #more .form .close').css('display', 'none');
+        $('#more .form .success span').css('visibility', 'hidden')
+    });
+
 
     //Правое меню
     $('.price .nav-menu > ul > li > a').click(function() {
