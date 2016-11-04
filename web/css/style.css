@@ -2978,6 +2978,9 @@ color: #fff;
     margin-bottom: 40px;
     display: block;
 }
+#more .loading {
+    top: 125px
+}
 
 
 /*video//////////////////////////*/

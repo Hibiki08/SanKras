@@ -10,7 +10,6 @@ $this->title = 'Обратный звонок';
         <thead>
         <tr>
             <th>#</th>
-            <th>Имя</th>
             <th>Телефон</th>
             <th>Дата</th>
             <th>Обработана</th>
@@ -22,7 +21,6 @@ $this->title = 'Обратный звонок';
             <?php foreach ($requests as $call) { ?>
                 <tr>
                     <td><?php echo $call->id; ?></td>
-                    <td><?php echo $call->name; ?></td>
                     <td><?php echo $call->phone; ?></td>
                     <td><?php echo Yii::$app->formatter->asDate($call->date, 'd MMMM yyyy'); ?></td>
                     <td class="status"><?php echo $call->processe ? 'Да' : 'Нет'; ?></td>

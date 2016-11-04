@@ -80,7 +80,7 @@ $this->title = 'Отзывы';
                 <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
                 <div class="success">
                     <span class="exo title">Спасибо за ваш отзыв!</span><br>
-                    <span><span class="thank">Благодарим Вас<br>за потраченное время!</span> Нам<br>очень важно Ваше мнение.</span>
+                    <span><span class="thank">Благодарим вас<br>за потраченное время!</span> Нам<br>очень важно ваше мнение.</span>
                     <span>Ваш отзыв отправлен. В скором<br>времени он появится на сайте.</span>
                 </div>
                 <?php ActiveForm::end(); ?>

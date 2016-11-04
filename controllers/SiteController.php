@@ -256,9 +256,9 @@ class SiteController extends Controller {
                 $status = false;
                 $request = new Requests();
 
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
+                $questionName = trim(Html::encode(Yii::$app->request->post('questionName')));
+                $questionPhone = trim(Html::encode(Yii::$app->request->post('questionPhone')));
+                $questionText = trim(Html::encode(Yii::$app->request->post('questionText')));
 
                 $request->name = $questionName;
                 $request->phone = $questionPhone;

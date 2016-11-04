@@ -92,7 +92,7 @@ $this->title = 'Контакты';
             <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
             <div class="success">
                 <span class="exo">Ваше сообщение<br>отправлено!</span><br>
-                <span>В ближайшее время<br>мы ответим Вам на почту или<br>перезвоним.</span>
+                <span>В ближайшее время<br>мы ответим вам на почту или<br>перезвоним.</span>
             </div>
             <?php ActiveForm::end(); ?>
         </div>

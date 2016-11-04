@@ -206,7 +206,7 @@ $(document).ready(function() {
             },
             success: function (response) {
                 if (response.status == true) {
-                    $('#more .form .success, #advice .form .close').css('display', 'block');
+                    $('#more .form .success, #more .form .close').css('display', 'block');
                     $('#more .form .success span').css('visibility', 'visible');
                     $('#more .loading').css('display', 'none');
                     yaCounter39483720.reachGoal('question');
