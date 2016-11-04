@@ -32,6 +32,10 @@ class OpinionsController extends AdminController {
     }
 
     public function actionEdit() {
+        $this->view->registerCssFile('/lib/fancyBox-18d1712/source/jquery.fancybox.css');
+        $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
+        $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
+
         $id = Yii::$app->request->getQueryParam('id') ? Yii::$app->request->getQueryParam('id') : null;
 
         $opinions = new Opinions();
@@ -54,8 +58,8 @@ class OpinionsController extends AdminController {
                 $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
                 if ($create) {
                     $form->upload($path, $form->photo);
-//                        $resizeMini = new ImageResize($form->photo->name, $path, $path, 135, '', 'mini');
-//                        $resizeMini->resize();
+                        $resizeMini = new ImageResize($form->photo->name, $path, $path, 135, '', 'mini');
+                        $resizeMini->resize();
                 }
                 Yii::$app->getResponse()->redirect(Url::toRoute(['opinions/edit', 'id' => $id]));
             }

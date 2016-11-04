@@ -75,7 +75,7 @@ AppAsset::register($this);
                     <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
                     <div class="close"></div>
                     <span>Заказать звонок</span><br>
-                    <span>Введите свой номер телефона,<br>и мы перезвоним Вам в течении 15 минут</span>
+                    <span>Введите свой номер телефона,<br>и мы перезвоним вам в течении 15 минут</span>
                     <?php $form = ActiveForm::begin([
                         'enableAjaxValidation' => false,
                         'enableClientValidation' => true,
@@ -91,10 +91,10 @@ AppAsset::register($this);
                     ]); ?>
                     <?php echo Html::submitButton('перезвоните мне', ['class' => 'pulse']); ?>
                     <?php ActiveForm::end(); ?>
-                    <span>*Ваши данные никогда не будут переданы третьим лицам</span>
+                    <span>*ваши данные никогда не будут переданы третьим лицам</span>
                     <div class="success">
                         <span>Спасибо за заявку!</span><br>
-                        <span>Мастер перезвонит Вам в течениe 15<br>минут и проконсультирует по всем<br>интересующим вопросам</span>
+                        <span>Мастер перезвонит вам в течениe 15<br>минут и проконсультирует по всем<br>интересующим вопросам</span>
                     </div>
                 </div>
             </div>

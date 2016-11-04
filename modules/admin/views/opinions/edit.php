@@ -23,7 +23,8 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     <div class="form-group">
         <label class="col-lg-2"></label>
         <figure class="col-lg-10">
-            <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?>">
+<!--            <img class="img-rounded" src="--><?php //echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?><!--">-->
+            <a class="fancybox" rel="group" href="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/mini_' . $model->photo; ?>"></a>
         </figure>
     </div>
 <?php } ?>
@@ -40,4 +41,18 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 </div>
 
 <?php ActiveForm::end(); ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox({
+            openEffect	: 'elastic',
+            closeEffect	: 'elastic',
+
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            }
+        });
+    });
+</script>
 

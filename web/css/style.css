@@ -1,6 +1,7 @@
-* {
+*, ul, ol {
     margin: 0;
     padding: 0;
+    box-sizing: inherit;
 }
 body {
     font-size: 16px;
@@ -78,12 +79,16 @@ a:hover {
     font-size: 15px;
     font-weight: 300;
     float: left;
+    margin: 0;
 }
 #header .description h1 span {
     color: #fff;
 }
 #header .description .address {
     float: right;
+}
+address {
+    margin: 0;
 }
 #header .description .address img,
 #header .description .address address {
@@ -539,6 +544,7 @@ a:hover {
 #advice .form > span:first-of-type span {
     font-size: 20px;
     font-weight: 500;
+    display: block;
 }
 #advice .form img {
     vertical-align: middle;
@@ -1634,7 +1640,7 @@ a:hover {
     width: 620px;
     font-size: 15px;
     float: left;
-    line-height: 1.4;
+    line-height: 1.6;
 }
 .cooperation .text .title-big {
     font-size: 30px;
@@ -1662,10 +1668,18 @@ a:hover {
 #video,
 #opinions,
 #about,
-#privacy {
+#privacy,
+#login {
     padding-top: 155px;
     background: #f5f6f7;
 }
+#login {
+    height: 70%;
+}
+#login .form-control {
+    height: 25px;
+}
+
 .price ul {
     list-style-type: none;
 }
@@ -2036,7 +2050,7 @@ color: #fff;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     -webkit-border-radius: 5px;
-    padding: 15px 20px;
+    padding: 11px 20px;
     font-size: 15px;
     width: 80px;
     cursor: pointer;
@@ -2047,7 +2061,8 @@ color: #fff;
     z-index: 3;
     bottom: 380px;
     display: none;
-    transition: opacity 0.6s;
+    transition: background 0.5s;
+    border-bottom: 3px solid #212f3c;
 }
 .up:before {
     content: '';
@@ -2744,9 +2759,8 @@ color: #fff;
     margin-top: 20px;
 }
 #opinions .opin-block .text {
-    font-size: 14px;
+    font-size: 15px;
     font-family: 'Roboto', sans-serif;
-    font-style: italic;
     width: 465px;
     display: inline-block;
 }
@@ -3250,7 +3264,7 @@ color: #fff;
 }
 #more .questions .question {
     font-size: 20px;
-    padding-top: 30px;
+    padding-top: 55px;
     width: 315px;
     text-align: right;
     line-height: 1.4;
@@ -3310,6 +3324,9 @@ color: #fff;
 #more .form .close {
     top: 30px;
     right: 30px;
+}
+#more .form textarea + .help-block {
+   padding-left: 0;
 }
 
 
@@ -3415,7 +3432,7 @@ color: #fff;
     position: relative;
 }
 #about .sertificates .sertif .fancybox:hover:after {
-    display: block;
+    opacity: 1;
 }
 #about .sertificates .sertif .fancybox:after {
     content: '';
@@ -3425,8 +3442,9 @@ color: #fff;
     left: 0;
     top: 0;
     background: rgba(0, 0, 0, 0.51) url('/images/system/zoom.png') no-repeat center center;
-    display: none;
+    opacity: 0;
     cursor: pointer;
+    transition: opacity 0.6s;
 }
 #about .sertificates .sertif:hover {
 

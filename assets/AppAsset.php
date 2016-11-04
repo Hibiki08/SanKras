@@ -10,8 +10,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         '/css/hibiki.slider.css',
-        'css/style.css?r1',
-        'css/media.css?r1',
+        'css/style.css?r2',
+        'css/media.css?r2',
         'css/fonts.css',
     ];
     public $js = [
@@ -20,7 +20,8 @@ class AppAsset extends AssetBundle
         '/js/hibiki.slider.js',
     ];
     public $depends = [
-        'app\assets\OtherAsset'
+        'app\assets\OtherAsset',
+//        'yii\bootstrap\BootstrapPluginAsset',
     ];
     public $jsOptions = [
 

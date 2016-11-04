@@ -12,7 +12,7 @@ $this->title = 'Монтаж отопления, водоснабжения, к�
         <div class="form asphalt">
             <div class="close"></div>
             <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
-            <span class="exo">получите<br><span class="exo">бесплатную консультацию</span><br>от мастера</span>
+            <span class="exo">получите <span class="exo">бесплатную консультацию</span> от мастера</span>
             <?php $form = ActiveForm::begin([
                 'enableAjaxValidation' => false,
                 'enableClientValidation' => true,
