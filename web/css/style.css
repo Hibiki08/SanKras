@@ -3463,7 +3463,6 @@ color: #fff;
 
 /*not found//////////////////////*/
 #not-found {
-    background: #f5f6f7 url('/images/system/404.png') no-repeat 35% 260px;
     height: 80%;
     display: table;
     width: 100%;
@@ -3474,8 +3473,9 @@ color: #fff;
     display: table-cell;
 }
 #not-found .oops {
-    padding-top: 260px;
     display: inline-block;
+    vertical-align: middle;
+    margin-right: 50px;
 }
 #not-found .text {
     text-align: left;
@@ -3491,6 +3491,20 @@ color: #fff;
 }
 #not-found a:hover {
     text-decoration: none;
+}
+#not-found .width {
+    height: 100%;
+}
+#not-found .width:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#not-found figure {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 80px;
 }
 
 /*#privacy///////////////////////////*/

@@ -8,7 +8,7 @@ class PrintAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        '/css/print.css',
+        '/css/print.css?r3',
     ];
     public $js = [
     ];

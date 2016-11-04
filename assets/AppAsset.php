@@ -9,15 +9,15 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        '/css/hibiki.slider.css',
-        'css/style.css?r2',
-        'css/media.css?r2',
-        'css/fonts.css',
+        '/css/hibiki.slider.css?r3',
+        'css/style.css?r3',
+        'css/media.css?r3',
+        'css/fonts.css?r3',
     ];
     public $js = [
-        'js/smoothscroll.js',
-        'js/maskedinput.js',
-        '/js/hibiki.slider.js',
+        'js/smoothscroll.js?r3',
+        'js/maskedinput.js?r3',
+        '/js/hibiki.slider.js?r3',
     ];
     public $depends = [
         'app\assets\OtherAsset',
