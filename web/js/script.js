@@ -354,6 +354,14 @@ $(document).ready(function() {
         }, 700);
     });
 
+    if ($('section').is('#price')) {
+        var hash = window.location.hash;
+        $('.price .nav-menu > ul li').removeClass('active');
+        $('.price .table table').removeClass('active');
+        $('.price .nav-menu > ul li' + hash).addClass('active');
+        $('.price .table table' + hash).addClass('active');
+    }
+
     //Калькулятор
     $('.calc').click(function() {
         $('.price .tabs li').removeClass('active');
