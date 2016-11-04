@@ -84,7 +84,7 @@ $(document).ready(function() {
                     $('#discount .form .success, #discount .form .close').css('display', 'block');
                     $('#discount .form .loading').css('display', 'none');
                     $('#discount .form .success span').css('visibility', 'visible');
-                    yaCounter39483720.reachGoal('master');
+                    yaCounter39483720.reachGoal('discount');
                 }
             },
             error: function () {
@@ -209,7 +209,7 @@ $(document).ready(function() {
                     $('#more .form .success, #advice .form .close').css('display', 'block');
                     $('#more .form .success span').css('visibility', 'visible');
                     $('#more .loading').css('display', 'none');
-                    yaCounter39483720.reachGoal('callback');
+                    yaCounter39483720.reachGoal('question');
                 }
             },
             error: function () {
