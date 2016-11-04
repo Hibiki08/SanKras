@@ -201,7 +201,7 @@ class SiteController extends Controller {
     }
 
     public function actionContacts() {
-        $this->view->registerJsFile('/js/map.js', ['position' => View::POS_HEAD]);
+        $this->view->registerJsFile('/js/map.js?r1', ['position' => View::POS_HEAD]);
         $form = new WriteUsForm();
 
         if (Yii::$app->request->isAjax) {

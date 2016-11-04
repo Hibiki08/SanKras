@@ -359,7 +359,7 @@ $(document).ready(function() {
         if (hash != '#boiler') {
             $('.price .nav-menu > ul li').removeClass('active');
             $('.price .table table').removeClass('active');
-            $('.price .nav-menu > ul li' + hash).addClass('active');
+            $('.price .nav-menu > ul > li' + hash).addClass('active');
             $('.price .table table' + hash).addClass('active');
         } else {
             $('.price .table table').removeClass('active');
