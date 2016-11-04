@@ -13,6 +13,9 @@ body {
 .wrapper {
     margin: 0 auto;
 }
+html,body,.wrapper {
+    height: 100% !important;
+}
 strong {
     font-weight: 300;
 }
@@ -91,7 +94,8 @@ a:hover {
     margin-right: 10px;
 }
 .header button,
-#more .pakage button {
+#more .pakage button,
+#not-found a {
     position: relative;
     background: #f44336;
     color: #fff;
@@ -726,7 +730,7 @@ a:hover {
 .simple .sml-col .sub-col .col div.time {
     background: url('/images/system/time.png') no-repeat;
 }
-.simple .sml-col .sub-col:first-of-type .col:last-of-type div {
+.simple .sml-col .sub-col div.present {
     background: url('/images/system/descount-gift.png') no-repeat;
 }
 .simple .sml-col .sub-col .col sup {
@@ -1629,8 +1633,8 @@ a:hover {
 .cooperation .text {
     width: 620px;
     font-size: 15px;
-    margin-top: 50px;
     float: left;
+    line-height: 1.4;
 }
 .cooperation .text .title-big {
     font-size: 30px;
@@ -1657,7 +1661,8 @@ a:hover {
 #work,
 #video,
 #opinions,
-#about {
+#about,
+#privacy {
     padding-top: 155px;
     background: #f5f6f7;
 }
@@ -2962,6 +2967,12 @@ color: #fff;
 
 
 /*video//////////////////////////*/
+#video {
+    height: 80%;
+}
+#video .no-video {
+    font-size: 18px;
+}
 #video .video {
     float: left;
     margin: 0 30px 30px 0;
@@ -3429,8 +3440,118 @@ color: #fff;
     height: 310px;
 }
 
+/*not found//////////////////////*/
+#not-found {
+    background: #f5f6f7 url('/images/system/404.png') no-repeat 35% 260px;
+    height: 80%;
+    display: table;
+    width: 100%;
+    text-align: right;
+}
+#not-found .description {
+    height: 100%;
+    display: table-cell;
+}
+#not-found .oops {
+    padding-top: 260px;
+    display: inline-block;
+}
+#not-found .text {
+    text-align: left;
+    width: 290px;
+    line-height: 1.6;
+    border-left: 5px solid #f44336;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+#not-found a {
+    display: block;
+    width: 315px;
+}
+#not-found a:hover {
+    text-decoration: none;
+}
 
-/*footer/////////////////////////*/
+/*#privacy///////////////////////////*/
+#privacy {
+    padding-bottom: 60px;
+}
+#privacy ol {
+    list-style-type: none;
+    counter-reset: li;
+}
+#privacy .main-ol {
+    position: relative;
+    padding-left: 75px;
+    line-height: 1.4;
+}
+#privacy .main-ol > li {
+    margin-bottom: 35px;
+}
+#privacy ol > li:before {
+    counter-increment: li;
+    content: counters(li,".") ". ";
+    color: #f44336;
+    font-weight: 500;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    margin-top: 4px;
+}
+#privacy ol li {
+    margin-top: 10px;
+}
+#privacy .text {
+    background: #fff;
+    padding: 45px 50px;
+    font-size: 15px;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 65px;
+}
+#privacy .text .before {
+    font-size: 16px;
+    margin-bottom: 45px;
+}
+#privacy .text .after {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 75px;
+}
+#privacy .text .before span {
+    font-weight: 500;
+    display: inline-block;
+}
+#privacy .text .before span:first-of-type {
+    margin-right: 55px;
+}
+#privacy .text .before p:first-of-type {
+    margin-top: 15px;
+}
+#privacy .text .main {
+    font-weight: 800;
+    font-size: 18px;
+    display: inline-block;
+}
+#privacy ul > li {
+    list-style: none;
+    position: relative;
+}
+#privacy ul > li:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    background: url('/images/system/hover-mark.png') no-repeat;
+    display: block;
+    width: 6px;
+    height: 6px;
+    left: -20px;
+}
+
+
+    /*footer/////////////////////////*/
 footer .links {
     background: #34495e;
     float: left;

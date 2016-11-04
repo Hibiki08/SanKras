@@ -26,6 +26,8 @@ $group = Yii::$app->request->get('group');
                         <div class="video-title exo"><?php echo $video->title; ?></div>
                     </div>
                 <?php } ?>
+            <?php } else { ?>
+                <span class="no-video">В этом разделе пока нет видео. В скором времени оно появится.</span>
             <?php } ?>
         </div>
         <div class="pagination">

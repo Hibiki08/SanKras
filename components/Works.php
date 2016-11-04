@@ -12,7 +12,7 @@ class Works extends Widget {
     public function run() {
         $works = new ModelWorks;
         $where = $this->filter ? array_merge(['works.active' => 1], $this->filter) : ['works.active' => 1];
-        $works = $works->getAllCat($where, ['works.id' => SORT_ASC], false);
+        $works = $works->getAllCat($where, ['works.id' => SORT_DESC], false);
         $works = $works->limit(3)->all();
 
         return $this->render('works', [

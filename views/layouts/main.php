@@ -106,36 +106,36 @@ AppAsset::register($this);
                     <div class="cell info">
                         <div class="exo">Информация</div>
                         <ul>
-                            <li><a href="">О нас</a></li>
-                            <li><a href="">Наши работы</a></li>
-                            <li><a href="">Отзывы</a></li>
-                            <li><a href="">Сертификаты</a></li>
-                            <li><a href="">Видео работ</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>">О нас</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>">Наши работы</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['about', '#' => 'sertificates']); ?>">Сертификаты</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео работ</a></li>
                         </ul>
                     </div>
                     <div class="cell usl">
                         <div class="exo">Услуги</div>
                         <ul>
-                            <li><a href="">Монтаж отопления</a></li>
-                            <li><a href="">Монтаж водоснабжения</a></li>
-                            <li><a href="">Монтаж водоотведения</a></li>
-                            <li><a href="">Установка санфаянса</a></li>
-                            <li><a href="">Обвязка котлов</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'heating']); ?>">Монтаж отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'plumbing']); ?>">Монтаж водоснабжения</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'sewerage']); ?>">Монтаж водоотведения</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'sanitaryware']); ?>">Установка санфаянса</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'boiler']); ?>">Обвязка котлов</a></li>
                         </ul>
                     </div>
                     <div class="cell price">
                         <div class="exo">Цены</div>
                         <ul>
-                            <li><a href="">Прайс-лист</a></li>
-                            <li><a href="">Пакеты услуг</a></li>
-                            <li><a href="">Рассчитать стоимость</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>">Прайс-лист</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'calc']); ?>">Рассчитать стоимость</a></li>
                         </ul>
                     </div>
                     <div class="cell soc">
-                        <a href="" class="ok"></a>
-                        <a href="" class="vk"></a>
-                        <a href="" class="facebook"></a>
-                        <a href="" class="youtube"></a>
+                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fok.ru%2Fgroup%2F57443680583734" class="ok"></a>
+                        <a target="_blank" href="https://vk.com/sankras" class="vk"></a>
+                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F951386194924056%2F" class="facebook"></a>
+                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCfv_rtyxQfzS4FVRCTQF_4A" class="youtube"></a>
                     </div>
             </div>
             <div class="cont clear">
@@ -158,7 +158,7 @@ AppAsset::register($this);
                         <!-- /Yandex.Metrika informer -->
                     </div>
                     <div class="copy">© 2016 «SanKras»</div>
-                    <div class="conf"><a href="">Политика конфиденциальности</a></div>
+                    <div class="conf"><a href="<?php echo Yii::$app->urlManager->createUrl('privacy-policy'); ?>">Политика конфиденциальности</a></div>
                 </div>
                 <div class="codedex clear">
                     <div class="width">

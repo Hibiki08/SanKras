@@ -47,7 +47,7 @@ $this->title = 'О нас';
             </div>
             <?php } ?>
             <?php if (!empty($certificates)) { ?>
-            <div class="sertificates clear">
+            <div class="sertificates clear" id="sertificates">
                 <h2 class="title-big">Наши сертификаты</h2>
                 <?php foreach ($certificates as $cert) {?>
                 <div class="sertif">
