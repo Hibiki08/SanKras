@@ -222,7 +222,7 @@ address {
     color: #9b59b6;
 }
 .key .services .service.house .title {
-    color: #f1c40f;
+    color: #e9bb01;
 }
 .key .services .service.company .title {
     color: #2ecc71;
@@ -273,7 +273,7 @@ address {
     border-bottom: 3px solid #5d3a6a;
 }
 .key .services .service.house a {
-    background: #f1c40f;
+    background: #e9bb01;
     border-bottom: 3px solid #a4860e;
 }
 .key .services .service.company a {
