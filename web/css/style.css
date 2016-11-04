@@ -10,6 +10,7 @@ body {
     font-weight: 300;
     overflow-x: hidden;
     min-width: 990px;
+    width: 100%;
 }
 .wrapper {
     margin: 0 auto;
@@ -588,6 +589,7 @@ address {
 
 .wrapper {
     position: relative;
+    width: 100%;
 }
 .quality {
     position: relative;
