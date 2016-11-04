@@ -361,6 +361,9 @@ $(document).ready(function() {
             $('.price .table table').removeClass('active');
             $('.price .nav-menu > ul li' + hash).addClass('active');
             $('.price .table table' + hash).addClass('active');
+        } else {
+            $('.price .table table').removeClass('active');
+            $('.price .table table#heating').addClass('active');
         }
     }
 
