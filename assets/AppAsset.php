@@ -10,7 +10,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         '/css/hibiki.slider.css?r3',
-        'css/style.css?r9',
+        'css/style.css?r10',
         'css/media.css?r5',
         'css/fonts.css?r3',
     ];
