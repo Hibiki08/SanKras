@@ -17,6 +17,7 @@ body {
 }
 .content-wrapper {
     width: 100%;
+    min-width: 1170px;
 }
 html,body,.wrapper {
     height: 100% !important;
