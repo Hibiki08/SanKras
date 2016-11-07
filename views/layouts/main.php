@@ -68,6 +68,7 @@ AppAsset::register($this);
         </div>
     </header>
     <!--end header-->
+    <div class="content-wrapper">
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">
@@ -99,6 +100,7 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
+    </div>
     <!--start footer -->
     <footer class="footer clear">
         <div class="width">
