@@ -661,7 +661,7 @@ address {
     content: '';
     background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
     background-attachment: fixed;
-    background-size: auto 100%;
+    background-size: 100% auto;
     position: fixed;
     top: 0;
     left: 0;

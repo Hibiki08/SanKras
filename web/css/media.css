@@ -97,6 +97,10 @@
         min-width: initial;
         max-width: initial;
     }
+    .simple:before {
+        background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
+        background-size: 100% auto;
+    }
 }
 /*!*1225*!*/
 /*@media screen and (max-width: 1225px) {*/
@@ -114,15 +118,3 @@
         /*padding-right: 10px !important;*/
     /*}*/
 /*}*/
-/*1147*/
-@media screen and (max-width: 1147px) {
-    .width {
-        width: 100%;
-        min-width: initial;
-        max-width: initial;
-    }
-    footer .links {
-        min-width: initial;
-        /*width: 750px;*/
-    }
-}
