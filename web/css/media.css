@@ -51,6 +51,9 @@
 }
 /*1340*/
 @media screen and (max-width: 1340px) {
+    .width {
+        width: 100%;
+    }
     #advice .form {
         top: 190px;
         width: 544px;
@@ -110,8 +113,8 @@
     /*}*/
 /*}*/
 /*1187*/
-@media screen and (max-width: 1187px) {
-    .width {
-        width: 100%;
-    }
-}
+/*@media screen and (max-width: 1187px) {*/
+    /*.width {*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
