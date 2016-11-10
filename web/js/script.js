@@ -23,7 +23,7 @@ $(document).ready(function() {
             if ($('section').is('#price')) {
                 var hash = window.location.hash;
                 if (hash.length > 0) {
-                    if ((hash != '#boiler') && (hash != 'calc')) {
+                    if ((hash != '#boiler') && (hash != '#calc')) {
                         $('.price .nav-menu > ul li').removeClass('active');
                         $('.price .table table').removeClass('active');
                         $('.price .nav-menu > ul > li' + hash).addClass('active');
