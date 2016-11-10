@@ -661,7 +661,7 @@ address {
     content: '';
     background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
     background-attachment: fixed;
-    background-size: 100% auto;
+    background-size: auto 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -3607,20 +3607,7 @@ footer .links {
     background: #34495e;
     float: left;
     width: 68.4%;
-    /*position: relative;*/
 }
-/*footer .links:before,*/
-/*footer .cont:before,*/
-/*footer .sub-footer .sub:before,*/
-/*footer .sub-footer .codedex:before {*/
-    /*content: '';*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*right: 100%;*/
-    /*background: #34495e;*/
-    /*width: 100%;*/
-/*}*/
 footer .links:before,
 footer .cont:before,
 footer .sub-footer .sub:before,
@@ -3631,7 +3618,6 @@ footer .sub-footer .codedex:before {
     z-index: -1;
 }
 footer .links:before {
-    /*height: 280px;*/
     top: 0;
     left: 0;
     width: 62%;
@@ -3653,7 +3639,6 @@ footer .cont {
     background: #212f3c;
     float: left;
     width: 31.6%;
-    /*position: relative;*/
 }
 footer .cont > div {
     padding-left: 50px;
@@ -3760,7 +3745,6 @@ footer .sub-footer .sub {
     min-height: 34px;
     max-height: 34px;
     font-size: 14px;
-    /*position: relative;*/
 }
 footer .sub-footer .sub:before {
     background: #273746;
@@ -3789,7 +3773,6 @@ footer .sub-footer .codedex {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300;
     text-transform: lowercase;
-    /*position: relative;*/
 }
 footer .sub-footer .codedex:before {
     background: #19232d;
