@@ -134,7 +134,7 @@ class SiteController extends Controller {
                     $status = false;
                     $request = new Requests();
                     $request->email = $cardMail;
-                    $request->type_id = Requests::MASTER_ID;
+                    $request->type_id = Requests::CARD_ID;
                     $request->save();
 
                     $status = Yii::$app->mailer->compose()
