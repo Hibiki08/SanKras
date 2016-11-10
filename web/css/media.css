@@ -92,10 +92,6 @@
     .slider .Blockswrapper .wrap .text {
         padding-top: 165px;
     }
-    .width {
-        width: 100%;
-        max-width: initial;
-    }
 }
 /*!*1225*!*/
 /*@media screen and (max-width: 1225px) {*/
@@ -111,12 +107,5 @@
     /*.width {*/
         /*padding-left: 10px !important;*/
         /*padding-right: 10px !important;*/
-    /*}*/
-/*}*/
-/*1187*/
-/*@media screen and (max-width: 1187px) {*/
-    /*.width {*/
-        /*width: 100%;*/
-        /*max-width: initial;*/
     /*}*/
 /*}*/
