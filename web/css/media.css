@@ -99,7 +99,8 @@
     }
     .simple:before {
         background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
-        background-size: 100% auto;
+        background-size: auto 100%;
+        background-attachment: scroll;
     }
 }
 /*!*1225*!*/
