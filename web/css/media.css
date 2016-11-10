@@ -111,6 +111,10 @@
 /*}*/
 /*1147*/
 @media screen and (max-width: 1147px) {
+    .width {
+        width: 100%;
+        min-width: initial;
+    }
     footer .links {
         min-width: initial;
         width: 750px;
