@@ -1680,6 +1680,7 @@ address {
 #login {
     padding-top: 155px;
     background: #f5f6f7;
+    height: 100vh;
 }
 #login {
     height: 70%;
@@ -2992,9 +2993,6 @@ color: #fff;
 
 
 /*video//////////////////////////*/
-#video {
-    height: 80%;
-}
 #video .no-video {
     font-size: 18px;
 }
@@ -3778,7 +3776,7 @@ footer .sub-footer .codedex:before {
     background: #19232d;
     right: 0;
     height: 60px;
-    width: 100%;
+    width: 38%;
     bottom:0;
 }
 footer .sub-footer .codedex .site img {
