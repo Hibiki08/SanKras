@@ -52,13 +52,12 @@
 /*1340*/
 @media screen and (max-width: 1340px) {
     #advice .form {
-        top: 150px;
+        top: 140px;
         width: 460px;
     }
     #advice .form .form-group {
         display: inline-block;
         vertical-align: top;
-        margin-right: 25px;
     }
     #advice .form .form-group:last-of-type {
         margin-right: 0;
