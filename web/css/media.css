@@ -109,3 +109,10 @@
         /*padding-right: 10px !important;*/
     /*}*/
 /*}*/
+/*1147*/
+@media screen and (max-width: 1147px) {
+    footer .links {
+        min-width: initial;
+        width: 750px;
+    }
+}
