@@ -114,6 +114,7 @@
     .width {
         width: 100%;
         min-width: initial;
+        max-width: initial;
     }
     footer .links {
         min-width: initial;
