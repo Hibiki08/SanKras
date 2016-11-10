@@ -98,24 +98,10 @@
         max-width: initial;
     }
     .simple:before {
-        background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
+        display: none;
+    }
+    .simple {
+        background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
         background-size: auto 100%;
-        background-attachment: scroll;
     }
 }
-/*!*1225*!*/
-/*@media screen and (max-width: 1225px) {*/
-    /*#advice .form {*/
-        /*top: 170px;*/
-    /*}*/
-    /*.slider .Blockswrapper .wrap .text ul {*/
-        /*font-size: 18px;*/
-    /*}*/
-    /*.slider .Blockswrapper .wrap .text ul li {*/
-        /*line-height: 1.2;*/
-    /*}*/
-    /*.width {*/
-        /*padding-left: 10px !important;*/
-        /*padding-right: 10px !important;*/
-    /*}*/
-/*}*/
