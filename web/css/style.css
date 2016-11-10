@@ -1677,7 +1677,8 @@ address {
 #opinions,
 #about,
 #privacy,
-#login {
+#login,
+#not-found {
     padding-top: 155px;
     background: #f5f6f7;
     height: 100vh;
@@ -3469,10 +3470,10 @@ color: #fff;
 
 /*not found//////////////////////*/
 #not-found {
-    height: 80%;
     display: table;
     width: 100%;
     text-align: right;
+    padding-top: 0;
 }
 #not-found .description {
     height: 100%;
