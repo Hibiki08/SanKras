@@ -123,6 +123,6 @@
     }
     footer .links {
         min-width: initial;
-        width: 750px;
+        /*width: 750px;*/
     }
 }
