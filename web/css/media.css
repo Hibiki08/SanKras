@@ -115,7 +115,12 @@
     .cooperation {
         background: url(/images/system/bg-recall-white.png) no-repeat bottom center;
     }
-    .cooperation .form {
+    .cooperation .form,
+    #opinions .opin-block .form {
         background: rgba(64, 91, 121, 0.88);
+    }
+    #opinions {
+        background: transparent url(/images/system/key-bg2.jpg) no-repeat top center;
+        background-size: auto 100%;
     }
 }
