@@ -116,7 +116,6 @@
         background: url(/images/system/bg-recall-white.png) no-repeat bottom center;
     }
     .cooperation .form {
-        background-attachment: scroll;
-        background: url(/images/system/bg-recall-blur.png) no-repeat -1092px -258px;
+        background: rgba(64, 91, 121, 0.88);
     }
 }
