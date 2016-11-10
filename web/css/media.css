@@ -109,3 +109,9 @@
         /*padding-right: 10px !important;*/
     /*}*/
 /*}*/
+/*1187*/
+@media screen and (max-width: 1187px) {
+    .width {
+        width: 100%;
+    }
+}
