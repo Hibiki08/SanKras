@@ -99,6 +99,9 @@
     .simple:before {
         display: none;
     }
+    #more .questions:before {
+        will-change: auto;
+    }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
         background-size: auto 100%;
