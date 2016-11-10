@@ -19,6 +19,23 @@ $(document).ready(function() {
             $('.price .tabs .calc').addClass('active');
             $('.table table').addClass('calculater');
             $('.sum').css('display', 'block');
+
+            if ($('section').is('#price')) {
+                var hash = window.location.hash;
+                if (hash.length > 0) {
+                    if ((hash != '#boiler') && (hash != 'calc')) {
+                        $('.price .nav-menu > ul li').removeClass('active');
+                        $('.price .table table').removeClass('active');
+                        $('.price .nav-menu > ul > li' + hash).addClass('active');
+                        $('.price .table table' + hash).addClass('active');
+                    } else {
+                        if (hash == '#boiler') {
+                            $('.price .table table').removeClass('active');
+                            $('.price .table table#heating').addClass('active');
+                        }
+                    }
+                }
+            }
             sumPosition();
         }
     });
@@ -363,21 +380,6 @@ $(document).ready(function() {
             scrollTop: $('#' + id).offset().top - headerHeight
         }, 700);
     });
-
-    if ($('section').is('#price')) {
-        var hash = window.location.hash;
-        if (hash.length > 0) {
-            if (hash != '#boiler' && hash != 'calc') {
-                $('.price .nav-menu > ul li').removeClass('active');
-                $('.price .table table').removeClass('active');
-                $('.price .nav-menu > ul > li' + hash).addClass('active');
-                $('.price .table table' + hash).addClass('active');
-            } else {
-                $('.price .table table').removeClass('active');
-                $('.price .table table#heating').addClass('active');
-            }
-        }
-    }
 
     //Калькулятор
     $('.calc').click(function() {

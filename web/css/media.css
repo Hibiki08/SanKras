@@ -96,14 +96,27 @@
         min-width: initial;
         max-width: initial;
     }
-    .simple:before {
+    .simple:before,
+    #more .questions:before,
+    .cooperation:before, #opinions:before {
         display: none;
     }
-    #more .questions:before {
-        will-change: auto;
+    #more .questions {
+        background: url(/images/system/more.jpg) no-repeat top center;
+        background-size: 100% auto;
+    }
+    #more .questions .form {
+        background-attachment: scroll;
     }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
         background-size: auto 100%;
+    }
+    .cooperation {
+        background: url(/images/system/bg-recall-white.png) no-repeat bottom center;
+    }
+    .cooperation .form {
+        background-attachment: scroll;
+        background: url(/images/system/bg-recall-blur.png) no-repeat -1092px -258px;
     }
 }
