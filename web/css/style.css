@@ -1681,7 +1681,7 @@ address {
 #not-found {
     padding-top: 155px;
     background: #f5f6f7;
-    height: 100vh;
+    min-height: 100vh;
 }
 #login {
     height: 70%;
