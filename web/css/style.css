@@ -10,15 +10,18 @@ body {
     font-weight: 300;
     overflow-x: hidden;
     min-width: 100%;
+    width: 100%;
 }
 .wrapper {
     margin: 0 auto;
 }
 .content-wrapper {
+    width: 100%;
+    min-width: 1170px;
     min-height: 100%;
 }
 html,body,.wrapper {
-    min-height: 100% !important;
+    height: 100% !important;
 }
 strong {
     font-weight: 300;
