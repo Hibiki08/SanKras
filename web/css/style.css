@@ -17,6 +17,7 @@ body {
 }
 .content-wrapper {
     width: 100%;
+    min-width: 1170px;
     min-height: 100%;
 }
 html,body,.wrapper {
@@ -289,7 +290,7 @@ address {
 
 .call-block {
     position: fixed;
-    min-width: 100%;
+    min-width: 1170px;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     top: 0;
