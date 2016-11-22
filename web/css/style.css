@@ -2827,7 +2827,6 @@ color: #fff;
     background: url('/images/system/opinion-blur.jpg') no-repeat top center;
     background-attachment: fixed;
     background-size: 100% auto;
-    will-change: transform;
     width: 420px;
     padding-top: 50px;
     color: #fff;
