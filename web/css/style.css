@@ -4,7 +4,7 @@
     box-sizing: inherit;
 }
 html {
-    min-width: 100%;
+    min-width: 1170px;
 }
 body {
     font-size: 16px;
@@ -68,13 +68,13 @@ a:hover {
     position: fixed;
     background: rgba(255,255,255,0.93);
     left: 0;
-    right: 0;
     z-index: 1000;
     -moz-box-shadow: 0 2px 2px #c2c2c2;
     -o-box-shadow: 0 2px 2px #c2c2c2;
     -webkit-box-shadow: 0 2px 2px #c2c2c2;
     box-shadow: 0 2px 2px #c2c2c2;
     color: #34495e;
+    width: 100%;
     /*min-width: 1170px;*/
 }
 #header:hover {
