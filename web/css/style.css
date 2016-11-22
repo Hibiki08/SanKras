@@ -9,16 +9,11 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #141518;
     font-weight: 300;
-    /*overflow-x: hidden;*/
-    /*min-width: 100%;*/
-    /*width: 100%;*/
 }
 .wrapper {
     margin: 0 auto;
 }
 .content-wrapper {
-    /*width: 100%;*/
-    /*min-width: 1170px;*/
     min-height: 100%;
 }
 html,body,.wrapper {
@@ -73,7 +68,6 @@ a:hover {
     box-shadow: 0 2px 2px #c2c2c2;
     color: #34495e;
     width: 100%;
-    /*min-width: 1170px;*/
 }
 #header:hover {
     background: #fff;
@@ -603,7 +597,6 @@ address {
 
 .wrapper {
     position: relative;
-    /*width: 100%;*/
 }
 .quality {
     position: relative;
@@ -1877,7 +1870,6 @@ color: #fff;
     font-size: 14px;
     padding: 10px;
     border-bottom: 1px solid #e0e0e0;
-    /*border-top: none;*/
     text-align: right;
 }
 .price .table td.table-unit {
@@ -3606,7 +3598,6 @@ color: #fff;
 footer {
     position: relative;
     width: 100%;
-    /*min-width: 1170px;*/
 }
 footer .width {
     position: initial;

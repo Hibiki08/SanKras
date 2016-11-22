@@ -301,8 +301,8 @@ $(document).ready(function() {
 
     //Форма обратного звонка
     $('.call-block').click(function(e) {
-        var classHover = $(e.target).attr('class');
-        if (classHover == 'block' || classHover == 'close') {
+        var element = $(e.target);
+        if (element.parents('.block').length != 1 || element.attr('class') == 'close') {
             $('.call-block').removeClass('visible');
             $('.call-block .form *:not(.close)').css('visibility', 'visible');
             $('.call-block .form .success').css('display', 'none');
