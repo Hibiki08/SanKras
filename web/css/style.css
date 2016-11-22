@@ -204,6 +204,7 @@ address {
     margin-right: 15px;
     vertical-align: top;
     width: 375px;
+    box-sizing: content-box;
 }
 .key .service img {
     position: absolute;
@@ -541,6 +542,7 @@ address {
     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
     width: 275px;
+    box-sizing: content-box;
 }
 #advice .form > span:first-of-type {
     display: block;
@@ -789,6 +791,7 @@ address {
     font-size: 17px;
     margin-bottom: 15px;
     position: relative;
+    box-sizing: content-box;
 }
 .card .form .field input,
 .card .form {
@@ -1011,6 +1014,7 @@ address {
     box-shadow: 0 2px 2px 1px #aeb6bf;
     position: relative;
     width: 234px;
+    box-sizing: content-box;
 }
 .call-master .form #form_call_master button {
     width: 100%;
@@ -2349,6 +2353,7 @@ color: #fff;
     width: 100%;
     height: 160px;
     opacity: 0.8;
+    left: 0;
 }
 .works .wrks .work-title,
 .work .more-works .work-title,
@@ -3598,9 +3603,10 @@ color: #fff;
 footer {
     position: relative;
     width: 100%;
+    box-sizing: content-box;
 }
 footer .width {
-    position: initial;
+    position: static;
 }
 footer .links {
     background: #34495e;
