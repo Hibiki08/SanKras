@@ -303,6 +303,7 @@ address {
     opacity: 0;
     display: table;
     z-index: -1;
+    margin: 0 auto;
 }
 .call-block.visible {
     opacity: 1;
