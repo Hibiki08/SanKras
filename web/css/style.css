@@ -40,7 +40,8 @@ a:hover {
 }
 .width {
     position: relative;
-    max-width: 1170px;
+    /*max-width: 1170px;*/
+    width: 1170px;
     margin: 0 auto;
 }
 .red,
@@ -70,7 +71,7 @@ a:hover {
     -webkit-box-shadow: 0 2px 2px #c2c2c2;
     box-shadow: 0 2px 2px #c2c2c2;
     color: #34495e;
-    min-width: 1170px;
+    /*min-width: 1170px;*/
 }
 #header:hover {
     background: #fff;
@@ -3599,7 +3600,7 @@ color: #fff;
 footer {
     position: relative;
     width: 100%;
-    min-width: 1170px;
+    /*min-width: 1170px;*/
 }
 footer .width {
     position: initial;
