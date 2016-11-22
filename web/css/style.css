@@ -294,14 +294,12 @@ address {
 .call-block {
     position: fixed;
     width: 100%;
-    /*min-width: 1170px;*/
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
     text-align: center;
     opacity: 0;
-    /*display: table;*/
     z-index: -1;
 }
 .call-block.visible {
@@ -313,8 +311,14 @@ address {
     cursor: pointer;
 }
 .call-block .block {
-    display: table-cell;
+    display: inline-block;
     vertical-align: middle;
+}
+.call-block:before {
+    content: '';
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
 }
 .loading {
     position: absolute;
