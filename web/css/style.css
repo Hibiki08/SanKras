@@ -41,8 +41,8 @@ a:hover {
 .width {
     position: relative;
     /*max-width: 1170px;*/
-    /*width: 1170px;*/
-    margin: 0 auto;
+    width: 1170px;
+    /*margin: 0 auto;*/
 }
 .red,
 .red a {
