@@ -16,12 +16,12 @@ body {
     margin: 0 auto;
 }
 .content-wrapper {
-    width: 100%;
-    min-width: 1170px;
+    /*width: 100%;*/
+    /*min-width: 1170px;*/
     min-height: 100%;
 }
 html,body,.wrapper {
-    height: 100% !important;
+    min-height: 100% !important;
 }
 strong {
     font-weight: 300;
@@ -290,7 +290,8 @@ address {
 
 .call-block {
     position: fixed;
-    min-width: 1170px;
+    width: 100%;
+    /*min-width: 1170px;*/
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     top: 0;
@@ -595,7 +596,7 @@ address {
 
 .wrapper {
     position: relative;
-    width: 100%;
+    /*width: 100%;*/
 }
 .quality {
     position: relative;

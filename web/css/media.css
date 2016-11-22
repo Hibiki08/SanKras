@@ -91,11 +91,6 @@
     .slider .Blockswrapper .wrap .text {
         padding-top: 165px;
     }
-    .width {
-        width: 100%;
-        min-width: initial;
-        max-width: initial;
-    }
     .simple:before,
     #more .questions:before,
     .cooperation:before, #opinions:before {
