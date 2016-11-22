@@ -83,6 +83,7 @@
         text-align: center;
     }
     .wrap:first-of-type p:first-of-type {
+        display: none;
         font-size: 28px;
     }
     .wrap:first-of-type .text p:last-of-type {
@@ -94,7 +95,6 @@
     .simple:before,
     #more .questions:before,
     .cooperation:before, #opinions:before {
-        display: none;
     }
     #more .questions {
         background: url(/images/system/more.jpg) no-repeat top center;
