@@ -118,4 +118,7 @@
         background: transparent url(/images/system/key-bg2.jpg) no-repeat top center;
         background-size: auto 100%;
     }
+    .key {
+        margin-top: -26px;
+    }
 }
