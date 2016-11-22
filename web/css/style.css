@@ -3273,6 +3273,7 @@ color: #fff;
     padding: 60px 50px;
     position: relative;
     color: #fff;
+    box-sizing: content-box;
 }
 #more .questions .form .title {
     font-size: 18px;
@@ -3317,6 +3318,10 @@ color: #fff;
 #more .form form > div:first-of-type {
     float: left;
     margin-right: 50px;
+}
+#more .form form > .field-baseform-phone {
+    display: block;
+    clear: left;
 }
 #more .form form > div:nth-of-type(2)  {
     float: right;
