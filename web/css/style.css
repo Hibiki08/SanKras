@@ -1363,6 +1363,7 @@ address {
     width: 408px;
     position: relative;
     background-size: auto 100%;
+    box-sizing: content-box;
 }
 .cooperation .form > span:first-of-type {
     line-height: 1.5;
@@ -1613,6 +1614,7 @@ address {
     top: 110px;
     z-index: 999;
     margin-top: 65px;
+    box-sizing: content-box;
 }
 .contacts .cont .cnt > div,
 .contacts .cont img {
@@ -1775,6 +1777,7 @@ address {
 .price .price-list .table {
     float: left;
     width: 875px;
+    box-sizing: content-box;
 }
 .price .price-list .nav-menu {
     float: right;
@@ -2058,6 +2061,7 @@ color: #fff;
     margin: 10px 0 0 0;
 }
 .up {
+    box-sizing: content-box;
     background: rgba(52, 73, 94, 0.81);
     color: #fff;
     border-radius: 5px;
@@ -2598,6 +2602,7 @@ color: #fff;
     background: #eaecef;
     border-left: 3px solid #34495e;
     min-height: 400px;
+    box-sizing: content-box;
 }
 .work .info .work-items .title-items {
     font-size: 24px;
@@ -2757,6 +2762,7 @@ color: #fff;
     -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
     margin-bottom: 30px;
+    box-sizing: content-box;
 }
 #opinions .pagination {
     margin-top: 45px;
@@ -2808,6 +2814,7 @@ color: #fff;
 #opinions .opin-block .form {
     float: right;
     margin-bottom: 60px;
+    box-sizing: content-box;
 }
 #opinions:before {
     background: transparent url('/images/system/key-bg2.jpg') no-repeat top center;
@@ -3361,6 +3368,7 @@ color: #fff;
     border-radius: 9px;
     padding-bottom: 45px;
     min-height: 561px;
+    box-sizing: content-box;
 }
 #about .text .txt figure {
     margin-bottom: 30px;
@@ -3410,6 +3418,7 @@ color: #fff;
     width: 240px;
     border-left: 5px solid #f44336;
     padding-left: 20px;
+    box-sizing: content-box;
 }
 #about .team .tm figure {
     margin-right: 40px;
