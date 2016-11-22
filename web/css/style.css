@@ -9,11 +9,11 @@ body {
     color: #141518;
     font-weight: 300;
     overflow-x: hidden;
-    min-width: 100%;
-    width: 100%;
+    /*min-width: 100%;*/
+    /*width: 100%;*/
 }
 .wrapper {
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 .content-wrapper {
     /*width: 100%;*/
