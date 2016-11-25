@@ -10,8 +10,8 @@ $this->title = 'О нас';
                 <ul>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                    <!--                    <li class="exo asphalt"><a href="--><?php //echo Yii::$app->urlManager->createUrl('about/news'); ?><!--">Новости</a></li>-->
-                    <!--                    <li class="exo asphalt"><a href="--><?php //echo Yii::$app->urlManager->createUrl('about/articles'); ?><!--">Статьи</a></li>-->
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
             </div>
             <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>

@@ -55,23 +55,19 @@ class AdminMenu extends Widget {
                 ],
             ]
         ],
-//        [
-//            'name' => 'Блог',
-//            'submenu' => [
-//                [
-//                    'name' => 'Новости',
-//                    'controller' => 'news'
-//                ],
-//                [
-//                    'name' => 'Статьи',
-//                    'controller' => 'articles'
-//                ],
-//                [
-//                    'name' => 'Видео',
-//                    'controller' => 'video'
-//                ],
-//            ]
-//        ],
+        [
+            'name' => 'Блог',
+            'submenu' => [
+                [
+                    'name' => 'Новости',
+                    'controller' => 'news'
+                ],
+                [
+                    'name' => 'Статьи',
+                    'controller' => 'articles'
+                ],
+            ]
+        ],
         [
             'name' => 'О нас',
             'submenu' => [
