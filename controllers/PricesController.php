@@ -18,7 +18,7 @@ class PricesController extends Controller {
 
     public function actionIndex() {
             $prices = new Prices();
-            $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['t.sort' => SORT_ASC]);
+            $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['category.sort' => SORT_ASC, 't.sort' => SORT_ASC]);
             $pricesArr = [];
             $catsArr = [];
             foreach ($prices as $price) {
