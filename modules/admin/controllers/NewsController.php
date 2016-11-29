@@ -48,9 +48,10 @@ class NewsController extends AdminController {
 
                     if ($form->upload(Blog::IMG_FOLDER_NEWS, $form->preview)) {
                         if ($id && !empty($model->preview)) {
-                            unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . $model->preview);
-                            unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'mini_' . $model->preview);
-                            unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $model->preview);
+                            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS;
+                            file_exists($path . $model->preview) ? unlink($path . $model->preview) : false;
+                            file_exists($path . 'mini_' . $model->preview) ? unlink($path . 'mini_' . $model->preview) : false;
+                            file_exists($path . 'prev_' . $model->preview) ? unlink($path . 'prev_' . $model->preview) : false;
                         }
                         $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_NEWS, Blog::IMG_FOLDER_NEWS, 172, '', 'mini');
                         $resize->resize();
