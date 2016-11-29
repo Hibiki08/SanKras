@@ -90,9 +90,10 @@ class ArticlesController extends NewsController {
                 $prevName = $article->preview;
                 $article->preview = null;
                 if ($res = $article->update()) {
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'mini_' . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $prevName);
+                    $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART;
+                    file_exists($path . $prevName) ? unlink($path . $prevName) : false;
+                    file_exists($path . 'mini_' . $prevName) ? unlink($path . 'mini_' . $prevName) : false;
+                    file_exists($path . 'prev_' . $prevName) ? unlink($path . 'prev_' . $prevName) : false;
                     $response = true;
                 }
                 if ($res) {
