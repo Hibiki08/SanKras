@@ -98,9 +98,10 @@ class NewsController extends AdminController {
                 $prevName = $new->preview;
                 $new->preview = null;
                 if ($res = $new->update()) {
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'mini_' . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $prevName);
+                    $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS;
+                    file_exists($path . $prevName) ? unlink($path . $prevName) : false;
+                    file_exists($path . 'mini_' . $prevName) ? unlink($path . 'mini_' . $prevName) : false;
+                    file_exists($path . 'prev_' . $prevName) ? unlink($path . 'prev_' . $prevName) : false;
                     $response = true;
                 }
                 if ($res) {
