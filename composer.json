@@ -30,7 +30,10 @@
         "yiisoft/yii2-faker": "*"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "github-oauth": {
+            "github.com": "bbf27efd7ceab9a8f28ce8135f96400389766e48"
+        }
     },
     "scripts": {
         "post-create-project-cmd": [
