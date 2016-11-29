@@ -30,7 +30,7 @@ $this->title = 'Статьи';
                 <td><?php echo $article->title; ?></td>
                 <td>
                     <?php if ($article->preview) { ?>
-                        <img class="img-thumbnail" src="/<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . '/mini_' . $article->preview; ?>">
+                        <img class="img-thumbnail" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . '/mini_' . $article->preview; ?>">
                     <?php } else { ?>
                         Нет
                     <?php } ?>

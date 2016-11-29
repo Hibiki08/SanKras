@@ -18,7 +18,7 @@ $this->title = 'Новости';
             </div>
             <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
         </div>
-        <div class="block-news clear">
+        <div class="block-news go-wide clear">
             <?php if (!empty($news)) { ?>
                 <?php foreach ($news as $new) {?>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $new->id]); ?>" class="new">
@@ -27,7 +27,7 @@ $this->title = 'Новости';
                         <?php } ?>
                         <div class="news-text">
                             <div class="new-title"><?php echo $new->title; ?></div>
-                            <div class="short"><?php echo StringHelper::truncate($new->text, 280, '...'); ?></div>
+                            <div class="short"><?php echo strip_tags(StringHelper::truncate($new->text, 230, '...'), '<br><p>'); ?></div>
                             <span class="date"><?php echo Yii::$app->formatter->asDate($new->date, 'd MMMM yyyy'); ?></span>
                         </div>
                     </a>
@@ -46,11 +46,3 @@ $this->title = 'Новости';
         </div>
     </div>
 </section>
-<script type="text/javascript">
-    $(window).load(function() {
-        $('.block-news').isotope({
-            itemSelector: '.new',
-            layoutMode: 'fitRows',
-        })
-    });
-</script>

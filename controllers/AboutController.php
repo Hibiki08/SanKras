@@ -16,6 +16,7 @@ use app\models\Certificates;
 use app\components\Cache;
 use app\models\Blog;
 use app\models\BlogCat;
+use yii\web\HttpException;
 
 class AboutController extends Controller {
 
@@ -92,16 +93,34 @@ class AboutController extends Controller {
     }
 
     public function actionNews($single = '') {
-        $blog = Blog::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::NEWS_ID]);
+        $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::NEWS_ID]);
 
         if (!empty($single)) {
             $new = $blog->where(['id' => $single])->one();
-            return $this->render('news_single', [
-                'new' => $new
-            ]);
+            $otherNews = Blog::find()->where('id != ' . $single)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
+
+            $prev = $blog->where('date > \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id > ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev->id : null;
+
+            $next = $blog->where('date < \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id < ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->limit(1)->one();
+            $next = !is_null($next) ? $next->id : null;
+
+
+            if (!empty($new)) {
+                return $this->render('news_single', [
+                    'new' => $new,
+                    'other' => $otherNews,
+                    'prev' => $prev,
+                    'next' => $next
+                ]);
+            } else {
+                throw new HttpException(404 ,'Такой страницы нет!');
+            }
+
         }
 
-        $this->view->registerJsFile('/lib/iscotope/isotope.pkgd.min.js');
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
 
@@ -111,6 +130,48 @@ class AboutController extends Controller {
 
         return $this->render('news', [
             'news' => $blog,
+            'pager' => $pager,
+        ]);
+    }
+
+    public function actionArticles($single = '') {
+        $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::ART_ID]);
+
+        if (!empty($single)) {
+            $article = $blog->where(['id' => $single])->one();
+            $otherArticles = Blog::find()->where('id != ' . $single)->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
+
+            $prev = $blog->where('date > \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id > ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev->id : null;
+
+            $next = $blog->where('date < \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id < ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('date != \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->limit(1)->one();
+            $next = !is_null($next) ? $next->id : null;
+
+
+            if (!empty($article)) {
+                return $this->render('art_single', [
+                    'article' => $article,
+                    'other' => $otherArticles,
+                    'prev' => $prev,
+                    'next' => $next
+                ]);
+            } else {
+                throw new HttpException(404 ,'Такой страницы нет!');
+            }
+
+        }
+
+        $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::ART_SIZE]);
+        $pager->pageSizeParam = false;
+
+        $blog = $blog->offset($pager->offset)
+            ->limit($pager->limit)
+            ->all();
+
+        return $this->render('articles', [
+            'articles' => $blog,
             'pager' => $pager,
         ]);
     }

@@ -36,6 +36,7 @@ class PriceSectionController extends AdminController {
         }
 
         $model = $id ? $cat->findOne(['id' => $id]) : new PricesCat();
+        $maxSort = $cat->find()->max('sort');
 
         if (!empty($model)) {
             $parent_id = Yii::$app->request->post('EditPriceSectionForm')['parent_id'];
@@ -44,6 +45,9 @@ class PriceSectionController extends AdminController {
                 $model->title = Yii::$app->request->post('EditPriceSectionForm')['title'];
                 $model->link = Yii::$app->request->post('EditPriceSectionForm')['link'];
                 $model->parent_id = $parent_id == 0 ? null : $parent_id;
+                if (is_null($id)) {
+                    $model->sort = $maxSort + 1;
+                }
                 $model->active = isset(Yii::$app->request->post('EditPriceSectionForm')['active']) ? 1 : 0;
                 $model->save();
                 $id = $id ? $id : Yii::$app->db->lastInsertID;

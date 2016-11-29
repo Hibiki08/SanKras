@@ -56,8 +56,9 @@ function sortAjax(data, url) {
                 if (response.status == true) {
                     $('#sort').removeClass('disabled');
                     $('.sections').removeClass('sort');
-                    $('#save-sort').hide();
+                    $(".sortable").sortable('disable');
                     $('.row-fluid .sort-progress').hide();
+                    $('#save-sort').hide();
                 }
             },
             error: function () {
@@ -71,8 +72,8 @@ $(document).ready(function() {
         $(this).addClass('disabled');
         $('.sections').addClass('sort');
         $(".sortable").sortable({
-            placeholder: "ui-state-highlight"
-        });
+            placeholder: "ui-state-highlight",
+        }).sortable('enable');
         $('#save-sort').show();
     });
 

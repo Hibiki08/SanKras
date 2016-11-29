@@ -118,6 +118,8 @@ class WorksController extends AdminController {
 
                     $translate = new Translate();
 
+                    $newsPrev = !is_null($model->preview) ? $model->preview : false;
+
                     $model->title = $form->title;
                     $model->text = $form->text;
                     $model->cat_id = $form->cat_id;
@@ -139,6 +141,12 @@ class WorksController extends AdminController {
 
                     if ($create) {
                         if ($form->upload($path, $form->preview)) {
+                            if ($id && $newsPrev) {
+                                $path = Works::IMG_FOLDER . 'work(' . $model->id . ')/';
+                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $newsPrev);
+                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_prev_' . $newsPrev);
+                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'prev_' . $newsPrev);
+                            }
                             $resizeAdminPrev = new ImageResize($form->preview->name, $path, $path, 172, '', 'mini_prev');
                             $resizeAdminPrev->resize();
                             $resizePrev = new ImageResize($form->preview->name, $path, $path, 370, '', 'prev');
@@ -195,10 +203,14 @@ class WorksController extends AdminController {
 
             if ($work_id) {
                 $work = Works::findOne($work_id);
+                $prevName = $work->preview;
+                $path = Works::IMG_FOLDER . 'work(' . $work_id . ')/';
                 $work->preview = null;
                 $work->active = 0;
-                $res = $work->update();
-                if ($res) {
+                if ($work->update()) {
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $prevName);
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_prev_' . $prevName);
+                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'prev_' . $prevName);
                     $response = true;
                 }
             }
@@ -251,18 +263,19 @@ class WorksController extends AdminController {
 
             $slides = Works::findOne($id);
             $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $id . ')/';
-            if ($slides->delete() !== false) {
-                $slide = WorksSlides::findAll(['work_id' => $id]);
-                if ($slide) {
-                    WorksSlides::deleteAll(['work_id' => $id]);
+            if ($res = $slides->delete() !== false) {
+                if ($res) {
+                    $response = WorksSlides::deleteAll(['work_id' => $id]);
                     if ($objs = glob($path . "/*")) {
                         foreach($objs as $obj) {
                             unlink($obj);
                         }
                         rmdir($path);
                     }
+                    if ($response) {
+                        $response = !is_dir($path) ? true : false;
+                    }
                 }
-                $response = true;
             }
 
             Yii::$app->response->format = Response::FORMAT_JSON;

@@ -21,11 +21,15 @@ class ModuleUrlRule extends UrlRule {
           $link = '?';
           foreach ($params as $key => $value)
           {
-              $link .= $key . '=' . $value . '&';
+              if (is_array($value)) {
+                  continue;
+              }
+                  $link .= $key . '=' . $value . '&';
+
           }
           $link = substr($link, 0, -1);
       }
-        return $route . '/' . $link;
+        return $route . $link;
     }
 
     public function parseRequest($manager, $request) {

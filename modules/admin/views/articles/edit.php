@@ -39,7 +39,7 @@ if (isset($model->preview)) { ?>
     <label class="col-lg-2 control-label"></label>
     <div class="slides">
         <figure>
-            <img class="img-thumbnail" src="/<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . '/mini_' . $model->preview; ?>">
+            <img class="img-thumbnail" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . '/mini_' . $model->preview; ?>">
         </figure>
         <span class="glyphicon glyphicon-remove" data-article-id="<?php echo $model->id; ?>"></span>
         <?php echo $form->field($edit, 'hidden', ['template'=>'{input}', 'options' => ['class' => '', 'id' => 'preview']])->hiddenInput(['value' => $model->preview]); ?>
