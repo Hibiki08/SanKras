@@ -72,11 +72,13 @@ $this->title = 'Услуги';
         <?php } ?>
         </tbody>
     </table>
+    <?php if (!is_null($pager)) { ?>
     <div class="row-fluid pager">
         <?php echo LinkPager::widget([
             'pagination' => $pager,
         ]); ?>
     </div>
+    <?php } ?>
     </div>
 <script type="text/javascript">
     $(document).ready(function() {

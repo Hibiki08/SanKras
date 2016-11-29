@@ -21,11 +21,15 @@ class ModuleUrlRule extends UrlRule {
           $link = '?';
           foreach ($params as $key => $value)
           {
-              $link .= $key . '=' . $value . '&';
+              if (is_array($value)) {
+                  continue;
+              }
+                  $link .= $key . '=' . $value . '&';
+
           }
           $link = substr($link, 0, -1);
       }
-        return $route . '/' . $link;
+        return $route . $link;
     }
 
     public function parseRequest($manager, $request) {
@@ -65,7 +69,11 @@ class ModuleUrlRule extends UrlRule {
                     }
                 } elseif (count($url) == 2) {
                     $route = $url[0] . '/' . $url[1];
-                } else {
+                }
+//                elseif (count($url) == 3) {
+//                    $route = $url[0] . '/' . $url[2];
+//                }
+                else {
                     return false;
                 }
             } else {

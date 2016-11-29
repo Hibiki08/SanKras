@@ -46,7 +46,15 @@ class ArticlesController extends NewsController {
 
                 if (empty($errors)) {
                     if ($form->upload(Blog::IMG_FOLDER_ART, $form->preview)) {
+                        if ($id && !empty($model->preview)) {
+                            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART;
+                            file_exists($path . $model->preview) ? unlink($path . $model->preview) : false;
+                            file_exists($path . 'mini_' .$model->preview) ? unlink($path . 'mini_' . $model->preview) : false;
+                            file_exists($path . 'prev_' . $model->preview) ? unlink($path . 'prev_' . $model->preview) : false;
+                        }
                         $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_ART, Blog::IMG_FOLDER_ART, 172, '', 'mini');
+                        $resize->resize();
+                        $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_ART, Blog::IMG_FOLDER_ART, 370, '', 'prev');
                         $resize->resize();
                     }
                     $model->title = Yii::$app->request->post('EditNewsForm')['title'];
@@ -79,8 +87,15 @@ class ArticlesController extends NewsController {
 
             if ($article_id) {
                 $article = Blog::findOne($article_id);
+                $prevName = $article->preview;
                 $article->preview = null;
-                $res = $article->update();
+                if ($res = $article->update()) {
+                    $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART;
+                    file_exists($path . $prevName) ? unlink($path . $prevName) : false;
+                    file_exists($path . 'mini_' . $prevName) ? unlink($path . 'mini_' . $prevName) : false;
+                    file_exists($path . 'prev_' . $prevName) ? unlink($path . 'prev_' . $prevName) : false;
+                    $response = true;
+                }
                 if ($res) {
                     $response = true;
                 }

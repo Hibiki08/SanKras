@@ -47,8 +47,8 @@ $this->title = $work->title;
                     </div>
                     <?php if ($prev && $next != null) { ?>
                         <div class="prev-next">
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $prev]); ?>" class="prev exo"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'work-prev.png'; ?>" alt="prev">Предыдущая работа</a>
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $next]); ?>" class="next exo">Следующая работа<img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'work-next.png'; ?>" alt="next"></a>
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая работа</span></a>
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $next]); ?>" class="next exo"><span>Следующая работа</span><div class="img"></div></a>
                         </div>
                     <?php } ?>
                 </div>
@@ -67,7 +67,7 @@ $this->title = $work->title;
                     <div class="other clear">
                         <div class="width">
                             <div class="navig">
-                                <div class="other-title exo asphalt">Другие работы</div>
+                                <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>" class="other-title exo asphalt">Все работы</a><br>
                                 <?php echo LinkPager::widget([
                                     'options' => [
                                         'class' => 'pagination clear',

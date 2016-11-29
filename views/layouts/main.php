@@ -41,11 +41,11 @@ AppAsset::register($this);
     <header id="header">
         <div class="description">
             <div class="width clear">
-                <h1>Монтаж отопления, канализации, водоснабжения <span>в Краснодаре</span></h1>
-                <div class="address">
+                <h1>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре</a></h1>
+                <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="address">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
                     <address><?php echo Yii::$app->system->get('address'); ?></address>
-                </div>
+                </a>
             </div>
         </div>
         <div class="header width clear">
@@ -54,7 +54,7 @@ AppAsset::register($this);
             </div>
             <nav class="menu exo asphalt">
                 <ul>
-                    <li><a href="<?php echo Yii::$app->homeUrl; ?>">Главная</a></li>
+                    <li><a href="<?php echo Yii::$app->homeUrl; ?>" class="<?php echo ($controller == 'site' && $action == 'index') ? 'active' : ''; ?>">Главная</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" class="<?php echo $controller == 'prices' ? 'active' : $action == 'prices' ? 'active' : ''; ?>">Цены</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" class="<?php echo $controller == 'works' ? 'active' : $action == 'works' ? 'active' : ''; ?>">Наши работы</a></li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" class="<?php echo $controller == 'about' ? 'active' : $action == 'about' ? 'active' : ''; ?>">О нас</a></li>

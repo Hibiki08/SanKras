@@ -5,20 +5,22 @@ namespace app\modules\admin\controllers;
 use Yii;
 use yii\web\HttpException;
 use app\models\Blog;
+use app\models\BlogCat;
 use yii\data\Pagination;
 use app\models\forms\EditNewsForm;
 use yii\web\UploadedFile;
 use app\components\ImageResize;
 use yii\helpers\Url;
 use yii\web\Response;
+use app\components\Translate;
 
 class NewsController extends AdminController {
 
     public function actionIndex() {
         $blog = new Blog();
-        $news = $blog->findByColumn(['cat_id' => 1], '', ['date' => SORT_DESC], false);
+        $news = $blog->findByColumn(['cat_id' => BlogCat::NEWS_ID], '', ['date' => SORT_DESC], false);
 
-        $pager = new Pagination(['totalCount' => $news->count(), 'pageSize' => self::PAGE_SIZE]);
+        $pager = new Pagination(['totalCount' => $news->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
 
         $news = $news->offset($pager->offset)
@@ -44,21 +46,34 @@ class NewsController extends AdminController {
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $form->preview = UploadedFile::getInstance($form, 'preview');
 
-                if (empty($errors)) {
                     if ($form->upload(Blog::IMG_FOLDER_NEWS, $form->preview)) {
+                        if ($id && !empty($model->preview)) {
+                            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS;
+                            file_exists($path . $model->preview) ? unlink($path . $model->preview) : false;
+                            file_exists($path . 'mini_' . $model->preview) ? unlink($path . 'mini_' . $model->preview) : false;
+                            file_exists($path . 'prev_' . $model->preview) ? unlink($path . 'prev_' . $model->preview) : false;
+                        }
                         $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_NEWS, Blog::IMG_FOLDER_NEWS, 172, '', 'mini');
                         $resize->resize();
+                        $resize = new ImageResize($form->preview->name, Blog::IMG_FOLDER_NEWS, Blog::IMG_FOLDER_NEWS, 370, '', 'prev');
+                        $resize->resize();
                     }
+
+                    $translate = new Translate();
+
                     $model->title = Yii::$app->request->post('EditNewsForm')['title'];
                     $model->text = Yii::$app->request->post('EditNewsForm')['text'];
-                    $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $form->preview->name;
-                    $model->cat_id = 1;
+                    $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $translate->translate($form->preview->name);
+                    $model->cat_id = BlogCat::NEWS_ID;
                     $model->active = isset(Yii::$app->request->post('EditNewsForm')['active']) ? 1 : 0;
+                    if (isset($id)) {
+                        $date = $model->date;
+                        $model->date = $date;
+                    }
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
                     Yii::$app->getResponse()->redirect(Url::toRoute(['news/edit', 'id' => $id]));
-                }
             }
 
             return $this->render('edit', [
@@ -80,8 +95,15 @@ class NewsController extends AdminController {
 
             if ($new_id) {
                 $new = Blog::findOne($new_id);
+                $prevName = $new->preview;
                 $new->preview = null;
-                $res = $new->update();
+                if ($res = $new->update()) {
+                    $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS;
+                    file_exists($path . $prevName) ? unlink($path . $prevName) : false;
+                    file_exists($path . 'mini_' . $prevName) ? unlink($path . 'mini_' . $prevName) : false;
+                    file_exists($path . 'prev_' . $prevName) ? unlink($path . 'prev_' . $prevName) : false;
+                    $response = true;
+                }
                 if ($res) {
                     $response = true;
                 }

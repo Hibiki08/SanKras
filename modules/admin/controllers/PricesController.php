@@ -34,21 +34,22 @@ class PricesController extends AdminController {
 
         if ($subId) {
             $items = $options->filter($query, ['cat_id' => $subId]);
+            $options = $items->all();
+            $pager = null;
         } else {
             $items = $options->filter($query, []);
+            $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
+            $pager->pageSizeParam = false;
+
+            $options = $items->offset($pager->offset)
+                ->limit($pager->limit)
+                ->all();
         }
 
         $categories = $cat->findByColumn(['parent_id' => null]);
         foreach ($categories as $item) {
             $parentCat[$item->id] = $item->title;
         }
-
-        $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
-        $pager->pageSizeParam = false;
-
-        $options = $items->offset($pager->offset)
-            ->limit($pager->limit)
-            ->all();
 
         if (Yii::$app->request->isAjax && !Yii::$app->request->isPjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -96,7 +97,8 @@ class PricesController extends AdminController {
                 $model->price = Yii::$app->request->post('EditPricesForm')['price'];
                 $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
                 $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
-                if (!isset($id)) {
+
+                if (is_null($id)) {
                     $model->sort = $maxSort + 1;
                 }
                 $model->active = isset(Yii::$app->request->post('EditPricesForm')['active']) ? 1 : 0;

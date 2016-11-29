@@ -9,5 +9,31 @@ class Blog extends AbstractModel {
 
     const IMG_FOLDER_NEWS = 'blog/news/';
     const IMG_FOLDER_ART = 'blog/articles/';
+    const NEWS_SIZE = 18;
+    const ART_SIZE = 9;
+
+    public static function tableName() {
+        return 'sk_blog';
+    }
+
+    public function getCategory() {
+        return $this->hasOne(BlogCat::className(), ['id' => 'cat_id'])->alias('cat');
+    }
+
+    public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {
+        $query = Blog::find()
+            ->joinWith('category')
+            ->orderBy($order)
+            ->alias('blog');
+        if ($where) {
+            $query->where($where);
+        }
+
+        if ($request) {
+            return $query->all();
+        } else {
+            return $query;
+        }
+    }
 
 }

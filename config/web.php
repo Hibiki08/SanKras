@@ -97,8 +97,8 @@ $config = [
             'root' => [
                 'baseUrl'=>'@web',
                 'basePath'=>'@webroot',
-                'path' => 'images/blog/articles',
-                'name' => 'articles'
+                'path' => '/images/blog/news/upload',
+                'name' => 'upload'
             ],
         ],
     ],
