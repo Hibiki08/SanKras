@@ -25,7 +25,7 @@ $this->title = 'Контакты';
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-email.png'; ?>" alt="email" title="email">
                 <div>
                     <span>Email</span><br>
-                    <span><?php echo Yii::$app->system->get('email'); ?></span>
+                    <a href="mailto:<?php echo Yii::$app->system->get('email'); ?>"><?php echo Yii::$app->system->get('email'); ?></a>
                 </div>
             </div>
             <div class="cnt">

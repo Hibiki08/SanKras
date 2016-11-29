@@ -76,7 +76,7 @@ a:hover {
     font-style: italic;
     font-size: 14px;
     padding: 10px 0;
-    background: rgba(52,73,94,0.85);
+    background: #34495e;
     color: #aeb6bf;
 }
 #header .description h1 {
@@ -85,11 +85,16 @@ a:hover {
     float: left;
     margin: 0;
 }
-#header .description h1 span {
+#header .description h1 a {
     color: #fff;
+}
+#header .description h1 a:hover {
+    text-decoration: none;
 }
 #header .description .address {
     float: right;
+    display: block;
+    color: #aeb6bf;
 }
 address {
     margin: 0;
@@ -1630,7 +1635,8 @@ address {
     line-height: 1.6;
     display: inline-block;
 }
-.contacts .cont > div span {
+.contacts .cont > div span,
+.contacts .cont > div a {
     color: #34495e;
 }
 .contacts .cont .cnt > div span:first-of-type {
@@ -1775,12 +1781,12 @@ address {
     margin-bottom: 45px;
 }
 .price .price-list .table {
-    float: left;
+    float: right;
     width: 875px;
     box-sizing: content-box;
 }
 .price .price-list .nav-menu {
-    float: right;
+    float: left;
     width: 270px;
     background: #fff;
 }
@@ -1989,6 +1995,12 @@ color: #fff;
     position: relative;
     text-decoration: none;
 }
+.price .nav-menu > ul > li ul li:not(:last-of-type) a {
+    padding: 10px 25px 0 50px;
+}
+.price .nav-menu > ul > li ul {
+    padding: 5px 0;
+}
 .price .nav-menu > ul > li > a:before,
 .price .nav-menu > ul > li.active > a:before {
     content: '';
@@ -2039,6 +2051,7 @@ color: #fff;
     clear: both;
     width: 875px;
     margin-bottom: 50px;
+    float: right;
 }
 .price .table-description li {
     font-size: 16px;
@@ -2374,6 +2387,13 @@ color: #fff;
     -webkit-text-shadow: 1px 1px 2px #000;
     padding-bottom: 25px;
     transition: opacity 0.5s;
+}
+.works .wrks .work-title {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    left: 0;
+    right: 0;
 }
 .works .wrks .hover,
 .work .more-works .hover,
@@ -4046,7 +4066,7 @@ footer .sub-footer .sub .metrika {
     padding-right: 14.5%;
 }
 footer .sub-footer .sub .copy {
-    padding-right: 15.7%;
+    padding-right: 16.5%;
 }
 footer .sub-footer .sub > div {
     display: inline-block;
