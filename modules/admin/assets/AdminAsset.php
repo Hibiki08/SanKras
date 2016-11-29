@@ -23,7 +23,7 @@ class AdminAsset extends AssetBundle {
     ];
     public $js = [
         'lib/jquery-ui-1.12.0/jquery-ui.js',
-        'js/admin.js',
+        'js/admin.js?r1',
     ];
     public $depends = [
         'yii\web\YiiAsset',
