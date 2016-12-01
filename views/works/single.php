@@ -9,7 +9,9 @@ $this->title = $work->title;
     <div class="width clear">
         <div class="head clear">
             <h2 class="title asphalt"><?php echo $work->title; ?></h2>
+            <?php if (!is_null($work->video)) { ?>
             <div class="button-video exo"><span>Видео</span><div class="img"></div></div>
+            <?php } ?>
         </div>
         <ul class="pgwSlider">
             <?php foreach ($images as $image) {?>
