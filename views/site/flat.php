@@ -3,12 +3,20 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
-$this->title = 'Монтаж водоснабжения в квартире Краснодар';
+$this->title = 'Монтаж сантехники в квартире под ключ Краснодар';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Монтаж сантехники в квартире под ключ в Краснодаре. Стоимость работ'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'разводка труб водоснабжения в квартире, разводка сантехники в квартире, установки сантехники в квартире, цена разводка сантехники в квартире'
+]);
 ?>
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h2 class="title title-big">Монтаж сантехнических коммуникаций в квартире «под ключ»</h2>
+            <h1 class="title title-big">Монтаж сантехнических коммуникаций в квартире «под ключ»</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-2.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
@@ -211,7 +219,7 @@ $this->title = 'Монтаж водоснабжения в квартире Кр
                 </tr>
                 </tbody>
             </table>
-            <div class="footnote">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'discount']); ?>">Получить дисконтную карту</a></div>
+            <div class="footnote">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'card']); ?>">Получить дисконтную карту</a></div>
             <div class="pdf">
                 <span class="title-big">Посмотреть полный прайс-лист</span><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>"><button class="pulse exo">Прайс-лист</button></a>
             </div>

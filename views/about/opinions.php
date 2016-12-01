@@ -5,7 +5,15 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\helpers\StringHelper;
 
-$this->title = 'Отзывы';
+$this->title = 'Отзывы | Компания по оказанию сантехнических услуг SanKras';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Отзывы по оказанию сантехнических услуг SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'отзывы услуги сантехников в краснодаре'
+]);
 ?>
 <section class="opinions" id="opinions">
     <div class="width">
@@ -18,7 +26,7 @@ $this->title = 'Отзывы';
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
             </div>
-            <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
+            <h1 class="title exo asphalt">Отзывы</h1>
         </div>
         <div class="opin-block clear">
             <div class="opinion">

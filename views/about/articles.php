@@ -3,7 +3,15 @@ use yii\widgets\LinkPager;
 use app\models\Blog;
 use yii\helpers\StringHelper;
 
-$this->title = 'Статьи';
+$this->title = 'Статьи | Компания по оказанию сантехнических услуг SanKras';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Статьи компании SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'статьи сантехники краснодара, статьи компании SanKras'
+]);
 ?>
 <section class="articles" id="about">
     <div class="width">
@@ -16,7 +24,7 @@ $this->title = 'Статьи';
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
             </div>
-            <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
+            <h1 class="title exo asphalt">Статьи</h1>
             <?php if (!empty($categories)) { ?>
             <ul class="filter">
                 <li><a class="exo asphalt" href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Все статьи</a></li>

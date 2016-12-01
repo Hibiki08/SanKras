@@ -2,6 +2,14 @@
 use app\models\Blog;
 use yii\helpers\StringHelper;
 $this->title = $article->title;
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Новости компании SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $article->title
+]);
 ?>
 <section class="single" id="about">
     <div class="width clear">

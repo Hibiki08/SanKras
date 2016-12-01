@@ -21,14 +21,6 @@ AppAsset::register($this);
     <meta charset="UTF-8">
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <?php echo Html::csrfMetaTags(); ?>
-    <?php $this->registerMetaTag([
-        'name' => 'description',
-        'content' => 'Профессиональный монтаж сантехнических коммуникаций "под ключ" от 450 р/м2 с гарантией до 5 лет'
-    ]);
-    $this->registerMetaTag([
-        'name' => 'keywords',
-        'content' => 'монтаж отопления, монтаж канализации, монтаж водоснабжения, проектирование отопления, обустройство скважины'
-    ]); ?>
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -41,7 +33,7 @@ AppAsset::register($this);
     <header id="header">
         <div class="description">
             <div class="width clear">
-                <h1>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре</a></h1>
+                <div>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре</a></div>
                 <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="address">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
                     <address><?php echo Yii::$app->system->get('address'); ?></address>

@@ -80,16 +80,16 @@ a:hover {
     background: #34495e;
     color: #aeb6bf;
 }
-#header .description h1 {
+#header .description .width > div {
     font-size: 15px;
     font-weight: 300;
     float: left;
     margin: 0;
 }
-#header .description h1 a {
+#header .description .width > div a {
     color: #fff;
 }
-#header .description h1 a:hover {
+#header .description .width > div a:hover {
     text-decoration: none;
 }
 #header .description .address {
@@ -453,6 +453,7 @@ address {
     padding-top: 245px;
     text-transform: uppercase;
 }
+.slider .Blockswrapper .wrap .text h1,
 .slider .Blockswrapper .wrap .text p:first-of-type {
     margin-bottom: 10px;
 }
@@ -460,7 +461,8 @@ address {
     font-size: 30px;
 }
 .slider .Blockswrapper .wrap .text p,
-.slider .Blockswrapper .wrap .text ul {
+.slider .Blockswrapper .wrap .text ul,
+.slider .Blockswrapper .wrap .text h1 {
     width: 590px;
     line-height: 1.4;
     font-weight: 300;
@@ -476,14 +478,16 @@ address {
 .slider .Blockswrapper .wrap .text ul li::first-letter {
     font-size: 30px;
 }
+.slider .Blockswrapper .wrap .text h1,
 .slider .Blockswrapper .wrap .text p:first-of-type {
     font-size: 42px;
     color: #f44336;
 }
+.slider .Blockswrapper .wrap .text h1:first-letter,
 .slider .Blockswrapper .wrap .text p:first-of-type:first-letter {
     font-size: 45px;
 }
-.slider .Blockswrapper .wrap:first-of-type p:first-of-type {
+.slider .Blockswrapper .wrap:first-of-type h1 {
     font-size: 34px;
 }
 .slider .Blockswrapper .wrap:first-of-type .text p:last-of-type {
@@ -772,7 +776,8 @@ address {
 
 .card {
     text-align: center;
-    margin-top: 70px;
+    padding-top: 160px;
+    margin-top: -90px;
 }
 .title-big {
     color: #34495e;
@@ -1648,7 +1653,7 @@ address {
 .contacts .cont .cnt > div span:last-of-type {
     font-size: 16px;
 }
-.contacts .cont > h2 {
+.contacts .cont > h1 {
     font-size: 19px;
     display: block;
     line-height: 1.6;
@@ -1774,8 +1779,8 @@ address {
 .price .price-list {
     margin-top: 40px;
 }
-.price .price-list h2,
-.options h2 {
+.price .price-list h1,
+.options h1 {
     font-size: 30px;
     width: 100%;
     text-align: center;
@@ -2115,10 +2120,10 @@ color: #fff;
 #options {
     padding-bottom: 60px;
 }
-.options h2 {
+.options h1 {
     margin-top: 40px;
 }
-.options h2:nth-of-type(2) {
+.options h1:nth-of-type(2) {
     margin-top: 60px;
 }
 .options .title-big {
@@ -2620,6 +2625,7 @@ color: #fff;
 }
 .work .info .text .briefly {
     display: table;
+    line-height: 1;
 }
 .work .info .text .briefly .tr {
     display: table-row;
@@ -2636,12 +2642,12 @@ color: #fff;
 .work .info .text .briefly .tr span {
     display: table-cell;
 }
-.work .info .text .briefly .tr:last-of-type span {
+.work .info .text .briefly .tr:last-of-type span:last-of-type {
     position: relative;
     top: -2px;
 }
 .work .info .text .full {
-    margin-top: 35px;
+    margin-top: 25px;
 }
 .work .info .text .full p,
 .work .info .text .full span {
@@ -2653,7 +2659,7 @@ color: #fff;
 }
 .work .info .work-items,
 .work .info .text {
-    padding: 35px 50px;
+    padding: 0 45px 0 45px;
 }
 .work .info .text {
     float: left;
@@ -2675,13 +2681,12 @@ color: #fff;
     font-weight: 700;
 }
 .work .info .work-items {
-    padding: 0;
+    padding-right: 0;
     float: right;
     display: table-cell;
     background: #fff;
-    padding-left: 40px;
     border-left: 5px solid #f44336;
-    margin-bottom: 65px;
+    margin-bottom: 109px;
 }
 .work .info .work-items ul li {
     list-style: none;
@@ -2690,7 +2695,7 @@ color: #fff;
     font-size: 15px;
 }
 .work .info .work-items ul {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 .work .info .work-items ul li:before {
     content: '';
@@ -2718,6 +2723,8 @@ color: #fff;
 .work .info .prev-next {
     clear: both;
     text-align: right;
+    position: relative;
+    top: -44px;
 }
 .work .info .prev-next a,
 #about.single .prev-next a,
@@ -3151,7 +3158,7 @@ color: #fff;
 }
 
 /*Подробнее #more/////////////////*/
-#more h2.title {
+#more h1.title {
     text-align: left;
     font-size: 28px;
     margin-bottom: 45px;
@@ -3385,6 +3392,7 @@ color: #fff;
     letter-spacing: 1px;
     margin: 0 0 0 60px;
     width: 300px;
+    margin-right: 35px;
 }
 #more .questions:before {
     background: url('/images/system/more.jpg') no-repeat top center;
@@ -4070,9 +4078,6 @@ footer .cont {
 footer li {
     list-style: none;
     line-height: 1.6;
-}
-footer .cont div:not(:last-of-type) a {
-    text-decoration: underline;
 }
 footer,
 footer a,

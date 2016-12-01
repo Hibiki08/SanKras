@@ -3,12 +3,20 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
-$this->title = 'Монтаж водоснабжения, коммуникаций с застройщиком Краснодар';
+$this->title = 'Монтаж водоснабжения, отопления для застройщиков Краснодара под ключ';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Монтаж отопления в частных домах, коттеджах под ключ в Краснодаре. Стоимость работ'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'система отопления частный дом, монтаж отопления частный дом, стоимость монтаж отопления частный дом, цена системы отопления частный дом'
+]);
 ?>
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h2 class="title title-big">Сотрудничаем с застройщиками частного сектора</h2>
+            <h1 class="title title-big">Сотрудничаем с застройщиками частного сектора</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>

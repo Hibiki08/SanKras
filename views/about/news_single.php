@@ -2,6 +2,14 @@
 use app\models\Blog;
 use yii\helpers\StringHelper;
 $this->title = $new->title;
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $new->title
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $new->title
+]);
 ?>
 <section class="single" id="about">
     <div class="width clear">
@@ -27,7 +35,7 @@ $this->title = $new->title;
             <?php if (!empty($other)) { ?>
                 <?php foreach ($other as $oth) {?>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $oth->id]); ?>" class="more">
-                        <h2><?php echo $oth->title; ?></h2>
+                        <h1><?php echo $oth->title; ?></h1>
                         <div class="short"><?php echo strip_tags(StringHelper::truncate($oth->text, 250, '...'), '<br><p>'); ?></div>
                         <span class="date"><?php echo Yii::$app->formatter->asDate($oth->date, 'd MMMM yyyy'); ?></span>
                     </a>

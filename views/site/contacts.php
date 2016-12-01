@@ -1,12 +1,20 @@
 <?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-$this->title = 'Контакты';
+$this->title = 'Контакты | Компания по оказанию сантехнических услуг SanKras';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Компания по оказанию сантехнических услуг SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'телефон sankras, адрес сантехники краснодара, контакты санкрас'
+]);
 ?>
 <section class="contacts" id="contacts">
     <div class="width">
         <div class="cont">
-            <h2>Мы работаем<br>в Краснодаре и пригороде</h2>
+            <h1>Мы работаем<br>в Краснодаре и пригороде</h1>
             <div class="cnt">
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-phone.png'; ?>" alt="телефон" title="телефон">
                 <div>

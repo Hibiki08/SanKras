@@ -20,7 +20,6 @@ $(document).ready(function() {
             var hash = window.location.hash;
             if (hash.length > 0) {
                 if ((hash != '#boiler') && (hash != '#calc')) {
-                    console.log(hash);
                     $('.price .nav-menu > ul li').removeClass('active');
                     $('.price .table table').removeClass('active');
                     $('.price .nav-menu > ul > li' + hash).addClass('active');

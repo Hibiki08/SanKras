@@ -1,5 +1,13 @@
 <?php
-$this->title = 'Прайс-лист';
+$this->title = 'Прайс-лист | Цены на монтаж санфаянса, водоснабжения, отопления';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Стоимость выполнения монтажных работ по сантехнике'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'прайс лист сантехнические работы, цены сантехнические работы, расценки сантехнические работы, стоимость сантехнические работы'
+]);
 ?>
 <section class="price" id="price">
     <div class="width">
@@ -11,7 +19,7 @@ $this->title = 'Прайс-лист';
             </ul>
         </div>
         <section class="price-list clear">
-            <h2 class="exo asphalt">Стоимость выполнения монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h2>
+            <h1 class="exo asphalt">Стоимость выполнения монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h1>
             <div class="table">
                 <?php $cat = []; ?>
                 <?php foreach($prices as $price) { ?>

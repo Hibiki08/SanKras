@@ -1,7 +1,15 @@
 <?php
 use app\models\Team;
 use app\models\Certificates;
-$this->title = 'О нас';
+$this->title = 'О нас | Компания по оказанию сантехнических услуг SanKras';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Компания по оказанию сантехнических услуг SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'монтаж сантехники, сантехники краснодара, сантехнические работы, сантехнические услуги, услуги сантехников'
+]);
 ?>
 <section class="about" id="about">
     <div class="width">
@@ -14,7 +22,7 @@ $this->title = 'О нас';
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
             </div>
-            <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
+            <h1 class="title exo asphalt">О нас</h1>
         </div>
         <div class="about-block">
             <div class="text clear">

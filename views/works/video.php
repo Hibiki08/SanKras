@@ -2,13 +2,20 @@
 use yii\widgets\LinkPager;
 use app\models\Works;
 
-$this->title = 'Видео работ';
-$group = Yii::$app->request->get('group');
+$this->title = 'Видео работ | Примеры работ по сантехнике';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Примеры работ по сантехнике SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'примеры сантехнические работы, санкрас сантехнические работы, sankras работы, сантехнические работы в квартире, сантехнические работы частный дом'
+]);
 ?>
 <section class="videos" id="video">
     <div class="width">
         <div class="head clear">
-            <h2 class="title exo asphalt">Видео</h2>
+            <h1 class="title exo asphalt">Видео</h1>
             <div class="tabs">
                 <ul>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'all']); ?>">Все работы</a></li>

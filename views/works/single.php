@@ -4,11 +4,19 @@ use yii\widgets\Pjax;
 use yii\widgets\LinkPager;
 
 $this->title = $work->title;
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Примеры работ по сантехнике SanKras'
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'примеры сантехнические работы, санкрас сантехнические работы, sankras работы, сантехнические работы в квартире, сантехнические работы частный дом'
+]);
 ?>
 <section class="work" id="work">
     <div class="width clear">
         <div class="head clear">
-            <h2 class="title asphalt"><?php echo $work->title; ?></h2>
+            <h1 class="title asphalt"><?php echo $work->title; ?></h1>
             <?php if (!is_null($work->video)) { ?>
             <div class="button-video exo"><span>Видео</span><div class="img"></div></div>
             <?php } ?>
