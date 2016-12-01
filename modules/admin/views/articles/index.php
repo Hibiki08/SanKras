@@ -19,6 +19,7 @@ $this->title = 'Статьи';
             <th>#</th>
             <th>Название</th>
             <th>Превью</th>
+            <th>Раздел</th>
             <th>Дата</th>
             <th>Активность</th>
             <th></th>
@@ -35,6 +36,7 @@ $this->title = 'Статьи';
                         Нет
                     <?php } ?>
                 </td>
+                <td><?php echo !is_null($article->category->parent_id) ? $article->category->description : 'Нет'; ?></td>
                 <td><?php echo Yii::$app->formatter->asDate($article->date, 'd MMMM yyyy'); ?></td>
                 <td class="status"><?php echo $article->active ? 'Да' : 'Нет'; ?></td>
                 <td>

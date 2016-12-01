@@ -8,7 +8,7 @@ $this->title = 'Монтаж водоснабжения в частном дом
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h2 class="title title-big">монтаж сантехнических коммуникаций в частном доме «под ключ»</h2>
+            <h2 class="title title-big">Монтаж сантехнических коммуникаций в частном доме «под ключ»</h2>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
@@ -199,27 +199,39 @@ $this->title = 'Монтаж водоснабжения в частном дом
                     <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                     <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 </tr>
-                <tr class="guarantee">
+                <tr class="guar">
                     <td>Гарантия на монтаж</td>
                     <td>5 лет</td>
                     <td>3 года</td>
                     <td>2 года</td>
                 </tr>
-                <tr class="cost">
-                    <td>Стоимость материала*</td>
-                    <td class="footer-comfort"><span>3 000</span> руб./м<sup>2</sup></td>
-                    <td class="footer-standart"><span>2 000</span> руб./м<sup>2</sup></td>
-                    <td class="footer-mini"><span>1 050</span> руб./м<sup>2</sup></td>
+                <tr class="guarantee one">
+                    <td>Стоимость материала</td>
+                    <td class="footer-comfort"><span>3 000 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-standart"><span>2 000 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-mini"><span>1 350 <span>р./м<sup>2</sup></span></span></td>
+                </tr>
+                <tr class="guarantee">
+                    <td>Стоимость монтажа</td>
+                    <td class="footer-comfort"><span>800 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-standart"><span>650 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-mini"><span>500 <span>р./м<sup>2</sup></span></span></td>
+                </tr>
+                <tr class="cost one">
+                    <td>Материал со скидкой 10%*</td>
+                    <td class="footer-comfort"><span>2 700 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-standart"><span>1 800 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-mini"><span>1 080 <span>р./м<sup>2</sup></span></span></td>
                 </tr>
                 <tr class="cost">
-                    <td>Стоимость монтажа*</td>
-                    <td class="footer-comfort"><span>800</span> руб./м<sup>2</sup></td>
-                    <td class="footer-standart"><span>650</span> руб./м<sup>2</sup></td>
-                    <td class="footer-mini"><span>450</span> руб./м<sup>2</sup></td>
+                    <td>Монтаж со скидкой 12%*</td>
+                    <td class="footer-comfort"><span>700 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-standart"><span>570 <span>р./м<sup>2</sup></span></span></td>
+                    <td class="footer-mini"><span>440 <span>р./м<sup>2</sup></span></span></td>
                 </tr>
                 </tbody>
             </table>
-            <div class="footnote">*Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.</div>
+            <div class="footnote">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'discount']); ?>">Получить дисконтную карту</a></div>
             <div class="pdf">
                 <span class="title-big">Посмотреть полный прайс-лист</span><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>"><button class="pulse exo">Прайс-лист</button></a>
             </div>

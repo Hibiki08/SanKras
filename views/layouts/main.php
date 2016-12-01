@@ -147,7 +147,7 @@ AppAsset::register($this);
                     <div class="skype"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'skype-letter.png'; ?>" alt="Skype"><?php echo Yii::$app->system->get('skype'); ?></div>
                     <div class="email"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'mail-letter.png'; ?>" alt="Email"><a href="mailto:<?php echo Yii::$app->system->get('email'); ?>"><?php echo Yii::$app->system->get('email'); ?></a></div>
                     <div class="time-work"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'work-letter.png'; ?>" alt="Режим работы">ежедневно с 8:00 до 21:00</div>
-                    <div class="address"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'addres-blue.png'; ?>" alt="Адрес"><?php echo Yii::$app->system->get('address'); ?></div>
+                    <div class="address"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'addres-blue.png'; ?>" alt="Адрес"><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>"><?php echo Yii::$app->system->get('address'); ?></a></div>
                 </div>
             </div>
             <div class="sub-footer clear">

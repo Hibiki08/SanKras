@@ -17,7 +17,9 @@ class Blog extends AbstractModel {
     }
 
     public function getCategory() {
-        return $this->hasOne(BlogCat::className(), ['id' => 'cat_id'])->alias('cat');
+        return $this->hasOne(BlogCat::className(), ['id' => 'cat_id'])
+            ->joinWith('parentCat')
+            ->alias('category');
     }
 
     public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {

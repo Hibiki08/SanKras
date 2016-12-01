@@ -8,7 +8,7 @@ $this->title = 'Монтаж водоснабжения, коммуникаци�
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h2 class="title title-big">сотрудничаем с застройщиками частного сектора</h2>
+            <h2 class="title title-big">Сотрудничаем с застройщиками частного сектора</h2>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>

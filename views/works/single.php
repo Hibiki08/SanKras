@@ -7,7 +7,10 @@ $this->title = $work->title;
 ?>
 <section class="work" id="work">
     <div class="width clear">
-        <h2 class="title exo asphalt"><?php echo $work->title; ?></h2>
+        <div class="head clear">
+            <h2 class="title asphalt"><?php echo $work->title; ?></h2>
+            <div class="button-video exo"><span>Видео</span><div class="img"></div></div>
+        </div>
         <ul class="pgwSlider">
             <?php foreach ($images as $image) {?>
             <li><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $image->work_id . ')' . '/mini_slider_' . $image->slide; ?>" alt="<?php echo $image->text; ?>" data-large-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $image->work_id . ')' . '/' . $image->slide; ?>"></li>

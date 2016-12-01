@@ -11,6 +11,7 @@ class EditNewsForm extends Model {
     public $title;
     public $text;
     public $preview;
+    public $category;
     public $hidden;
     public $active;
 
@@ -18,6 +19,7 @@ class EditNewsForm extends Model {
         return [
             [['preview'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true, 'maxSize' => 1048576],
             [['title', 'text'], 'required'],
+            ['category', 'default', 'value' => null],
         ];
     }
 
@@ -37,6 +39,7 @@ class EditNewsForm extends Model {
             'title' => 'Название',
             'text' => 'Текст',
             'preview' => 'Превью',
+            'category' => 'Раздел',
         ];
     }
 

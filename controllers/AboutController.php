@@ -134,19 +134,21 @@ class AboutController extends Controller {
         ]);
     }
 
-    public function actionArticles($single = '') {
-        $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::ART_ID]);
+    public function actionArticles($single = '', $group = '') {
+        $where = '(category.parent_id = ' . BlogCat::ART_ID . ' OR blog.cat_id = ' . BlogCat::ART_ID . ') AND blog.active = 1';
+        $blog = new Blog;
+        $blog = $blog->getAllCat($where, ['blog.date' => SORT_DESC], false);
 
         if (!empty($single)) {
-            $article = $blog->where(['id' => $single])->one();
-            $otherArticles = Blog::find()->where('id != ' . $single)->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
+            $article = $blog->where(['blog.id' => $single])->one();
+            $otherArticles = $blog->where('blog.id != ' . $single)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
 
-            $prev = $blog->where('date > \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id > ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = $blog->where('blog.date > \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id > ' . $single . ')')->andWhere($where)->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_ASC])->limit(1)->one();
             $prev = !is_null($prev) ? $prev->id : null;
 
-            $next = $blog->where('date < \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id < ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next : $blog->where('date != \'' . $article->date . '\' OR (date = \'' . $article->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::ART_ID])->limit(1)->one();
+            $next = $blog->where('blog.date < \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id < ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->limit(1)->one();
             $next = !is_null($next) ? $next->id : null;
 
 
@@ -163,6 +165,17 @@ class AboutController extends Controller {
 
         }
 
+        if (!empty($group)) {
+            $blog = $blog->andWhere(['blog.cat_id' => $group]);
+        }
+
+        $cat = new BlogCat();
+        $categories = $cat->find()->where('parent_id IS NOT NULL')->all();
+        $parentCat = [];
+        foreach ($categories as $item) {
+            $parentCat[$item->id] = $item->description;
+        }
+
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::ART_SIZE]);
         $pager->pageSizeParam = false;
 
@@ -173,6 +186,7 @@ class AboutController extends Controller {
         return $this->render('articles', [
             'articles' => $blog,
             'pager' => $pager,
+            'categories' => $parentCat,
         ]);
     }
 

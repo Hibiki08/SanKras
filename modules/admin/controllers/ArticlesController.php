@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\BlogCat;
 use Yii;
 use yii\web\HttpException;
 use app\models\Blog;
@@ -16,7 +17,7 @@ class ArticlesController extends NewsController {
 
     public function actionIndex() {
         $blog = new Blog();
-        $articles = $blog->findByColumn(['cat_id' => 2], '', ['date' => SORT_DESC], false);
+        $articles = $blog->getAllCat('category.parent_id = ' . BlogCat::ART_ID . ' OR blog.cat_id = ' . BlogCat::ART_ID, ['date' => SORT_DESC], false);
 
         $pager = new Pagination(['totalCount' => $articles->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
@@ -40,6 +41,13 @@ class ArticlesController extends NewsController {
         $blog = new Blog();
         $model = $id ? $blog->findOne(['id' => $id]) : new Blog();
 
+        $cat = new BlogCat();
+        $parentCat[0] = 'Нет';
+        $categories = $cat->find()->where('parent_id IS NOT NULL')->all();
+        foreach ($categories as $item) {
+            $parentCat[$item->id] = $item->description;
+        }
+
         if (!empty($model)) {
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $form->preview = UploadedFile::getInstance($form, 'preview');
@@ -60,8 +68,12 @@ class ArticlesController extends NewsController {
                     $model->title = Yii::$app->request->post('EditNewsForm')['title'];
                     $model->text = Yii::$app->request->post('EditNewsForm')['text'];
                     $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $form->preview->name;
-                    $model->cat_id = 2;
+                    $model->cat_id = $form->category != 0 ? $form->category : BlogCat::ART_ID;
                     $model->active = isset(Yii::$app->request->post('EditNewsForm')['active']) ? 1 : 0;
+                    if (isset($id)) {
+                        $date = $model->date;
+                        $model->date = $date;
+                    }
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
@@ -72,7 +84,8 @@ class ArticlesController extends NewsController {
             return $this->render('edit', [
                 'edit' => $form,
                 'model' => $model,
-                'errors' => $errors
+                'errors' => $errors,
+                'categories' => $parentCat,
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

@@ -99,27 +99,39 @@ $this->title = 'Пакеты услуг';
                 <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
                 <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
             </tr>
-            <tr class="guarantee">
+            <tr class="guar">
                 <td>Гарантия на монтаж</td>
                 <td>5 лет</td>
                 <td>3 года</td>
                 <td>2 года</td>
             </tr>
-            <tr class="cost">
-                <td>Стоимость материала*</td>
-                <td class="footer-comfort"><span>55</span> т. руб.</td>
-                <td class="footer-standart"><span>26</span> т. руб.</td>
-                <td class="footer-mini"><span>14</span> т. руб.</td>
+            <tr class="guarantee one">
+                <td>Стоимость материала</td>
+                <td class="footer-comfort"><span>55 000 <span>р.</span></span></td>
+                <td class="footer-standart"><span>26 000 <span>р.</span></span></td>
+                <td class="footer-mini"><span>15 500 <span>р.</span></span></td>
+            </tr>
+            <tr class="guarantee">
+                <td>Стоимость монтажа</td>
+                <td class="footer-comfort"><span>27 000 <span>р.</span></span></td>
+                <td class="footer-standart"><span>17 000 <span>р.</span></span></td>
+                <td class="footer-mini"><span>14 000 <span>р.</span></span></td>
+            </tr>
+            <tr class="cost one">
+                <td>Материал со скидкой 10%*</td>
+                <td class="footer-comfort"><span>49 500 <span>р.</span></span></td>
+                <td class="footer-standart"><span>23 400 <span>р.</span></span></td>
+                <td class="footer-mini"><span>13 950 <span>р.</span></span></td>
             </tr>
             <tr class="cost">
-                <td>Стоимость монтажа*</td>
-                <td class="footer-comfort"><span>27</span> т. руб.</td>
-                <td class="footer-standart"><span>17</span> т. руб.</td>
-                <td class="footer-mini"><span>12</span> т. руб.</td>
+                <td>Монтаж со скидкой 12%*</td>
+                <td class="footer-comfort"><span>23 760 <span>р.</span></span></td>
+                <td class="footer-standart"><span>14 960 <span>р.</span></span></td>
+                <td class="footer-mini"><span>12 320 <span>р.</span></span></td>
             </tr>
             </tbody>
         </table>
-        <div class="footnote" id="price-house">*Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.</div>
+        <div class="footnote" id="price-house">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'discount']); ?>">Получить дисконтную карту</a></div>
         <h2 class="exo asphalt">Монтаж сантехнических коммуникаций в частном доме</h2>
         <table>
             <thead>
@@ -221,26 +233,38 @@ $this->title = 'Пакеты услуг';
                 <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
             </tr>
-            <tr class="guarantee">
+            <tr class="guar">
                 <td>Гарантия на монтаж</td>
                 <td>5 лет</td>
                 <td>3 года</td>
                 <td>2 года</td>
             </tr>
-            <tr class="cost">
-                <td>Стоимость материала*</td>
-                <td class="footer-comfort"><span>3 000</span> руб./м<sup>2</sup></td>
-                <td class="footer-standart"><span>2 000</span> руб./м<sup>2</sup></td>
-                <td class="footer-mini"><span>1 050</span> руб./м<sup>2</sup></td>
+            <tr class="guarantee one">
+                <td>Стоимость материала</td>
+                <td class="footer-comfort"><span>3 000 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-standart"><span>2 000 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-mini"><span>1 350 <span>р./м<sup>2</sup></span></span></td>
+            </tr>
+            <tr class="guarantee">
+                <td>Стоимость монтажа</td>
+                <td class="footer-comfort"><span>800 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-standart"><span>650 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-mini"><span>500 <span>р./м<sup>2</sup></span></span></td>
+            </tr>
+            <tr class="cost one">
+                <td>Материал со скидкой 10%*</td>
+                <td class="footer-comfort"><span>2 700 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-standart"><span>1 800 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-mini"><span>1 080 <span>р./м<sup>2</sup></span></span></td>
             </tr>
             <tr class="cost">
-                <td>Стоимость монтажа*</td>
-                <td class="footer-comfort"><span>800</span> руб./м<sup>2</sup></td>
-                <td class="footer-standart"><span>650</span> руб./м<sup>2</sup></td>
-                <td class="footer-mini"><span>450</span> руб./м<sup>2</sup></td>
+                <td>Монтаж со скидкой 12%*</td>
+                <td class="footer-comfort"><span>700 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-standart"><span>570 <span>р./м<sup>2</sup></span></span></td>
+                <td class="footer-mini"><span>440 <span>р./м<sup>2</sup></span></span></td>
             </tr>
             </tbody>
         </table>
-        <div class="footnote">*Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.</div>
+        <div class="footnote">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'discount']); ?>">Получить дисконтную карту</a></div>
     </div>
 </section>

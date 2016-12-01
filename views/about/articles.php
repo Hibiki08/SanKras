@@ -17,6 +17,14 @@ $this->title = 'Статьи';
                 </ul>
             </div>
             <h2 class="title exo asphalt"><?php echo $this->title; ?></h2>
+            <?php if (!empty($categories)) { ?>
+            <ul class="filter">
+                <li><a class="exo asphalt" href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Все статьи</a></li>
+                <?php foreach ($categories as $key => $cat) { ?>
+                    <li><a class="exo asphalt" href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'group' => $key]); ?>"><?php echo $cat; ?></a></li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
         </div>
         <div class="block-articles">
             <?php if (!empty($articles)) { ?>
@@ -25,10 +33,11 @@ $this->title = 'Статьи';
                         <?php if (!empty($article->preview)) { ?>
                             <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $article->preview; ?>">
                         <?php } ?>
-                        <div class="articles-text">
+                        <div class="articles-text clear">
                             <div class="article-title"><?php echo $article->title; ?></div>
                             <div class="short"><?php echo StringHelper::truncate($article->text, 230, '...'); ?></div>
                             <span class="date"><?php echo Yii::$app->formatter->asDate($article->date, 'd MMMM yyyy'); ?></span>
+                            <span class="cat asphalt exo"><?php echo !is_null($article->category->parent_id) ? $article->category->description : ''; ?></span>
                         </div>
                     </a>
                 <?php } ?>

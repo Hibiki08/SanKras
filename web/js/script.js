@@ -13,30 +13,34 @@ $(document).ready(function() {
         }
     });
 
-    $(window).load(function() {
-        if (window.location.hash == '#calc') {
-            $('.price .tabs li').removeClass('active');
-            $('.price .tabs .calc').addClass('active');
-            $('.table table').addClass('calculater');
-            $('.sum').css('display', 'block');
 
-            if ($('section').is('#price')) {
-                var hash = window.location.hash;
-                if (hash.length > 0) {
-                    if ((hash != '#boiler') && (hash != '#calc')) {
-                        $('.price .nav-menu > ul li').removeClass('active');
+    //Ссылки на таблицу
+    $(window).load(function() {
+        if ($('section').is('#price')) {
+            var hash = window.location.hash;
+            if (hash.length > 0) {
+                if ((hash != '#boiler') && (hash != '#calc')) {
+                    console.log(hash);
+                    $('.price .nav-menu > ul li').removeClass('active');
+                    $('.price .table table').removeClass('active');
+                    $('.price .nav-menu > ul > li' + hash).addClass('active');
+                    $('.price .table table' + hash).addClass('active');
+                } else {
+                    if (hash == '#boiler') {
                         $('.price .table table').removeClass('active');
-                        $('.price .nav-menu > ul > li' + hash).addClass('active');
-                        $('.price .table table' + hash).addClass('active');
-                    } else {
-                        if (hash == '#boiler') {
-                            $('.price .table table').removeClass('active');
-                            $('.price .table table#heating').addClass('active');
-                        }
+                        $('.price .table table#heating').addClass('active');
                     }
                 }
             }
-            sumPosition();
+
+            if (window.location.hash == '#calc') {
+                $('.price .tabs li').removeClass('active');
+                $('.price .tabs .calc').addClass('active');
+                $('.table table').addClass('calculater');
+                $('.sum').css('display', 'block');
+
+                sumPosition();
+            }
         }
     });
 
@@ -446,6 +450,15 @@ $(document).ready(function() {
     $('.price .up').click(function() {
         $('body, html').animate({
             scrollTop: 0
+        }, 300);
+    });
+
+    //Кнопка "Видео"
+    $('.work .head .button-video').click(function() {
+        var top = $('.work .info .video').offset().top;
+        var headerHeight = $('.header').innerHeight();
+        $('body, html').animate({
+            scrollTop: top - headerHeight
         }, 300);
     });
 
