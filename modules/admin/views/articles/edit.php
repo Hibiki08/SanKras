@@ -31,7 +31,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
         'value' => $model->text
     ]
 ])->label('Текст'); ?>
-<?php echo $form->field($edit, 'category')->dropDownList($categories, ['options' => [$model->category->id => ['selected ' => true]]])->label('Раздел'); ?>
+<?php echo $form->field($edit, 'category')->dropDownList($categories, ['options' => isset($model->category->id) ? [$model->category->id => ['selected ' => true]] : ''])->label('Раздел'); ?>
 <?php echo $form->field($edit, 'preview', ['options' => [
     'id' => 'preview-file',
     'class' => 'form-group field-editnewsform-preview'
