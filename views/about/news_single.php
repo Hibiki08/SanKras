@@ -35,7 +35,7 @@ $this->registerMetaTag([
             <?php if (!empty($other)) { ?>
                 <?php foreach ($other as $oth) {?>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $oth->id]); ?>" class="more">
-                        <h1><?php echo $oth->title; ?></h1>
+                        <h2><?php echo $oth->title; ?></h2>
                         <div class="short"><?php echo strip_tags(StringHelper::truncate($oth->text, 250, '...'), '<br><p>'); ?></div>
                         <span class="date"><?php echo Yii::$app->formatter->asDate($oth->date, 'd MMMM yyyy'); ?></span>
                     </a>
