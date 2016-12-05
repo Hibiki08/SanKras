@@ -13,7 +13,6 @@ $this->title = 'Верхний слайдер';
         <thead>
         <tr>
             <th>#</th>
-            <th>Текст</th>
             <th>Ссылка</th>
             <th>Превью</th>
             <th>Сортировка</th>
@@ -25,7 +24,6 @@ $this->title = 'Верхний слайдер';
         <?php foreach ($slides as $slide) { ?>
             <tr>
                 <td><?php echo $slide->id; ?></td>
-                <td><?php echo $slide->text; ?></td>
                 <td><?php echo $slide->link; ?></td>
                 <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_TOP . 'admin_' . $slide->image; ?>"></td>
                 <td><input type="text" class="form-control show_position" name="show_position" placeholder="очерёдность" value="<?php echo $slide->sort; ?>" data-id="<?php echo $slide->id; ?>"></td>

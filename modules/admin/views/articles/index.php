@@ -7,7 +7,7 @@ $this->title = 'Статьи';
 ?>
 <h1><?php echo 'Блог > ' . $this->title; ?></h1>
 <div class="row-fluid">
-    <a href="<?php echo Url::toRoute('articles/edit'); ?>" class="btn btn-success">Добавить новость</a>
+    <a href="<?php echo Url::toRoute('articles/edit'); ?>" class="btn btn-success">Добавить статью</a>
 </div>
 <div class="row-fluid sections">
     <div class="progress progress-striped active sort-progress">

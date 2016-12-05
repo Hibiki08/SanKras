@@ -8,6 +8,12 @@ use app\models\PricesCat;
 
 class Prices extends AbstractModel {
 
+    const PAGE_WATER = 'Водоснабжение';
+    const PAGE_HEAT = 'Отопление';
+    const PAGE_SEW = 'Канализация';
+    const PAGE_SAN = 'Санфаянс';
+    const PAGE_AUTO = 'Автополив';
+
     public function getCategory() {
         return $this->hasOne(PricesCat::className(), ['id' => 'cat_id'])
             ->joinWith('parentCat')

@@ -75,8 +75,17 @@ class PricesController extends AdminController {
         $form = new EditPricesForm();
         $cat = new PricesCat();
         $options = new Prices();
+        $keyPage = [
+            0 => 'Нет',
+            'PAGE_WATER' => Prices::PAGE_WATER,
+            'PAGE_HEAT' => Prices::PAGE_HEAT,
+            'PAGE_SEW' => Prices::PAGE_SEW,
+            'PAGE_SAN' => Prices::PAGE_SAN,
+            'PAGE_AUTO' => Prices::PAGE_AUTO
+        ];
 
         $categories = $cat->getAllCat(false, true, ['cat.id' => SORT_ASC]);
+
         foreach ($categories as $item) {
             if (isset($item->parentCat->id)) {
                 if ($item->parent_id == $item->parentCat->id) {
@@ -93,10 +102,11 @@ class PricesController extends AdminController {
 
         if (!empty($model)) {
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-                $model->title = Yii::$app->request->post('EditPricesForm')['title'];
-                $model->price = Yii::$app->request->post('EditPricesForm')['price'];
-                $model->unit = Yii::$app->request->post('EditPricesForm')['unit'];
-                $model->cat_id = Yii::$app->request->post('EditPricesForm')['cat_id'];
+                $model->title = $form->title;
+                $model->price = $form->price;
+                $model->unit = $form->unit;
+                $model->cat_id = $form->cat_id;
+                $model->key_page = $form->key_page != '0' ? $form->key_page : null;
 
                 if (is_null($id)) {
                     $model->sort = $maxSort + 1;
@@ -110,7 +120,8 @@ class PricesController extends AdminController {
             return $this->render('edit', [
                 'edit' => $form,
                 'categories' => $parentCat,
-                'model' => $model
+                'model' => $model,
+                'keyPage' => $keyPage
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

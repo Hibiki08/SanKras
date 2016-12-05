@@ -38,6 +38,7 @@ $this->title = 'Услуги';
             <th>Цена</th>
             <th>Ед. изм</th>
             <th>Раздел</th>
+            <th>Страница</th>
             <th>Активность</th>
             <th></th>
         </tr>
@@ -50,6 +51,7 @@ $this->title = 'Услуги';
                 <td><?php echo $option->price; ?></td>
                 <td><?php echo $option->unit; ?></td>
                 <td><?php echo $option->category->title; ?></td>
+                <td><?php echo !empty($option->key_page) ? constant('app\models\Prices::' . $option->key_page) : ''; ?></td>
                 <td class="status"><?php echo $option->active ? 'Да' : 'Нет'; ?></td>
                 <td>
                     <div class="btn-group-vertical">
