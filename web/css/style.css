@@ -1719,7 +1719,7 @@ address {
 .works .tabs,
 #video .tabs {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 .price .tabs ul li,
 .options .tabs ul li,
