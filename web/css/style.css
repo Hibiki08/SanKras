@@ -2189,10 +2189,6 @@ color: #fff;
 .options table tr td,
 #more .pakage table tr td {
     padding: 20px 20px 20px 0;
-    box-shadow: 0 1px 1px #fff;
-    -o-box-shadow: 0 1px 1px #fff;
-    -moz-box-shadow: 0 1px 1px #fff;
-    -webkit-box-shadow: 0 1px 1px #fff;
 }
 .options table .title,
 #more .pakage table .title {
