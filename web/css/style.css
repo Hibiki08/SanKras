@@ -1923,6 +1923,7 @@ color: #fff;
     background: #fff;
 }
 .price .table tr:hover,
+#more .table tr:hover,
 .price .table tr:hover input {
     background: #f1f2f4;
 }
@@ -3684,7 +3685,7 @@ color: #fff;
     min-height: 612px;
 }
 #more.heating .more-text .txt {
-    min-height: 410px;
+    min-height: 432px;
 }
 #more.sewerage .more-text .txt {
     min-height: 456px;
