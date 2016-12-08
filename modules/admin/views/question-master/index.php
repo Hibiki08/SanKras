@@ -92,7 +92,7 @@ $this->title = 'Вопрос мастеру';
             var agree = confirm('Вы действительно хотите удалить этот пункт?');
             if (agree) {
                 var $this = $(this);
-                deleteAjax($this, '<?php echo Url::toRoute('quesstion-master/delete'); ?>');
+                deleteAjax($this, '<?php echo Url::toRoute('question-master/delete'); ?>');
             }
         });
     });
