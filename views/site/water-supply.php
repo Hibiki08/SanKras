@@ -118,7 +118,7 @@ $this->registerMetaTag([
                 </table>
             </div>
             <div class="pdf">
-                <span class="title-big">Посмотреть полный прайс-лист</span><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>"><button class="pulse exo">Прайс-лист</button></a>
+                <span class="title-big">Посмотреть полный прайс-лист</span><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'plumbing']); ?>"><button class="pulse exo">Прайс-лист</button></a>
             </div>
         </div>
     </section>

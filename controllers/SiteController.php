@@ -81,8 +81,8 @@ class SiteController extends Controller {
             $validate = ActiveForm::validate($form);
             if ($validate) {
                 ///Консультация мастера
-                $adviceName = Yii::$app->request->post('adviceName');
-                $advicePhone = Yii::$app->request->post('advicePhone');
+                $adviceName = trim(Html::encode(Yii::$app->request->post('adviceName')));
+                $advicePhone = trim(Html::encode(Yii::$app->request->post('advicePhone')));
 
                 if ($advicePhone && $adviceName) {
                     $status = false;
@@ -105,7 +105,7 @@ class SiteController extends Controller {
                 }
 
                 //Обратный звонок
-                $callPhone = Yii::$app->request->post('callPhone');
+                $callPhone = trim(Html::encode(Yii::$app->request->post('callPhone')));
                 $callPhone = trim(Html::encode($callPhone));
 
                 if ($callPhone) {
@@ -128,7 +128,7 @@ class SiteController extends Controller {
                 }
 
                 //Дисконтная карта
-                $cardMail = Yii::$app->request->post('cardMail');
+                $cardMail = trim(Html::encode(Yii::$app->request->post('cardMail')));
                 $cardMail = trim(Html::encode($cardMail));
 
                 if ($cardMail) {
@@ -145,10 +145,10 @@ class SiteController extends Controller {
                         ->setHtmlBody('Заявка на получение дисконтной карты от: ' . $cardMail)
                         ->send();
 
-                    $homeUrl = Yii::$app->params['params']['host'];
-                    $adminEmail = Yii::$app->system->get('email');
-                    $adminPhone = Yii::$app->system->get('phone');
-                    $adminSkype = Yii::$app->system->get('skype');
+                    $homeUrl = trim(Html::encode(Yii::$app->params['params']['host']));
+                    $adminEmail = trim(Html::encode(Yii::$app->system->get('email')));
+                    $adminPhone = trim(Html::encode(Yii::$app->system->get('phone')));
+                    $adminSkype = trim(Html::encode(Yii::$app->system->get('skype')));
 
                     $status = Yii::$app->mailer->compose('discount', [
                         'homeUrl' => $homeUrl,

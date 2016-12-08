@@ -19,16 +19,11 @@ $(document).ready(function() {
         if ($('section').is('#price')) {
             var hash = window.location.hash;
             if (hash.length > 0) {
-                if ((hash != '#boiler') && (hash != '#calc')) {
+                if (hash != '#calc') {
                     $('.price .nav-menu > ul li').removeClass('active');
                     $('.price .table table').removeClass('active');
                     $('.price .nav-menu > ul > li' + hash).addClass('active');
                     $('.price .table table' + hash).addClass('active');
-                } else {
-                    if (hash == '#boiler') {
-                        $('.price .table table').removeClass('active');
-                        $('.price .table table#heating').addClass('active');
-                    }
                 }
             }
 
@@ -368,11 +363,12 @@ $(document).ready(function() {
         $('.price .nav-menu > ul li').removeClass('active');
         var id = $(this).attr('href').slice(1);
         $('.price .nav-menu > ul > li ul').stop().slideUp();
-        $(this).parent('li').addClass('active').find('ul').stop().slideToggle();
+        var sub = $(this).parent('li').addClass('active').find('ul').stop().slideToggle();
         $('.price .table table').removeClass('active');
         $('.price .table table#' + id ).addClass('active');
         sumPosition();
     });
+    //Правое меню. Подкатегории
     $('.price .nav-menu > ul > li > ul a').click(function(e) {
         e.preventDefault();
         $('.price .nav-menu > ul li > ul li').removeClass('active');

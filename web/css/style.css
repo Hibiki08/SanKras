@@ -182,7 +182,7 @@ address {
 .key .title-big {
     padding-top: 70px;
     background: #f5f6f7;
-    padding-bottom: 45px;
+    padding-bottom: 25px;
     margin-bottom: 0;
     position: relative;
 }
@@ -204,7 +204,7 @@ address {
     position: relative;
     background: #fff;
     padding: 110px 0 0 0;
-    height: 400px;
+    height: 380px;
     -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
     -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.32);
@@ -225,7 +225,7 @@ address {
     margin-right: 0;
 }
 .key .services .service .title {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     font-size: 22px;
     text-align: center;
     padding: 0 30px;
@@ -3238,7 +3238,9 @@ color: #fff;
 #more.more-house .description {
     background: #fff;
 }
-#more .title {
+#more .title,
+#more h4,
+#more .pakage h2 {
     font-size: 30px;
 }
 #more .description figure {

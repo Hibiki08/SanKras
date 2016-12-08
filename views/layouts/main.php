@@ -110,11 +110,11 @@ AppAsset::register($this);
                     <div class="cell usl">
                         <div class="exo">Услуги</div>
                         <ul>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'heating']); ?>">Монтаж отопления</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'plumbing']); ?>">Монтаж водоснабжения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'sewerage']); ?>">Монтаж водоотведения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'sanitaryware']); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'boiler']); ?>">Обвязка котлов</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('heating'); ?>">Монтаж отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Автополив</a></li>
                         </ul>
                     </div>
                     <div class="cell price">
