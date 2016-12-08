@@ -19,9 +19,6 @@ body {
 html,body,.wrapper {
     min-height: 100% !important;
 }
-strong {
-    font-weight: 300;
-}
 a {
     text-decoration: none;
 }
