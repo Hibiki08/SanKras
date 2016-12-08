@@ -114,7 +114,7 @@ AppAsset::register($this);
                             <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
                             <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
                             <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополив</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополива</a></li>
                         </ul>
                     </div>
                     <div class="cell price">
