@@ -53,7 +53,11 @@
 @media screen and (max-width: 1340px) {
     #advice .form {
         top: 140px;
-        width: 460px;
+        width: 287px;
+        text-align: center;
+    }
+    #advice .form #form_advice {
+        text-align: left;
     }
     #advice .form .form-group {
         display: inline-block;
@@ -63,7 +67,7 @@
         margin-right: 0;
     }
     #advice .width .form input {
-        width: 410px;
+        width: 234px;
     }
     #advice .form img {
         margin-right: 8px;
@@ -71,6 +75,15 @@
     #advice .form > span:first-of-type span {
         display: inline-block;
         font-size: 18px;
+    }
+    #advice .form > span:first-of-type span.hidden {
+        display: none;
+    }
+    #advice .form > span:first-of-type span.exo,
+    #advice .form > span:first-of-type {
+        display: inline-block;
+        font-weight: 300;
+        font-size: 16px;
     }
     #advice .form > span:first-of-type {
         letter-spacing: normal;

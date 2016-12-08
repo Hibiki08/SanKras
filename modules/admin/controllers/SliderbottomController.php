@@ -48,10 +48,10 @@ class SliderbottomController extends AdminController {
                         $resize = new ImageResize($form->image->name, Slides::IMG_FOLDER_SLIDER_BOT, Slides::IMG_FOLDER_SLIDER_BOT, 200, '', 'admin');
                         $resize->resize();
                     }
-                    $model->text = Yii::$app->request->post('EditSlidesForm')['text'];
+                    $model->text = null;
                     $model->type_id = 2;
                     $model->image = !empty($form->image->name) ? $form->image->name : Yii::$app->request->post('EditSlidesForm')['hidden'];
-                    $model->link = Yii::$app->request->post('EditSlidesForm')['link'];
+                    $model->link = null;
                     $model->sort = Yii::$app->request->post('EditSlidesForm')['sort'];
                     $model->active = isset(Yii::$app->request->post('EditSlidesForm')['active']) ? 1 : 0;
                     $model->save();

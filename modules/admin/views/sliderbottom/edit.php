@@ -1,5 +1,4 @@
 <?php
-use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
@@ -22,16 +21,6 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
     ],
 ]); ?>
-<?php echo $form->field($edit, 'text')->widget(CKEditor::className(),[
-    'editorOptions' => [
-        'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-        'inline' => false, //по умолчанию false
-    ],
-    'options' => [
-        'value' => $model->text
-    ]
-])->label('Текст'); ?>
-<?php echo $form->field($edit, 'link')->input('text', ['value' => $model->link])->label('Ссылка'); ?>
 <?php echo $form->field($edit, 'image')->fileInput()->label('Загрузить слайд'); ?>
 <?php echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
 <?php if (!empty($model->image)) { ?>

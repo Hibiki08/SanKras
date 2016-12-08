@@ -1,10 +1,10 @@
 <?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-$this->title = 'Контакты | Компания по оказанию сантехнических услуг SanKras';
+$this->title = 'Контакты | Компания по оказанию сантехнических услуг СанКрас';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Компания по оказанию сантехнических услуг SanKras'
+    'content' => 'Компания по оказанию сантехнических услуг СанКрас'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',

@@ -563,7 +563,7 @@ address {
     letter-spacing: -1px;
     line-height: 1.4;
 }
-#advice .form > span:first-of-type span {
+#advice .form > span:first-of-type span.exo {
     font-size: 20px;
     font-weight: 500;
     display: block;
@@ -2343,6 +2343,7 @@ color: #fff;
 .options table tr.cost td span > span,
 #more .pakage table tr.cost td span > span {
     font-size: 18px;
+    text-transform: none;
 }
 .options table tr.cost td.footer-comfort,
 #more .pakage table tr.cost td.footer-comfort {

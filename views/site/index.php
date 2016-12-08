@@ -20,7 +20,7 @@ $this->registerMetaTag([
         <div class="form asphalt">
             <div class="close"></div>
             <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
-            <span class="exo">получите <span class="exo">бесплатную консультацию</span> от мастера</span>
+            <span class="exo">получите <span class="exo"><span class="hidden">бесплатную</span> консультацию</span><span class="hidden"> от мастера</span></span>
             <?php $form = ActiveForm::begin([
                 'enableAjaxValidation' => false,
                 'enableClientValidation' => true,
