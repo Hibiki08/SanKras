@@ -43,7 +43,7 @@ $this->registerMetaTag([
                         <?php } ?>
                         <div class="articles-text clear">
                             <div class="article-title"><?php echo $article->title; ?></div>
-                            <div class="short"><?php echo StringHelper::truncate($article->text, 200, '...'); ?></div>
+                            <div class="short"><?php echo strip_tags(StringHelper::truncate($article->text, 230, '...')); ?></div>
                             <span class="date"><?php echo Yii::$app->formatter->asDate($article->date, 'd MMMM yyyy'); ?></span>
                             <span class="cat asphalt exo"><?php echo !is_null($article->category->parent_id) ? $article->category->description : ''; ?></span>
                         </div>

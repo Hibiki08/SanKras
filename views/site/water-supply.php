@@ -1,78 +1,80 @@
 <?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use app\components\Works;
-use app\models\WorksCat;
-$this->title = 'Монтаж сантехники в квартире под ключ Краснодар';
+
+$this->title = 'Монтаж водоснабжения в Краснодаре';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Монтаж сантехники в квартире под ключ в Краснодаре. Стоимость работ'
+    'content' => 'Монтаж водоснабжения в Краснодаре. Компания SanKras'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'разводка труб водоснабжения в квартире, разводка сантехники в квартире, установки сантехники в квартире, цена разводка сантехники в квартире'
+    'content' => 'водоснабжение в краснодаре, водоснабжение в доме, водоснабжение в коттедже'
 ]);
 ?>
-<section class="more-flat" id="more">
+<section class="water-supply" id="more">
     <section class="description">
         <div class="width clear">
-            <h1 class="title title-big">Монтаж сантехнических коммуникаций в квартире «под ключ»</h1>
-            <figure>
-                <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-2.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
-            </figure>
-            <div class="text">
-                <p>Дизайн ванной комнаты и удобство использования сантехнических приборов во многом зависит от того, насколько грамотно выполнен монтаж сантехнических коммуникаций. Опасно доверять такое дело неопытному специалисту, так как последствия могут влететь в копеечку. Если вы проводите ремонт своими силами и не сотрудничаете с дизайнером, опытные специалисты SanKras посоветуют, как расположить сантехнические приборы таким образом, чтобы они были удобны в использовании и гармонировали с интерьером ванной комнаты.</p>
-                <p>Компания СанКрас за последний год выполнила монтаж в 22 квартирах и наши специалисты точно знают, с чего начинается и чем заканчивается монтаж сантехнических коммуникаций в ванной комнате.</p>
+            <h1 class="title title-big">Монтаж водоснажения</h1>
+            <div class="more-text clear">
+                <div class="txt txt-1">
+                    <figure><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'water-supply.jpg'; ?>" alt="монтаж водоснабжения" title="монтаж водоснабжения"></figure>
+                    <p>Компания SanKras производит монтаж водоснабжения и систем водоподготовки в Краснодаре и Краснодарском крае.</p>
+                    <p>За время существования нашей компании мы выполнили множество объектов по монтажу водоснабжения, монтированию систем химической водоочистки и обвязке скважин, установке колодезного оборудования.</p>
+                    <p>Только за последний год мы провели работы по обвязке 17 скважин, смонтировали 24 установки фильтрации водоснабжения.</p>
+                    <p>Без системы водоснабжения невозможно представить себе</p>
+                </div>
+                <div class="txt txt-2">
+                    <p>проживание в частном секторе. Не имея доступа к воде для бытовых нужд, мы лишаем себя значительной степени комфорта. Но перед тем как использовать воду, нужно обязательно провести ее химический анализ. Это грамотный выбор для безопасности вашего здоровья и долговечности системы водоснабжения в целом.</p>
+                    <p>Заказывая услугу монтажа и закупку оборудования для системы водоочистки в SanKras, вы получаете бесплатный <span>химический анализ</span> воды в ООО «Росводоканал Краснодар». Кроме того, в первый же выезд на ваш объект мы измерим уровень Ph воды с помощью переносного TDS-метра.</p>
+                    <p>Мы выполняем <span>обвязки скважин</span> под ключ. Данная услуга включает в себя установку глубинного насоса, автоматики включения и отключения насоса, монтаж накопительной емкости или гидроаккумулятора, фильтрующее оборудование. Приобретая оборудование  для монтажа через наших поставщиков, вы гарантированно получаете скидку 10% на монтаж и 5% на весь материал.</p>
+                    <p>В компанию SanKras нередко обращаются жители частного сектора, дома которых подключены к центральному водоснабжению, с проблемой слабого напора воды. С этим вопросом мы тоже работаем. Решение предполагает установку накопительной емкости в тандеме с установкой насосного оборудования для <span>повышения давления</span>.</p>
+                </div>
             </div>
         </div>
     </section>
-    <section class="steps">
+    <section class="options">
         <div class="width">
-            <div class="step clear">
-                <div class="st">
-                    <span class="number"></span>
-                    <span class="asphalt exo">первый этап работ</span>
-                </div>
-                <div class="desc">
-                    <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-3.png'; ?>">
-                    </figure>
-                    <div class="text">
-                        <ul>
-                            <li>Консультирование, помощь в подборе материала и составление схемы проекта</li>
-                            <li>Составление сметы, закупка и доставка материала</li>
-                            <li>Согласование и решение вопросов с прорабом отделочников</li>
-                            <li>Монтаж труб водоснабжения и канализации со штроблением</li>
-                            <li>Вынос мусора</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="step clear">
-                <div class="st st-2">
-                    <span class="number"></span>
-                    <span class="asphalt exo">второй этап после отделки</span>
-                </div>
-                <div class="desc">
-                    <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-1.png'; ?>">
-                    </figure>
-                    <div class="text">
-                        <ul>
-                            <li>Установка санфаянса на стадии финишных работ</li>
-                            <li>Установка бытовой техники (стиральной машины и т.д.)</li>
-                            <li>Ввод в эксплуатацию бытового оборудования (водонагревателель, газовая колонка)</li>
-                            <li>Запуск и наладка всей системы</li>
-                            <li>Предоставление гарантии</li>
-                        </ul>
-                    </div>
-                </div>
+            <h2>Мы выполняем следующие виды работ по монтажу водоснабжения:</h2>
+            <div class="opts clear">
+                <ul class="float-left">
+                    <li>Монтаж водоснабжения ГВС и ХВС</li>
+                    <li>Установка коллекторного водоснабжения</li>
+                    <li>Монтаж запорной арматуры</li>
+                    <li>Установка счетчиков</li>
+                    <li>Установка редуктора давления</li>
+                    <li>Опрессовка системы водопровода</li>
+                    Прокладка труб водоснабжения
+                    <li>Металлопластиковых</li>
+                    <li>Полипропиленовых ППР</li>
+                    <li>Пластиковых ПВХ</li>
+                </ul>
+                <ul class="float-right">Установка фильтрующих систем:
+                    <li>сетчатого фильтра</li>
+                    <li>промывного фильтра</li>
+                    <li>фильтра механической очистки</li>
+                    <li>фильтра «обратный осмос»</li>
+                    <li>магнитного фильтра</li>
+                    <li>двух-/трехступенчатого фильтра под мойку</li>
+                    <li>установка колбы-умягчителя</li>
+                </ul>
+                <ul class="absolute">Монтаж фильтров для водоподготовки:
+                    <li>мешочного фильтра "защита от песка"</li>
+                    <li>установка аэрационной колонны для обезжелезования</li>
+                    <li>засыпного фильтра (умягчитель)</li>
+                    <li>Установка УФ-лампы (стерилизатора)</li>
+                    Обвязка скважины:
+                    <li>монтаж насоса повыщающего давление</li>
+                    <li>установка погружного насоса</li>
+                    <li>установка насосной станции</li>
+                    <li>установка накопительного бака</li>
+                </ul>
             </div>
         </div>
     </section>
     <section class="more-key">
         <div class="width">
-            <h2 class="title-big">При заказе системы «под ключ» в квартире вы получаете:</h2>
+            <h2 class="title-big">Заказывая монтаж системы водоснабжения у нас, вы получаете:</h2>
             <div class="flat clear one">
                 <div class="fl">
                     <div class="title exo">Выполнение работы быстро и в поставленные сроки</div>
@@ -95,136 +97,32 @@ $this->registerMetaTag([
             </div>
         </div>
     </section>
-    <?php echo Works::widget(['filter' => ['works.cat_id' => WorksCat::FLAT_ID]]); ?>
-    <section class="pakage">
+    <?php if (!empty($options)) { ?>
+    <section class="price-list">
         <div class="width">
-            <h2 class="title-big">пакеты услуг по монтажу коммуникаций в квартире</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th class="title">В монтаж входит:</th>
-                    <th class="comfort">Комфорт</th>
-                    <th class="standart">Стандарт</th>
-                    <th class="mini">Эконом</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Составление сметы и доставка материала (бесплатно)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr>
-                    <td>Монтаж водоснабжения</td>
-                    <td>металлопластом Franchise (Германия) / сшитым полиэтиленом Rehau по коллекторной системе</td>
-                    <td>металлопластом APE (Италия) по коллекторной системе до 10 точек</td>
-                    <td>полипропиленом FV Plast (Чехия) по тройниковой системе до 10 точек</td>
-                </tr>
-                <tr>
-                    <td><strong>Монтаж канализации</strong></td>
-                    <td>бесшумная канализация ПВХ Ostendorf (Германия)</td>
-                    <td>ПВХ Ostendorf (Германия) до 5 точек</td>
-                    <td>ПВХ Политэк (Россия) до 5 точек</td>
-                </tr>
-                <tr>
-                    <td>Шумоизоляция канализационного стояка энергофлексом</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                </tr>
-                <tr>
-                    <td>Монтаж выводов под полотенцесушитель</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr>
-                    <td>Штробление под точки водоснабжения, их дальнейшее крепление и опрессовка</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr>
-                    <td>Установка редукторов давления, сетчатых фильтров 500 мкм, арматура Itap, FIV (Италия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr>
-                    <td>Защита трубопровода в энергофлекс Super Protect (Россия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr>
-                    <td>Установка компенсаторов от гидроударов FAR (Италия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                </tr>
-                <tr>
-                    <td>Установка промывных фильтров Honeywell (Германия) / FAR (Италия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                </tr>
-                <tr>
-                    <td>Установка фильтров тонкой очистки Atoll (США)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                </tr>
-                <tr>
-                    <td>Работа по дизайн проекту</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                </tr>
-                <tr>
-                    <td>Уборка помещения и вынос мусора</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                </tr>
-                <tr class="guar">
-                    <td>Гарантия на монтаж</td>
-                    <td>5 лет</td>
-                    <td>3 года</td>
-                    <td>2 года</td>
-                </tr>
-                <tr class="guarantee one">
-                    <td>Стоимость материала</td>
-                    <td class="footer-comfort"><span>55 000 <span>р.</span></span></td>
-                    <td class="footer-standart"><span>26 000 <span>р.</span></span></td>
-                    <td class="footer-mini"><span>15 500 <span>р.</span></span></td>
-                </tr>
-                <tr class="guarantee">
-                    <td>Стоимость монтажа</td>
-                    <td class="footer-comfort"><span>27 000 <span>р.</span></span></td>
-                    <td class="footer-standart"><span>17 000 <span>р.</span></span></td>
-                    <td class="footer-mini"><span>14 000 <span>р.</span></span></td>
-                </tr>
-                <tr class="cost one">
-                    <td>Материал со скидкой 10%*</td>
-                    <td class="footer-comfort"><span>49 500 <span>р.</span></span></td>
-                    <td class="footer-standart"><span>23 400 <span>р.</span></span></td>
-                    <td class="footer-mini"><span>13 950 <span>р.</span></span></td>
-                </tr>
-                <tr class="cost">
-                    <td>Монтаж со скидкой 12%*</td>
-                    <td class="footer-comfort"><span>23 760 <span>р.</span></span></td>
-                    <td class="footer-standart"><span>14 960 <span>р.</span></span></td>
-                    <td class="footer-mini"><span>12 320 <span>р.</span></span></td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="footnote">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'card']); ?>">Получить дисконтную карту</a></div>
+            <div class="table">
+                <table>
+                    <caption class="exo">Монтаж водоснабжения</caption>
+                    <tr class="sub-title">
+                        <td>Услуга</td>
+                        <td>Ед.</td>
+                        <td class="table-cost">Стоимость</td>
+                    </tr>
+                    <?php foreach($options as $price) { ?>
+                    <tr class="transition">
+                        <td><?php echo $price->title; ?></td>
+                        <td class="table-unit"><?php echo $price->unit; ?></td>
+                        <td class="table-price"><?php echo $price->price; ?></td>
+                    </tr>
+                    <?php } ?>
+                </table>
+            </div>
             <div class="pdf">
                 <span class="title-big">Посмотреть полный прайс-лист</span><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>"><button class="pulse exo">Прайс-лист</button></a>
             </div>
         </div>
     </section>
+    <?php } ?>
     <section class="questions">
         <div class="width clear">
             <div class="question">

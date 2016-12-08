@@ -14,6 +14,7 @@ use yii\helpers\Html;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use app\components\Cache;
+use app\models\Prices;
 
 class SiteController extends Controller {
 
@@ -331,6 +332,7 @@ class SiteController extends Controller {
 
     public function actionWaterSupply() {
         $form = new BaseForm();
+        $options = Prices::find()->where(['key_page' => 'PAGE_WATER', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
 
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -362,7 +364,164 @@ class SiteController extends Controller {
             }
         }
         return $this->render('water-supply', [
-            'question' => $form
+            'question' => $form,
+            'options' => $options
+        ]);
+    }
+
+    public function actionHeating() {
+        $form = new BaseForm();
+        $options = Prices::find()->where(['key_page' => 'PAGE_HEAT', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+        return $this->render('heating', [
+            'question' => $form,
+            'options' => $options
+        ]);
+    }
+
+    public function actionSewerage() {
+        $form = new BaseForm();
+        $options = Prices::find()->where(['key_page' => 'PAGE_SEW', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+        return $this->render('sewerage', [
+            'question' => $form,
+            'options' => $options
+        ]);
+    }
+
+    public function actionSanfayans() {
+        $form = new BaseForm();
+        $options = Prices::find()->where(['key_page' => 'PAGE_SAN', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+        return $this->render('sanfayans', [
+            'question' => $form,
+            'options' => $options
+        ]);
+    }
+
+    public function actionAutomaticWatering() {
+        $form = new BaseForm();
+        $options = Prices::find()->where(['key_page' => 'PAGE_AUTO', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
+
+        if (Yii::$app->request->isAjax) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            $validate = ActiveForm::validate($form);
+            if ($validate) {
+                $status = false;
+                $request = new Requests();
+
+                $questionName = trim(Html::encode($form->name));
+                $questionPhone = trim(Html::encode($form->phone));
+                $questionText = trim(Html::encode($form->text));
+
+                $request->name = $questionName;
+                $request->phone = $questionPhone;
+                $request->text = $questionText;
+                $request->type_id = Requests::QUESTION_ID;
+                $request->save();
+
+                $status = Yii::$app->mailer->compose()
+                    ->setFrom(Yii::$app->system->get('email'))
+                    ->setTo(Yii::$app->system->get('email'))
+                    ->setSubject('Вопрос мастеру')
+                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
+                    ->send();
+
+                return [
+                    'status' => $status,
+                ];
+            }
+        }
+        return $this->render('automatic-watering', [
+            'question' => $form,
+            'options' => $options
         ]);
     }
 

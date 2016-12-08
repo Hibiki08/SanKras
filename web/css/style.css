@@ -110,7 +110,8 @@ address {
 }
 .header button,
 #more .pakage button,
-#not-found a {
+#not-found a,
+#more .price-list button {
     position: relative;
     background: #f44336;
     color: #fff;
@@ -484,7 +485,7 @@ address {
     color: #f44336;
 }
 .slider .Blockswrapper .wrap .text h1:first-letter,
-.slider .Blockswrapper .wrap .text p:first-of-type:first-letter {
+.slider .Blockswrapper .wrap:not(:first-of-type) .text p:first-of-type:first-letter {
     font-size: 45px;
 }
 .slider .Blockswrapper .wrap:first-of-type h1 {
@@ -1797,12 +1798,21 @@ address {
     width: 270px;
     background: #fff;
 }
-.price .table {
+.price .table,
+#more .table {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+#more .table {
+    margin-bottom: 40px;
+}
+#more .pdf .title-big {
+    vertical-align: middle;
 }
 .price .table .sum {
     display: none;
@@ -1864,14 +1874,16 @@ address {
 .price .table .sum .result span:first-of-type {
     font-weight: 500;
 }
-.price .table caption {
+.price .table caption,
+#more .table caption {
 background: #34495e;
 text-align: center;
 font-size: 19px;
 padding: 15px;
 color: #fff;
 }
-.price .table table {
+.price .table table,
+#more .table table {
     width: 100%;
     border-collapse: collapse;
     display: none;
@@ -1886,7 +1898,8 @@ color: #fff;
     display: block;
     height: 320px;
 }
-.price .table td {
+.price .table td,
+#more .table td {
     font-size: 14px;
     padding: 10px;
     border-bottom: 1px solid #e0e0e0;
@@ -1913,47 +1926,64 @@ color: #fff;
 .price .table table.calculater .hidden {
     display: table-cell;
 }
-.price .table tr td:first-of-type {
+.price .table tr td:first-of-type,
+#more .table tr td:first-of-type {
     padding-left: 20px;
     text-align: left;
     width: 590px;
     border-left: 1px solid #e0e0e0;
 }
+#more .table tr td:first-of-type {
+    width: 80%;
+}
 .price .table table.calculater td:first-of-type {
     width: 558px;
 }
-.price .table tr td:last-of-type {
+.price .table tr td:last-of-type,
+#more .table tr td:last-of-type {
     padding-right: 20px;
     font-weight: 500;
     text-align: right;
     border-right: 1px solid #e0e0e0;
 }
+#more .table tr td:last-of-type {
+    font-weight: 300;
+    width: 10%;
+}
 .price .table .sub-title,
+#more .table .sub-title,
 .price .table .sub-title:hover {
     background: #d6dbdf;
     color: #34495e;
 }
-.price .table .sub-title td {
+.price .table .sub-title td,
+#more .table .sub-title td {
     text-align: center;
     font-size: 16px;
     border: none;
 }
-.price .table .sub-title .table-cost {
+.price .table .sub-title .table-cost,
+#more .table .sub-title .table-cost {
     text-align: right;
 }
 .price .table table.calculater .sub-title .table-cost {
     text-align: center;
 }
-.price .table .sub-title td:first-of-type {
+.price .table .sub-title td:first-of-type,
+#more .table .sub-title td:first-of-type {
     padding-left: 20px;
 }
 .price .table .sub-title td:last-of-type {
     padding-right: 20px;
     font-weight: 300;
 }
-.price .table .table-unit {
+.price .table .table-unit,
+#more .table .table-unit {
     text-align: center;
     width: 80px;
+}
+#more .table .table-unit {
+    width: 10%;
 }
 .price .table .table-number {
     padding: 0;
@@ -2128,6 +2158,14 @@ color: #fff;
 }
 .options .title-big {
     margin-bottom: 45px;
+}
+#more .price-list {
+    background: #fff;
+    padding-bottom: 60px;
+}
+#more .table table {
+    width: 100%;
+    display: table;
 }
 .options table,
 #more .pakage table {
@@ -3178,14 +3216,14 @@ color: #fff;
 /*Подробнее #more/////////////////*/
 #more h1.title {
     text-align: left;
-    font-size: 28px;
-    margin-bottom: 45px;
-    font-family: 'Roboto', sans-serif;
-    text-transform: none;
+    margin-bottom: 40px;
 }
 #more .description {
     position: relative;
     padding-top: 155px;
+}
+#more.more-flat .description,
+#more.more-house .description {
     background: #fff;
 }
 #more .description figure {
@@ -3204,7 +3242,14 @@ color: #fff;
 #more .description .text p:first-of-type {
     margin-bottom: 10px;
 }
-#more .description:after {
+#more.more-flat .description:after,
+#more.more-house .description:after,
+#more.more-company .description:after,
+#more.sewerage .more-key:after,
+#more.heating .more-key:after,
+#more.automatic-watering .more-key:after,
+#more.sanfayans .more-key:after,
+#more.water-supply .more-key:after{
     content: '';
     position: absolute;
     width: 100%;
@@ -3222,14 +3267,19 @@ color: #fff;
     position: relative;
     z-index: 2;
 }
-#more .steps:after {
+#more .steps:after,
+#more.sewerage .more-key:before,
+#more.heating .more-key:before,
+#more.automatic-watering .more-key:before,
+#more.sanfayans .more-key:before,
+#more.water-supply .more-key:before {
     content: '';
     display: block;
     position: absolute;
     width: 100%;
     background: url('/images/system/more-up.png') repeat-x;
-    height: 121px;
-    bottom: 0;
+    top: -85px;
+    height: 85px;
 }
 #more .steps .st {
     background: url('/images/system/more-2.png') no-repeat;
@@ -3317,6 +3367,7 @@ color: #fff;
 #more .more-key {
     padding-bottom: 65px;
     background: #fff;
+    position: relative;
 }
 #more .more-key .title-big {
     color: #f44336;
@@ -3396,21 +3447,34 @@ color: #fff;
 #more .pakage .footnote {
     margin-bottom: 40px;
 }
-#more .pakage span.title-big {
+#more .pakage span.title-big,
+#more .price-list span.title-big {
     font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: none;
 }
-#more .pakage .pdf {
-    text-align: right;
-}
-#more .pakage a {
+#more .pakage a,
+#more .price-list a {
     color: #fff;
     text-decoration: none;
 }
-#more .pakage button {
+#more .pakage button,
+#more .price-list button {
     letter-spacing: 1px;
-    margin: 0 0 0 60px;
+    margin: 0 0 0 30px;
     width: 300px;
     margin-right: 35px;
+}
+#more .pakage button,
+#more .price-list button {
+    float: none;
+    width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#more.more-flat .pdf,
+#more.more-house .pdf {
+    padding-left: 270px;
 }
 #more .questions:before {
     background: url('/images/system/more.jpg') no-repeat top center;
@@ -3510,12 +3574,88 @@ color: #fff;
    padding-left: 0;
 }
 
+#more.water-supply .description,
+#more.automatic-watering .description,
+#more.heating .description,
+#more.sanfayans .description,
+#more.sewerage .description,
+#more.water-supply .price-list,
+#more.automatic-watering .price-list,
+#more.heating .price-list,
+#more.sanfayans .price-list,
+#more.sewerage .price-list,
+#more.water-supply .options,
+#more.automatic-watering .options,
+#more.heating .options,
+#more.sanfayans .options,
+#more.sewerage .options {
+    background: #f5f6f7;
+}
+#more .options {
+    padding-bottom: 60px;
+}
+#more .options h2 {
+    font-size: 28px;
+    color: #34495e;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 25px;
+}
+#more .opts {
+    position: relative;
+    margin: 0 auto;
+}
+#more.sewerage .opts {
+    width: 730px;
+}
+#more .opts .float-left {
+    float: left;
+}
+#more .opts .float-right {
+    float: right;
+}
+#more .opts .absolute {
+    position: absolute;
+    left: 50%;
+    display: inline-block;
+    margin-left: -182px;
+}
+#more .opts ul {
+    font-weight: 500;
+    list-style: none;
+    line-height: 1.9;
+    font-size: 16px;
+}
+#more .opts ul li {
+    font-weight: 300;
+    font-size: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+#more .opts ul li:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: url('/images/system/hover-mark.png') no-repeat;
+    left: 8px;
+    top: 12px;
+}
+
 
 /*about///////////////////////////*/
-#about.about .text {
+#about.about .text,
+#more .more-text {
     margin-bottom: 70px;
 }
-#about .text .txt {
+#more .more-text .txt span {
+    font-weight: 500;
+}
+#more .more-text .red {
+    font-weight: 500;
+}
+#about .text .txt,
+#more .more-text .txt {
     font-size: 15px;
     width: 570px;
     background: #fff;
@@ -3528,27 +3668,68 @@ color: #fff;
     padding-bottom: 45px;
     min-height: 561px;
     box-sizing: content-box;
+    overflow: hidden;
 }
-#about .text .txt figure {
+#more.water-supply .more-text .txt {
+    min-height: 612px;
+}
+#more.heating .more-text .txt {
+    min-height: 410px;
+}
+#more.sewerage .more-text .txt {
+    min-height: 456px;
+}
+#more.sanfayans .more-text .txt {
+    min-height: 490px;
+}
+#more.automatic-watering .more-text .txt {
+    min-height: 644px;
+}
+#about .text .txt figure,
+#more .more-text .txt figure {
     margin-bottom: 30px;
 }
-#about .text .txt figure img {
+#about .text .txt figure img,
+#more .more-text .txt figure img {
     border-bottom: 5px solid #f44336;
 }
-#about .text .txt p {
+#about .text .txt p,
+#more .more-text .txt p,
+#more .more-text .txt ul {
     padding: 0 40px;
     line-height: 1.6;
 }
-#about .text .txt p:not(:last-of-type) {
+#more .more-text .txt ul {
+    list-style: none;
+}
+#more .more-text .txt ul li {
+    position: relative;
     margin-bottom: 10px;
 }
-#about .text .txt-1 {
+#more .more-text .txt ul li:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: url('/images/system/hover-mark.png') no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 17px;
+    margin-left: 5px;
+}
+#about .text .txt p:not(:last-of-type),
+#more .more-text .txt p:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+#about .text .txt-1,
+#more .more-text .txt-1 {
     float: left;
 }
-#about .text .txt-2 {
+#about .text .txt-2,
+#more .more-text .txt-2 {
     float: right;
 }
-#about .text .txt-2 p:first-of-type {
+#about .text .txt-2 p:first-of-type,
+#more .more-text .txt-2 p:first-of-type {
     padding-top: 30px;
 }
 #about .text .subscribe {

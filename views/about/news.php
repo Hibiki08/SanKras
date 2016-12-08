@@ -35,7 +35,7 @@ $this->registerMetaTag([
                         <?php } ?>
                         <div class="news-text">
                             <div class="new-title"><?php echo $new->title; ?></div>
-                            <div class="short"><?php echo strip_tags(StringHelper::truncate($new->text, 230, '...'), '<br><p>'); ?></div>
+                            <div class="short"><?php echo strip_tags(StringHelper::truncate($new->text, 230, '...')); ?></div>
                             <span class="date"><?php echo Yii::$app->formatter->asDate($new->date, 'd MMMM yyyy'); ?></span>
                         </div>
                     </a>

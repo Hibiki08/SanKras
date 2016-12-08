@@ -83,14 +83,13 @@
         text-align: center;
     }
     .wrap:first-of-type p:first-of-type {
-        display: none;
         font-size: 28px;
     }
     .wrap:first-of-type .text p:last-of-type {
         font-size: 24px;
     }
     .slider .Blockswrapper .wrap .text {
-        padding-top: 165px;
+        padding-top: 125px;
     }
     .simple:before,
     #more .questions:before,
