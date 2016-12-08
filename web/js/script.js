@@ -21,8 +21,11 @@ $(document).ready(function() {
             if (hash.length > 0) {
                 if (hash != '#calc') {
                     $('.price .nav-menu > ul li').removeClass('active');
+                    var $this = $('.price .nav-menu > ul li > a[href=' + hash + ']').parent('li').addClass('active');
+                    $('.price .nav-menu > ul > li ul').stop().slideToggle();
+                    $this.parent('li').find('ul').stop().slideToggle();
+
                     $('.price .table table').removeClass('active');
-                    $('.price .nav-menu > ul > li' + hash).addClass('active');
                     $('.price .table table' + hash).addClass('active');
                 }
             }
