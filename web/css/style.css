@@ -2592,7 +2592,6 @@ color: #fff;
 }
 .work .pgwSlider {
     position: relative;
-    margin-bottom: 60px;
 }
 .work .pgwSlider ul.ps-list {
     width: 19.2%;
@@ -2660,6 +2659,7 @@ color: #fff;
 }
 .work .info {
     clear: both;
+    margin-top: 60px;
 }
 .work .info .text .briefly {
     display: table;
