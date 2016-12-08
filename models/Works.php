@@ -17,12 +17,6 @@ class Works extends AbstractModel {
         return $this->hasOne(WorksCat::className(), ['id' => 'cat_id'])->alias('cat');
     }
 
-//    public function getAllCategory() {
-//        return $this->hasOne(WorksCat::className(), ['id' => 'parent_id'])
-//            ->via('category')
-//            ->alias('parent_cat');
-//    }
-
     public function getAllCat($where = false, $order = ['id' => SORT_ASC], $request = true) {
         $query = Works::find()
             ->joinWith('category')

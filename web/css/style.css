@@ -1858,10 +1858,16 @@ address {
 }
 .price .table .sum .print {
     margin-right: 18px;
-    background: #546678 url('/images/system/calc-print.png') no-repeat 20px center;
+    background: rgba(255, 255, 255, 0.15) url('/images/system/calc-print.png') no-repeat 20px center;
+}
+.price .table .sum .print:hover {
+    background: rgba(255, 255, 255, 0.30) url('/images/system/calc-print.png') no-repeat 20px center;
 }
 .price .table .sum .reset {
-    background: #546678 url('/images/system/calc-reset.png') no-repeat 20px center;
+    background: rgba(255, 255, 255, 0.15) url('/images/system/calc-reset.png') no-repeat 20px center;
+}
+.price .table .sum .reset:hover {
+    background: rgba(255, 255, 255, 0.30) url('/images/system/calc-reset.png') no-repeat 20px center;
 }
 .price .table .sum .result {
     font-size: 16px;
@@ -2711,7 +2717,7 @@ color: #fff;
 .work .info .work-items .title-items {
     font-size: 18px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     font-family: 'Exo 2', sans-serif;
     text-transform: uppercase;
@@ -2780,9 +2786,6 @@ color: #fff;
     border-bottom: 3px solid #cb372c;
     background: #fff;
 }
-.slider .more:hover {
-    text-decoration: none;
-}
 .slider .more {
     background: rgba(255, 255, 255, 0.10);
     border: 1px solid #fff;
@@ -2790,6 +2793,10 @@ color: #fff;
     color: #fff;
     margin-top: 40px;
     padding-top: 8px;
+}
+.slider .more:hover {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.20);
 }
 .slider .more span {
     vertical-align: middle;
@@ -2933,7 +2940,8 @@ color: #fff;
 
 /*opinion////////////////////////*/
 #opinions .title,
-#about .title {
+#about .title,
+#about .title-big {
     font-size: 30px;
     font-weight: 300;
 }
@@ -3218,6 +3226,10 @@ color: #fff;
     text-align: left;
     margin-bottom: 40px;
 }
+#more h4 {
+    position: relative;
+    z-index: 2;
+}
 #more .description {
     position: relative;
     padding-top: 155px;
@@ -3225,6 +3237,9 @@ color: #fff;
 #more.more-flat .description,
 #more.more-house .description {
     background: #fff;
+}
+#more .title {
+    font-size: 30px;
 }
 #more .description figure {
     float: left;
@@ -3245,11 +3260,7 @@ color: #fff;
 #more.more-flat .description:after,
 #more.more-house .description:after,
 #more.more-company .description:after,
-#more.sewerage .more-key:after,
-#more.heating .more-key:after,
-#more.automatic-watering .more-key:after,
-#more.sanfayans .more-key:after,
-#more.water-supply .more-key:after{
+#more .more-key:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -3268,11 +3279,7 @@ color: #fff;
     z-index: 2;
 }
 #more .steps:after,
-#more.sewerage .more-key:before,
-#more.heating .more-key:before,
-#more.automatic-watering .more-key:before,
-#more.sanfayans .more-key:before,
-#more.water-supply .more-key:before {
+#more .more-key:before {
     content: '';
     display: block;
     position: absolute;
@@ -3365,7 +3372,7 @@ color: #fff;
     top: 6px;
 }
 #more .more-key {
-    padding-bottom: 65px;
+    padding-bottom: 80px;
     background: #fff;
     position: relative;
 }

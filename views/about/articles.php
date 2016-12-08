@@ -2,6 +2,7 @@
 use yii\widgets\LinkPager;
 use app\models\Blog;
 use yii\helpers\StringHelper;
+use yii\helpers\Url;
 
 $this->title = 'Статьи | Компания по оказанию сантехнических услуг SanKras';
 $this->registerMetaTag([
@@ -26,10 +27,11 @@ $this->registerMetaTag([
             </div>
             <h1 class="title exo asphalt">Статьи</h1>
             <?php if (!empty($categories)) { ?>
+                <?php $group = !is_null(Yii::$app->request->get('group')) ? Yii::$app->request->get('group') : '' ; ?>
             <ul class="filter">
-                <li><a class="exo asphalt" href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Все статьи</a></li>
+                <li><a class="exo <?php echo empty($group) ? 'red' : 'asphalt'; ?>" href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Все статьи</a></li>
                 <?php foreach ($categories as $key => $cat) { ?>
-                    <li><a class="exo asphalt" href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'group' => $key]); ?>"><?php echo $cat; ?></a></li>
+                    <li><a class="exo <?php echo $group == $key ? 'red' : 'asphalt'; ?>"" href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'group' => $key]); ?>"><?php echo $cat; ?></a></li>
                 <?php } ?>
             </ul>
             <?php } ?>

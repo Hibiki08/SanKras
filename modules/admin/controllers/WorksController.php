@@ -76,9 +76,9 @@ class WorksController extends AdminController {
         $model = $id ? $works->getAllCat(['works.id' => $id])[0] : new Works();
 
         if (!empty($model)) {
-            $categories = $works->getAllCat();
+            $categories = $worksCat->findAll(['parent_id' => null]);
             foreach ($categories as $item) {
-                $parentCat[$item->category->id] = $item->category->title;
+                $parentCat[$item->id] = $item->title;
             }
 
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
