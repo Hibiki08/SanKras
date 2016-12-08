@@ -1959,7 +1959,8 @@ color: #fff;
 }
 .price .table .sub-title,
 #more .table .sub-title,
-.price .table .sub-title:hover {
+.price .table .sub-title:hover,
+#more .table .sub-title:hover {
     background: #d6dbdf;
     color: #34495e;
 }
