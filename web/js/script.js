@@ -22,7 +22,7 @@ $(document).ready(function() {
                 if (hash != '#calc') {
                     $('.price .nav-menu > ul li').removeClass('active');
                     var $this = $('.price .nav-menu > ul li > a[href=' + hash + ']').parent('li').addClass('active');
-                    $('.price .nav-menu > ul > li ul').stop().slideToggle();
+                    $('.price .nav-menu > ul > li ul').css('display', 'none');
                     $this.parent('li').find('ul').stop().slideToggle();
 
                     $('.price .table table').removeClass('active');
