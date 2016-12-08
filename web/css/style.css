@@ -1991,6 +1991,10 @@ color: #fff;
 #more .table .table-unit {
     width: 10%;
 }
+#more .pdf {
+    position: relative;
+    z-index: 2;
+}
 .price .table .table-number {
     padding: 0;
     vertical-align: middle;
