@@ -18,7 +18,7 @@ use yii\helpers\Html;
         <footer style="font-family: Arial,sans-serif;">
             <ul style="float: left;line-height: 1.4;color: #9db7d1;list-style-type: none;">
                 <li><a href="<?php echo $homeUrl; ?>/prices" target="_blank" style="color: #9db7d1;font-size: 14px;">Прайс-лист</a></li>
-                <li><a href="<?php echo $homeUrl; ?>/rates" target="_blank" style="color: #9db7d1;font-size: 14px;">Стоимость пакетов услуг</a></li>
+                <li><a href="<?php echo $homeUrl; ?>/prices/rates" target="_blank" style="color: #9db7d1;font-size: 14px;">Стоимость пакетов услуг</a></li>
                 <li><a href="<?php echo $homeUrl; ?>/works" target="_blank" style="color: #9db7d1;font-size: 14px;">Наши работы</a></li>
                 <li><a href="<?php echo $homeUrl; ?>/about/opinions" target="_blank" style="color: #9db7d1;font-size: 14px;">Отзывы</a></li>
                 <li><a href="<?php echo $homeUrl; ?>/contacts" target="_blank" style="color: #9db7d1;font-size: 14px;">Контакты</a></li>
