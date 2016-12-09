@@ -17,6 +17,7 @@ use app\components\Cache;
 use app\models\Blog;
 use app\models\BlogCat;
 use yii\web\HttpException;
+use yii\helpers\Html;
 
 class AboutController extends Controller {
 
@@ -62,12 +63,19 @@ class AboutController extends Controller {
                 $model = new Opinions();
                 $form->photo = UploadedFile::getInstance($form, 'photo');
 
-                $model->name = strip_tags(trim($form->name));
-                $model->description = strip_tags(trim($form->description));
+                $model->name = trim(Html::encode($form->name));
+                $model->description = trim(Html::encode($form->description));
                 $model->photo = isset($form->photo->name) ? $form->photo->name : '../../system/no-photo.jpg';
-                $model->text = strip_tags(trim($form->text));
+                $model->text = trim(Html::encode($form->text));
                 $model->active = 0;
                 $model->save();
+
+            Yii::$app->mailer->compose()
+                ->setFrom(Yii::$app->system->get('email'))
+                ->setTo(Yii::$app->system->get('email'))
+                ->setSubject('Новый отзыв на сайте')
+                ->setHtmlBody('Нужно рассмотреть отзыв на допустимость размещения на сайте.')
+                ->send();
 
             if (isset($form->photo->name)) {
                 $id = Yii::$app->db->lastInsertID;
