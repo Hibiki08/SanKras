@@ -231,7 +231,7 @@ $this->registerMetaTag([
         <figure class="red-arrow">
             <img class="wow fadeInLeft" data-wow-delay="0.6s" src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
-        <figure id="call-master">
+        <figure>
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-4.png" alt="Введение в эксплуатацию и обслуживание" title="Введение в эксплуатацию">
             <figcaption>Введение в эксплуатацию и обслуживание</figcaption>
         </figure>
@@ -267,7 +267,7 @@ $this->registerMetaTag([
         </div>
     </div>
 </section>
-<section class="call-master">
+<section class="call-master" id="call-master">
     <h2 class="title-big">закажите бесплатный выезд мастера на замер</h2>
     <div class="master width">
         <figure>
