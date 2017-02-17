@@ -25,6 +25,7 @@ class EditWorksForm extends Model {
     public $slide;
     public $active;
     public $hidden;
+    public $sort;
 
     public function rules() {
         return [
@@ -38,7 +39,8 @@ class EditWorksForm extends Model {
             [['title', 'text', 'cat_id', 'preview_items', 'work_items', 'year', 'area', 'cost_install', 'cost_material', 'video'], 'filter','filter'=>'trim'],
             [['preview_items'], '\app\components\ItemsValidations', 'params' => ['max' => 30, 'count' => 4], 'skipOnEmpty' => false],
             [['work_items'], '\app\components\ItemsValidations', 'params' => ['max' => 50], 'skipOnEmpty' => false],
-            [['time'], 'string']
+            [['time'], 'string'],
+            [['sort'], 'integer'],
         ];
     }
 
@@ -76,6 +78,7 @@ class EditWorksForm extends Model {
             'slides' => 'Слайды',
             'slide' => 'Слайд',
             'active' => 'Активность',
+            'sort' => 'Сортировка'
         ];
     }
 

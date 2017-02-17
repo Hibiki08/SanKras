@@ -30,6 +30,7 @@ $this->title = 'Список';
             <th>Превью</th>
             <th>Раздел</th>
             <th>Видео</th>
+            <th>Сортировка</th>
             <th>Активность</th>
             <th></th>
         </tr>
@@ -41,6 +42,7 @@ $this->title = 'Список';
                 <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' .  $work->id . ')/mini_prev_' . $work->preview; ?>"></td>
                 <td><?php echo isset($work->category->title) ? $work->category->title : ''; ?></td>
                 <td><?php echo !empty($work->video) ? 'Да' : 'Нет'; ?></td>
+                <td><input type="text" class="form-control show_position" name="show_position" placeholder="очерёдность" value="<?php echo $work->sort ? $work->sort : 0; ?>" data-id="<?php echo $work->id; ?>"></td>
                 <td class="status"><?php echo $work->active ? 'Да' : 'Нет'; ?></td>
                 <td>
                     <div class="btn-group-vertical">
@@ -73,6 +75,17 @@ $this->title = 'Список';
         $('.btn-activate').click(function () {
             var $this = $(this);
             activeAjax($this, '<?php echo Url::toRoute('works/active'); ?>');
+        });
+
+        $('input[name="show_position"]').change(function() {
+            var $this = $(this);
+            var value = $(this).val();
+            $.ajax({
+                url: '<?php echo Url::toRoute('works/sort'); ?>',
+                type: 'get',
+                dataType: 'json',
+                data: {id: $this.data().id, value: value}
+            });
         });
 
         $('.btn-delete').click(function () {

@@ -173,7 +173,7 @@ AppAsset::register($this);
                 </div>
                 <div class="codedex clear">
                     <div class="width">
-                        <div class="site"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'code-dex.png'; ?>" alt=""><a href="https://vk.com/thishibiki" target="_blank">Разработка сайта</a></div>
+                        <div class="site"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'code-dex.png'; ?>" alt=""><a href="https://vk.com/xotonori" target="_blank">Разработка сайта</a></div>
                     </div>
                 </div>
             </div>
