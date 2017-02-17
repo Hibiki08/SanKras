@@ -732,19 +732,9 @@ address {
     color: #fff;
     padding-bottom: 80px;
     position: relative;
-}
-.simple:before {
-    content: '';
     background: url('/images/system/main-bg-benefit2.jpg') no-repeat;
     background-attachment: fixed;
     background-size: 100% auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    will-change: transform;
 }
 .simple .title-small {
     font-weight: 300;
@@ -1625,7 +1615,7 @@ address {
     position: relative;
 }
 .contacts #map_canvas {
-    height: 713px;
+    height: 748px;
 }
 .contacts .soc {
     padding-bottom: 20px;
@@ -1679,7 +1669,7 @@ address {
 }
 .contacts .cont {
     width: 280px;
-    padding: 30px 45px 50px 45px;
+    padding: 37px 45px 38px 45px;
     background: #fff;
     box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.3);
@@ -1699,11 +1689,15 @@ address {
     margin-right: 15px;
 }
 .contacts .cont .cnt:not(:last-of-type) {
-    margin-bottom: 25px;
+    margin-bottom: 19px;
 }
 .contacts .cont .cnt > div {
     line-height: 1.6;
     display: inline-block;
+    max-width: 194px;
+}
+.contacts .cont .cnt:last-of-type img {
+    vertical-align: top;
 }
 .contacts .cont > div span,
 .contacts .cont > div a {
@@ -1720,7 +1714,7 @@ address {
     font-size: 19px;
     display: block;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-family: 'Exo 2', sans-serif;
     text-transform: uppercase;
     text-align: center;
@@ -2059,9 +2053,10 @@ color: #fff;
     position: relative;
     z-index: 2;
 }
-.price .table .table-number {
+.price .table table.calculater tr td.table-number {
     padding: 0;
     vertical-align: middle;
+     border-bottom: 3px solid #99a4ae;
 }
 .price .table .table-number input {
     width: 50px;
@@ -2069,7 +2064,6 @@ color: #fff;
     text-align: right;
     outline: none;
     border: none;
-    border-bottom: 3px solid #99a4ae;
     height: 100%;
 }
 .price .table table .table-price {
@@ -2240,6 +2234,7 @@ color: #fff;
 #more .table table {
     width: 100%;
     display: table;
+    background: #fff;
 }
 .options table,
 #more .pakage table {
@@ -2714,15 +2709,9 @@ color: #fff;
     display: none;
 }
 .work .pgwSlider .ps-current .ps-prev {
-    background: url('/images/system/works-left-opacity.png') no-repeat center;
-}
-.work .pgwSlider .ps-current .ps-prev:hover {
     background: url('/images/system/works-left.png') no-repeat center;
 }
 .work .pgwSlider .ps-current .ps-next {
-    background: url('/images/system/works-right-opacity.png') no-repeat center;
-}
-.work .pgwSlider .ps-current .ps-next:hover {
     background: url('/images/system/works-right.png') no-repeat center;
 }
 .work .mCSB_scrollTools {
