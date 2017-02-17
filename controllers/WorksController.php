@@ -26,7 +26,7 @@ class WorksController extends Controller {
     public function actionIndex() {
         $works = new Works();
         $worksCat = new WorksCat();
-        $query = $works->getAllCat(['works.active' => 1], ['works.id' => SORT_DESC], false);
+        $query = $works->getAllCat(['works.active' => 1], '(case when works.sort is null then 1 else 0 end), works.sort ASC, works.id DESC', false);
 
         $group = Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false;
         $items = $works->filter($query, []);
@@ -82,7 +82,7 @@ class WorksController extends Controller {
             $next = Works::find()->where('id < ' . $id . ' AND active = 1')->orderBy(['id' => SORT_DESC])->limit(1)->one();
             $next = !is_null($next) ? $next->id : Works::find()->where('active = 1 AND id != ' . $id)->orderBy(['id' => SORT_DESC])->limit(1)->max('id');
 
-            $other = Works::find()->where('active = 1')->orderBy(['id' => SORT_DESC]);
+            $other = Works::find()->where('active = 1')->orderBy('(case when sort is null then 1 else 0 end), sort ASC, id DESC');
             $pager = new Pagination(['totalCount' => $other->count(), 'pageSize' => 3]);
             $pager->pageSizeParam = false;
             $other = $other->offset($pager->offset)
