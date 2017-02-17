@@ -3313,10 +3313,10 @@ color: #fff;
 #more .description .text p:first-of-type {
     margin-bottom: 10px;
 }
-#more.more-flat .description:after,
-#more.more-house .description:after,
-#more.more-company .description:after,
-#more .more-key:after {
+#more #our-works {
+    position: relative;
+}
+#more #our-works:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -4441,7 +4441,7 @@ footer .sub-footer .sub .metrika {
     padding-right: 14.5%;
 }
 footer .sub-footer .sub .copy {
-    padding-right: 16.5%;
+    padding-right: 11.3%;
 }
 footer .sub-footer .sub > div {
     display: inline-block;
