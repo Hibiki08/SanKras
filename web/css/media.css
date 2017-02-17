@@ -104,10 +104,6 @@
     .slider .Blockswrapper .wrap .text {
         padding-top: 125px;
     }
-    .simple:before,
-    #more .questions:before,
-    .cooperation:before, #opinions:before {
-    }
     #more .questions {
         background: url(/images/system/more.jpg) no-repeat top center;
         background-size: 100% auto;
