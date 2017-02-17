@@ -1372,22 +1372,9 @@ address {
 .cooperation {
     padding-top: 60px;
     padding-bottom: 65px;
-    background-size: auto 100%;
-}
-.cooperation:before,
-#opinions:before,
-#more .questions:before {
-    background: url("/images/system/bg-recall-white.png") no-repeat bottom center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    content: '';
+    background-size: 100% auto;
+    background: url(/images/system/bg-recall-white.png) no-repeat bottom center;
     background-attachment: fixed;
-    background-size: auto 100%;
-    will-change: transform;
 }
 .cooperation .width .end {
     float: left;
@@ -1422,12 +1409,12 @@ address {
 .cooperation .form {
     padding: 45px 50px 50px 60px;
     background: url('/images/system/bg-recall-blur.png') no-repeat bottom center;
+    background-size:  100% auto;
     background-attachment: fixed;
     color: #fff;
     float: right;
     width: 408px;
     position: relative;
-    background-size: auto 100%;
     box-sizing: content-box;
 }
 .cooperation .form > span:first-of-type {
@@ -3068,12 +3055,10 @@ color: #fff;
     margin-bottom: 60px;
     box-sizing: content-box;
 }
-#opinions:before {
+#opinions {
     background: transparent url('/images/system/key-bg2.jpg') no-repeat top center;
     background-size: 100% auto;
-}
-#opinions {
-    background: none;
+    background-attachment: fixed;
 }
 #opinions .opin-block .form {
     background: url('/images/system/opinion-blur.jpg') no-repeat top center;
@@ -3539,9 +3524,10 @@ color: #fff;
 #more.more-house .pdf {
     padding-left: 270px;
 }
-#more .questions:before {
+#more .questions {
     background: url('/images/system/more.jpg') no-repeat top center;
     background-size: 100% auto;
+    background-attachment: fixed;
 }
 #more .questions .question {
     float: left;

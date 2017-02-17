@@ -168,7 +168,7 @@ AppAsset::register($this);
                                                                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
                         <!-- /Yandex.Metrika informer -->
                     </div>
-                    <div class="copy">© 2015 - 2017 «SanKras»</div>
+                    <div class="copy">© 2015-2017 «SanKras»</div>
                     <div class="conf"><a href="<?php echo Yii::$app->urlManager->createUrl('privacy-policy'); ?>">Политика конфиденциальности</a></div>
                 </div>
                 <div class="codedex clear">
