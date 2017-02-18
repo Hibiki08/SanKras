@@ -3389,7 +3389,8 @@ color: #fff;
 #more #our-works {
     position: relative;
 }
-#more #our-works:after {
+#more #our-works:after,
+#more .description:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -3573,12 +3574,16 @@ color: #fff;
     width: 295px;
 }
 #more .pakage {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     background: #f5f6f7;
     padding-bottom: 65px;
 }
 #more .pakage > .title {
     font-size: 30px;
+}
+#more .pakage .title-big {
+    position: relative;
+    z-index: 5;
 }
 #more .pakage .footnote {
     margin-bottom: 40px;
