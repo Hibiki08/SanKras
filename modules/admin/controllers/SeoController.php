@@ -44,9 +44,14 @@ class SeoController extends AdminController {
                     $model->title = $form->title;
                     $model->short_text = $form->short_text;
                     $model->full_text = $form->full_text;
-                    $model->block_key = strtoupper($form->block_key);
                     $model->active = isset(Yii::$app->request->post('EditSeoForm')['active']) ? 1 : 0;
-                    $model->save();
+                    if (!empty($id)) {
+                        $model->block_key = strtoupper($form->block_key);
+                        $model->update();
+                    } else {
+                        $model->block_key = strtoupper($form->block_key);
+                        $model->save();
+                    }
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
                     Yii::$app->getResponse()->redirect(Url::toRoute(['seo/edit', 'id' => $id]));

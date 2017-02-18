@@ -464,12 +464,13 @@ $(document).ready(function() {
 
     //SEO блоки
     $('.seo .more').click(function() {
-        $('.seo .full').toggle('slow');
         if (!seoBlockShow) {
-            $('.seo legend').text('Свернуть');
+            $('.seo .legend-content').text('Свернуть');
+            $('.seo .full').slideDown();
             seoBlockShow = true;
         } else {
-            $('.seo legend').text('Развернуть');
+            $('.seo .legend-content').text('Развернуть');
+            $('.seo .full').slideUp();
             seoBlockShow = false;
         }
     });

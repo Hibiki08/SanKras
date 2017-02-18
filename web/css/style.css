@@ -1608,6 +1608,7 @@ address {
 }
 .seo .width {
     width: 870px;
+    overflow: hidden;
 }
 .seo:before {
     content: '';
@@ -1639,7 +1640,7 @@ address {
 .seo .full p {
     margin-bottom: 10px;
 }
-.seo .more {
+.seo .more fieldset {
     color: #aeb6bf;
     font-size: 16px;
     text-align: center;
@@ -1653,7 +1654,28 @@ address {
     margin-top: 23px;
 }
 .seo .more legend {
-    padding: 0 10px;
+    padding: 0 9px;
+    width: 100%;
+}
+.seo .more legend .legend-left,
+.seo .more legend .legend-right {
+    display: inline-block;
+    vertical-align: middle;
+    border-top: 2px solid #aeb6bf;
+    width: 999px;
+    margin: 0 0 0 -999px;
+}
+.seo .more legend .legend-right {
+    margin: 0 -999px 0 0;
+}
+.seo .more legend .legend-content {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 5px;
+}
+.seo .more legend .legend-inner {
+    display: block;
+    text-align: center;
 }
 
 .contacts {

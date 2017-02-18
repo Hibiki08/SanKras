@@ -111,6 +111,11 @@
     #more .questions .form {
         background-attachment: scroll;
     }
+    .seo {
+        background: url("/images/system/seo-bg.jpg") no-repeat top center;
+        background-size: auto 100%;
+        background-attachment: scroll;
+    }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
         background-size: auto 100%;

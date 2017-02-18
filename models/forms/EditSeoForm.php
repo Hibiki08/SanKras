@@ -21,7 +21,6 @@ class EditSeoForm extends Model {
             [['short_text'], 'string', 'max' => 500],
             [['full_text'], 'string'],
             [['block_key'], 'string', 'max' => 50],
-            [['block_key'], 'unique', 'targetClass' => 'app\models\Seo', 'targetAttribute' => 'block_key'],
         ];
     }
 

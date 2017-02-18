@@ -357,9 +357,17 @@ if (!empty($seoBottom)) { ?>
             <div class="full">
                 <?php echo $seoBottom->full_text; ?>
             </div>
-            <fieldset class="more">
-                <legend>Развернуть</legend>
-            </fieldset>
+            <div class="more">
+                <fieldset>
+                    <legend>
+                        <span class="legend-inner">
+                            <span class="legend-left"></span>
+                            <span class="legend-content">Развернуть</span>
+                            <span class="legend-right"></span>
+                        </span>
+                    </legend>
+                </fieldset>
+            </div>
         </div>
     </section>
 <?php } ?>
