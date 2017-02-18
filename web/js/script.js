@@ -460,6 +460,20 @@ $(document).ready(function() {
         }, 300);
     });
 
+    var seoBlockShow = false;
+
+    //SEO блоки
+    $('.seo .more').click(function() {
+        $('.seo .full').toggle('slow');
+        if (!seoBlockShow) {
+            $('.seo legend').text('Свернуть');
+            seoBlockShow = true;
+        } else {
+            $('.seo legend').text('Развернуть');
+            seoBlockShow = false;
+        }
+    });
+
 });
 
 //Панель с итогом у Калькулятора

@@ -346,6 +346,23 @@ $this->registerMetaTag([
         <?php echo SliderBottom::widget(); ?>
     </div>
 </section>
+<?php
+if (!empty($seoBottom)) { ?>
+    <section class="seo">
+        <div class="width">
+            <h2><?php echo $seoBottom->title; ?></h2>
+            <div class="short">
+                <?php echo $seoBottom->short_text; ?>
+            </div>
+            <div class="full">
+                <?php echo $seoBottom->full_text; ?>
+            </div>
+            <fieldset class="more">
+                <legend>Развернуть</legend>
+            </fieldset>
+        </div>
+    </section>
+<?php } ?>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.slider').HbKSlider({

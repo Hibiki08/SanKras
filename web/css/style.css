@@ -1597,6 +1597,62 @@ address {
     display: none;
 }
 
+.seo {
+    padding-top: 74px;
+    color: #fff !important;
+    font-size: 15px !important;
+    background: url("/images/system/seo-bg.jpg") no-repeat top center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    position: relative;
+}
+.seo:before {
+    content: '';
+    display: block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+}
+.seo h2 {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 40px;
+    line-height: 1;
+}
+.seo .short {
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.seo .full {
+    line-height: 1.6;
+    display: none;
+}
+.seo .full p {
+    margin-bottom: 10px;
+}
+.seo .more {
+    color: #aeb6bf;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 74px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    border-top: 2px solid ;
+    margin-top: 23px;
+}
+.seo .more legend {
+    padding: 0 10px;
+}
+
 .contacts {
     background: #405b79;
     position: relative;
@@ -3693,6 +3749,14 @@ color: #fff;
 
 
 /*about///////////////////////////*/
+#about .new p a,
+#work .info .text p a {
+    color: #85929e;
+}
+#about .new p a:hover,
+#work .info .text p a:hover {
+    color: #5d6d7e;
+}
 #about.about .text,
 #more .more-text {
     margin-bottom: 70px;

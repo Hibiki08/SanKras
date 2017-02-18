@@ -14,6 +14,10 @@ class AdminMenu extends Widget {
                     'name' => 'Контакты',
                     'controller' => 'contacts'
                 ],
+                [
+                    'name' => 'SEO',
+                    'controller' => 'seo'
+                ],
             ]
         ],
         [
