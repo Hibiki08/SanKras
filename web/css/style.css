@@ -1605,6 +1605,7 @@ address {
     background-size: 100% auto;
     background-attachment: fixed;
     position: relative;
+    padding-bottom: 74px;
 }
 .seo .width {
     width: 870px;
@@ -1646,12 +1647,14 @@ address {
     text-align: center;
     font-family: 'Exo 2', sans-serif;
     text-transform: uppercase;
-    padding-bottom: 74px;
     cursor: pointer;
     position: relative;
     border: none;
     border-top: 2px solid ;
     margin-top: 23px;
+}
+.seo .more fieldset:hover {
+    color: #fff;
 }
 .seo .more legend {
     padding: 0 9px;
@@ -1664,6 +1667,10 @@ address {
     border-top: 2px solid #aeb6bf;
     width: 999px;
     margin: 0 0 0 -999px;
+}
+.seo .more fieldset:hover .legend-left,
+.seo .more fieldset:hover .legend-right {
+    border-top: 2px solid #fff;
 }
 .seo .more legend .legend-right {
     margin: 0 -999px 0 0;
