@@ -1606,6 +1606,9 @@ address {
     background-attachment: fixed;
     position: relative;
 }
+.seo .width {
+    width: 870px;
+}
 .seo:before {
     content: '';
     display: block;
@@ -4491,7 +4494,7 @@ footer .sub-footer .sub .metrika {
     padding-right: 14.5%;
 }
 footer .sub-footer .sub .copy {
-    padding-right: 11.3%;
+    padding-right: 12.2%;
 }
 footer .sub-footer .sub > div {
     display: inline-block;
