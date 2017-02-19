@@ -135,6 +135,7 @@ $(document).ready(function() {
                     $('.call-master .call .form .loading').css('display', 'none');
                     $('.call-master .form .success span').css('visibility', 'visible');
                     yaCounter39483720.reachGoal('master');
+                    ga('send', 'event', 'form2', 'master');
                 }
             },
             error: function () {
@@ -164,6 +165,7 @@ $(document).ready(function() {
                     $('.call-block .form .success span').css('visibility', 'visible');
                     $('.call-block .loading').css('display', 'none');
                     yaCounter39483720.reachGoal('callback');
+                    ga('send', 'event', 'form1', 'callback');
                 }
             },
             error: function () {
@@ -195,6 +197,7 @@ $(document).ready(function() {
                         $('#advice .form .success span').css('visibility', 'visible');
                         $('#advice .loading').css('display', 'none');
                         yaCounter39483720.reachGoal('callback');
+                        ga('send', 'event', 'form3', 'advice');
                     }
                 },
                 error: function () {
@@ -229,6 +232,7 @@ $(document).ready(function() {
                     $('#more .form .success span').css('visibility', 'visible');
                     $('#more .loading').css('display', 'none');
                     yaCounter39483720.reachGoal('question');
+                    ga('send', 'event', 'form5', 'question');
                 }
             },
             error: function () {
@@ -272,6 +276,7 @@ $(document).ready(function() {
                     $('.cooperation .form .success span').css('visibility', 'visible');
                     $('.cooperation .form .loading').css('display', 'none');
                     yaCounter39483720.reachGoal('writeUs');
+                    ga('send', 'event', 'form4', 'writeUs');
                 }
             },
             error: function () {
