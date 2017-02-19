@@ -104,6 +104,7 @@ $(document).ready(function() {
                     $('#discount .form .success span').css('visibility', 'visible');
                     yaCounter39483720.reachGoal('discount');
                     _gaq.push(['_trackEvent', 'form6','discount']);
+                    ga('send', 'event', 'form6', 'discount');
                 }
             },
             error: function () {
