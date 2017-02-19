@@ -3389,8 +3389,8 @@ color: #fff;
 #more #our-works {
     position: relative;
 }
-#more #our-works:after,
-#more .description:after {
+#more:not(.more-flat) #our-works:after,
+#more.more-flat .description:after {
     content: '';
     position: absolute;
     width: 100%;
