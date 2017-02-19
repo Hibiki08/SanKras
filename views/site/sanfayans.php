@@ -1,6 +1,7 @@
 <?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use app\components\Works;
 
 $this->title = 'Установка санфаянса в Краснодаре';
 $this->registerMetaTag([
@@ -89,6 +90,7 @@ $this->registerMetaTag([
             </div>
         </div>
     </section>
+    <?php echo Works::widget(); ?>
     <?php if (!empty($options)) { ?>
         <section class="price-list">
             <div class="width">

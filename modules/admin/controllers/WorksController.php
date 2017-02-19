@@ -20,7 +20,7 @@ class WorksController extends AdminController {
     public function actionIndex() {
         $status = false;
         $works = new Works();
-        $query = $works->getAllCat(false, ['works.id' => SORT_DESC], false);
+        $query = $works->getAllCat(false, '(case when works.sort is null then 1 else 0 end), works.sort ASC, works.id DESC', false);
 
         $cat = new WorksCat();
         $subCat = [];
@@ -133,6 +133,7 @@ class WorksController extends AdminController {
                     $model->work_items = $workItems;
                     $model->preview = !empty($form->preview->name) ? $translate->translate($form->preview->name) : Yii::$app->request->post('EditWorksForm')['hidden'];
                     $model->active = isset(Yii::$app->request->post('EditWorksForm')['active']) ? 1 : 0;
+                    $model->sort = !empty($form->sort) && ($form->sort != 0) ? $form->sort : null;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
@@ -192,6 +193,21 @@ class WorksController extends AdminController {
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');
         }
+    }
+
+    public function actionSort() {
+        if (Yii::$app->request->isAjax) {
+            $response = false;
+            $id = (int)Yii::$app->request->getQueryParams()['id'];
+            $value = (int)Yii::$app->request->getQueryParams()['value'];
+
+            $works = Works::findOne($id);
+            $works->sort = !empty($value) && ($value != 0) ? $value: null;
+            if ($works->update() !== false) {
+                $response = true;
+            }
+        }
+        Yii::$app->end();
     }
 
     public function actionDeleteSlide() {
@@ -261,9 +277,9 @@ class WorksController extends AdminController {
 
             $id = (int)Yii::$app->request->getQueryParams()['id'];
 
-            $slides = Works::findOne($id);
+            $work = Works::findOne($id);
             $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $id . ')/';
-            if ($res = $slides->delete() !== false) {
+            if ($res = $work->delete() !== false) {
                 if ($res) {
                     $response = WorksSlides::deleteAll(['work_id' => $id]);
                     if ($objs = glob($path . "/*")) {
@@ -272,7 +288,7 @@ class WorksController extends AdminController {
                         }
                         rmdir($path);
                     }
-                    if ($response) {
+                    if ($response || $response == 0) {
                         $response = !is_dir($path) ? true : false;
                     }
                 }

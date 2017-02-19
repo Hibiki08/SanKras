@@ -466,6 +466,21 @@ $(document).ready(function() {
         }, 300);
     });
 
+    var seoBlockShow = false;
+
+    //SEO блоки
+    $('.seo .more').click(function() {
+        if (!seoBlockShow) {
+            $('.seo .legend-content').text('Свернуть');
+            $('.seo .full').slideDown();
+            seoBlockShow = true;
+        } else {
+            $('.seo .legend-content').text('Развернуть');
+            $('.seo .full').slideUp();
+            seoBlockShow = false;
+        }
+    });
+
 });
 
 //Панель с итогом у Калькулятора

@@ -15,6 +15,7 @@ use yii\web\Response;
 use yii\widgets\ActiveForm;
 use app\components\Cache;
 use app\models\Prices;
+use app\models\Seo;
 
 class SiteController extends Controller {
 
@@ -75,6 +76,9 @@ class SiteController extends Controller {
 
     public function actionIndex() {
         $form = new BaseForm();
+        $seoBottom = new Seo();
+        $seoBottom->key = 'INDEX_BOTTOM';
+        $seoBottom = $seoBottom->getAll(['active' => 1, 'block_key' => $seoBottom->key], $order = ['id' => SORT_ASC], 'one');
 
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -197,7 +201,8 @@ class SiteController extends Controller {
 
         }
         return $this->render('index', [
-            'letter' => $form
+            'letter' => $form,
+            'seoBottom' => $seoBottom
         ]);
     }
 

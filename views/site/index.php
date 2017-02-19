@@ -196,7 +196,7 @@ $this->registerMetaTag([
                     <span>Вы закрепили за собой скидку!<br>В течение 5 минут вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>
                 </div>
             </div>
-            <span>*ваши данные не будут переданы третьим лицам; акция действует с 07.10.2016 по 31.12.2016</span>
+            <span>*ваши данные не будут переданы третьим лицам; акция действует с 01.02.17 по 30.04.2017</span>
         </div>
     </div>
 </section>
@@ -346,6 +346,31 @@ $this->registerMetaTag([
         <?php echo SliderBottom::widget(); ?>
     </div>
 </section>
+<?php
+if (!empty($seoBottom)) { ?>
+    <section class="seo">
+        <div class="width">
+            <h2><?php echo $seoBottom->title; ?></h2>
+            <div class="short">
+                <?php echo $seoBottom->short_text; ?>
+            </div>
+            <div class="full">
+                <?php echo $seoBottom->full_text; ?>
+            </div>
+            <div class="more">
+                <fieldset>
+                    <legend>
+                        <span class="legend-inner">
+                            <span class="legend-left"></span>
+                            <span class="legend-content">Развернуть</span>
+                            <span class="legend-right"></span>
+                        </span>
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+<?php } ?>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.slider').HbKSlider({
