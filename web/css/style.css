@@ -3389,7 +3389,7 @@ color: #fff;
 #more #our-works {
     position: relative;
 }
-#more:not(.more-flat) #our-works:after,
+#more:not(.more-company) #our-works:after,
 #more.more-flat .description:after {
     content: '';
     position: absolute;

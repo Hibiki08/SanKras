@@ -13,7 +13,7 @@ $this->registerMetaTag([
     'content' => 'система отопления частный дом, монтаж отопления частный дом, стоимость монтаж отопления частный дом, цена системы отопления частный дом'
 ]);
 ?>
-<section class="more-flat" id="more">
+<section class="more-flat more-company" id="more">
     <section class="description">
         <div class="width clear">
             <h1 class="title title-big">Сотрудничаем с застройщиками частного сектора</h1>
