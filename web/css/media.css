@@ -112,8 +112,9 @@
         background-attachment: scroll;
     }
     .seo {
-        background: url("/images/system/seo-bg.jpg") no-repeat top center;
+        background: url("/images/system/seo-bg.jpg") top center;
         background-attachment: scroll;
+        background-size: 100% auto;
     }
     .simple {
         background: url(/images/system/main-bg-benefit2.jpg) no-repeat;
