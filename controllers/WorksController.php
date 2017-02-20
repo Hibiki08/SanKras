@@ -79,7 +79,7 @@ class WorksController extends Controller {
 
             if ($work['sort'] > 0) {
                 $prev = Works::find()->where('((sort = ' . $work['sort'] . ') AND id > ' . $id . ') OR (sort < ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort` DESC, id')->limit(1)->one();
-                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->id;
+                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort DESC, id DESC')->limit(1)->one()->id;
                 $next = Works::find()->where('((sort = ' . $work['sort'] . ') AND id < ' . $id . ') OR (sort > ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id DESC')->limit(1)->one();
                 $next = !is_null($next) ? $next->id : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->id;
             }
