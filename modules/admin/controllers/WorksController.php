@@ -20,7 +20,7 @@ class WorksController extends AdminController {
     public function actionIndex() {
         $status = false;
         $works = new Works();
-        $query = $works->getAllCat(false, '(case when works.sort is null then 1 else 0 end), works.sort ASC, works.id DESC', false);
+        $query = $works->getAllCat(false, '(case when works.sort = 0 then 1 else 0 end), works.sort ASC, works.id DESC', false);
 
         $cat = new WorksCat();
         $subCat = [];
@@ -133,7 +133,7 @@ class WorksController extends AdminController {
                     $model->work_items = $workItems;
                     $model->preview = !empty($form->preview->name) ? $translate->translate($form->preview->name) : Yii::$app->request->post('EditWorksForm')['hidden'];
                     $model->active = isset(Yii::$app->request->post('EditWorksForm')['active']) ? 1 : 0;
-                    $model->sort = !empty($form->sort) && ($form->sort != 0) ? $form->sort : null;
+                    $model->sort = !empty($form->sort) ? $form->sort : 0;
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
@@ -202,7 +202,7 @@ class WorksController extends AdminController {
             $value = (int)Yii::$app->request->getQueryParams()['value'];
 
             $works = Works::findOne($id);
-            $works->sort = !empty($value) && ($value != 0) ? $value: null;
+            $works->sort = !empty($value) ? $value : 0;
             if ($works->update() !== false) {
                 $response = true;
             }

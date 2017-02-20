@@ -26,7 +26,7 @@ class WorksController extends Controller {
     public function actionIndex() {
         $works = new Works();
         $worksCat = new WorksCat();
-        $query = $works->getAllCat(['works.active' => 1], '(case when works.sort is null then 1 else 0 end), works.sort ASC, works.id DESC', false);
+        $query = $works->getAllCat(['works.active' => 1], '(case when works.sort = 0 then 1 else 0 end), works.sort, works.id DESC', false);
 
         $group = Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false;
         $items = $works->filter($query, []);
@@ -76,13 +76,21 @@ class WorksController extends Controller {
                 throw new HttpException(404 ,'Такой страницы нет!');
             }
             $images = WorksSlides::findAll(['work_id' => $id]);
-            $prev = Works::find()->where('id > ' . $id . ' AND active = 1')->orderBy(['id' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev->id : Works::find()->where('active = 1 AND id != ' . $id)->orderBy(['id' => SORT_DESC])->limit(1)->min('id');
 
-            $next = Works::find()->where('id < ' . $id . ' AND active = 1')->orderBy(['id' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next->id : Works::find()->where('active = 1 AND id != ' . $id)->orderBy(['id' => SORT_DESC])->limit(1)->max('id');
+            if ($work['sort'] > 0) {
+                $prev = Works::find()->where('((sort = ' . $work['sort'] . ') AND id > ' . $id . ') OR (sort < ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort` DESC, id')->limit(1)->one();
+                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->id;
+                $next = Works::find()->where('((sort = ' . $work['sort'] . ') AND id < ' . $id . ') OR (sort > ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id DESC')->limit(1)->one();
+                $next = !is_null($next) ? $next->id : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->id;
+            }
+            if ($work['sort'] == 0) {
+                $prev = Works::find()->where('sort = 0 AND id > ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id')->limit(1)->one();
+                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort DESC, id DESC')->limit(1)->one()->id;
+                $next = Works::find()->where('sort = 0 AND id < ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id DESC')->limit(1)->one();
+                $next = !is_null($next) ? $next->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort, id DESC')->limit(1)->one()->id;
+            }
 
-            $other = Works::find()->where('active = 1')->orderBy('(case when sort is null then 1 else 0 end), sort ASC, id DESC');
+            $other = Works::find()->where('active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort ASC, id DESC');
             $pager = new Pagination(['totalCount' => $other->count(), 'pageSize' => 3]);
             $pager->pageSizeParam = false;
             $other = $other->offset($pager->offset)
