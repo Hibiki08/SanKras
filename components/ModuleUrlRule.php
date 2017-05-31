@@ -54,11 +54,10 @@ class ModuleUrlRule extends UrlRule {
                 foreach ($exploadModule as $val) {
                     $controller[] = ucfirst($val);
                 }
+                $controller = implode('', $controller);
             } else {
-                $controller = $exploadModule;
+                $controller = ucfirst($exploadModule[0]);
             }
-
-            $controller = implode('', $controller);
 
             if (file_exists($pathToController . '/' .  $controller . 'Controller.php')) {
 
