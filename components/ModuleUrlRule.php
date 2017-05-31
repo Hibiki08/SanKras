@@ -90,12 +90,11 @@ class ModuleUrlRule extends UrlRule {
                     foreach ($exploadUrl as $val) {
                         $controller[] = ucfirst($val);
                     }
+                    $controller = implode('', $controller);
                 } else {
-                    $controller = $exploadUrl;
+                    $controller = ucfirst($exploadUrl[0]);
                 }
 
-                $controller = implode('', $controller);
-                
                 $pathToController = Yii::$app->basePath . '/controllers/' . $controller . 'Controller.php';
                 if (count($url) == 1) {
                     if (file_exists($pathToController)) {
