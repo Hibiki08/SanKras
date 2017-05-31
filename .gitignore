@@ -39,3 +39,10 @@ phpunit.phar
 /web/robots.txt
 
 /web/.htaccess
+
+#gulp
+/node_modules
+/gulpfile.js
+/web/less
+#/web/css/style.css
+#/web/css/fonts.css

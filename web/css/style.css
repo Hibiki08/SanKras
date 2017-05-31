@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: inherit;
 }
+ul {
+    list-style-type: none;
+}
 body {
     min-width: 1170px;
     font-size: 16px;
@@ -230,7 +233,7 @@ address {
 .menu .list:hover .img {
     background: url('/images/system/icon-menu-hover.png') no-repeat;
 }
-.menu .list:hover:hover .submenu {
+.menu .list:not(:first-of-type):hover .submenu {
     display: flex;
 }
 
@@ -2522,6 +2525,9 @@ color: #fff;
 #work {
     background: #fff;
 }
+.hover-title {
+    text-transform: none;
+}
 #works {
     padding-bottom: 60px;
 }
@@ -3408,8 +3414,7 @@ color: #fff;
     position: relative;
     z-index: 2;
 }
-#more .steps:after,
-#more .more-key:before {
+#more .steps:after {
     content: '';
     display: block;
     position: absolute;
@@ -3500,78 +3505,6 @@ color: #fff;
     position: absolute;
     left: 0;
     top: 6px;
-}
-#more .more-key {
-    padding-bottom: 80px;
-    background: #fff;
-    position: relative;
-}
-#more .more-key .title-big {
-    color: #f44336;
-    font-size: 30px;
-    margin-bottom: 55px;
-    letter-spacing: 1px;
-}
-#more .more-key .flat {
-    position: relative;
-}
-#more .more-key .flat:first-of-type {
-    margin-bottom: 60px;
-}
-#more .more-key .flat .fl:first-of-type {
-    float: left;
-}
-#more .more-key .flat .fl:last-of-type {
-    float: right;
-}
-#more .more-key .flat .fl {
-    padding-left: 20px;
-    border-left: 5px solid #f44336;
-    position: relative;
-}
-#more .more-key .flat .fl .title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-#more .more-key .flat .fl .text {
-    font-size: 15px;
-    line-height: 1.4;
-}
-#more .more-key .flat.one .fl:first-of-type:before,
-#more .more-key .flat.one .fl:last-of-type:before,
-#more .more-key .flat.two .fl:first-of-type:before,
-#more .more-key .flat.two .fl:last-of-type:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -100px;
-    width: 70px;
-    height: 70px;
-}
-#more .more-key .flat.one .fl:first-of-type:before {
-    background: url('/images/system/more-clock.png') no-repeat;
-}
-#more .more-key .flat.one .fl:last-of-type:before {
-    background: url('/images/system/more-money.png') no-repeat;
-}
-#more .more-key .flat.two .fl:first-of-type:before {
-    background: url('/images/system/more-ok.png') no-repeat;
-}
-#more .more-key .flat.two .fl:last-of-type:before {
-    background: url('/images/system/more-lic.png') no-repeat;
-}
-#more .more-key .flat .fl:first-of-type {
-    margin-left: 95px;
-}
-#more .more-key .flat .fl:first-of-type .text,
-#more .more-key .flat .fl:first-of-type .title {
-    width: 540px;
-}
-#more .more-key .flat .fl:last-of-type .text,
-#more .more-key .flat .fl:last-of-type .title {
-    width: 295px;
 }
 #more .pakage {
     /*padding-top: 50px;*/

@@ -31,22 +31,22 @@ class WorksController extends Controller {
         $group = Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false;
         $items = $works->filter($query, []);
 
-        switch ($group) {
-            case 'all';
+        if (!empty($group)) {
+            if ($group == 'all') {
                 $items = $works->filter($query, []);
-                break;
-            case 'house';
+            } elseif ($group == 'house') {
                 $cat = $worksCat->findOne(['key' => 'house']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
-                break;
-            case 'flat';
+            } elseif ($group == 'flat') {
                 $cat = $worksCat->findOne(['key' => 'flat']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
-                break;
+            } else {
+                throw new HttpException(404 ,'Такой страницы нет!');
+            }
         }
 
         $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
@@ -97,8 +97,8 @@ class WorksController extends Controller {
                 ->limit($pager->limit)
                 ->all();
         } else {
-            Yii::$app->getResponse()->redirect(Url::toRoute('works/'));
-            return false;
+            Yii::$app->getResponse()->redirect(Url::toRoute('works'));
+            exit;
         }
 
         return $this->render('single', [

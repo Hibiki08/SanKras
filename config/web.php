@@ -72,17 +72,10 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
                 ['class' => 'app\components\ModuleUrlRule', 'appModules' => $modules],
             ],
-//            'rules' => [
-//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>/<id:\d+>/<params:\w+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-//                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-//                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-//                'login' => 'login/index'
-//            ],
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',

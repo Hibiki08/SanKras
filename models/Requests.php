@@ -13,5 +13,6 @@ class Requests extends AbstractModel {
     const CALLBACK_ID = 4;
     const QUESTION_ID = 5;
     const WRITE_ID = 6;
+    const SERVICE_ID = 7;
 
 }

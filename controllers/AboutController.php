@@ -100,19 +100,19 @@ class AboutController extends Controller {
         ]);
     }
 
-    public function actionNews($single = '') {
+    public function actionNews($id = '') {
         $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::NEWS_ID]);
 
-        if (!empty($single)) {
-            $new = $blog->where(['id' => $single])->one();
-            $otherNews = Blog::find()->where('id != ' . $single)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
+        if (!empty($id)) {
+            $new = $blog->where(['id' => $id])->one();
+            $otherNews = Blog::find()->where('id != ' . $id)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
 
-            $prev = $blog->where('date > \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id > ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = $blog->where('date > \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id > ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
             $prev = !is_null($prev) ? $prev->id : null;
 
-            $next = $blog->where('date < \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id < ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->limit(1)->one();
+            $next = $blog->where('date < \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id < ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->limit(1)->one();
             $next = !is_null($next) ? $next->id : null;
 
 
@@ -142,21 +142,21 @@ class AboutController extends Controller {
         ]);
     }
 
-    public function actionArticles($single = '', $group = '') {
+    public function actionArticles($id = '', $group = '') {
         $where = '(category.parent_id = ' . BlogCat::ART_ID . ' OR blog.cat_id = ' . BlogCat::ART_ID . ') AND blog.active = 1';
         $blog = new Blog;
         $blog = $blog->getAllCat($where, ['blog.date' => SORT_DESC], false);
 
-        if (!empty($single)) {
-            $article = $blog->where(['blog.id' => $single])->one();
-            $otherArticles = $blog->where('blog.id != ' . $single)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
+        if (!empty($id)) {
+            $article = $blog->where(['blog.id' => $id])->one();
+            $otherArticles = $blog->where('blog.id != ' . $id)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
 
-            $prev = $blog->where('blog.date > \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id > ' . $single . ')')->andWhere($where)->orderBy(['date' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_ASC])->limit(1)->one();
+            $prev = $blog->where('blog.date > \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id > ' . $id . ')')->andWhere($where)->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $id . ')')->andWhere($where)->orderBy(['blog.date' => SORT_ASC])->limit(1)->one();
             $prev = !is_null($prev) ? $prev->id : null;
 
-            $next = $blog->where('blog.date < \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id < ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->limit(1)->one();
+            $next = $blog->where('blog.date < \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id < ' . $id . ')')->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $id . ')')->andWhere($where)->limit(1)->one();
             $next = !is_null($next) ? $next->id : null;
 
 

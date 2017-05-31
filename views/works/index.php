@@ -1,6 +1,7 @@
 <?php
 use yii\widgets\LinkPager;
 use app\models\Works;
+use yii\helpers\Url;
 
 $this->title = 'Наши работы | Примеры работ по сантехнике';
 $this->registerMetaTag([
@@ -29,7 +30,7 @@ $group = Yii::$app->request->get('group');
         <div class="wrks clear">
             <?php if (!empty($works)) { ?>
             <?php foreach ($works as $work) {?>
-                <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $work->id]); ?>">
+                <a href="<?php echo Url::to(['works/single', 'id' => $work->id]); ?>">
                     <div class="work">
                         <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
                         <div class="work-title exo"><?php echo $work->title; ?></div>

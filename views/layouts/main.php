@@ -7,6 +7,7 @@ use app\assets\AppAsset;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\models\forms\BaseForm;
+use app\models\Services;
 
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
@@ -26,7 +27,8 @@ AppAsset::register($this);
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
+<?php $services = new Services(); $services = $services->getAllForMenu(['active' => 1], 'sk_services.parent_id, sk_services.sort ASC, ISNULL(sk_services.sort),  sk_services.id ASC'); ?>
 <!--start wrapper-->
 <div class="wrapper">
     <!--start header-->
@@ -46,13 +48,44 @@ AppAsset::register($this);
             </div>
             <nav class="menu exo asphalt">
                 <ul>
-                    <li class="list"><a><div class="img"></div>Услуги</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('heating'); ?>">Монтаж отопления</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополива</a></li>
-                        </ul>
+                    <li class="list"><a class="drop-down"><div class="img"></div>Услуги</a>
+                        <?php if(!empty($services)) { ?>
+                            <?php $i = 0; ?>
+                        <div class="submenu">
+                            <div class="required-section">
+                                <a href="<?php echo Yii::$app->urlManager->createUrl('flat'); ?>"><span>Монтаж в квартире</span></a>
+                                <a href="<?php echo Yii::$app->urlManager->createUrl('house'); ?>"><span>Монтаж в частном доме</span></a>
+                                <a href="<?php echo Yii::$app->urlManager->createUrl('company'); ?>"><span>Сотрудничаем с застройщиками</span></a>
+                            </div>
+                            <div class="items">
+                            <?php foreach ($services as $serv) { ?>
+                                <?php if ($i == 0) { ?>
+                                <ul class="ul">
+                                <?php }  ?>
+                                    <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv['link']); ?>"><?php echo $serv['title']; ?></a>
+                                        <?php if (isset($serv['sub_cat'])) { ?>
+                                        <ul class="sub">
+                                            <?php foreach ($serv['sub_cat'] as $item) { ?>
+                                                <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $item['link']]); ?>"><?php echo $item['title']; ?></a>
+                                                <?php if (isset($item['sub_cat'])) { ?>
+                                                    <ul class="subsub">
+                                                    <?php foreach ($item['sub_cat'] as $val) { ?>
+                                                        <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $val['link']]); ?>"><?php echo $val['title']; ?></a></li>
+                                                    <?php } ?>
+                                                    </ul>
+                                                <?php } ?>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+                                        <?php } ?>
+                                    </li>
+                                <?php if ($i == 1) { $i = 0; ?>
+                                </ul>
+                                <?php  } else {$i = 1;}  ?>
+                            <?php } ?>
+                            </div>
+                        </div>
+                        <?php } ?>
                     </li>
                     <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" class="<?php echo $controller == 'prices' ? 'active' : $action == 'prices' ? 'active' : ''; ?>">Цены</a></li>
                     <li class="list works"><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" class="<?php echo $controller == 'works' ? 'active' : $action == 'works' ? 'active' : ''; ?>">Наши работы</a>

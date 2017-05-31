@@ -11,6 +11,7 @@ class BaseForm extends Model {
     public $phone;
     public $email;
     public $text;
+    public $hidden;
 
     public function rules() {
         return [

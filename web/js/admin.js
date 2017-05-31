@@ -53,6 +53,7 @@ function sortAjax(data, url) {
             dataType: 'json',
             data: {data: data},
             success: function (response) {
+                console.log(response);
                 if (response.status == true) {
                     $('#sort').removeClass('disabled');
                     $('.sections').removeClass('sort');
@@ -63,6 +64,7 @@ function sortAjax(data, url) {
             },
             error: function () {
                 $('.row-fluid .sort-progress').hide();
+                console.log(response);
             }
         });
 }

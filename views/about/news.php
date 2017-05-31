@@ -29,7 +29,7 @@ $this->registerMetaTag([
         <div class="block-news go-wide clear">
             <?php if (!empty($news)) { ?>
                 <?php foreach ($news as $new) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $new->id]); ?>" class="new">
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'id' => $new->id]); ?>" class="new">
                         <?php if (!empty($new->preview)) { ?>
                             <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $new->preview; ?>">
                         <?php } ?>

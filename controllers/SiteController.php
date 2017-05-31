@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\forms\BaseForm;
 use Yii;
+use app\models\forms\BaseForm;
 use yii\web\View;
 use yii\web\Controller;
 use app\models\forms\LoginForm;
@@ -20,6 +20,7 @@ use app\models\Seo;
 class SiteController extends Controller {
 
     use Cache;
+
 //    public function behaviors() {
 //        return [
 //            'access' => [
@@ -247,7 +248,6 @@ class SiteController extends Controller {
 
     public function actionRates() {
         return $this->render('rates', [
-//            'write' => $form
         ]);
     }
 
@@ -369,45 +369,6 @@ class SiteController extends Controller {
             }
         }
         return $this->render('water-supply', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
-    public function actionHeating() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_HEAT', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('heating', [
             'question' => $form,
             'options' => $options
         ]);

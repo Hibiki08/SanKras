@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
-$this->title = 'Вопрос мастеру';
+$this->title = 'Заказ услуги';
 ?>
 <h1><?php echo 'Заявки > ' . $this->title; ?></h1>
 <div class="row-fluid">
@@ -63,7 +63,7 @@ $this->title = 'Вопрос мастеру';
             var id = $this.data().id;
             $this.find('.progress').show();
             $.ajax({
-                url: '<?php echo Url::toRoute('quesstion-master/processe'); ?>',
+                url: '<?php echo Url::toRoute('order-service/processe'); ?>',
                 type: 'get',
                 dataType: 'json',
                 data: {id: id, value: value},
@@ -92,7 +92,7 @@ $this->title = 'Вопрос мастеру';
             var agree = confirm('Вы действительно хотите удалить этот пункт?');
             if (agree) {
                 var $this = $(this);
-                deleteAjax($this, '<?php echo Url::toRoute('question-master/delete'); ?>');
+                deleteAjax($this, '<?php echo Url::toRoute('order-service/delete'); ?>');
             }
         });
     });
