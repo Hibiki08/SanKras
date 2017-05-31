@@ -35,7 +35,7 @@ class PagesController extends AdminController {
         $categories = $services->getAllForMenu();
         foreach ($categories as $item) {
                 $parentCat[$item['id']] = $item['title'];
-            if (is_array($item['sub_cat'])) {
+            if (isset($item['sub_cat']) && is_array($item['sub_cat'])) {
                 foreach ($item['sub_cat'] as $val) {
                     if (isset($val['sub_cat']) && is_array($val['sub_cat'])) {
                         $parentCat[$val['id']] = $val['title'];
