@@ -38,27 +38,27 @@ class ModuleUrlRule extends UrlRule {
     }
 
     public function parseRequest($manager, $request) {
+//        var_dump($this->params);die;
         $url = explode('/', $request->getPathInfo());
         $params = [];
         $pathToController = '';
         $route = '';
 
-        $module =  !empty($url[1]) ?  $url[1] :  $url[0];
-        $exploadModule = explode('-', $module);
-        $controller = [];
-
-        if (count($exploadModule) > 1) {
-            foreach ($exploadModule as $val) {
-                $controller[] = ucfirst($val);
-            }
-        } else {
-            $controller = $exploadModule;
-        }
-
-        $controller = implode('', $controller);
-
         if (in_array($url[0], $this->appModules)) {
             $pathToController = Yii::$app->basePath . '/modules/' . $url[0] . '/controllers';
+            $module =  !empty($url[1]) ?  $url[1] :  $url[0];
+            $exploadModule = explode('-', $module);
+            $controller = [];
+
+            if (count($exploadModule) > 1) {
+                foreach ($exploadModule as $val) {
+                    $controller[] = ucfirst($val);
+                }
+            } else {
+                $controller = $exploadModule;
+            }
+
+            $controller = implode('', $controller);
 
             if (file_exists($pathToController . '/' .  $controller . 'Controller.php')) {
 
@@ -83,6 +83,19 @@ class ModuleUrlRule extends UrlRule {
             }
         } else {
             if (count($url) > 0) {
+                $exploadUrl = explode('-', $url[0]);
+                $controller = [];
+
+                if (count($exploadUrl) > 1) {
+                    foreach ($exploadUrl as $val) {
+                        $controller[] = ucfirst($val);
+                    }
+                } else {
+                    $controller = $exploadUrl;
+                }
+
+                $controller = implode('', $controller);
+                
                 $pathToController = Yii::$app->basePath . '/controllers/' . $controller . 'Controller.php';
                 if (count($url) == 1) {
                     if (file_exists($pathToController)) {
@@ -127,6 +140,7 @@ class ModuleUrlRule extends UrlRule {
                 $route = 'site/index';
             }
         }
+//                var_dump($params);
 //                var_dump($route);die;
         return [$route, $params];
     }
