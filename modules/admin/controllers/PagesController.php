@@ -37,7 +37,7 @@ class PagesController extends AdminController {
                 $parentCat[$item['id']] = $item['title'];
             if (is_array($item['sub_cat'])) {
                 foreach ($item['sub_cat'] as $val) {
-                    if (is_array($val['sub_cat'])) {
+                    if (isset($val['sub_cat']) && is_array($val['sub_cat'])) {
                         $parentCat[$val['id']] = $val['title'];
                     }
 
