@@ -15,6 +15,11 @@ $(document).ready(function() {
         }
     });
 
+    //Закрыть меню
+    $('*').click(function () {
+
+    });
+
     //Ссылки на таблицу
     $(window).load(function() {
         if ($('section').is('#price')) {
@@ -349,6 +354,7 @@ $(document).ready(function() {
 
     //Форма обратного звонка
     $('.call-block').click(function(e) {
+        var element = $(e.target);
         if (element.parents('.block').length != 1 || element.attr('class') == 'close') {
             $('.call-block').removeClass('visible');
             $('.call-block .form *:not(.close)').css('visibility', 'visible');
