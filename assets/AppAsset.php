@@ -11,7 +11,7 @@ class AppAsset extends AssetBundle
     public $css = [
         '/css/hibiki.slider.css?r3',
         'css/style.css?r90',
-        'css/add-style.css',
+        'css/add-style.min.css',
         'css/media.css?r31',
         'css/fonts.css?r3',
 //        'lib/PgwSlider/pgwslider.min.css',

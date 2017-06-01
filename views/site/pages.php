@@ -214,7 +214,7 @@ $this->registerMetaTag([
     $(window).load(function() {
         $('.slider1').HbKSlider({
             sliderSize: 4,
-            autoPlay: true,
+            autoPlay: false,
             overStop: true,
             navigationArrows: true,
             sliderSpeed: 4000,
