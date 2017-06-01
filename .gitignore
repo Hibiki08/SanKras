@@ -39,3 +39,7 @@ phpunit.phar
 /web/robots.txt
 
 /web/.htaccess
+/gulpfile.js
+/web/less
+/node_modules
+/web/images/pages
