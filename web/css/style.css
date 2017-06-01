@@ -1794,7 +1794,6 @@ address {
     line-height: 1.6;
     margin-bottom: 25px;
     font-family: 'Exo 2', sans-serif;
-    text-transform: uppercase;
     text-align: center;
     font-weight: 300;
 }
@@ -2530,6 +2529,9 @@ color: #fff;
 }
 #works {
     padding-bottom: 60px;
+}
+.hover-title {
+    text-transform: none;
 }
 .works .title,
 #video .title {
