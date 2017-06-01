@@ -19,7 +19,7 @@ $this->registerMetaTag([
             </ul>
         </div>
         <section class="price-list clear">
-            <h1 class="exo asphalt">Стоимость выполнения монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h1>
+            <h1 class="exo asphalt">Стоимость монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h1>
             <div class="table">
                 <?php $cat = []; ?>
                 <?php foreach($prices as $price) { ?>

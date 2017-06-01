@@ -14,7 +14,7 @@ $this->registerMetaTag([
 <section class="contacts" id="contacts">
     <div class="width">
         <div class="cont">
-            <h1>Мы работаем<br>в Краснодаре и пригороде</h1>
+            <h1>Мы работаем<br>в Краснодаре и крае, в Адыгее</h1>
             <div class="cnt">
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-phone.png'; ?>" alt="телефон" title="телефон">
                 <div>
