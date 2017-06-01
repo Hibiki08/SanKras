@@ -16,7 +16,7 @@ $this->registerMetaTag([
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h1 class="title title-big">Монтаж сантехнических коммуникаций в квартире «под ключ»</h1>
+            <h1 class="title title-big">Монтаж отопления, водоснабжения в квартире «под ключ»</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-2.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>

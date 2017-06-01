@@ -2792,7 +2792,7 @@ color: #fff;
     background: url('/images/system/works-right.png') no-repeat center;
 }
 .work .mCSB_scrollTools {
-    width: 6px;
+    width: 10px;
 }
 .work .info {
     clear: both;
@@ -4561,4 +4561,16 @@ footer .sub-footer .codedex .site img {
 }
 footer .sub-footer .codedex .site a {
     vertical-align: middle;
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: rgba(0, 0, 0, 0.28);
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    width: 7px;
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 4px;
 }
