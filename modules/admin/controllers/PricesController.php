@@ -85,8 +85,11 @@ class PricesController extends AdminController {
         $pagee = [];
 
         $pages = $services->getAll();
-        foreach ($pages as $item) {
-            $pagePlace[$item['id']] = $item['title'];
+        if (!empty($pages)) {
+            $pagePlace[0] = 'Нет';
+            foreach ($pages as $item) {
+                $pagePlace[$item['id']] = $item['title'];
+            }
         }
 
         $categories = $cat->getAllCat(false, true, ['cat.id' => SORT_ASC]);
@@ -109,6 +112,9 @@ class PricesController extends AdminController {
             foreach ($model->page as $item) {
                 $pagee[$item['page_id']] = ['selected ' => true];
             }
+            if (empty($pagee)) {
+                $pagee[0] = ['selected ' => true];
+            }
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $model->title = $form->title;
                 $model->price = $form->price;
@@ -126,12 +132,14 @@ class PricesController extends AdminController {
                     $i = 0;
                     $priceInPage->deleteAll(['price_id' => $id]);
                     $data = [];
-                    foreach ($pages as $page) {
-                        $data[$i]['price_id'] = $id;
-                        $data[$i]['page_id'] = $page;
-                        $i++;
+                    if ($pages[0] != 0) {
+                        foreach ($pages as $page) {
+                            $data[$i]['price_id'] = $id;
+                            $data[$i]['page_id'] = $page;
+                            $i++;
+                        }
+                        $priceInPage->insertData(PricesInPage::tableName(), $data);
                     }
-                    $priceInPage->insertData(PricesInPage::tableName(), $data);
                 }
                 Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
             }

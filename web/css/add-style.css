@@ -620,7 +620,7 @@ h1 {
 
 .pages .table table tr.sub-title td.table-cost {
 	text-align: right;
-	padding-right: 20px;
+	padding-right: 40px;
 }
 
 .pages .table table .transition {
@@ -640,7 +640,7 @@ h1 {
 }
 
 .pages .table table tr td:first-of-type {
-	padding-left: 20px;
+	padding-left: 40px;
 	text-align: left;
 	width: 590px;
 	border-left: 1px solid #e0e0e0;
@@ -659,7 +659,7 @@ h1 {
 
 .pages .table table tr td.table-price {
 	width: 122px;
-	padding-right: 20px;
+	padding-right: 40px;
 	font-weight: 500;
 	text-align: right;
 }
@@ -914,6 +914,10 @@ h1 {
 	font-size: 26px;
 	font-weight: 500;
 	margin-bottom: 10px;
+}
+
+.pages .question .master div {
+	text-shadow: 0 2px 5.32px #000;
 }
 
 .pages .question .master div:last-of-type {
