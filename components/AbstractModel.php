@@ -71,9 +71,10 @@ abstract class AbstractModel extends ActiveRecord {
         $value = [];
         $values = [];
         $keys = [];
+
         if (is_array($data)) {
+            $keys = array_keys($data[0]);
             if (count($data) > 1) {
-                $keys = array_keys($data[0]);
                 foreach ($data as $key => $items) {
                     $value = [];
                     foreach ($items as $k => $item) {
@@ -82,13 +83,9 @@ abstract class AbstractModel extends ActiveRecord {
                     $values[] = '(\'' . implode('\', \'', $value) . '\')';
                 }
             } else {
-                $keys = array_keys($data[0]);
-                foreach ($data as $key => $item) {
-                    $value[$key] = $item;
-                }
-                $values[] = '(\'' . implode('\', \'', $value[0]) . '\')';
-            }
+                $values[] = '(\'' . implode('\', \'', $data[0]) . '\')';
 
+            }
             $sql = 'INSERT INTO ' . $table . ' (' . implode(', ', $keys) . ')' .
                 ' VALUES ' . implode(', ', $values);
 

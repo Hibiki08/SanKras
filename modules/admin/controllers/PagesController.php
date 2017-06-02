@@ -32,7 +32,7 @@ class PagesController extends AdminController {
 
         $parentCat = [];
         
-        $categories = $services->getAllForMenu();
+        $categories = $services->getAllForMenu(false, 'sk_services.parent_id, sk_services.sort ASC, ISNULL(sk_services.sort),  sk_services.id ASC');
         foreach ($categories as $item) {
                 $parentCat[$item['id']] = $item['title'];
             if (isset($item['sub_cat']) && is_array($item['sub_cat'])) {
@@ -118,7 +118,7 @@ class PagesController extends AdminController {
                     $model->table_ex = isset(Yii::$app->request->post('EditServiceForm')['table_ex']) ? 1 : 0;
                     $model->package_ex = isset(Yii::$app->request->post('EditServiceForm')['package_ex']) ? 1 : 0;
                     $model->packages = $form->packages;
-                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : Yii::$app->request->post('EditServiceForm')['hidden'];
+                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
                     $model->video = $form->video;
                     $model->img_video = $form->img_video;
                     $model->benefits = isset(Yii::$app->request->post('EditServiceForm')['benefits']) ? 1 : 0;
@@ -166,9 +166,8 @@ class PagesController extends AdminController {
                         }
                     }
 
-                    $data = Yii::$app->request->post('EditServiceForm')['slide_text'];
-                    if (!empty($data)) {
-                        
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['slide_text']) ? Yii::$app->request->post('EditServiceForm')['slide_text'] : false;
+                    if ($data) {
                         $image->updateData(ServicesSlides::tableName(), 'text', $data, 'id');
                     }
 

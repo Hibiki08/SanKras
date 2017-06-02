@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\PricesInPage;
 use Yii;
 use yii\web\HttpException;
 use app\models\Prices;
@@ -10,6 +11,7 @@ use app\models\forms\EditPricesForm;
 use yii\helpers\Url;
 use yii\web\Response;
 use yii\data\Pagination;
+use app\models\Services;
 
 class PricesController extends AdminController {
 
@@ -75,14 +77,17 @@ class PricesController extends AdminController {
         $form = new EditPricesForm();
         $cat = new PricesCat();
         $options = new Prices();
-        $keyPage = [
-            0 => 'Нет',
-            'PAGE_WATER' => Prices::PAGE_WATER,
-            'PAGE_HEAT' => Prices::PAGE_HEAT,
-            'PAGE_SEW' => Prices::PAGE_SEW,
-            'PAGE_SAN' => Prices::PAGE_SAN,
-            'PAGE_AUTO' => Prices::PAGE_AUTO
-        ];
+        $services = new Services();
+        $priceInPage = new PricesInPage();
+
+        $parentCat = [];
+        $pagePlace = [];
+        $pagee = [];
+
+        $pages = $services->getAll();
+        foreach ($pages as $item) {
+            $pagePlace[$item['id']] = $item['title'];
+        }
 
         $categories = $cat->getAllCat(false, true, ['cat.id' => SORT_ASC]);
 
@@ -97,23 +102,37 @@ class PricesController extends AdminController {
             }
         }
 
-        $model = $id ? $options->findOne(['id' => $id]) : new Prices();
+        $model = $id ? $options->getOne(['t.id' => $id]) : new Prices();
         $maxSort = $options->find()->max('sort');
 
         if (!empty($model)) {
+            foreach ($model->page as $item) {
+                $pagee[$item['page_id']] = ['selected ' => true];
+            }
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $model->title = $form->title;
                 $model->price = $form->price;
                 $model->unit = $form->unit;
                 $model->cat_id = $form->cat_id;
-                $model->key_page = $form->key_page != '0' ? $form->key_page : null;
-
                 if (is_null($id)) {
                     $model->sort = $maxSort + 1;
                 }
                 $model->active = isset(Yii::$app->request->post('EditPricesForm')['active']) ? 1 : 0;
                 $model->save();
+
                 $id = $id ? $id : Yii::$app->db->lastInsertID;
+                $pages = Yii::$app->request->post('EditPricesForm')['page'];
+                if (!empty($pages)) {
+                    $i = 0;
+                    $priceInPage->deleteAll(['price_id' => $id]);
+                    $data = [];
+                    foreach ($pages as $page) {
+                        $data[$i]['price_id'] = $id;
+                        $data[$i]['page_id'] = $page;
+                        $i++;
+                    }
+                    $priceInPage->insertData(PricesInPage::tableName(), $data);
+                }
                 Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
             }
 
@@ -121,7 +140,8 @@ class PricesController extends AdminController {
                 'edit' => $form,
                 'categories' => $parentCat,
                 'model' => $model,
-                'keyPage' => $keyPage
+                'pagePlace' => $pagePlace,
+                'page' => $pagee
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

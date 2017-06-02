@@ -18,7 +18,11 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 <?php echo $form->field($edit, 'price')->input('text', ['value' => $model->price])->label('Цена*'); ?>
 <?php echo $form->field($edit, 'unit')->input('text', ['value' => $model->unit])->label('Единица*'); ?>
 <?php echo $form->field($edit, 'cat_id')->dropDownList($categories, ['options' => [$model->cat_id => ['selected ' => true]]])->label('Родительский раздел'); ?>
-<?php echo $form->field($edit, 'key_page')->dropDownList($keyPage, ['options' => [$model->key_page => ['selected ' => true]]])->label('Отображение на странице'); ?>
+<?php echo $form->field($edit, 'page[]')->listBox($pagePlace, [
+    'options' => $page,
+    'size' => 10,
+    'multiple' => true
+])->label('Отображение на странице'); ?>
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',
