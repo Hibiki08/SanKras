@@ -16,6 +16,7 @@ class Prices extends AbstractModel {
 
     public function getPage() {
         return $this->hasMany(PricesInPage::className(), ['price_id' => 'id'])
+            ->joinWith('services')
             ->alias('page');
     }
     
