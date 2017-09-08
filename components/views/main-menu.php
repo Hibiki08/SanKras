@@ -18,7 +18,15 @@
                             <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv->link); ?>"><?php echo $serv->title; ?></a>
                                 <?php if (!empty($serv->childItems)) { ?>
                                     <ul class="sub"><?php foreach ($serv->childItems as $child) { ?>
-                                            <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $child->link]); ?>"><?php echo $child->title; ?></a></li>
+                                            <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $child->link]); ?>"><?php echo $child->title; ?></a>
+                                            <?php if (!empty($child->childItems)) { ?>
+                                                   <ul class="subsub">
+                                                       <?php foreach ($child->childItems as $subchild) { ?>
+                                                            <li><a href="<?php echo Yii::$app->urlManager->createUrl([$subchild->link, 'key' => $subchild->link]); ?>"><?php echo $subchild->title; ?></a></li>
+                                                        <?php } ?>
+                                                 </ul>
+                                                <?php } ?>
+                                            </li>
                                         <?php } ?>
                                     </ul>
                                 <?php } ?>

@@ -24,10 +24,10 @@ $this->registerMetaTag([
                     <?php if(!empty($options['image']) || !empty($options['video'])) {
                         if (($options['img_video'] == 1) || ($options['img_video'] == 2 && empty($options['video']))) { ?>
                             <img class="img-video" src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $options['image']; ?>" alt="<?php echo $options['title']; ?>">
-                        <?php }
+                        <?php } else {
                         if (($options['img_video'] == 2) || ($options['img_video'] == 1 && empty($options['image']))) { ?>
                             <div class="img-video"><?php echo $options['video']; ?></div>
-                        <?php }
+                        <?php }}
                     } ?>
                     <footer>
                         <div>Выезд бесплатно</div>
