@@ -91,7 +91,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     'checked' => $model->benefits == 1 ? 'checked' : false,
     'class' => 'checkbox',
 ])->label('Отображение блока с выгодами'); ?>
-<?php echo $form->field($edit, 'video')->input('text', ['value' => $model->video, 'placeholder' => 'https://www.youtube.com/watch?v=UtEYIfnojM8'])->label('Видео'); ?>
+<?php echo $form->field($edit, 'video')->input('text', ['value' => $model->video, 'placeholder' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/C4xGb7aMsDQ" frameborder="0" allowfullscreen></iframe>'])->label('Видео'); ?>
 <?php echo $form->field($edit, 'parent_id')->dropDownList($categories, ['options' => [ $model->parent_id => ['selected ' => true]]])->label('Родительская страница*'); ?>
 <?php //echo $form->field($edit, 'sort')->input('text', ['value' => $model->sort ? $model->sort : 0])->label('Сортировка'); ?>
 <?php echo $form->field($edit, 'image', ['options' => [
