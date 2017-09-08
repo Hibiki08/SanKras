@@ -16,8 +16,11 @@ $(document).ready(function() {
     });
 
     //Закрыть меню
-    $('*').click(function () {
-
+    $(document).click(function(e){
+        var elem = $('.menu .drop-down');
+        if (e.target != elem[0] && !elem.has(e.target).length) {
+            $('.menu .submenu').removeClass('active');
+        }
     });
 
     //Ссылки на таблицу

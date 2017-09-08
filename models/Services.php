@@ -20,6 +20,15 @@ class Services extends AbstractModel {
             ->alias('price');
     }
 
+    public function getChildItems() {
+        return $this->hasMany(Services::className(), ['parent_id' => 'id'])
+            ->orderBy([
+                'childItems.sort' => SORT_ASC,
+                'childItems.id' => SORT_DESC
+            ])
+            ->alias('childItems');
+    }
+
     public function getPriceActive() {
         return $this->hasMany(PricesInPage::className(), ['page_id' => 'id'])
             ->joinWith([
@@ -40,9 +49,15 @@ class Services extends AbstractModel {
             ->alias('slides');
     }
 
-    public function getAllForMenu($where = false, $order = 'sort ASC') {
-        $query = $this->find()
-            ->select(['id', 'title', 'link', 'parent_id', 'sort']);
+    public function getAllForMenu($where = false, $order = 'sort ASC', $active = false) {
+        $query = Services::find();
+        if ($active) {
+            $query->joinWith(['childItems' => function ($query) {
+                $query->andOnCondition(['childItems.active' => 1]);
+            }]);
+        } else {
+            $query->joinWith('childItems');
+        }
 
         if ($order) {
             $query->orderBy($order);
@@ -51,34 +66,7 @@ class Services extends AbstractModel {
         if ($where) {
             $query->where($where);
         }
-        $services = $query->all();
-        $allServices = [];
-
-        foreach ($services as $service) {
-            if (is_null($service['parent_id'])) {
-                $allServices[$service['id']]['id'] = $service['id'];
-                $allServices[$service['id']]['title'] = $service['title'];
-                $allServices[$service['id']]['link'] = $service['link'];
-            } else {
-                if (isset($allServices[$service['parent_id']])) {
-                    $allServices[$service['parent_id']]['sub_cat'][$service['id']]['id'] = (int)$service['id'];
-                    $allServices[$service['parent_id']]['sub_cat'][$service['id']]['title'] = $service['title'];
-                    $allServices[$service['parent_id']]['sub_cat'][$service['id']]['link'] = $service['link'];
-                }
-                else {
-                    foreach ($allServices as $key => $serv) {
-                        if (key_exists('sub_cat', $serv)) {
-                            if (isset($serv['sub_cat'][$service['parent_id']])) {
-                                $allServices[$key]['sub_cat'][$service['parent_id']]['sub_cat'][$service['id']]['id'] = $service['id'];
-                                $allServices[$key]['sub_cat'][$service['parent_id']]['sub_cat'][$service['id']]['title'] = $service['title'];
-                                $allServices[$key]['sub_cat'][$service['parent_id']]['sub_cat'][$service['id']]['link'] = $service['link'];
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return $allServices;
+        return $query->all();
     }
 
     public function getAllServ($where = false, $order = ['id' => SORT_ASC], $request = true) {

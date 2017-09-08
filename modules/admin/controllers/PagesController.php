@@ -78,7 +78,7 @@ class PagesController extends AdminController {
 
         if (!empty($model)) {
             $categories = $services->getAllForMenu(false, false);
-            $parentCat = [];
+            $parentCat[0] = 'Нет';
 
             foreach ($categories as $item) {
                 $parentCat[$item['id']] = $item['title'];
@@ -105,7 +105,7 @@ class PagesController extends AdminController {
                     if (!empty($form->link)) {
                         $model->link = mb_strtolower($form->link);
                     }
-                    $model->parent_id = $form->parent_id;
+                    $model->parent_id = $form->parent_id ? $form->parent_id : null;
                     $model->form_title = $form->form_title;
                     $model->tag_title = $form->tag_title;
                     $model->tag_keywords = $form->tag_keywords;

@@ -1,26 +1,26 @@
 <?php
 use app\models\Blog;
 use yii\helpers\StringHelper;
-$this->title = $new->title;
+$this->title = $tariff->title;
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $new->title
+    'content' => $tariff->title
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => $new->title
+    'content' => $tariff->title
 ]);
 ?>
 <section class="single" id="about">
     <div class="width clear">
         <div class="new">
             <div class="block">
-                <h1 class="exo"><?php echo $new->title; ?></h1>
-                <span class="date"><?php echo Yii::$app->formatter->asDate($new->date, 'd MMMM yyyy'); ?></span>
-                <?php if (!empty($new->preview)) { ?>
-                    <img class="preview" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . $new->preview; ?>">
+                <h1 class="exo"><?php echo $tariff->title; ?></h1>
+                <span class="date"><?php echo Yii::$app->formatter->asDate($tariff->date, 'd MMMM yyyy'); ?></span>
+                <?php if (!empty($tariff->preview)) { ?>
+                    <img class="preview" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . $tariff->preview; ?>">
                 <?php } ?>
-                <div class="text"><?php echo $new->text; ?></div>
+                <div class="text"><?php echo $tariff->text; ?></div>
             </div>
             <?php if ($prev && $next != null) { ?>
                 <div class="prev-next clear">

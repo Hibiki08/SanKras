@@ -8,9 +8,8 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\models\forms\BaseForm;
 use app\models\Services;
+use app\components\MainMenu;
 
-$controller = Yii::$app->controller->id;
-$action = Yii::$app->controller->action->id;
 $letter = new BaseForm();
 
 AppAsset::register($this);
@@ -28,7 +27,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody(); ?>
-<?php $services = new Services(); $services = $services->getAllForMenu(['active' => 1], 'sk_services.parent_id, sk_services.sort ASC, ISNULL(sk_services.sort),  sk_services.id ASC'); ?>
 <!--start wrapper-->
 <div class="wrapper">
     <!--start header-->
@@ -46,63 +44,7 @@ AppAsset::register($this);
             <div class="logo">
                 <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
             </div>
-            <nav class="menu exo asphalt">
-                <ul>
-                    <li class="list"><a class="drop-down"><div class="img"></div>Услуги</a>
-                        <?php if(!empty($services)) { ?>
-                            <?php $i = 0; ?>
-                        <div class="submenu">
-                            <div class="required-section">
-                                <a href="<?php echo Yii::$app->urlManager->createUrl('flat'); ?>"><span>Монтаж в квартире</span></a>
-                                <a href="<?php echo Yii::$app->urlManager->createUrl('house'); ?>"><span>Монтаж в частном доме</span></a>
-                                <a href="<?php echo Yii::$app->urlManager->createUrl('company'); ?>"><span>Сотрудничаем с застройщиками</span></a>
-                            </div>
-                            <div class="items">
-                            <?php foreach ($services as $serv) { ?>
-                                <?php if ($i == 0) { ?>
-                                <ul class="ul">
-                                <?php }  ?>
-                                    <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv['link']); ?>"><?php echo $serv['title']; ?></a>
-                                        <?php if (isset($serv['sub_cat'])) { ?>
-                                        <ul class="sub">
-                                            <?php foreach ($serv['sub_cat'] as $item) { ?>
-                                                <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $item['link']]); ?>"><?php echo $item['title']; ?></a>
-                                                <?php if (isset($item['sub_cat'])) { ?>
-                                                    <ul class="subsub">
-                                                    <?php foreach ($item['sub_cat'] as $val) { ?>
-                                                        <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv['link'], 'key' => $val['link']]); ?>"><?php echo $val['title']; ?></a></li>
-                                                    <?php } ?>
-                                                    </ul>
-                                                <?php } ?>
-                                                </li>
-                                            <?php } ?>
-                                        </ul>
-                                        <?php } ?>
-                                    </li>
-                                <?php if ($i == 1) { $i = 0; ?>
-                                </ul>
-                                <?php  } else {$i = 1;}  ?>
-                            <?php } ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                    </li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" class="<?php echo $controller == 'prices' ? 'active' : $action == 'prices' ? 'active' : ''; ?>">Цены</a></li>
-                    <li class="list works"><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" class="<?php echo $controller == 'works' ? 'active' : $action == 'works' ? 'active' : ''; ?>">Наши работы</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео работ</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
-                        </ul>
-                    </li>
-                    <li class="list about"><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" class="<?php echo $controller == 'about' ? 'active' : $action == 'about' ? 'active' : ''; ?>">О нас</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="<?php echo $controller == 'contacts' ? 'active' : $action == 'contacts' ? 'active' : ''; ?>">Контакты</a></li>
-                </ul>
-            </nav>
+            <?php echo MainMenu::widget(); ?>
             <div class="phone exo" id="phone">
                 <?php echo Yii::$app->system->get('phone'); ?>
             </div>
