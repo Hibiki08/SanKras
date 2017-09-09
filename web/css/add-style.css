@@ -428,18 +428,17 @@ h1 {
 	width: 270px;
 }
 
+.pages header .block .prev_text p {
+	font-size: 22px;
+	line-height: 1.4;
+	margin-bottom: 15px;
+}
+
 .pages header .block .prev_text p strong {
 	margin-bottom: 20px;
 	display: block;
 	font-family: 'Roboto Condensed',sans-serif!important;
 	margin-top: 35px;
-	font-size: 28px;
-}
-
-.pages header .block .prev_text p {
-	font-size: 18px;
-	line-height: 1.4;
-	margin-bottom: 15px;
 }
 
 .pages header .block .prev_text ul {

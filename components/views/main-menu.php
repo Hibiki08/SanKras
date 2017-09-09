@@ -22,7 +22,7 @@
                                             <?php if (!empty($child->childItems)) { ?>
                                                    <ul class="subsub">
                                                        <?php foreach ($child->childItems as $subchild) { ?>
-                                                            <li><a href="<?php echo Yii::$app->urlManager->createUrl([$subchild->link, 'key' => $subchild->link]); ?>"><?php echo $subchild->title; ?></a></li>
+                                                            <li><a href="<?php echo Yii::$app->urlManager->createUrl([$serv->link, 'key' => $subchild->link]); ?>"><?php echo $subchild->title; ?></a></li>
                                                         <?php } ?>
                                                  </ul>
                                                 <?php } ?>
