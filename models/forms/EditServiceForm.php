@@ -33,10 +33,13 @@ class EditServiceForm extends Model {
     public $benefits;
     public $sort;
     public $active;
+    public $old_attribute_val = '';
 
     public function rules() {
         return [
-            ['link', 'unique', 'targetAttribute' => 'link', 'targetClass' => Services::className(), 'message' =>  'Такой путь уже есть'],
+            ['link', 'unique', 'targetClass' => Services::className(), 'message' =>  'Такой путь уже есть', 'when' => function ($form, $attribute) {
+                return $this->$attribute !== $this->old_attribute_val;
+            },],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
                 'price_title', 'img_video'], 'required'],
@@ -54,16 +57,8 @@ class EditServiceForm extends Model {
         ];
     }
 
-    public function scenarios() {
-        $scenarios = parent::scenarios();
-        $scenarios['add'] = ['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords', 'tag_description', 'prev_field',
-            'gallery_title', 'main_text', 'work_text', 'price_title', 'table_ex', 'package_ex', 'packages', 'image',
-            'slides', 'video', 'img_video', 'benefits', 'sort', 'active'];
-        $scenarios['edit'] = ['title', 'parent_id', 'form_title', 'tag_title', 'tag_keywords', 'tag_description', 'prev_field',
-            'gallery_title', 'main_text', 'work_text', 'price_title', 'table_ex', 'package_ex', 'packages', 'image',
-            'slides', 'video', 'img_video', 'benefits', 'sort', 'active'];
-
-        return $scenarios;
+    public function setOldAttribute($value) {
+        return $this->old_attribute_val = $value;
     }
 
     public function upload($path, $image) {

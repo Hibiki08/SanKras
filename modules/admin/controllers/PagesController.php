@@ -65,11 +65,7 @@ class PagesController extends AdminController {
 
         $errors = [];
 
-        if ($id) {
-            $form = new EditServiceForm(['scenario' => 'edit']);
-        } else {
-            $form = new EditServiceForm(['scenario' => 'add']);
-        }
+        $form = new EditServiceForm();
 
         $services = new Services();
         $image = new ServicesSlides();
@@ -77,6 +73,7 @@ class PagesController extends AdminController {
         $model = $id ? $services->getAllServ(['sk_services.id' => $id])[0] : new Services();
 
         if (!empty($model)) {
+            $form->setOldAttribute($model->link);
             $categories = $services->getAllForMenu(false, false);
             $parentCat[0] = 'Нет';
 
@@ -101,10 +98,8 @@ class PagesController extends AdminController {
 
                     $newsPrev = !is_null($model->image) ? $model->image : false;
 
+                    $model->link = mb_strtolower($form->link);
                     $model->title = $form->title;
-                    if (!empty($form->link)) {
-                        $model->link = mb_strtolower($form->link);
-                    }
                     $model->parent_id = $form->parent_id ? $form->parent_id : null;
                     $model->form_title = $form->form_title;
                     $model->tag_title = $form->tag_title;
