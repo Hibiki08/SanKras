@@ -429,16 +429,20 @@ h1 {
 }
 
 .pages header .block .prev_text p {
-	font-size: 22px;
-	line-height: 1.4;
-	margin-bottom: 15px;
+	font-size: 28px;
 }
 
 .pages header .block .prev_text p strong {
 	margin-bottom: 20px;
 	display: block;
-	font-family: 'Roboto Condensed',sans-serif!important;
 	margin-top: 35px;
+}
+
+.pages .gallery h2,
+.pages .prices h2,
+.pages header .block .prev_text div strong,
+.pages header .block .prev_text p strong {
+	font-family: 'Roboto Condensed',sans-serif!important;
 }
 
 .pages header .block .prev_text ul {
@@ -458,7 +462,6 @@ h1 {
 
 .pages .gallery h2,
 .pages .prices h2 {
-	font-family: 'Roboto Condensed',sans-serif!important;
 	font-size: 22px!important;
 	margin-bottom: 45px;
 	padding-left: 40px;
