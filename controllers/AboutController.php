@@ -44,7 +44,7 @@ class AboutController extends Controller {
     }
 
     public function actionOpinions() {
-        session_start();
+//        session_start();
         $opinions = Opinions::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1]);
         $pager = new Pagination(['totalCount' => $opinions->count(), 'pageSize' => Opinions::PAGE_SIZE]);
         $pager->pageSizeParam = false;

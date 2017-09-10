@@ -99,7 +99,15 @@ class ModuleUrlRule extends UrlRule {
                     if (file_exists($pathToController)) {
                         $route = $url[0] . '/index';
                     } else {
-                        $route = 'site/' . $url[0];
+                        $is_site_contr = Yii::$app->createControllerByID('site'); //есть ли такой controller
+                        $is_site_action = !is_null($is_site_contr) ? $is_site_contr->createAction($url[0]) : null; //есть ли такой action
+
+                        if ($is_site_action) {
+                            $route = 'site/' . $url[0];
+                        } else {
+                            $route = 'page/index';
+                            $params['key'] = array_pop($url);
+                        }
                     }
                 } elseif (count($url) == 2) {
                     $controller = Yii::$app->createControllerByID($url[0]); //есть ли такой controller
@@ -113,8 +121,11 @@ class ModuleUrlRule extends UrlRule {
                             $route = $url[0] . '/index';
                         } else {
                             if ($url[0] != 'prices' && $url[0] != 'works' && $url[0] != 'about' && $url[0] != 'contacts') {
-                                $route = $url[0] . '/index';
-                                $params['key'] = $url[1];
+                                $route = 'page/index';
+//                                if ($url[1]) {
+                                    $params['key'] = array_pop($url);
+//                                }
+
                             } else {
                                 return false;
                             }

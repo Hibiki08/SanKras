@@ -140,6 +140,9 @@ address {
     float: left;
     margin-top: 4px;
 }
+.logo a {
+    display: block;
+}
 .phone {
     float: right;
     width: 200px;
@@ -517,14 +520,15 @@ address {
     background-size: 61% 100%;
     font-family: 'Exo 2', sans-serif;
     padding-top: 245px;
-    text-transform: uppercase;
 }
 .slider .Blockswrapper .wrap .text h1,
 .slider .Blockswrapper .wrap .text p:first-of-type {
     margin-bottom: 10px;
 }
 .slider .Blockswrapper .wrap:not(:first-of-type) .text p:first-of-type {
-    font-size: 30px;
+    font-size: 40px;
+    color: #f44336;
+    font-family: 'Roboto Condensed',sans-serif;
 }
 .slider .Blockswrapper .wrap .text p,
 .slider .Blockswrapper .wrap .text ul,
@@ -539,28 +543,25 @@ address {
     margin-left: 23px;
 }
 .slider .Blockswrapper .wrap .text ul li {
-    line-height: 1.5;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
 }
-.slider .Blockswrapper .wrap .text ul li::first-letter {
-    font-size: 30px;
-}
-.slider .Blockswrapper .wrap .text h1,
-.slider .Blockswrapper .wrap .text p:first-of-type {
+.slider .Blockswrapper .wrap .text h1{
     font-size: 42px;
     color: #f44336;
 }
-.slider .Blockswrapper .wrap .text h1:first-letter,
-.slider .Blockswrapper .wrap:not(:first-of-type) .text p:first-of-type:first-letter {
-    font-size: 45px;
-}
 .slider .Blockswrapper .wrap:first-of-type h1 {
-    font-size: 34px;
+    font-size: 40px;
+    line-height: 1.2 !important;
 }
 .slider .Blockswrapper .wrap:first-of-type .text p:last-of-type {
     color: #fff;
     font-size: 28px;
     font-weight: 300;
     font-family: 'Roboto', sans-serif;
+    line-height: 1.2 !important;
 }
 .slider .sliderArrows.left {
     display: none;
@@ -1931,6 +1932,17 @@ address {
     width: 270px;
     background: #fff;
 }
+.price .price-list .nav-menu .title {
+    text-align: center;
+    background: #f5f6f7;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #f44336;
+    padding-bottom: 11px;
+    padding-top: 15px;
+    border-bottom: 3px solid;
+}
 .price .table,
 #more .table {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -2324,11 +2336,11 @@ color: #fff;
 }
 .options table tr td,
 #more .pakage table tr td {
-    padding: 20px 20px 20px 0;
+    padding: 12px 20px 12px 0;
 }
 .options table .title,
 #more .pakage table .title {
-    padding: 35px 20px 35px 0;
+    padding: 24px 20px 24px 0;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -2361,7 +2373,7 @@ color: #fff;
     font-size: 24px;
     text-transform: uppercase;
     font-family: 'Exo 2', sans-serif;
-    padding: 30px 0;
+    padding: 20px 0;
     font-weight: 300;
     width: 300px;
 }
@@ -2612,6 +2624,7 @@ color: #fff;
     -webkit-text-shadow: 1px 1px 2px #000;
     padding-bottom: 25px;
     transition: opacity 0.5s;
+    text-transform: none;
 }
 
 .works .wrks .work-title,
@@ -2829,6 +2842,7 @@ color: #fff;
 }
 .work .info .text .full {
     margin-top: 25px;
+    line-height: 1.4 !important;
 }
 .work .info .text .full p,
 .work .info .text .full span {
@@ -3433,9 +3447,13 @@ color: #fff;
 }
 #more .more-key .title-big {
     color: #f44336;
+    font-weight: 600;
     font-size: 30px;
-    margin-bottom: 55px;
-    letter-spacing: 1px;
+    font-family: 'Roboto Condensed',sans-serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 35px;
+    text-transform: none;
 }
 #more .more-key .flat {
     position: relative;
@@ -3455,9 +3473,12 @@ color: #fff;
     position: relative;
 }
 #more .more-key .flat .fl .title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Roboto Condensed',sans-serif;
+    line-height: 1;
+    margin-bottom: 19px;
+    text-transform: none;
 }
 #more .more-key .flat .fl .text {
     font-size: 15px;
@@ -4430,7 +4451,8 @@ footer .cont {
     padding-top: 40px;
     font-size: 14px;
     line-height: 1.5;
-    min-height: 240px;
+    min-height: 292px;
+    padding-bottom: 28px;
 }
 footer li {
     list-style: none;
@@ -4501,7 +4523,7 @@ footer .links .cell.soc {
     padding-top: 5px;
 }
 footer .links .usl {
-    width: 170px;
+    width: 204px;
 }
 footer .sub-footer {
     clear: both;

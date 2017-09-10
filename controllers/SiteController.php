@@ -201,9 +201,14 @@ class SiteController extends Controller {
 
 
         }
+        $date_card_from = (new \DateTime())->modify('-1 month')->format('m.Y');
+        $date_card_to = (new \DateTime())->modify('+1 month')->format('m.Y');
+
         return $this->render('index', [
             'letter' => $form,
-            'seoBottom' => $seoBottom
+            'seoBottom' => $seoBottom,
+            'date_card_from' => $date_card_from,
+            'date_card_to' => $date_card_to
         ]);
     }
 
@@ -336,7 +341,11 @@ class SiteController extends Controller {
     }
 
     public function actionPrivacyPolicy() {
-        return $this->render('privacy-policy');
+        $date_from = (new \DateTime())->modify('-1 month')->format('m.Y');
+        
+        return $this->render('privacy-policy', [
+            'date_from' => $date_from
+        ]);
     }
 
 }

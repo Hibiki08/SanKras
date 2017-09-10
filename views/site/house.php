@@ -106,7 +106,7 @@ $this->registerMetaTag([
     <?php echo Works::widget(['filter' => ['works.cat_id' => WorksCat::HOUSE_ID]]); ?>
     <section class="pakage">
         <div class="width">
-            <h2 class="title-big">пакеты услуг по монтажу коммуникаций в частном доме</h2>
+            <h2 class="title-big">пакеты услуг по монтажу отопления и водоснабжения в частном доме</h2>
             <table>
                 <thead>
                 <tr>

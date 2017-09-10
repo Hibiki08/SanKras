@@ -131,7 +131,7 @@ $this->registerMetaTag([
 <section class="simple" id="discount">
     <div class="width">
         <h3 class="title-big">С нами выгодно и легко работать</h3>
-        <div class="smpl">Вы сэкономите на сантехнических коммуникациях минимум 22% за счет наших скидок</div>
+        <div class="smpl">Вы сэкономите на монтаже отопления и водоснабжения минимум 22% за счет наших скидок</div>
         <div class="sml-col clear">
             <div class="sub-col">
                 <div class="col" data-wow-delay="0.1s">
@@ -196,7 +196,7 @@ $this->registerMetaTag([
                     <span>Вы закрепили за собой скидку!<br>В течение 5 минут вам на почту<br>придет бланк на получение<br>дисконтной карты и скидки</span>
                 </div>
             </div>
-            <span>*ваши данные не будут переданы третьим лицам; акция действует с 01.06.2017 по 31.08.2017</span>
+            <span>*ваши данные не будут переданы третьим лицам; акция действует с 01.<?php echo $date_card_from; ?> по 20.<?php echo $date_card_to; ?></span>
         </div>
     </div>
 </section>
@@ -375,7 +375,7 @@ if (!empty($seoBottom)) { ?>
     $(document).ready(function() {
         $('.slider').HbKSlider({
             sliderSize: 1,
-            autoPlay: true,
+            autoPlay: false,
             overStop: true,
             navigationArrows: true,
             navigationRadioButtons: true,

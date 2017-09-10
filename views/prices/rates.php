@@ -18,7 +18,7 @@ $this->registerMetaTag([
                 <li class="exo asphalt active" ><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
             </ul>
         </div>
-        <h1 class="exo asphalt">Монтаж сантехнических коммуникаций в квартире</h1>
+        <h1 class="exo asphalt">Монтаж отопления и водоснабжения в квартире</h1>
         <table>
             <thead>
             <tr>

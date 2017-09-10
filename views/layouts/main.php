@@ -102,11 +102,17 @@ AppAsset::register($this);
                     <div class="cell usl">
                         <div class="exo">Услуги</div>
                         <ul>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('heating'); ?>">Монтаж отопления</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополива</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('мontazh-otopleniya'); ?>">Монтаж отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('мontazh-otopleniya/ustanovka-kotlov-otopleniya'); ?>">Установка котлов отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('мontazh-otopleniya/ustanovka-gazovogo-kotla'); ?>">Установка газового котла</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('мontazh-otopleniya/montazh-teplogo-pola'); ?>">Монтаж теплого пола</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('montazh-vodosnabzheniya'); ?>">Монтаж водоснабжения</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('montazh-vodosnabzheniya/ustanovka-filtrov'); ?>">Установка фильтров</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('montazh-kanalizacii'); ?>">Монтаж канализации</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('ustanovka-santehniki'); ?>">Установка сантехники</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('ustanovka-santehniki/ustanovka-vanny'); ?>">Установка ванны</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('montazh-avtopoliva'); ?>">Монтаж автополива</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('montazh-i-zamena-trub'); ?>">Монтаж и замена труб</a></li>
                         </ul>
                     </div>
                     <div class="cell price">

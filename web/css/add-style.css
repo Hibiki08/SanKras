@@ -563,6 +563,29 @@ h1 {
 	font-weight: 600;
 }
 
+.pages .content .main-text ul li {
+	position: relative;
+	padding-left: 22px;
+}
+
+.pages .content .main-text ul li:before {
+	content: '';
+	background: url(/images/system/hover-mark.png) no-repeat;
+	position: absolute;
+	left: 0;
+	top: 7px;
+	width: 6px;
+	height: 6px;
+	margin-right: 15px;
+}
+
+.pages .content .main-text p {
+	font-size: 14px!important;
+	color: #585858!important;
+	line-height: 1.4!important;
+	font-weight: 400;
+}
+
 .pages .content .work-text {
 	width: 270px;
 	padding-top: 43px;
