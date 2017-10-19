@@ -15,7 +15,6 @@ class AppAsset extends AssetBundle
         'css/fonts.css?r3',
     ];
     public $js = [
-        'js/smoothscroll.js?r3',
         'js/maskedinput.js?r3',
         '/js/hibiki.slider.js?r3',
     ];
