@@ -46,3 +46,5 @@ phpunit.phar
 /web/less
 #/web/css/style.css
 #/web/css/fonts.css
+/composer.lock
+

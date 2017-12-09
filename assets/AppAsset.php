@@ -18,7 +18,6 @@ class AppAsset extends AssetBundle
 //        'lib/Prokrutka/jquery.mCustomScrollbar.css',
     ];
     public $js = [
-        'js/smoothscroll.js?r3',
         'js/maskedinput.js?r3',
         '/js/hibiki.slider.js?r3',
 //        'lib/Prokrutka/jquery.mCustomScrollbar.concat.min.js',
