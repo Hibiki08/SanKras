@@ -13,7 +13,6 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $options['tag_keywords']
 ]);
-//var_dump($options);
 ?>
 <div class="pages">
     <header>

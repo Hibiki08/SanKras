@@ -39,7 +39,7 @@ $this->registerMetaTag([
         <div class="block-articles">
             <?php if (!empty($articles)) { ?>
                 <?php foreach ($articles as $article) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'single' => $article->id]); ?>" class="article">
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $article->id]); ?>" class="article">
                         <?php if (!empty($article->preview)) { ?>
                             <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $article->preview; ?>">
                         <?php } ?>

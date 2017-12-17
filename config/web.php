@@ -74,7 +74,15 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                ['class' => 'app\components\ModuleUrlRule', 'appModules' => $modules],
+                '<module:(admin)>' => 'admin/admin/index',
+                '<module:(admin)>/<controller>' => 'admin/<controller>/index',
+                '<module:(admin)>/<controller>/<action>' => 'admin/<controller>/<action>',
+                '<action:(flat|house|company|contacts|privacy-policy|login)>' => 'site/<action>',
+                '<controller:(prices|works|about)>' => '<controller>/index',
+                '<controller:(prices|works|about|site|page|elfinder)>/<action>' => '<controller>/<action>',
+                '<action:.+>/<key:.+>' => 'page/index',
+                '<key:.+>' => 'page/index',
+                '<controller:(about)>/<action:(news|articles)><id:\d+>' => '<controller>/<action>',
             ],
         ],
         'authManager' => [

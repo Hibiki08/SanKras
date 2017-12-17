@@ -13,6 +13,7 @@ use app\components\MainMenu;
 $letter = new BaseForm();
 
 AppAsset::register($this);
+//var_dump(Yii::$app->controller->route);die;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -25,9 +25,9 @@ $this->registerMetaTag([
             </div>
             <?php if ($prev && $next != null) { ?>
                 <div class="prev-next clear">
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая новость</span></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'id' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая новость</span></a>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news']); ?>" class="prev more exo"><div class="img"></div><span>Все новости</span></a>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $next]); ?>" class="next exo"><span>Следующая новость</span><div class="img"></div></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'id' => $next]); ?>" class="next exo"><span>Следующая новость</span><div class="img"></div></a>
                 </div>
             <?php } ?>
         </div>
@@ -35,7 +35,7 @@ $this->registerMetaTag([
             <div>Другие новости</div>
             <?php if (!empty($other)) { ?>
                 <?php foreach ($other as $oth) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'single' => $oth->id]); ?>" class="more">
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'id' => $oth->id]); ?>" class="more">
                         <h2><?php echo $oth->title; ?></h2>
                         <div class="short"><?php echo strip_tags(StringHelper::truncate($oth->text, 250, '...'), '<br><p>'); ?></div>
                         <span class="date"><?php echo Yii::$app->formatter->asDate($oth->date, 'd MMMM yyyy'); ?></span>
