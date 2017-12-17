@@ -100,6 +100,7 @@ class PagesController extends AdminController {
 
                     $model->link = mb_strtolower($form->link);
                     $model->title = $form->title;
+                    $model->title_menu = $form->title_menu;
                     $model->parent_id = $form->parent_id ? $form->parent_id : null;
                     $model->form_title = $form->form_title;
                     $model->tag_title = $form->tag_title;
@@ -113,7 +114,10 @@ class PagesController extends AdminController {
                     $model->table_ex = isset(Yii::$app->request->post('EditServiceForm')['table_ex']) ? 1 : 0;
                     $model->package_ex = isset(Yii::$app->request->post('EditServiceForm')['package_ex']) ? 1 : 0;
                     $model->packages = $form->packages;
-                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
+                    if (!empty($form->image->name)) {
+                        $model->image = $translate->translate($form->image->name);
+                    }
+//                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
                     $model->video = $form->video;
                     $model->img_video = $form->img_video;
                     $model->benefits = isset(Yii::$app->request->post('EditServiceForm')['benefits']) ? 1 : 0;

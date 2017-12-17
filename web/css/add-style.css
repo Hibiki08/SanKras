@@ -586,6 +586,10 @@ h1 {
 	font-weight: 400;
 }
 
+.pages .content .main-text p:not(:last-of-type) {
+	margin-bottom: 10px;
+}
+
 .pages .content .work-text {
 	width: 270px;
 	padding-top: 43px;

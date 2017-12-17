@@ -11,6 +11,7 @@ use app\components\Translate;
 class EditServiceForm extends Model {
 
     public $title;
+    public $title_menu;
     public $link;
     public $parent_id;
     public $form_title;
@@ -42,13 +43,13 @@ class EditServiceForm extends Model {
             },],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
-                'price_title', 'img_video'], 'required'],
+                'price_title', 'img_video', 'title_menu'], 'required'],
             [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['slides'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
             [['title', 'link', 'form_title', 'tag_title', 'tag_keywords', 'tag_description',
                 'gallery_title', 'price_title', 'image', 'video'], 'string', 'max' => 255],
             ['video', 'match', 'pattern' => '/youtube.com\/embed/i'],
-            ['prev_field', 'string', 'max' => 500],
+            ['prev_field', 'string'],
             [['main_text', 'work_text', 'packages'], 'string'],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
@@ -75,6 +76,7 @@ class EditServiceForm extends Model {
     public function attributeLabels() {
         return [
             'title' => 'Заголовок страницы',
+            'title_menu' => 'Заголовок меню',
             'link' => 'Ссылка на страницу',
             'parent_id' => 'Родительская страница',
             'form_title' => 'Заголовок формы',
@@ -84,7 +86,7 @@ class EditServiceForm extends Model {
             'prev_field' => 'Поле с коротким текстом',
             'gallery_title' => 'Заголовок галереи',
             'main_text' => 'Основной текст',
-            'work_text' => 'Список работ',
+            'work_text' => 'Список фирм',
             'price_title' => 'Заголовок блока с ценами',
             'table_ex' => 'Отображение таблицы',
             'package_ex' => 'Отображение пакетов',

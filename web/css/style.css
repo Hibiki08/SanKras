@@ -2069,8 +2069,15 @@ color: #fff;
 }
 .price .table tr:hover,
 #more .table tr:hover,
+.pages .packages table tr:hover,
 .price .table tr:hover input {
     background: #f1f2f4;
+}
+.pages .packages table tr:hover {
+    transition: background 0.7s;
+}
+.pages .packages table tr {
+    transition: background 0.7s;
 }
 .price .table table .hidden {
     display: none;

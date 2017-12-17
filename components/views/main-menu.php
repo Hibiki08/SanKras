@@ -15,14 +15,14 @@
                             <?php if ($i == 0) { ?>
                                 <ul class="ul">
                             <?php }  ?>
-                            <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv->link); ?>"><?php echo $serv->title; ?></a>
+                            <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv->link); ?>"><?php echo $serv->title_menu; ?></a>
                                 <?php if (!empty($serv->childItems)) { ?>
                                     <ul class="sub"><?php foreach ($serv->childItems as $child) { ?>
-                                            <li><a href="<?php echo $serv['link'] .  '/' . $child->link; ?>"><?php echo $child->title; ?></a>
+                                            <li><a href="/<?php echo $serv['link'] .  '/' . $child->link; ?>"><?php echo $child->title_menu; ?></a>
                                             <?php if (!empty($child->childItems)) { ?>
                                                    <ul class="subsub">
                                                        <?php foreach ($child->childItems as $subchild) { ?>
-                                                            <li><a href="<?php echo $serv->link . '/' . $subchild->link; ?>"><?php echo $subchild->title; ?></a></li>
+                                                            <li><a href="/<?php echo $serv->link . '/' . $subchild->link; ?>"><?php echo $subchild->title_menu; ?></a></li>
                                                         <?php } ?>
                                                  </ul>
                                                 <?php } ?>

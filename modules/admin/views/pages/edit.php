@@ -25,6 +25,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 <?php echo $form->field($edit, 'tag_description')->input('text', ['value' => $model->tag_description])->label('Тег description*'); ?>
 <?php echo $form->field($edit, 'tag_keywords')->input('text', ['value' => $model->tag_keywords])->label('Тег keywords*'); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Заголовок страницы*'); ?>
+<?php echo $form->field($edit, 'title_menu')->input('text', ['value' => $model->title_menu])->label('Заголовок пункта меню*'); ?>
 <?php echo $form->field($edit, 'link')->input('text', ['value' => $model->link])->label('Ссылка на страницу*'); ?>
 <?php //echo $form->field($edit, 'form_title')->input('text', ['value' => $model->form_title])->label('Заголовок формы*'); ?>
 <?php echo $form->field($edit, 'gallery_title')->input('text', ['value' => $model->gallery_title])->label('Заголовок галереи*'); ?>
@@ -64,7 +65,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     'options' => [
         'value' => $model->work_text
     ]
-])->label('Список работ'); ?>
+]); ?>
 <?php echo $form->field($edit, 'packages')->widget(CKEditor::className(), [
     'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], [
         'preset' => 'full',
