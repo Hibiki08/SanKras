@@ -2070,6 +2070,7 @@ color: #fff;
 .price .table tr:hover,
 #more .table tr:hover,
 .pages .packages table tr:hover,
+.pages .table table tr:hover,
 .price .table tr:hover input {
     background: #f1f2f4;
 }
