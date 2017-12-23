@@ -538,6 +538,9 @@ address {
     font-weight: 300;
 }
 .slider .Blockswrapper .wrap .text ul {
+    list-style-type: disc;
+}
+.slider .Blockswrapper .wrap .text ul {
     color: #fff;
     font-size: 20px;
     margin-left: 23px;

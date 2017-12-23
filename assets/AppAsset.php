@@ -12,8 +12,7 @@ class AppAsset extends AssetBundle
         '/css/hibiki.slider.css?r3',
         'css/style.css?r95',
         'css/add-style.min.css?r8',
-        'css/style.css?r92',
-
+        'css/style.css?r93',
         'css/media.css?r31',
         'css/fonts.css?r3',
 //        'lib/PgwSlider/pgwslider.min.css',
