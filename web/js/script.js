@@ -230,7 +230,7 @@ $(document).ready(function() {
                         $('#advice .form .success, #advice .form .close').css('display', 'block');
                         $('#advice .form .success span').css('visibility', 'visible');
                         $('#advice .loading').css('display', 'none');
-                        yaCounter39483720.reachGoal('callback');
+                        yaCounter39483720.reachGoal('advice');
                         ga('send', 'event', 'form3', 'advice');
                     }
                 },
@@ -254,6 +254,7 @@ $(document).ready(function() {
         if (formId == 'form_question') {
             url = '/page/question';
         }
+        console.log(formId);
 
         $this.find('.visible').css('display', 'none');
         $this.find('.loading').css('display', 'block');
@@ -274,7 +275,7 @@ $(document).ready(function() {
                     $this.find('.close').css('display', 'block');
                     $this.find('.success').css('display', 'block');
                     $this.find('.loading').css('display', 'none');
-                    if (formId == 'form_advice') {
+                    if (formId == 'form_service') {
                         yaCounter39483720.reachGoal('service');
                         // ga('send', 'event', 'form5', 'service');
                     }
