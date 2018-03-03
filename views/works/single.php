@@ -9,10 +9,6 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => strip_tags(StringHelper::truncate($work->text, 150, ''))
 ]);
-$this->registerMetaTag([
-    'name' => 'keywords',
-    'content' => 'примеры сантехнические работы, санкрас сантехнические работы, sankras работы, сантехнические работы в квартире, сантехнические работы частный дом'
-]);
 ?>
 <section class="work" id="work">
     <div class="width clear">

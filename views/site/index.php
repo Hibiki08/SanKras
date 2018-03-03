@@ -54,7 +54,7 @@ $this->registerMetaTag([
 <section class="key">
     <div class="width">
         <h3 class="title-big">что включает в себя система «ПОД КЛЮЧ»?</h3>
-        <span class="asphalt">Мы производим монтаж инженерных сантехнических сетей "под ключ" в квартирах, частных домах<br>и сотрудничаем с застройщиками частного сектора</span>
+        <span class="asphalt">Мы производим сантехнические работы "под ключ" в квартирах, частных домах<br>и сотрудничаем с застройщиками частного сектора</span>
         <div class="services clear">
             <div class="service flat">
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-flat.png" alt="квартира">
@@ -62,7 +62,7 @@ $this->registerMetaTag([
                 <ul>
                     <li>Консультирование, cоставление сметы</li>
                     <li>Закупка и доставка материала</li>
-                    <li>Монтаж труб водоснабжения</li>
+                    <li>Прокладка труб водоснабжения</li>
                     <li>Установка санфаянса</li>
                     <li>Установка бытовой техники</li>
                     <li>Ввод в эксплуатацию</li>
@@ -79,7 +79,7 @@ $this->registerMetaTag([
                     <li>Составление сметы, доставка материала</li>
                     <li>Обвязка котельной, теплые полы</li>
                     <li>Обвязка скважины, фильтрация</li>
-                    <li>Монтаж канализации, установка септика</li>
+                    <li>Прокладка канализации, установка септика</li>
                     <li>Установка санфаянса, бытовой техники</li>
                     <li>Ввод в эксплуатацию, запуск и наладка всей системы</li>
                     <li>Предоставление гарантии</li>
@@ -91,7 +91,7 @@ $this->registerMetaTag([
                 <div class="exo title">Застройщикам:</div>
                 <ul>
                     <li>Высокие скидки на материал от поставщиков оборудования</li>
-                    <li>Дополнительные скидки на монтаж при большом объёме работ</li>
+                    <li>Дополнительные скидки при большом объёме</li>
                     <li>Монтаж в короткие сроки</li>
                     <li>Бесплатная доставка материала на объект</li>
                     <li>Гарантия на выполненные работы</li>
@@ -103,13 +103,13 @@ $this->registerMetaTag([
     </div>
 </section>
 <section class="quality" id="better">
-    <h3 class="title-small">Вы получаете надежную <span class="title-big">долговечную</span> систему,<br>потому что мы ответственно подходим к работе</h3>
+    <h3 class="title-small">Вы получаете надежную <span class="title-big">долговечную</span> систему,<br>потому что мы ответственно подходим к делу</h3>
     <div class="grey"></div>
     <div class="columns clear width">
         <div class="col wow zoomIn">
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-1.png" alt="гарантия" title="гарантия">
             <h3><span>гарантия</span><br>от 1 года до 5 лет на работы</h3>
-            <div>В течение гарантийного срока мы <strong>бесплатно</strong> устраним возможные неисправности монтажа. Однако мы уверены в высоком качестве нашей работы, потому что она <span style="letter-spacing: -1px">выполняется квалифицированными специалистами с использованием надежных материалов.</span></div>
+            <div>В течение гарантийного срока мы <strong>бесплатно</strong> устраним возможные неисправности. Однако мы уверены в высоком качестве нашей работы, потому что она <span style="letter-spacing: -1px">выполняется квалифицированными специалистами с использованием надежных материалов.</span></div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.3s">
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-2.png" alt="отношение" title="отношение">
@@ -119,7 +119,7 @@ $this->registerMetaTag([
         <div class="col wow zoomIn" data-wow-delay="0.6s">
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-3.png" alt="поддержка" title="поддержка">
             <h3><span>обслуживание</span><br>во время эксплуатации</h3>
-            <div>После проведения монтажа мы не прекращаем сотрудничество с вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, <strong>помогаем в настройке оборудования</strong> и при необходимости <strong>проводим профилактику системы</strong>.</div>
+            <div>После завершения работ мы не прекращаем сотрудничество с вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, <strong>помогаем в настройке оборудования</strong> и при необходимости <strong>проводим профилактику системы</strong>.</div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.9s">
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-4.png" alt="материалы" title="материалы">
@@ -131,7 +131,7 @@ $this->registerMetaTag([
 <section class="simple" id="discount">
     <div class="width">
         <h3 class="title-big">С нами выгодно и легко работать</h3>
-        <div class="smpl">Вы сэкономите на монтаже отопления и водоснабжения минимум 22% за счет наших скидок</div>
+        <div class="smpl">Вы сэкономите на сантехнических услугах минимум 22% за счет наших скидок</div>
         <div class="sml-col clear">
             <div class="sub-col">
                 <div class="col" data-wow-delay="0.1s">
@@ -162,7 +162,7 @@ $this->registerMetaTag([
                 </div>
                 <div class="col wow slideInRight" data-wow-delay="0.3s">
                     <div class="guarantee"></div>
-                    <span>гарантии на наши<br>работы</span>
+                    <span>гарантии на наши<br>услуги</span>
                 </div>
                 <div class="col wow slideInRight" data-wow-delay="0.4s">
                     <div class="time"></div>
@@ -257,7 +257,7 @@ $this->registerMetaTag([
                 <img data-wow-delay="0.4s" src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-2.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
                     <span><span class="red">Роман,</span> руководитель строительной фирмы "Краснодарский дизайн-салон"</span>
-                    <p>Долгое время я искал специалиста по сантехнике, на которого можно положиться. Надоедало постоянно перепроверять работу и тратить время на то, чтобы держать все под контролем. С Артемом познакомился на одном из объектов. Сразу понравилось как он подходит к монтажу: работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают возникающие организационные вопросы. По привычке я все перепроверял, но быстро понял что в этом нет необходимости, возникло доверие и желание сотрудничать. Совместно мы выполнили несколько десятков объектов, за это время ни разу не были сорваны сроки, претензий от заказчиков не поступало.</p>
+                    <p>Долгое время я искал специалиста по сантехнике, на которого можно положиться. Надоедало постоянно перепроверять за мастером и тратить время на то, чтобы держать все под контролем. С Артемом познакомился на одном из объектов. Сразу понравилось как он подходит к монтажу: работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают возникающие организационные вопросы. По привычке я все перепроверял, но быстро понял что в этом нет необходимости, возникло доверие и желание сотрудничать. Совместно мы выполнили несколько десятков объектов, за это время ни разу не были сорваны сроки, претензий от заказчиков не поступало.</p>
                 </div>
             </div>
         </div>
@@ -268,20 +268,20 @@ $this->registerMetaTag([
     </div>
 </section>
 <section class="call-master" id="call-master">
-    <h2 class="title-big">закажите бесплатный выезд мастера на замер</h2>
+    <h2 class="title-big">закажите бесплатный вызов сантехника на замер</h2>
     <div class="master width">
         <figure>
             <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>call-master.png" alt="вызвать мастера" title="вызвать мастера">
         </figure>
         <div class="call clear">
             <div class="about">
-                <div class="master-title">закажите выезд мастера и получите:</div>
+                <div class="master-title">закажите вызов сантехника и получите:</div>
                 <ul>
                     <li>консультацию и рекомендации мастера</li>
                     <li>эскизный проект</li>
-                    <li>две сметы стоимости монтажа и материала</li>
+                    <li>две сметы стоимости: на работы, на метериал</li>
                 </ul>
-                <h3>Монтаж сантехнических<br>коммуникаций любой сложности:</h3>
+                <h3>Сантехнические услуги<br>любой сложности:</h3>
                 <ul>
                     <li>отопление</li>
                     <li>водоснабжение</li>
@@ -293,7 +293,7 @@ $this->registerMetaTag([
             <div class="form">
                 <div class="close"></div>
                 <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
-                <span>выезд мастера</span>
+                <span>вызов сантехника</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
                     'enableClientValidation' => true,
@@ -313,7 +313,7 @@ $this->registerMetaTag([
                     'class' => 'phone-mask',
                     'placeholder' => 'Ваш телефон*'
                 ]); ?>
-                <?php echo Html::submitButton('заказать выезд', ['class' => 'pulse']); ?>
+                <?php echo Html::submitButton('оставить заявку', ['class' => 'pulse']); ?>
                 <?php ActiveForm::end(); ?>
                 <span>*обязательные поля <br>данные не будут переданы 3-им лицам</span>
                 <div class="success">
@@ -326,7 +326,7 @@ $this->registerMetaTag([
             <div class="bf-1 wow bounceInLeft">
                 <div>
                     <span>бесплатно</span><br>
-                    <span>Вызов мастера не обязывает вас<br>к дальнейшему сотрудничеству</span>
+                    <span>Вызов сантехника не обязывает вас<br>к дальнейшему сотрудничеству</span>
                 </div>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-free.png" alt="бесплатно" title="бесплатно">
             </div>
