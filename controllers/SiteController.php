@@ -341,6 +341,10 @@ class SiteController extends Controller {
     }
 
     public function actionPrivacyPolicy() {
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
         $date_from = (new \DateTime())->modify('-1 month')->format('m.Y');
         
         return $this->render('privacy-policy', [

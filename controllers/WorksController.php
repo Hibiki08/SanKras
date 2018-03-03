@@ -24,6 +24,8 @@ class WorksController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/works'], true)]);
+
         $works = new Works();
         $worksCat = new WorksCat();
         $query = $works->getAllCat(['works.active' => 1], '(case when works.sort = 0 then 1 else 0 end), works.sort, works.id DESC', false);
@@ -32,9 +34,7 @@ class WorksController extends Controller {
         $items = $works->filter($query, []);
 
         if (!empty($group)) {
-            if ($group == 'all') {
-                $items = $works->filter($query, []);
-            } elseif ($group == 'house') {
+            if ($group == 'house') {
                 $cat = $worksCat->findOne(['key' => 'house']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
@@ -51,6 +51,18 @@ class WorksController extends Controller {
 
         $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => 2], true)]);
+        }
 
         $works = $items->offset($pager->offset)
             ->limit($pager->limit)
@@ -71,6 +83,7 @@ class WorksController extends Controller {
         $id = !empty(Yii::$app->request->getQueryParam('id')) ? Yii::$app->request->getQueryParam('id') : false;
 
         if ($id) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/single', 'id' => $id], true)]);
             $work = Works::findOne(['id' => $id, 'active' => 1]);
             if (!$work) {
                 throw new HttpException(404 ,'Такой страницы нет!');

@@ -51,6 +51,10 @@ class PricesController extends Controller {
         }
 
     public function actionPrint() {
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
         $data = [];
         $table_data = [];
         if (!empty($_COOKIE['data_print'])) {
@@ -79,6 +83,10 @@ class PricesController extends Controller {
     }
 
     public function actionRates() {
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
         return $this->render('rates');
     }
 

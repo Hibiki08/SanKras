@@ -48,6 +48,18 @@ class AboutController extends Controller {
         $opinions = Opinions::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1]);
         $pager = new Pagination(['totalCount' => $opinions->count(), 'pageSize' => Opinions::PAGE_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/opinions', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/opinions', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/opinions', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/opinions', 'page' => 2], true)]);
+        }
 
         $opinions = $opinions->offset($pager->offset)
             ->limit($pager->limit)
@@ -131,6 +143,18 @@ class AboutController extends Controller {
 
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/news', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/news', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/news', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/news', 'page' => 2], true)]);
+        }
 
         $blog = $blog->offset($pager->offset)
             ->limit($pager->limit)
@@ -186,6 +210,18 @@ class AboutController extends Controller {
 
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::ART_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/articles', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/articles', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/articles', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/articles', 'page' => 2], true)]);
+        }
 
         $blog = $blog->offset($pager->offset)
             ->limit($pager->limit)

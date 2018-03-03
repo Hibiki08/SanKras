@@ -9,7 +9,7 @@ class Blog extends AbstractModel {
 
     const IMG_FOLDER_NEWS = 'blog/news/';
     const IMG_FOLDER_ART = 'blog/articles/';
-    const NEWS_SIZE = 18;
+    const NEWS_SIZE = 9;
     const ART_SIZE = 9;
 
     public static function tableName() {
