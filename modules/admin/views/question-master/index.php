@@ -63,7 +63,7 @@ $this->title = 'Вопрос мастеру';
             var id = $this.data().id;
             $this.find('.progress').show();
             $.ajax({
-                url: '<?php echo Url::toRoute('quesstion-master/processe'); ?>',
+                url: '<?php echo Url::toRoute('question-master/processe'); ?>',
                 type: 'get',
                 dataType: 'json',
                 data: {id: id, value: value},

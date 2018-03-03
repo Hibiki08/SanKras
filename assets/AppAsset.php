@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
         '/css/hibiki.slider.css?r3',
         'css/style.css?r95',
         'css/add-style.min.css?r8',
-        'css/style.css?r97',
+        'css/style.css?r98',
         'css/media.css?r31',
         'css/fonts.css?r3',
     ];

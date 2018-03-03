@@ -348,7 +348,7 @@ $this->registerMetaTag([
 </section>
 <?php
 if (!empty($seoBottom)) { ?>
-    <section class="seo">
+    <section class="seo" id="seo">
         <div class="width">
             <h2><?php echo $seoBottom->title; ?></h2>
             <div class="short">
