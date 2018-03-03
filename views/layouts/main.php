@@ -48,6 +48,7 @@ AppAsset::register($this);
             <?php echo MainMenu::widget(); ?>
             <div class="phone exo" id="phone">
                 <?php echo Yii::$app->system->get('phone'); ?>
+                <span>звонок бесплатный</span>
             </div>
             <button class="pulse exo" id="callback">Заказать звонок</button>
         </div>

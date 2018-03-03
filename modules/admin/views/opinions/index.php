@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use app\models\Opinions;
+use yii\widgets\LinkPager;
 
 $this->title = 'Отзывы';
 ?>
@@ -54,6 +55,11 @@ $this->title = 'Отзывы';
         <?php } ?>
         </tbody>
     </table>
+    <div class="row-fluid pager">
+        <?php echo LinkPager::widget([
+            'pagination' => $pager,
+        ]); ?>
+    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

@@ -229,8 +229,8 @@ $this->registerMetaTag([
                     type : 'inside'
                 }
             }
-
         });
+        setTimeout('yaCounter39483720.reachGoal("minuta<?php echo $options['id']; ?>");', 60000);
     });
 </script>
 <?php } ?>
