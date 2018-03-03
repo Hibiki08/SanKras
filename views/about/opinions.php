@@ -5,14 +5,14 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\helpers\StringHelper;
 
-$this->title = 'Отзывы | Компания по оказанию сантехнических услуг SanKras';
+$this->title = 'Отзывы о компании СанКрас: 50% заказов приходят к нам по рекомендации';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Отзывы по оказанию сантехнических услуг SanKras'
+    'content' => 'Читайте отзывы о компании СанКрас: почему в "мертвый сезон" мы не сидим без работы? Доля заказов через "сарафанное радио" составляет более 50%. Почему нас рекомендуют.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'отзывы услуги сантехников в краснодаре'
+    'content' => 'отзывы компания санкрас'
 ]);
 ?>
 <section class="opinions" id="opinions">

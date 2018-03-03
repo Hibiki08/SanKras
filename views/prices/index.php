@@ -1,12 +1,12 @@
 <?php
-$this->title = 'Прайс-лист | Цены на монтаж санфаянса, водоснабжения, отопления';
+$this->title = 'Прайс-лист сантехнических работ 2018 | Компания СанКрас';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Стоимость выполнения монтажных работ по сантехнике'
+    'content' => 'Стоимость монтажных сантехнических работ в компании СанКрас. Актуальные цены на услуги сантехников в Краснодаре и Краснодарском крае.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'прайс лист сантехнические работы, цены сантехнические работы, расценки сантехнические работы, стоимость сантехнические работы'
+    'content' => 'стоимость сантехнические работы услуги цена сантехник краснодар'
 ]);
 ?>
 <section class="price" id="price">
@@ -19,7 +19,7 @@ $this->registerMetaTag([
             </ul>
         </div>
         <section class="price-list clear">
-            <h1 class="exo asphalt">Стоимость монтажных работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h1>
+            <h1 class="exo asphalt">Стоимость сантехнических работ (прайс-лист <?php echo Yii::$app->formatter->asDate(time(), 'yyyy г.'); ?>)</h1>
             <div class="table">
                 <?php $cat = []; ?>
                 <?php foreach($prices as $price) { ?>

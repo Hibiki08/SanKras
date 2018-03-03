@@ -3,14 +3,14 @@ use yii\widgets\LinkPager;
 use app\models\Blog;
 use yii\helpers\StringHelper;
 
-$this->title = 'Новости | Компания по оказанию сантехнических услуг SanKras';
+$this->title = 'Новости компании СанКрас: посещение семинаров и повышение квалификации';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Новости компании SanKras'
+    'content' => 'Специалисты компании СанКрас постоянно повышают квалификацию: посещение семинаров и выставок по сантехнике позволяет использовать в работе новейшие технологии.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'новости сантехники краснодара, новости компании SanKras'
+    'content' => 'новости компании санкрас'
 ]);
 ?>
 <section class="news" id="about">

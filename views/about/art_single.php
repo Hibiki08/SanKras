@@ -4,7 +4,7 @@ use yii\helpers\StringHelper;
 $this->title = $article->title;
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Новости компании SanKras'
+    'content' => strip_tags(StringHelper::truncate( $article->text, 150, ''))
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',

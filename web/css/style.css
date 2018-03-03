@@ -1925,6 +1925,11 @@ address {
     font-weight: 300;
     margin-bottom: 45px;
 }
+.options h2 {
+    width: 100%;
+    text-align: center;
+    margin: 45px 0;
+}
 .price .price-list .table {
     float: right;
     width: 875px;

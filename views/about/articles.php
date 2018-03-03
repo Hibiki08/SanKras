@@ -4,14 +4,14 @@ use app\models\Blog;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
-$this->title = 'Статьи | Компания по оказанию сантехнических услуг SanKras';
+$this->title = 'Статьи по сантехнике: специалисты компании СанКрас делятся опытом';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Статьи компании SanKras'
+    'content' => 'Специалисты компании СанКрас делятся опытом и рассказывают, почему в частном доме необходимо установить систему водоочистки или как выбрать радиаторы отпления.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'статьи сантехники краснодара, статьи компании SanKras'
+    'content' => 'статьи по сантехнике'
 ]);
 ?>
 <section class="articles" id="about">

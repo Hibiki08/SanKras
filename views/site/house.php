@@ -3,10 +3,10 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
-$this->title = 'Монтаж отопления в частном доме под ключ Краснодар';
+$this->title = 'Сантехнические работы "под ключ" в частном доме в Краснодаре';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Монтаж отопления в частных домах, коттеджах под ключ в Краснодаре. Стоимость работ'
+    'content' => 'Компания СанкКрас выполняет полный комплекс улуг по разводке отопления, водоснабжения и канализации в частном доме. Профессиональный монтаж и гарантия 5 лет на работы.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
@@ -16,7 +16,7 @@ $this->registerMetaTag([
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h1 class="title title-big">Монтаж отопления, водоснабжения в частном доме «под ключ»</h1>
+            <h1 class="title title-big">Сантехнические работы в частном доме "под ключ"</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>

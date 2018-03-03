@@ -1,14 +1,14 @@
 <?php
 use app\models\Team;
 use app\models\Certificates;
-$this->title = 'О нас | Компания по оказанию сантехнических услуг SanKras';
+$this->title = 'О компании СанКрас: профессиональные монтажники сантехники';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Компания по оказанию сантехнических услуг SanKras'
+    'content' => 'С 2014 года компания СанКрас выполнила проектирование и монтаж инженерных сантех. сетей в 120 частных домах площадью 100-600 кв.м., в 80 квартирах, в коммерческих и производственных помещениях.'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'монтаж сантехники, сантехники краснодара, сантехнические работы, сантехнические услуги, услуги сантехников'
+    'content' => 'сайт сантехников сантехническии компании бригада сандехников'
 ]);
 ?>
 <section class="about" id="about">
@@ -22,7 +22,7 @@ $this->registerMetaTag([
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
             </div>
-            <h1 class="title exo asphalt">О нас</h1>
+            <h1 class="title exo asphalt">О компании</h1>
         </div>
         <div class="about-block">
             <div class="text clear">
