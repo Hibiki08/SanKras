@@ -2550,7 +2550,8 @@ color: #fff;
 .hover-title {
     text-transform: none;
 }
-#works {
+#works,
+#about {
     padding-bottom: 60px;
 }
 .hover-title {
