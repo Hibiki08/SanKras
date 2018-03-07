@@ -84,7 +84,7 @@ class AboutController extends Controller {
 
             Yii::$app->mailer->compose()
                 ->setFrom(Yii::$app->system->get('email'))
-                ->setTo(Yii::$app->system->get('email'))
+                ->setTo('sankras.pro@yandex.ru')
                 ->setSubject('Новый отзыв на сайте')
                 ->setHtmlBody('Нужно рассмотреть отзыв на допустимость размещения на сайте.')
                 ->send();

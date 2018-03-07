@@ -99,7 +99,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Заявка на консультацию мастера')
                         ->setHtmlBody('Заявка на консультацию мастера.<br>Имя: ' . $adviceName .'<br>Телефон: ' . $advicePhone)
                         ->send();
@@ -122,7 +122,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Заявка на обратный звонок')
                         ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
                         ->send();
@@ -145,7 +145,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Получение дисконтной карты')
                         ->setHtmlBody('Заявка на получение дисконтной карты от: ' . $cardMail)
                         ->send();
@@ -188,7 +188,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Выезд мастера')
                         ->setHtmlBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                         ->send();
@@ -235,7 +235,7 @@ class SiteController extends Controller {
 
                 $validate = Yii::$app->mailer->compose()
                     ->setFrom($writeEmail)
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Сообщение со страницы "Контакты"')
                     ->setHtmlBody('Имя: ' . $writeName . '<br>Телефон: ' . $writePhone . '<br>Email: ' . $writeEmail . '<br>Сообщение: ' . $writeMessage)
                     ->send();
@@ -278,7 +278,7 @@ class SiteController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Вопрос мастеру')
                     ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
                     ->send();
@@ -324,7 +324,7 @@ class SiteController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Вопрос мастеру')
                     ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
                     ->send();

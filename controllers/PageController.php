@@ -64,7 +64,7 @@ class PageController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Заказать услугу')
                     ->setHtmlBody('Запрос с формы "Заказать услугу".<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone .'<br><b>Со страницы:</b> ' . $pageTitle)
                     ->send();
@@ -102,7 +102,7 @@ class PageController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Вопрос мастеру')
                     ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone .'<br><b>Со страницы:</b> ' . $pageTitle)
                     ->send();
