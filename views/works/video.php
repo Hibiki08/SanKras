@@ -18,7 +18,7 @@ $this->registerMetaTag([
             <h1 class="title exo asphalt">Видео наших работ</h1>
             <div class="tabs">
                 <ul>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'all']); ?>">Все работы</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>">Все работы</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео</a></li>
