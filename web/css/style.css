@@ -2087,7 +2087,6 @@ color: #fff;
 #more .table tr:hover,
 .pages .packages table tr:not(:nth-of-type(2)):not(:first-of-type):hover,
 .pages .table table tr:not(:first-of-type):hover,
-.pages .table table tr:hover,
 .price .table tr:hover input {
     background: #f1f2f4;
 }
