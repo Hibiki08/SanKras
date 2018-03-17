@@ -29,6 +29,7 @@ class AboutController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/about'], true)]);
         $this->view->registerCssFile('/lib/fancyBox-18d1712/source/jquery.fancybox.css');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
@@ -45,6 +46,7 @@ class AboutController extends Controller {
 
     public function actionOpinions() {
 //        session_start();
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/opinions'], true)]);
         $opinions = Opinions::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1]);
         $pager = new Pagination(['totalCount' => $opinions->count(), 'pageSize' => Opinions::PAGE_SIZE]);
         $pager->pageSizeParam = false;
@@ -116,6 +118,7 @@ class AboutController extends Controller {
         $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::NEWS_ID]);
 
         if (!empty($id)) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/news', 'id' => $id], true)]);
             $new = $blog->where(['id' => $id])->one();
             $otherNews = Blog::find()->where('id != ' . $id)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
 
@@ -141,6 +144,7 @@ class AboutController extends Controller {
 
         }
 
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/news'], true)]);
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
         $pageCount = ceil($pager->totalCount / $pager->pageSize);
@@ -172,6 +176,7 @@ class AboutController extends Controller {
         $blog = $blog->getAllCat($where, ['blog.date' => SORT_DESC], false);
 
         if (!empty($id)) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/articles', 'id' => $id], true)]);
             $article = $blog->where(['blog.id' => $id])->one();
             $otherArticles = $blog->where('blog.id != ' . $id)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
 
@@ -197,6 +202,7 @@ class AboutController extends Controller {
 
         }
 
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/articles'], true)]);
         if (!empty($group)) {
             $blog = $blog->andWhere(['blog.cat_id' => $group]);
         }

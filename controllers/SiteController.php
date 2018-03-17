@@ -76,6 +76,7 @@ class SiteController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/'], true)]);
         $form = new BaseForm();
         $seoBottom = new Seo();
         $seoBottom->key = 'INDEX_BOTTOM';
@@ -213,6 +214,7 @@ class SiteController extends Controller {
     }
 
     public function actionContacts() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/contacts'], true)]);
         $this->view->registerJsFile('/js/map.js?r1', ['position' => View::POS_HEAD]);
         $form = new WriteUsForm();
 
@@ -257,6 +259,7 @@ class SiteController extends Controller {
     }
 
     public function actionFlat() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/flat'], true)]);
         $form = new BaseForm();
 
         if (Yii::$app->request->isAjax) {
@@ -295,6 +298,7 @@ class SiteController extends Controller {
     }
 
     public function actionHouse() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/house'], true)]);
         $form = new BaseForm();
 
         return $this->render('house', [
@@ -303,6 +307,7 @@ class SiteController extends Controller {
     }
 
     public function actionCompany() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/company'], true)]);
         $form = new BaseForm();
 
         if (Yii::$app->request->isAjax) {

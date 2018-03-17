@@ -125,6 +125,7 @@ class WorksController extends Controller {
     }
 
     public function actionVideo() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/video'], true)]);
         $videos = Works::find()->where('active = 1 AND video IS NOT NULL')->orderBy(['id' => SORT_DESC]);
         $pager = new Pagination(['totalCount' => $videos->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
