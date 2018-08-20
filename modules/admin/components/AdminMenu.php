@@ -90,6 +90,15 @@ class AdminMenu extends Widget {
             ]
         ],
         [
+            'name' => 'Посадочные страницы',
+            'submenu' => [
+                [
+                    'name' => 'Список',
+                    'controller' => 'pages'
+                ],
+            ]
+        ],
+        [
             'name' => 'Заявки',
             'submenu' => [
                 [
@@ -115,6 +124,10 @@ class AdminMenu extends Widget {
                 [
                     'name' => 'Напишите нам',
                     'controller' => 'write-us'
+                ],
+                [
+                    'name' => 'Заказ услуги',
+                    'controller' => 'order-service'
                 ],
 
             ]

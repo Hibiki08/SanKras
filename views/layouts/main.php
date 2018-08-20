@@ -7,12 +7,13 @@ use app\assets\AppAsset;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\models\forms\BaseForm;
+use app\models\Services;
+use app\components\MainMenu;
 
-$controller = Yii::$app->controller->id;
-$action = Yii::$app->controller->action->id;
 $letter = new BaseForm();
 
 AppAsset::register($this);
+//var_dump(Yii::$app->controller->route);die;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,14 +27,14 @@ AppAsset::register($this);
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
 <!--start wrapper-->
 <div class="wrapper">
     <!--start header-->
     <header id="header">
         <div class="description">
             <div class="width clear">
-                <div>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре</a></div>
+                <div>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре и крае, в Адыгее</a></div>
                 <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="address">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
                     <address><?php echo Yii::$app->system->get('address'); ?></address>
@@ -44,34 +45,10 @@ AppAsset::register($this);
             <div class="logo">
                 <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
             </div>
-            <nav class="menu exo asphalt">
-                <ul>
-                    <li class="list"><a><div class="img"></div>Услуги</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('heating'); ?>">Монтаж отопления</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополива</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>" class="<?php echo $controller == 'prices' ? 'active' : $action == 'prices' ? 'active' : ''; ?>">Цены</a></li>
-                    <li class="list works"><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>" class="<?php echo $controller == 'works' ? 'active' : $action == 'works' ? 'active' : ''; ?>">Наши работы</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео работ</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
-                        </ul>
-                    </li>
-                    <li class="list about"><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>" class="<?php echo $controller == 'about' ? 'active' : $action == 'about' ? 'active' : ''; ?>">О нас</a>
-                        <ul class="submenu"><li><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="<?php echo $controller == 'contacts' ? 'active' : $action == 'contacts' ? 'active' : ''; ?>">Контакты</a></li>
-                </ul>
-            </nav>
+            <?php echo MainMenu::widget(); ?>
             <div class="phone exo" id="phone">
                 <?php echo Yii::$app->system->get('phone'); ?>
+                <span>звонок бесплатный</span>
             </div>
             <button class="pulse exo" id="callback">Заказать звонок</button>
         </div>
@@ -127,11 +104,17 @@ AppAsset::register($this);
                     <div class="cell usl">
                         <div class="exo">Услуги</div>
                         <ul>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('heating'); ?>">Монтаж отопления</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('water-supply'); ?>">Монтаж водоснабжения</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sewerage'); ?>">Монтаж канализации</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('sanfayans'); ?>">Установка санфаянса</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('automatic-watering'); ?>">Система автополива</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/heating'); ?>">Монтаж отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/heating/ustanovka-kotlov-otopleniya'); ?>">Установка котлов отопления</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/heating/ustanovka-gazovogo-kotla'); ?>">Установка газового котла</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/heating/montazh-teplogo-pola'); ?>">Монтаж теплого пола</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/water-supply'); ?>">Монтаж водоснабжения</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/water-supply/ustanovka-filtrov'); ?>">Установка фильтров</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/sewerage'); ?>">Монтаж канализации</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/sanfayans'); ?>">Установка сантехники</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/sanfayans/ustanovka-vanny'); ?>">Установка ванны</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/automatic-watering'); ?>">Монтаж автополива</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('/montazh-i-zamena-trub'); ?>">Монтаж и замена труб</a></li>
                         </ul>
                     </div>
                     <div class="cell price">
@@ -168,7 +151,7 @@ AppAsset::register($this);
                                                                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
                         <!-- /Yandex.Metrika informer -->
                     </div>
-                    <div class="copy">© 2015-2017 «SanKras»</div>
+                    <div class="copy">© 2015-<?php echo Yii::$app->formatter->asDate(time(), 'yyyy')?> «SanKras»</div>
                     <div class="conf"><a href="<?php echo Yii::$app->urlManager->createUrl('privacy-policy'); ?>">Политика конфиденциальности</a></div>
                 </div>
                 <div class="codedex clear">

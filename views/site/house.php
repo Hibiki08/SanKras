@@ -3,20 +3,16 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
-$this->title = 'Монтаж отопления в частном доме под ключ Краснодар';
+$this->title = 'Сантехнические работы "под ключ" в частном доме в Краснодаре';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Монтаж отопления в частных домах, коттеджах под ключ в Краснодаре. Стоимость работ'
-]);
-$this->registerMetaTag([
-    'name' => 'keywords',
-    'content' => 'система отопления частный дом, монтаж отопления частный дом, стоимость монтаж отопления частный дом, цена системы отопления частный дом'
+    'content' => 'Компания СанкКрас выполняет полный комплекс улуг по разводке отопления, водоснабжения и канализации в частном доме. Профессиональный монтаж и гарантия 5 лет на работы.'
 ]);
 ?>
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h1 class="title title-big">Монтаж сантехнических коммуникаций в частном доме «под ключ»</h1>
+            <h1 class="title title-big">Сантехнические работы в частном доме "под ключ"</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
@@ -106,7 +102,7 @@ $this->registerMetaTag([
     <?php echo Works::widget(['filter' => ['works.cat_id' => WorksCat::HOUSE_ID]]); ?>
     <section class="pakage">
         <div class="width">
-            <h2 class="title-big">пакеты услуг по монтажу коммуникаций в частном доме</h2>
+            <h2 class="title-big">пакеты услуг по монтажу отопления и водоснабжения в частном доме</h2>
             <table>
                 <thead>
                 <tr>

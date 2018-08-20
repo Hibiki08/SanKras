@@ -32,7 +32,7 @@ class EditWorksForm extends Model {
             [['title', 'text', 'cat_id', 'preview_items', 'work_items', 'year', 'area', 'cost_install', 'cost_material'], 'required'],
             [['preview'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['slides'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
-            ['title', 'string', 'max' => 50],
+            ['title', 'string', 'max' => 65],
             ['video', 'match', 'pattern' => '/youtube.com\/embed/i'],
             ['year', 'string', 'max' => 4],
             [['area', 'cost_install', 'cost_material'], 'double'],

@@ -3,20 +3,16 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
-$this->title = 'Монтаж сантехники в квартире под ключ Краснодар';
+$this->title = 'Сантехнические работы "под ключ" в квартире в Краснодаре';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Монтаж сантехники в квартире под ключ в Краснодаре. Стоимость работ'
-]);
-$this->registerMetaTag([
-    'name' => 'keywords',
-    'content' => 'разводка труб водоснабжения в квартире, разводка сантехники в квартире, установки сантехники в квартире, цена разводка сантехники в квартире'
+    'content' => 'Компания СанкКрас выполняет полный комплекс улуг по разводке сантехнических коммуникаций в квартире. Профессиональный монтаж отопления, водоснабжения, канализации'
 ]);
 ?>
 <section class="more-flat" id="more">
     <section class="description">
         <div class="width clear">
-            <h1 class="title title-big">Монтаж сантехнических коммуникаций в квартире «под ключ»</h1>
+            <h1 class="title title-big">Сантехнические работы в квартире "под ключ"</h1>
             <figure>
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-flat-2.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
@@ -98,7 +94,7 @@ $this->registerMetaTag([
     <?php echo Works::widget(['filter' => ['works.cat_id' => WorksCat::FLAT_ID]]); ?>
     <section class="pakage">
         <div class="width">
-            <h2 class="title-big">пакеты услуг по монтажу коммуникаций в квартире</h2>
+            <h2 class="title-big">пакеты услуг по монтажу отопления и водоснабжения в квартире</h2>
             <table>
                 <thead>
                 <tr>

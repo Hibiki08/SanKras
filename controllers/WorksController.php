@@ -24,6 +24,8 @@ class WorksController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/works'], true)]);
+
         $works = new Works();
         $worksCat = new WorksCat();
         $query = $works->getAllCat(['works.active' => 1], '(case when works.sort = 0 then 1 else 0 end), works.sort, works.id DESC', false);
@@ -31,26 +33,36 @@ class WorksController extends Controller {
         $group = Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false;
         $items = $works->filter($query, []);
 
-        switch ($group) {
-            case 'all';
-                $items = $works->filter($query, []);
-                break;
-            case 'house';
+        if (!empty($group)) {
+            if ($group == 'house') {
                 $cat = $worksCat->findOne(['key' => 'house']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
-                break;
-            case 'flat';
+            } elseif ($group == 'flat') {
                 $cat = $worksCat->findOne(['key' => 'flat']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
-                break;
+            } else {
+                throw new HttpException(404 ,'Такой страницы нет!');
+            }
         }
 
         $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => 2], true)]);
+        }
 
         $works = $items->offset($pager->offset)
             ->limit($pager->limit)
@@ -71,6 +83,7 @@ class WorksController extends Controller {
         $id = !empty(Yii::$app->request->getQueryParam('id')) ? Yii::$app->request->getQueryParam('id') : false;
 
         if ($id) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/single', 'id' => $id], true)]);
             $work = Works::findOne(['id' => $id, 'active' => 1]);
             if (!$work) {
                 throw new HttpException(404 ,'Такой страницы нет!');
@@ -97,8 +110,8 @@ class WorksController extends Controller {
                 ->limit($pager->limit)
                 ->all();
         } else {
-            Yii::$app->getResponse()->redirect(Url::toRoute('works/'));
-            return false;
+            Yii::$app->getResponse()->redirect(Url::toRoute('works'));
+            exit;
         }
 
         return $this->render('single', [
@@ -112,6 +125,7 @@ class WorksController extends Controller {
     }
 
     public function actionVideo() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/video'], true)]);
         $videos = Works::find()->where('active = 1 AND video IS NOT NULL')->orderBy(['id' => SORT_DESC]);
         $pager = new Pagination(['totalCount' => $videos->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;

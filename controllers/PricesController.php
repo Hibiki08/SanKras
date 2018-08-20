@@ -6,6 +6,8 @@ use Yii;
 use yii\web\Controller;
 use app\models\Prices;
 use app\components\Cache;
+use yii\helpers\Url;
+
 
 class PricesController extends Controller {
 
@@ -17,6 +19,7 @@ class PricesController extends Controller {
     }
 
     public function actionIndex() {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/prices'], true)]);
             $prices = new Prices();
             $prices = $prices->getAllCat(['t.active' => 1, 'category.active' => 1], ['category.sort' => SORT_ASC, 't.sort' => SORT_ASC]);
             $pricesArr = [];
@@ -51,6 +54,10 @@ class PricesController extends Controller {
         }
 
     public function actionPrint() {
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
         $data = [];
         $table_data = [];
         if (!empty($_COOKIE['data_print'])) {
@@ -79,6 +86,11 @@ class PricesController extends Controller {
     }
 
     public function actionRates() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['prices/rates'], true)]);
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
         return $this->render('rates');
     }
 

@@ -12,7 +12,7 @@ $this->title = 'Вопрос мастеру';
             <th>#</th>
             <th>Имя</th>
             <th>Телефон</th>
-            <th>Текст</th>
+            <th>Со страницы</th>
             <th>Дата</th>
             <th>Обработана</th>
             <th></th>
@@ -25,7 +25,7 @@ $this->title = 'Вопрос мастеру';
                     <td><?php echo $master->id; ?></td>
                     <td><?php echo $master->name; ?></td>
                     <td><?php echo $master->phone; ?></td>
-                    <td><?php echo $master->text; ?></td>
+                    <td><?php echo $master->from_page; ?></td>
                     <td><?php echo Yii::$app->formatter->asDate($master->date, 'd MMMM yyyy H:m'); ?></td>
                     <td class="status"><?php echo $master->processe ? 'Да' : 'Нет'; ?></td>
                     <td>
@@ -63,7 +63,7 @@ $this->title = 'Вопрос мастеру';
             var id = $this.data().id;
             $this.find('.progress').show();
             $.ajax({
-                url: '<?php echo Url::toRoute('quesstion-master/processe'); ?>',
+                url: '<?php echo Url::toRoute('question-master/processe'); ?>',
                 type: 'get',
                 dataType: 'json',
                 data: {id: id, value: value},

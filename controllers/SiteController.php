@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\forms\BaseForm;
 use Yii;
+use app\models\forms\BaseForm;
 use yii\web\View;
 use yii\web\Controller;
 use app\models\forms\LoginForm;
@@ -20,6 +20,7 @@ use app\models\Seo;
 class SiteController extends Controller {
 
     use Cache;
+
 //    public function behaviors() {
 //        return [
 //            'access' => [
@@ -75,6 +76,7 @@ class SiteController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/'], true)]);
         $form = new BaseForm();
         $seoBottom = new Seo();
         $seoBottom->key = 'INDEX_BOTTOM';
@@ -98,7 +100,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Заявка на консультацию мастера')
                         ->setHtmlBody('Заявка на консультацию мастера.<br>Имя: ' . $adviceName .'<br>Телефон: ' . $advicePhone)
                         ->send();
@@ -121,7 +123,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Заявка на обратный звонок')
                         ->setTextBody('Нужно перезвонить по номеру: ' . $callPhone)
                         ->send();
@@ -144,7 +146,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Получение дисконтной карты')
                         ->setHtmlBody('Заявка на получение дисконтной карты от: ' . $cardMail)
                         ->send();
@@ -187,7 +189,7 @@ class SiteController extends Controller {
 
                     $status = Yii::$app->mailer->compose()
                         ->setFrom(Yii::$app->system->get('email'))
-                        ->setTo(Yii::$app->system->get('email'))
+                        ->setTo('sankras.pro@yandex.ru')
                         ->setSubject('Выезд мастера')
                         ->setHtmlBody('Заявка на вызов мастера.<br>Имя: ' . $masterName .'<br>Телефон: ' . $masterPhone)
                         ->send();
@@ -200,13 +202,19 @@ class SiteController extends Controller {
 
 
         }
+        $date_card_from = (new \DateTime())->modify('-1 month')->format('m.Y');
+        $date_card_to = (new \DateTime())->modify('+1 month')->format('m.Y');
+
         return $this->render('index', [
             'letter' => $form,
-            'seoBottom' => $seoBottom
+            'seoBottom' => $seoBottom,
+            'date_card_from' => $date_card_from,
+            'date_card_to' => $date_card_to
         ]);
     }
 
     public function actionContacts() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/contacts'], true)]);
         $this->view->registerJsFile('/js/map.js?r1', ['position' => View::POS_HEAD]);
         $form = new WriteUsForm();
 
@@ -229,7 +237,7 @@ class SiteController extends Controller {
 
                 $validate = Yii::$app->mailer->compose()
                     ->setFrom($writeEmail)
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Сообщение со страницы "Контакты"')
                     ->setHtmlBody('Имя: ' . $writeName . '<br>Телефон: ' . $writePhone . '<br>Email: ' . $writeEmail . '<br>Сообщение: ' . $writeMessage)
                     ->send();
@@ -247,11 +255,11 @@ class SiteController extends Controller {
 
     public function actionRates() {
         return $this->render('rates', [
-//            'write' => $form
         ]);
     }
 
     public function actionFlat() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/flat'], true)]);
         $form = new BaseForm();
 
         if (Yii::$app->request->isAjax) {
@@ -273,7 +281,7 @@ class SiteController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Вопрос мастеру')
                     ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
                     ->send();
@@ -290,6 +298,7 @@ class SiteController extends Controller {
     }
 
     public function actionHouse() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/house'], true)]);
         $form = new BaseForm();
 
         return $this->render('house', [
@@ -298,6 +307,7 @@ class SiteController extends Controller {
     }
 
     public function actionCompany() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/company'], true)]);
         $form = new BaseForm();
 
         if (Yii::$app->request->isAjax) {
@@ -319,7 +329,7 @@ class SiteController extends Controller {
 
                 $status = Yii::$app->mailer->compose()
                     ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
+                    ->setTo('sankras.pro@yandex.ru')
                     ->setSubject('Вопрос мастеру')
                     ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
                     ->send();
@@ -335,203 +345,16 @@ class SiteController extends Controller {
         ]);
     }
 
-    public function actionWaterSupply() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_WATER', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('water-supply', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
-    public function actionHeating() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_HEAT', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('heating', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
-    public function actionSewerage() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_SEW', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('sewerage', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
-    public function actionSanfayans() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_SAN', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('sanfayans', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
-    public function actionAutomaticWatering() {
-        $form = new BaseForm();
-        $options = Prices::find()->where(['key_page' => 'PAGE_AUTO', 'active' => 1])->orderBy(['sort' => SORT_DESC])->all();
-
-        if (Yii::$app->request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            $validate = ActiveForm::validate($form);
-            if ($validate) {
-                $status = false;
-                $request = new Requests();
-
-                $questionName = trim(Html::encode($form->name));
-                $questionPhone = trim(Html::encode($form->phone));
-                $questionText = trim(Html::encode($form->text));
-
-                $request->name = $questionName;
-                $request->phone = $questionPhone;
-                $request->text = $questionText;
-                $request->type_id = Requests::QUESTION_ID;
-                $request->save();
-
-                $status = Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->system->get('email'))
-                    ->setTo(Yii::$app->system->get('email'))
-                    ->setSubject('Вопрос мастеру')
-                    ->setHtmlBody('Вопрос мастеру.<br><b>Имя:</b> ' . $questionName .'<br><b>Телефон:</b> ' . $questionPhone . '<br><b>Вопрос:</b> ' . $questionText)
-                    ->send();
-
-                return [
-                    'status' => $status,
-                ];
-            }
-        }
-        return $this->render('automatic-watering', [
-            'question' => $form,
-            'options' => $options
-        ]);
-    }
-
     public function actionPrivacyPolicy() {
-        return $this->render('privacy-policy');
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+        ]);
+        $date_from = (new \DateTime())->modify('-1 month')->format('m.Y');
+        
+        return $this->render('privacy-policy', [
+            'date_from' => $date_from
+        ]);
     }
 
 }

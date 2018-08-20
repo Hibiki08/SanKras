@@ -4,7 +4,7 @@ use yii\helpers\StringHelper;
 $this->title = $article->title;
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Новости компании SanKras'
+    'content' => strip_tags(StringHelper::truncate( $article->text, 150, ''))
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
@@ -24,9 +24,9 @@ $this->registerMetaTag([
             </div>
             <?php if ($prev && $next != null) { ?>
                 <div class="prev-next clear">
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'single' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая статья</span></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая статья</span></a>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles']); ?>" class="prev more exo"><div class="img"></div><span>Все статьи</span></a>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'single' => $next]); ?>" class="next exo"><span>Следующая статья</span><div class="img"></div></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $next]); ?>" class="next exo"><span>Следующая статья</span><div class="img"></div></a>
                 </div>
             <?php } ?>
         </div>
@@ -34,7 +34,7 @@ $this->registerMetaTag([
             <div>Другие статьи</div>
             <?php if (!empty($other)) { ?>
                 <?php foreach ($other as $oth) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'single' => $oth->id]); ?>" class="more">
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $oth->id]); ?>" class="more">
                         <h2><?php echo $oth->title; ?></h2>
                         <div class="short"><?php echo strip_tags(StringHelper::truncate($oth->text, 250, '...'), '<br><p>'); ?></div>
                         <span class="date"><?php echo Yii::$app->formatter->asDate($oth->date, 'd MMMM yyyy'); ?></span>

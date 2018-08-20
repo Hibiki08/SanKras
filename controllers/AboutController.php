@@ -29,6 +29,7 @@ class AboutController extends Controller {
     }
 
     public function actionIndex() {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/about'], true)]);
         $this->view->registerCssFile('/lib/fancyBox-18d1712/source/jquery.fancybox.css');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
@@ -44,10 +45,23 @@ class AboutController extends Controller {
     }
 
     public function actionOpinions() {
-        session_start();
+//        session_start();
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/opinions'], true)]);
         $opinions = Opinions::find()->orderBy(['id' => SORT_DESC])->where(['active' => 1]);
         $pager = new Pagination(['totalCount' => $opinions->count(), 'pageSize' => Opinions::PAGE_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/opinions', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/opinions', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/opinions', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/opinions', 'page' => 2], true)]);
+        }
 
         $opinions = $opinions->offset($pager->offset)
             ->limit($pager->limit)
@@ -72,7 +86,7 @@ class AboutController extends Controller {
 
             Yii::$app->mailer->compose()
                 ->setFrom(Yii::$app->system->get('email'))
-                ->setTo(Yii::$app->system->get('email'))
+                ->setTo('sankras.pro@yandex.ru')
                 ->setSubject('Новый отзыв на сайте')
                 ->setHtmlBody('Нужно рассмотреть отзыв на допустимость размещения на сайте.')
                 ->send();
@@ -100,19 +114,20 @@ class AboutController extends Controller {
         ]);
     }
 
-    public function actionNews($single = '') {
+    public function actionNews($id = '') {
         $blog = Blog::find()->orderBy(['date' => SORT_DESC])->where(['active' => 1, 'cat_id' => BlogCat::NEWS_ID]);
 
-        if (!empty($single)) {
-            $new = $blog->where(['id' => $single])->one();
-            $otherNews = Blog::find()->where('id != ' . $single)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
+        if (!empty($id)) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/news', 'id' => $id], true)]);
+            $new = $blog->where(['id' => $id])->one();
+            $otherNews = Blog::find()->where('id != ' . $id)->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['id' => SORT_DESC])->limit(3)->all();
 
-            $prev = $blog->where('date > \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id > ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = $blog->where('date > \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id > ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_ASC])->limit(1)->one();
             $prev = !is_null($prev) ? $prev->id : null;
 
-            $next = $blog->where('date < \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id < ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $single . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->limit(1)->one();
+            $next = $blog->where('date < \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id < ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->orderBy(['date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('date != \'' . $new->date . '\' OR (date = \'' . $new->date . '\' AND id != ' . $id . ')')->andWhere(['active' => 1, 'cat_id' => BlogCat::NEWS_ID])->limit(1)->one();
             $next = !is_null($next) ? $next->id : null;
 
 
@@ -129,8 +144,21 @@ class AboutController extends Controller {
 
         }
 
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/news'], true)]);
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/news', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/news', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/news', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/news', 'page' => 2], true)]);
+        }
 
         $blog = $blog->offset($pager->offset)
             ->limit($pager->limit)
@@ -142,21 +170,22 @@ class AboutController extends Controller {
         ]);
     }
 
-    public function actionArticles($single = '', $group = '') {
+    public function actionArticles($id = '', $group = '') {
         $where = '(category.parent_id = ' . BlogCat::ART_ID . ' OR blog.cat_id = ' . BlogCat::ART_ID . ') AND blog.active = 1';
         $blog = new Blog;
         $blog = $blog->getAllCat($where, ['blog.date' => SORT_DESC], false);
 
-        if (!empty($single)) {
-            $article = $blog->where(['blog.id' => $single])->one();
-            $otherArticles = $blog->where('blog.id != ' . $single)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
+        if (!empty($id)) {
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/articles', 'id' => $id], true)]);
+            $article = $blog->where(['blog.id' => $id])->one();
+            $otherArticles = $blog->where('blog.id != ' . $id)->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(3)->all();
 
-            $prev = $blog->where('blog.date > \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id > ' . $single . ')')->andWhere($where)->orderBy(['date' => SORT_ASC])->limit(1)->one();
-            $prev = !is_null($prev) ? $prev : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_ASC])->limit(1)->one();
+            $prev = $blog->where('blog.date > \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id > ' . $id . ')')->andWhere($where)->orderBy(['date' => SORT_ASC])->limit(1)->one();
+            $prev = !is_null($prev) ? $prev : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $id . ')')->andWhere($where)->orderBy(['blog.date' => SORT_ASC])->limit(1)->one();
             $prev = !is_null($prev) ? $prev->id : null;
 
-            $next = $blog->where('blog.date < \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id < ' . $single . ')')->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(1)->one();
-            $next = !is_null($next) ? $next : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $single . ')')->andWhere($where)->limit(1)->one();
+            $next = $blog->where('blog.date < \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id < ' . $id . ')')->andWhere($where)->orderBy(['blog.date' => SORT_DESC])->limit(1)->one();
+            $next = !is_null($next) ? $next : $blog->where('blog.date != \'' . $article->date . '\' OR (blog.date = \'' . $article->date . '\' AND blog.id != ' . $id . ')')->andWhere($where)->limit(1)->one();
             $next = !is_null($next) ? $next->id : null;
 
 
@@ -173,6 +202,7 @@ class AboutController extends Controller {
 
         }
 
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['about/articles'], true)]);
         if (!empty($group)) {
             $blog = $blog->andWhere(['blog.cat_id' => $group]);
         }
@@ -186,6 +216,18 @@ class AboutController extends Controller {
 
         $pager = new Pagination(['totalCount' => $blog->count(), 'pageSize' => Blog::ART_SIZE]);
         $pager->pageSizeParam = false;
+        $pageCount = ceil($pager->totalCount / $pager->pageSize);
+
+        if ($page = Yii::$app->request->getQueryParam('page')) {
+            if ($page != $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/articles', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/articles', 'page' => $page - 1], true)]);
+            } elseif ($page == $pageCount) {
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['about/articles', 'page' => $page - 1], true)]);
+            }
+        } else {
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['about/articles', 'page' => 2], true)]);
+        }
 
         $blog = $blog->offset($pager->offset)
             ->limit($pager->limit)

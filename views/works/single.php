@@ -2,15 +2,12 @@
 use app\models\Works;
 use yii\widgets\Pjax;
 use yii\widgets\LinkPager;
+use yii\helpers\StringHelper;
 
 $this->title = $work->title;
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Примеры работ по сантехнике SanKras'
-]);
-$this->registerMetaTag([
-    'name' => 'keywords',
-    'content' => 'примеры сантехнические работы, санкрас сантехнические работы, sankras работы, сантехнические работы в квартире, сантехнические работы частный дом'
+    'content' => strip_tags(StringHelper::truncate($work->text, 150, ''))
 ]);
 ?>
 <section class="work" id="work">

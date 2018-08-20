@@ -18,7 +18,7 @@ $this->registerMetaTag([
                 <li class="exo asphalt active" ><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
             </ul>
         </div>
-        <h1 class="exo asphalt">Монтаж сантехнических коммуникаций в квартире</h1>
+        <h2 class="exo asphalt">Монтаж отопления и водоснабжения в квартире</h2>
         <table>
             <thead>
             <tr>
@@ -140,7 +140,7 @@ $this->registerMetaTag([
             </tbody>
         </table>
         <div class="footnote" id="price-house">Представлена ориентировочная стоимость. По желанию заказчика услуги из пакета могут исключаться, а также добавляться другие.<br>* Скидка предоставляется по дисконтной карте. <a href="<?php echo Yii::$app->urlManager->createUrl(['/', '#' => 'card']); ?>">Получить дисконтную карту</a></div>
-        <h1 class="exo asphalt">Монтаж сантехнических коммуникаций в частном доме</h1>
+        <h2 class="exo asphalt">Монтаж сантехнических коммуникаций в частном доме</h2>
         <table>
             <thead>
             <tr>

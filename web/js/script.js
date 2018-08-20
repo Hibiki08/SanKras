@@ -2,6 +2,8 @@ $(document).ready(function() {
     $('.phone-mask').mask("+7 (999) 999-99-99");
     var focusVal = '';
     var documentScroll = '';
+    var headerHeight = $('#header').height();
+    var submenuHeight = $('.menu .list:first-of-type .submenu').innerHeight();
 
     $('.focus').focus(function() {
         focusVal = $(this).attr('placeholder');
@@ -13,6 +15,13 @@ $(document).ready(function() {
         }
     });
 
+    //Закрыть меню
+    $(document).click(function(e){
+        var elem = $('.menu .drop-down');
+        if (e.target != elem[0] && !elem.has(e.target).length) {
+            $('.menu .submenu').removeClass('active');
+        }
+    });
 
     //Ссылки на таблицу
     $(window).load(function() {
@@ -44,6 +53,7 @@ $(document).ready(function() {
     function headScroll() {
         var scroll = $(window).scrollTop();
         var description = $('#header .description');
+
         if (scroll > 0) {
             if (description.css('display') == 'block') {
                 description.slideUp();
@@ -55,7 +65,31 @@ $(document).ready(function() {
         }
     }
 
+    $('.header .drop-down').click(function () {
+        if ($('.menu .list:first-of-type .submenu').hasClass('active')) {
+            $('.menu .list:first-of-type .submenu').removeClass('active');
+        } else {
+            $('.menu .list:first-of-type .submenu').addClass('active');
+        }
+    });
+
+    function scrollMenu() {
+        var windowHeight = $(window).height();
+        var limitHeight = headerHeight + submenuHeight;
+        var currentHeight = windowHeight - headerHeight;
+
+        if (windowHeight < limitHeight) {
+            $('.menu .list:first-of-type .submenu').height(currentHeight);
+        } else {
+            $('.menu .list:first-of-type .submenu').height('auto');
+        }
+    }
+
     //Шапка
+    scrollMenu();
+    $(window).resize(function () {
+        scrollMenu();
+    });
     $(document).scroll(function() {
         headScroll();
     });
@@ -196,7 +230,7 @@ $(document).ready(function() {
                         $('#advice .form .success, #advice .form .close').css('display', 'block');
                         $('#advice .form .success span').css('visibility', 'visible');
                         $('#advice .loading').css('display', 'none');
-                        yaCounter39483720.reachGoal('callback');
+                        yaCounter39483720.reachGoal('advice');
                         ga('send', 'event', 'form3', 'advice');
                     }
                 },
@@ -206,33 +240,49 @@ $(document).ready(function() {
         return false;
     });
 
-    //Вопрос мастеру
-    $('#more .form').on('beforeSubmit', function() {
+    //Вопрос мастеру, Заказать услугу
+    $('.pages .question .form, .pages header .form').on('beforeSubmit', function() {
         var $this = $(this);
+        var formId = $this.find('form').attr('id');
         var questionName = $this.find('#baseform-name').val();
         var questionPhone = $this.find('#baseform-phone').val();
-        var questionText = $this.find('#baseform-text').val();
+        var pageTitle = $this.find('#baseform-hidden').val();
+        var url;
+        if (formId == 'form_service') {
+            url = '/page/order-service';
+        }
+        if (formId == 'form_question') {
+            url = '/page/question';
+        }
+        console.log(formId);
 
-        $('#more .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'hidden');
-        $('#more .loading').css('display', 'block');
+        $this.find('.visible').css('display', 'none');
+        $this.find('.loading').css('display', 'block');
+        $this.find('button').find('span').remove();
 
         $.ajax({
-            url: 'site/flat',
+            url: url,
             type: 'post',
             dataType: 'json',
             data: {
                 questionPhone: questionPhone,
                 questionName: questionName,
-                questionText: questionText,
+                pageTitle: pageTitle,
                 _csrf: yii.getCsrfToken()
             },
             success: function (response) {
                 if (response.status == true) {
-                    $('#more .form .success, #more .form .close').css('display', 'block');
-                    $('#more .form .success span').css('visibility', 'visible');
-                    $('#more .loading').css('display', 'none');
-                    yaCounter39483720.reachGoal('question');
-                    ga('send', 'event', 'form5', 'question');
+                    $this.find('.close').css('display', 'block');
+                    $this.find('.success').css('display', 'block');
+                    $this.find('.loading').css('display', 'none');
+                    if (formId == 'form_service') {
+                        yaCounter39483720.reachGoal('service');
+                        // ga('send', 'event', 'form5', 'service');
+                    }
+                    if (formId == 'form_question') {
+                        yaCounter39483720.reachGoal('question');
+                        ga('send', 'event', 'form5', 'question');
+                    }
                 }
             },
             error: function () {
@@ -356,14 +406,14 @@ $(document).ready(function() {
         $('#advice .form .success span').css('visibility', 'hidden')
     });
 
-    //Закрыть вопрос мастеру
-    $('#more .close').click(function() {
-        $('#more .form #baseform-name').val('');
-        $('#more .form #baseform-phone').val('');
-        $('#more .form #baseform-text').val('');
-        $('#more .form *:not(.close):not(.loading):not(.loading img)').css('visibility', 'visible');
-        $('#more .form .success, #more .form .close').css('display', 'none');
-        $('#more .form .success span').css('visibility', 'hidden')
+    //Закрыть вопрос мастеру, Заказать услугу
+    $('.pages .question .form .close, .pages header .form .close').click(function() {
+        var $this = $(this);
+        $this.parents('.form').find('#baseform-name').val('');
+        $this.parents('.form').find('#baseform-phone').val('');
+        $this.parents('.form').find('.visible').css('display', 'block');
+        $this.css('display', 'none');
+        $this.parents('.form').find('.success').css('display', 'none');
     });
 
 
@@ -479,6 +529,17 @@ $(document).ready(function() {
             $('.seo .full').slideUp();
             seoBlockShow = false;
         }
+    });
+
+    //pages пакеты
+    $('.pages .packages table tr:nth-of-type(2)').click(function () {
+        $(this).parents('table').find('tr').css('display', 'none');
+        $(this).parents('table').find('tr:first-of-type').css('display', 'table-row');
+      
+    });
+    $('.pages .packages table tr:first-of-type').click(function () {
+        $(this).parents('table').find('tr').css('display', 'table-row');
+        $(this).css('display', 'none');
     });
 
 });

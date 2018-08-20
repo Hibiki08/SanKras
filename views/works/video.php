@@ -2,23 +2,23 @@
 use yii\widgets\LinkPager;
 use app\models\Works;
 
-$this->title = 'Видео работ | Примеры работ по сантехнике';
+$this->title = 'Примеры выполненных работ компании СанКрас: видео с объектов';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Примеры работ по сантехнике SanKras'
+    'content' => 'Видео выполненных работ компании СанКрас позволит вам оценить качество и профессиональный подход к монтажу сантехнических коммуникаций на объектах наших клиентов!'
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'примеры сантехнические работы, санкрас сантехнические работы, sankras работы, сантехнические работы в квартире, сантехнические работы частный дом'
+    'content' => 'видео сантехнических работ санкрас'
 ]);
 ?>
 <section class="videos" id="video">
     <div class="width">
         <div class="head clear">
-            <h1 class="title exo asphalt">Видео</h1>
+            <h1 class="title exo asphalt">Видео наших работ</h1>
             <div class="tabs">
                 <ul>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'all']); ?>">Все работы</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>">Все работы</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео</a></li>

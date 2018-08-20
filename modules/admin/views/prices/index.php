@@ -11,7 +11,7 @@ $this->title = 'Услуги';
 </div>
 <?php echo Html::beginForm(['prices/index'], 'get', ['data-pjax' => 1, 'class' => 'form-inline', 'id' => 'filter']); ?>
 <?php echo Html::dropDownList('cat_id', null, $categories, [
-    'prompt' => 'Главный раздел',
+    'prompt' => 'Всё',
     'class' => 'form-control',
     'options' => [$catId => ['selected ' => true]]
 ]); ?>
@@ -38,7 +38,7 @@ $this->title = 'Услуги';
             <th>Цена</th>
             <th>Ед. изм</th>
             <th>Раздел</th>
-            <th>Страница</th>
+            <th>Страницы</th>
             <th>Активность</th>
             <th></th>
         </tr>
@@ -51,7 +51,15 @@ $this->title = 'Услуги';
                 <td><?php echo $option->price; ?></td>
                 <td><?php echo $option->unit; ?></td>
                 <td><?php echo $option->category->title; ?></td>
-                <td><?php echo !empty($option->key_page) ? constant('app\models\Prices::' . $option->key_page) : ''; ?></td>
+                    <td><?php if(!(empty($option->page))) { ?>
+                        <?php foreach ($option->page as $page) { ?>
+                        <?php if(isset($page->services) && !(empty($page->services))) { ?>
+                            <?php foreach ($page->services as $serv) { ?>
+                                    <p><?php echo $serv['title']; ?></p>
+                            <?php } ?>
+                        <?php } ?>
+                        <?php } ?>
+                <?php } ?></td>
                 <td class="status"><?php echo $option->active ? 'Да' : 'Нет'; ?></td>
                 <td>
                     <div class="btn-group-vertical">

@@ -18,7 +18,7 @@ class EditSeoForm extends Model {
             [['title', 'block_key', 'short_text', 'full_text'], 'required'],
             [['title', 'block_key'], 'filter', 'filter' => 'trim'],
             [['title'], 'string', 'max' => 255],
-            [['short_text'], 'string', 'max' => 500],
+            [['short_text'], 'string'],
             [['full_text'], 'string'],
             [['block_key'], 'string', 'max' => 50],
         ];

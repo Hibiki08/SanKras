@@ -72,17 +72,18 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
-                ['class' => 'app\components\ModuleUrlRule', 'appModules' => $modules],
+                '<module:(admin)>' => 'admin/admin/index',
+                '<module:(admin)>/<controller>' => 'admin/<controller>/index',
+                '<module:(admin)>/<controller>/<action>' => 'admin/<controller>/<action>',
+                '<action:(flat|house|company|contacts|privacy-policy|login)>' => 'site/<action>',
+                '<controller:(prices|works|about)>' => '<controller>/index',
+                '<controller:(prices|works|about|site|page|elfinder)>/<action>' => '<controller>/<action>',
+                '<action:.+>/<key:.+>' => 'page/index',
+                '<key:.+>' => 'page/index',
+                '<controller:(about)>/<action:(news|articles)><id:\d+>' => '<controller>/<action>',
             ],
-//            'rules' => [
-//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>/<id:\d+>/<params:\w+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-//                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-//                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-//                'login' => 'login/index'
-//            ],
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',

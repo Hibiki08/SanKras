@@ -129,6 +129,7 @@ $this->registerMetaTag([
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
                     'enableClientValidation' => true,
+                    'action' =>['heating/include'],
                     'options' => [
                         'id' => 'form-question',
                     ]
