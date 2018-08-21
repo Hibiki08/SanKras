@@ -215,7 +215,7 @@ class SiteController extends Controller {
 
     public function actionContacts() {
         $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/contacts'], true)]);
-        $this->view->registerJsFile('/js/map.js?r1', ['position' => View::POS_HEAD]);
+        $this->view->registerJsFile('/js/map.js?r2', ['position' => View::POS_HEAD]);
         $form = new WriteUsForm();
 
         if (Yii::$app->request->isAjax) {
