@@ -1850,7 +1850,7 @@ address {
 #privacy,
 #login,
 #not-found {
-    /*padding-top: 155px;*/
+    padding-top: 155px;
     background: #f5f6f7;
     min-height: 100vh;
 }
@@ -2093,6 +2093,9 @@ color: #fff;
 }
 .price .table tr {
     background: #fff;
+}
+.pages {
+    padding-top: 155px;
 }
 .price .table tr:hover,
 #more .table tr:hover,

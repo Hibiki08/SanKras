@@ -55,9 +55,9 @@ AppAsset::register($this);
     </header>
     <!--end header-->
     <div class="content-wrapper">
-        <div class="width">
-            <?php echo Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], ]); ?>
-        </div>
+<!--        <div class="width">-->
+<!--            --><?php //echo Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], ]); ?>
+<!--        </div>-->
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">
