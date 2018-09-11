@@ -8,6 +8,8 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Компания СанКрас сотрудничает с застройщиками частного сектора: профессиональный монтаж отопления, водоснабжения, канализации "под ключ". Высокие скидки на большой объем!'
 ]);
+
+$this->params['breadcrumbs'][] = 'Сотрудничаем с застройщиками частного сектора';
 ?>
 <section class="more-flat more-company" id="more">
     <section class="description">

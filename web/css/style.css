@@ -18,7 +18,12 @@ body {
 }
 .content-wrapper {
     min-height: 100%;
+    background: transparent;
 }
+.content-wrapper .breadcrumb {
+    padding-top: 180px;
+}
+
 html,body,.wrapper {
     min-height: 100% !important;
 }
@@ -1845,7 +1850,7 @@ address {
 #privacy,
 #login,
 #not-found {
-    padding-top: 155px;
+    /*padding-top: 155px;*/
     background: #f5f6f7;
     min-height: 100vh;
 }
@@ -1932,6 +1937,12 @@ address {
     text-align: center;
     font-weight: 300;
     margin-bottom: 45px;
+}
+.price .price-list td a {
+    color: #0063c5;
+}
+.price .price-list td a:hover {
+    text-decoration: underline;
 }
 .options h2 {
     width: 100%;
@@ -2183,6 +2194,10 @@ color: #fff;
     width: 122px;
     padding-right: 20px;
     font-weight: 500;
+}
+
+.price .table table .table-price span {
+    font-weight: normal;
 }
 .price .table.calculater .table-price,
 .price .table.calculater .table-unit {
@@ -3406,7 +3421,7 @@ color: #fff;
 }
 #more .description {
     position: relative;
-    padding-top: 155px;
+    /*padding-top: 155px;*/
 }
 #more.more-flat .description,
 #more.more-house .description {
@@ -4348,6 +4363,7 @@ color: #fff;
 /*#privacy///////////////////////////*/
 #privacy {
     padding-bottom: 60px;
+    padding-top: 155px;
 }
 #privacy ol {
     list-style-type: none;

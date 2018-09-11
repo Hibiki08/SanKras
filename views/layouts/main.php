@@ -34,7 +34,7 @@ AppAsset::register($this);
     <header id="header">
         <div class="description">
             <div class="width clear">
-                <div>Монтаж отопления, канализации, водоснабжения <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>">в Краснодаре и крае, в Адыгее</a></div>
+                <div>Монтаж отопления, канализации, водоснабжения <a>в Краснодаре и крае, в Адыгее</a></div>
                 <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="address">
                     <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
                     <address><?php echo Yii::$app->system->get('address'); ?></address>
@@ -55,6 +55,9 @@ AppAsset::register($this);
     </header>
     <!--end header-->
     <div class="content-wrapper">
+        <div class="width">
+            <?php echo Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], ]); ?>
+        </div>
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">

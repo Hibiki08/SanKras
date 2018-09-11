@@ -13,6 +13,9 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'статьи по сантехнике'
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
+$this->params['breadcrumbs'][] = 'Статьи';
 ?>
 <section class="articles" id="about">
     <div class="width">

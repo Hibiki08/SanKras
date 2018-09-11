@@ -11,6 +11,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'видео сантехнических работ санкрас'
 ]);
+
+$this->params['breadcrumbs'][] = 'Видео';
 ?>
 <section class="videos" id="video">
     <div class="width">

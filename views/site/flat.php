@@ -3,11 +3,14 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\components\Works;
 use app\models\WorksCat;
+
 $this->title = 'Сантехнические работы "под ключ" в квартире в Краснодаре';
 $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Компания СанкКрас выполняет полный комплекс улуг по разводке сантехнических коммуникаций в квартире. Профессиональный монтаж отопления, водоснабжения, канализации'
 ]);
+
+$this->params['breadcrumbs'][] = 'Сантехнические работы в квартире "под ключ"';
 ?>
 <section class="more-flat" id="more">
     <section class="description">

@@ -10,6 +10,10 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $article->title
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about']];
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url'=> ['/about/articles']];
+$this->params['breadcrumbs'][] = $article->title;
 ?>
 <section class="single" id="about">
     <div class="width clear">

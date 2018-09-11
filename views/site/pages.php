@@ -13,6 +13,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $options['tag_keywords']
 ]);
+
+$this->params['breadcrumbs'][] = $options['title'];
 ?>
 <div class="pages">
     <header>
@@ -120,7 +122,7 @@ $this->registerMetaTag([
                                             <tr class="transition">
                                                 <td><?php echo $item['title']; ?></td>
                                                 <td class="table-unit"><?php echo $item['unit']; ?></td>
-                                                <td class="table-price"><?php echo $item['price']; ?></td>
+                                                <td class="table-price"><?php echo $item['price']; ?> <span>руб.</span></td>
                                             </tr>
                                         <?php } ?>
                                     <?php } ?>

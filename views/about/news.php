@@ -12,6 +12,9 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'новости компании санкрас'
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
+$this->params['breadcrumbs'][] = 'Новости';
 ?>
 <section class="news" id="about">
     <div class="width">

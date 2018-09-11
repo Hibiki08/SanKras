@@ -12,6 +12,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'сайт сантехников сантехническии компании бригада сандехников'
 ]);
+
+$this->params['breadcrumbs'][] = 'О нас';
 ?>
 <section class="about" id="about">
     <div class="width">

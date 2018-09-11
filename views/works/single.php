@@ -9,6 +9,9 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => strip_tags(StringHelper::truncate($work->text, 150, ''))
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url'=> ['/works']];
+$this->params['breadcrumbs'][] = $work->title;
 ?>
 <section class="work" id="work">
     <div class="width clear">

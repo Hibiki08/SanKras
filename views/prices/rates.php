@@ -8,6 +8,9 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'стоимость сантехнические работы, цена сантехнические работы, коттедж, квартира, частный дом'
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'Прайс-лист', 'url'=> ['/prices']];
+$this->params['breadcrumbs'][] = 'Пакеты услуг';
 ?>
 <section class="options" id="options">
     <div class="width">

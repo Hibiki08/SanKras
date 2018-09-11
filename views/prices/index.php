@@ -8,6 +8,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'стоимость сантехнические работы услуги цена сантехник краснодар'
 ]);
+
+$this->params['breadcrumbs'][] = 'Прайс-лист';
 ?>
 <section class="price" id="price">
     <div class="width">
@@ -32,7 +34,7 @@ $this->registerMetaTag([
                                     <td><?php echo $item['title']; ?></td>
                                     <td class="table-unit"><?php echo $item['unit']; ?></td>
                                     <td data-id="<?php echo $item['price_id'];?>" class="table-number hidden"><input class="transition" value="0"></td>
-                                    <td class="table-price"><?php echo $item['price']; ?></td>
+                                    <td class="table-price"><?php echo $item['price']; ?> <span>руб.</span></td>
                                     <td class="table-cost hidden">0</td>
                                 </tr>
                             <?php } ?>

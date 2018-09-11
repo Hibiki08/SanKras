@@ -14,6 +14,9 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'отзывы компания санкрас'
 ]);
+
+$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
+$this->params['breadcrumbs'][] = 'Отзывы';
 ?>
 <section class="opinions" id="opinions">
     <div class="width">

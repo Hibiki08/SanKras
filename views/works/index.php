@@ -13,6 +13,8 @@ $this->registerMetaTag([
     'content' => 'примеры сантехнических работ санкрас'
 ]);
 $group = Yii::$app->request->get('group');
+
+$this->params['breadcrumbs'][] = 'Наши работы';
 ?>
 <section class="works" id="works">
     <div class="width">
