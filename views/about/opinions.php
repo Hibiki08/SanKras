@@ -18,6 +18,7 @@ $this->registerMetaTag([
 $this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
 $this->params['breadcrumbs'][] = 'Отзывы';
 ?>
+
 <section class="opinions" id="opinions">
     <div class="width">
         <div class="head">
