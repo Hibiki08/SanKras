@@ -580,3 +580,15 @@ function buttonUp() {
         })
     }
 }
+
+$(document).ready(function () {
+
+    $(".review-description-btn").on("click", function (event) {
+
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top - 75;
+        $('body,html').animate({scrollTop: top}, 500);
+    });
+
+});

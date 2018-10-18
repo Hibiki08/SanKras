@@ -25,6 +25,7 @@ AppAsset::register($this);
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <?php $this->beginBody(); ?>

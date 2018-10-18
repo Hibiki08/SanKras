@@ -4645,3 +4645,294 @@ footer .sub-footer .codedex .site a {
 .mCSB_scrollTools .mCSB_draggerRail {
     width: 4px;
 }
+
+/*new opinions*/
+
+.reviews-block {
+    background-color: #fff;
+    padding: 65px 0;
+}
+
+.reviews-block__title {
+    color: #34495e;
+    font-family: 'Roboto Condensed';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 35px;
+}
+
+.reviews-block__text {
+    color: #34495e;
+    font-family: 'Roboto Condensed';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 350px;
+}
+
+.reviews-block__text p {
+    margin-bottom: 15px;
+}
+
+.reviews-block__text p.last-text-block {
+    margin-bottom: 35px;
+}
+
+.reviews-block__left {
+    float: left;
+    width: 40%;
+}
+
+.reviews-block__right {
+    float: right;
+    width: 60%;
+}
+
+.reviews-block .form-group {
+    margin-bottom: 20px;
+}
+
+.reviews-block .form-group .field img {
+    vertical-align: bottom;
+    margin-right: 12px;
+}
+
+.reviews-block .form-group .field input {
+    vertical-align: bottom;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #34495e;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #aeb6bf;
+    width: 270px;
+    padding-bottom: 8px;
+    transition: border-color 0.5s;
+}
+
+.reviews-block .reviews-block__right .form-group .field input {
+    width: 90%;
+}
+
+.rating-stars {
+    display: inline-block;
+}
+
+.rating-stars .material-icons {
+    color: #fec71c;
+    font-size: 24px;
+}
+
+.reviews-block .description {
+    padding-left: 0 !important;
+    color: #99a4ae !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    line-height: 18px !important;
+    margin-bottom: 30px !important;
+    padding-left: 60px !important;
+}
+
+.reviews-block textarea {
+    border: 2px solid #aeb6bf;
+    border-top: none;
+    background: transparent;
+    width: 90%;
+    padding: 25px;
+    height: 130px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.5s;
+    resize: none;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #34495e;
+}
+
+.reviews-block .textarea {
+    position: relative;
+    margin-bottom: 17px;
+}
+
+.reviews-block .field.textarea .control-label {
+    vertical-align: middle;
+    position: absolute;
+    top: -9px;
+    left: 58px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #34495e;
+}
+
+.field.textarea img {
+    position: absolute;
+    top: -15px;
+    left: 8px;
+}
+
+.reviews-block .textarea:before {
+    content: '';
+    position: absolute;
+    border-top: 2px solid #aeb6bf;
+    transition: border-color 0.5s;
+    width: 8px;
+    top: 0px;
+    left: 0px;
+}
+
+.reviews-block .textarea:after {
+    content: '';
+    position: absolute;
+    border-top: 2px solid #aeb6bf;
+    transition: border-color 0.5s;
+    width: 535px;
+    top: 0px;
+    right: 0;
+    right: 16px;
+}
+
+.reviews-block__right .form-group.field-editopinionsform-description {
+    padding-left: 8px;
+}
+
+.reviews-block .field .help-block {
+    color: #ef847d;
+    font-weight: 300;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+.reviews-block .reviews-block__right .pulse {
+    color: #fffefe;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border: none;
+    text-align: center;
+    margin: 10px 0 30px;
+    padding: 15px 68px;
+    background: #34495e;
+    border-bottom: 3px solid #212f3c;
+    -webkit-border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.reviews-block .required-fields {
+    float: right;
+    color: #99a4ae;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    position: relative;
+    top: -20px;
+    right: 15px;
+}
+
+.reviews-block .form-group.has-error .field input {
+    border-bottom: 2px solid #ef847d;
+}
+.reviews-block .form-group.has-error textarea {
+    border: 2px solid #ef847d;
+    border-top: none;
+}
+
+.reviews-block .form-group.has-error .textarea:before {
+    border-top: 2px solid #ef847d;
+}
+
+.reviews-block .form-group.has-error .textarea:after {
+    border-top: 2px solid #ef847d;
+}
+
+#opinions .opin-block .op {
+    width: 970px;
+}
+
+.review-description {
+    padding: 40px 0;
+}
+
+.review-description__left {
+    float: left;
+    max-width: 420px;
+}
+
+.review-description__left p:first-child {
+    margin-bottom: 10px;
+}
+
+.review-description__right {
+    float: left;
+    text-align: center;
+    margin-left: 188px;
+    margin-top: 20px;
+}
+
+.review-description-btn {
+    position: relative;
+    background: #f44336;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 170px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-weight: 300;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    display: block;
+    border-bottom: 3px solid #cb372c;
+    cursor: pointer;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.review-description-btn:hover {
+    text-decoration: none;
+}
+
+.name-with-rating {
+    display: inline-block;
+    max-width: 150px;
+    margin-right: 90px;
+    vertical-align: top;
+}
+
+.name-with-rating .rating-stars {
+    margin-bottom: 25px;
+}
+
+.name-with-rating .name-review {
+    color: #343434;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+
+.name-with-rating .date-review {
+    f font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+#opinions .opin-block .text {
+    display: inline-block;
+    width: 75%;
+}
