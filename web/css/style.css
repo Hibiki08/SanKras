@@ -1566,7 +1566,7 @@ address {
 .cooperation form > span:last-of-type,
 #opinions form > span:last-of-type,
 #opinions form .description {
-    font-size: 13px;
+    font-size: 13px !important;
     color: #d4dbe4;
     display: block;
     text-align: left;
@@ -3163,10 +3163,12 @@ color: #fff;
     line-height: 1.4;
 }
 #opinions .opin-block .op .title {
-    font-size: 16px;
+    font-size: 18px;
 }
 #opinions .opin-block .op p {
     margin-top: 20px;
+    font-size: 14px;
+    line-height: 23px;
 }
 #opinions .opin-block .text {
     font-size: 15px;
@@ -3370,6 +3372,17 @@ color: #fff;
     font-style: italic;
     font-weight: 300;
 }
+
+#opinions .text .short .more, #opinions .text .full .more {
+    color: #34495e;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 20px;
+    text-decoration: underline;
+}
+
 #more .form button {
     width: 270px;
     margin: 0;
@@ -4659,7 +4672,7 @@ footer .sub-footer .codedex .site a {
     font-size: 30px;
     font-weight: 700;
     line-height: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .reviews-block__text {
@@ -4829,7 +4842,7 @@ footer .sub-footer .codedex .site a {
     float: right;
     color: #99a4ae;
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 300;
     line-height: 18px;
     position: relative;
@@ -4855,6 +4868,9 @@ footer .sub-footer .codedex .site a {
 
 #opinions .opin-block .op {
     width: 970px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .review-description {
@@ -4864,6 +4880,11 @@ footer .sub-footer .codedex .site a {
 .review-description__left {
     float: left;
     max-width: 420px;
+}
+
+.review-description__left p {
+    color: #34495e;
+    line-height: 24px;
 }
 
 .review-description__left p:first-child {
@@ -4934,5 +4955,5 @@ footer .sub-footer .codedex .site a {
 
 #opinions .opin-block .text {
     display: inline-block;
-    width: 75%;
+    width: 70%;
 }

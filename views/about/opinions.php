@@ -173,7 +173,7 @@ $this->params['breadcrumbs'][] = 'Отзывы';
                 'class' => 'focus',
                 'placeholder' => 'Вид предоставленной услуги*'
             ]); ?>
-            <div class="description">Например: монтаж отопления в частном доме; обвязка скважины и монтаж системы водоочистки и фильтров умягчения</div>
+            <div class="description">Например: монтаж отопления в частном доме; обвязка скважины и монтаж системы водоочистки</div>
             <?php echo $form->field($opins, 'text', [
                 'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'pen-icon.png' . '" alt="написать" title="написать">{label}{input}{error}</div>',
             ])->textarea()->label('Ваш отзыв*'); ?>
