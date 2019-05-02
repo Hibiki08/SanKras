@@ -47,4 +47,8 @@ phpunit.phar
 #/web/css/style.css
 #/web/css/fonts.css
 /composer.lock
+.ftpquota
+.htaccess
+/web/test
+
 
