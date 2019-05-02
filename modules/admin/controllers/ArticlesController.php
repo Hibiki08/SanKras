@@ -4,6 +4,9 @@ namespace app\modules\admin\controllers;
 
 use app\models\BlogCat;
 use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use app\models\Blog;
 use yii\data\Pagination;
@@ -14,6 +17,38 @@ use yii\helpers\Url;
 use yii\web\Response;
 
 class ArticlesController extends NewsController {
+
+    const GET_ACCESS_DENIED = [
+        'index',
+    ];
+
+    const POST_ACCESS_DENIED = [
+        'index',
+        'edit',
+        'active'
+    ];
+
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (in_array($action->id, self::GET_ACCESS_DENIED)) {
+                unset($_GET['module']);
+                if (!empty(Yii::$app->request->get())) {
+                    throw new HttpException(404, 'Такой страницы нет!');
+                    Yii::$app->end();
+                }
+            }
+
+            if (in_array($action->id, self::POST_ACCESS_DENIED)) {
+                if (!empty(Yii::$app->request->post())) {
+                    throw new HttpException(404, 'Такой страницы нет!');
+                    Yii::$app->end();
+                }
+            }
+        }
+
+        return true;
+    }
 
     public function actionIndex() {
         $blog = new Blog();
@@ -33,7 +68,7 @@ class ArticlesController extends NewsController {
     }
 
     public function actionEdit() {
-        $id = Yii::$app->request->getQueryParam('id') ? Yii::$app->request->getQueryParam('id') : null;
+        $id = Yii::$app->request->getQueryParam('id') ? (int)Yii::$app->request->getQueryParam('id') : null;
 
         $errors = [];
 
@@ -49,6 +84,7 @@ class ArticlesController extends NewsController {
         }
 
         if (!empty($model)) {
+            $form->setOldUrl($model->url);
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $form->preview = UploadedFile::getInstance($form, 'preview');
 
@@ -66,6 +102,7 @@ class ArticlesController extends NewsController {
                         $resize->resize();
                     }
                     $model->title = Yii::$app->request->post('EditNewsForm')['title'];
+                    $model->url = Yii::$app->request->post('EditNewsForm')['url'];
                     $model->text = Yii::$app->request->post('EditNewsForm')['text'];
                     $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $form->preview->name;
                     $model->cat_id = $form->category != 0 ? $form->category : BlogCat::ART_ID;
@@ -118,6 +155,8 @@ class ArticlesController extends NewsController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }

@@ -6,9 +6,510 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://san-kras.ru/</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://san-kras.ru/</loc>
+  <lastmod>2018-02-16T09:54:43+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
+<url>
+  <loc>https://san-kras.ru/contacts</loc>
+  <lastmod>2018-02-16T09:54:43+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/flat</loc>
+  <lastmod>2018-02-16T09:54:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/house</loc>
+  <lastmod>2018-02-16T09:54:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/company</loc>
+  <lastmod>2018-02-16T09:54:45+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/montazh-kotelnoy</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-kotlov-otopleniya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-gazovogo-kotla</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-elektricheskogo-kotla</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-tverdotoplivnogo-kotla</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-zhidkotoplivnogo-kotla</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/ustanovka-radiatorov-otopleniya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/montazh-teplogo-pola</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/remont-otopleniya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/heating/obsluzhivanie-kotlov</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/stiralnaya-mashina</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/obustrojstvo-skvazhiny</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/ustanovka-filtrov</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/podklyuchenie-nasosov</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/montazh-vodoprovoda</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/goryachee-vodosnabzhenie</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/ustanovka-vodonagrevatelya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/ustanovka-gazovoy-kolonki</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/vodosnabzhenie-v-kvartire</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/water-supply/ustanovka-schetchikov</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/posudomoechnaya-mashina</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sewerage</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sewerage/prokladka-kanalizacionnih-trub</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sewerage/zamena-kanalizacii</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sewerage/ustanovka-kanalizacionnih-nasosov</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sewerage/prochistka-kanalizacii</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub/polipropilenovih</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub/polietilenovih</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub/iz-sshitogo-polietilena</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub/metalloplastikovih</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/montazh-i-zamena-trub/mednih</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-vanny</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-unitaza</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-rakovini-i-moiki</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-smesitelya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/podklyuchenie-polotencesushitelya</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-dushevoi-kabiny</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/sanfayans/ustanovka-bide</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/automatic-watering</loc>
+  <lastmod>2018-02-16T09:55:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/prices</loc>
+  <lastmod>2018-02-16T09:55:07+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works</loc>
+  <lastmod>2018-02-16T09:55:07+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/video</loc>
+  <lastmod>2018-02-16T09:55:08+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about</loc>
+  <lastmod>2018-02-16T09:55:09+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/opinions</loc>
+  <lastmod>2018-02-16T09:55:10+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news</loc>
+  <lastmod>2018-02-16T09:55:10+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles</loc>
+  <lastmod>2018-02-16T09:55:11+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=23</loc>
+  <lastmod>2018-02-16T09:55:11+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=24</loc>
+  <lastmod>2018-02-16T09:55:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=22</loc>
+  <lastmod>2018-02-16T09:55:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/prices/rates</loc>
+  <lastmod>2018-02-16T09:55:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=9</loc>
+  <lastmod>2018-02-16T09:55:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=17</loc>
+  <lastmod>2018-02-16T09:55:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=14</loc>
+  <lastmod>2018-02-16T09:55:14+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=19</loc>
+  <lastmod>2018-02-16T09:55:15+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=18</loc>
+  <lastmod>2018-02-16T09:55:15+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=21</loc>
+  <lastmod>2018-02-16T09:55:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=20</loc>
+  <lastmod>2018-02-16T09:55:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=2</loc>
+  <lastmod>2018-02-16T09:55:17+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=17</loc>
+  <lastmod>2018-02-16T09:55:18+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=16</loc>
+  <lastmod>2018-02-16T09:55:18+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=13</loc>
+  <lastmod>2018-02-16T09:55:19+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=14</loc>
+  <lastmod>2018-02-16T09:55:19+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=15</loc>
+  <lastmod>2018-02-16T09:55:20+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=12</loc>
+  <lastmod>2018-02-16T09:55:20+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=18</loc>
+  <lastmod>2018-02-16T09:55:21+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=4</loc>
+  <lastmod>2018-02-16T09:55:21+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=5</loc>
+  <lastmod>2018-02-16T09:55:21+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/news?id=9</loc>
+  <lastmod>2018-02-16T09:55:22+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles?id=11</loc>
+  <lastmod>2018-02-16T09:55:22+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles?id=10</loc>
+  <lastmod>2018-02-16T09:55:23+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles?id=8</loc>
+  <lastmod>2018-02-16T09:55:23+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles?id=7</loc>
+  <lastmod>2018-02-16T09:55:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/about/articles?id=6</loc>
+  <lastmod>2018-02-16T09:55:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=26</loc>
+  <lastmod>2018-02-16T09:55:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://san-kras.ru/works/single?id=25</loc>
+  <lastmod>2018-02-16T09:55:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.51</priority>
+</url>
+
 </urlset>

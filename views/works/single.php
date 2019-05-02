@@ -10,7 +10,7 @@ $this->registerMetaTag([
     'content' => strip_tags(StringHelper::truncate($work->text, 150, ''))
 ]);
 
-$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url'=> ['/works']];
+$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url'=> ['/nashi-raboty']];
 $this->params['breadcrumbs'][] = $work->title;
 ?>
 <section class="work" id="work">
@@ -60,8 +60,8 @@ $this->params['breadcrumbs'][] = $work->title;
                     </div>
                     <?php if ($prev && $next != null) { ?>
                         <div class="prev-next">
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая работа</span></a>
-                            <a href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $next]); ?>" class="next exo"><span>Следующая работа</span><div class="img"></div></a>
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['nashi-raboty/'.$prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая работа</span></a>
+                            <a href="<?php echo Yii::$app->urlManager->createUrl(['nashi-raboty/'.$next]); ?>" class="next exo"><span>Следующая работа</span><div class="img"></div></a>
                         </div>
                     <?php } ?>
                 </div>
@@ -74,13 +74,16 @@ $this->params['breadcrumbs'][] = $work->title;
                 </div>
             <?php } ?>
             <?php if ($prev && $next != null) { ?>
+            <div style='margin:0px;padding:0px;min-height:460px;'>
                     <?php Pjax::begin([
                         'timeout' => 10000,
+                        'enableReplaceState' => false,
+                        'enablePushState' => false
                     ]); ?>
                     <div class="other clear">
                         <div class="width">
                             <div class="navig">
-                                <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>" class="other-title exo asphalt">Все работы</a><br>
+                                <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['nashi-raboty']); ?>" class="other-title exo asphalt">Все работы</a><br>
                                 <?php echo LinkPager::widget([
                                     'options' => [
                                         'class' => 'pagination clear',
@@ -94,7 +97,7 @@ $this->params['breadcrumbs'][] = $work->title;
                             <div class="more-works clear">
                                 <?php if (!empty($other)) { ?>
                                     <?php foreach ($other as $val) {?>
-                                        <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['works/single', 'id' => $val->id]); ?>">
+                                        <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['nashi-raboty/'.$val->url]); ?>">
                                             <div class="work">
                                                 <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $val->id . ')/prev_' . $val->preview; ?>">
                                                 <div class="work-title exo"><?php echo $val->title; ?></div>
@@ -114,11 +117,15 @@ $this->params['breadcrumbs'][] = $work->title;
                         </div>
                     </div>
                     <?php Pjax::end(); ?>
+                    </div>
             <?php } ?>
         </div>
 </section>
 <script type="text/javascript">
     $(document).ready(function() {
+    $(document)
+      .on('pjax:start', function() { $('#w0').fadeOut(200); })
+      .on('pjax:end',   function() { setTimeout(function(){$('#w0').fadeIn(200)},100); })
         var pgwSlider = $('.pgwSlider').pgwSlider({
             displayControls: true,
             touchControls: true,

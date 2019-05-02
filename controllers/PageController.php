@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AjaxFilter;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\widgets\ActiveForm;
 use app\models\forms\BaseForm;
@@ -19,23 +21,36 @@ class PageController extends Controller {
 
     public $key;
 
-    public function actionIndex($key = '') {
+    public function actionIndex($key = '', $action = '') {
         $this->view->registerCssFile('/lib/flexslider/flexslider.css');
         $this->view->registerJsFile('/lib/flexslider/flexslider.js');
         $this->view->registerCssFile('/lib/fancyBox-18d1712/source/jquery.fancybox.css');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
-
+        
         $link = !empty($key) ? $key : $this->key;
         $form = new BaseForm();
         
-            $options = new Services();
-            $options = $options->getOneServ($link, true);
-
+            $o = new Services();
+            $options = $o->getOneServ($link, true);
+            if($action){$parent = $o->getOneServ($action, true);}else{$parent = false;}
+            $options->videos = $options->videos?json_decode($options->videos):array();
+            $options->videos = array_map(function ($v,$n){
+              $u = parse_url($v); parse_str($u['query'], $v);
+              return [$n,@$v['v']?$v['v']:end(explode('/',$u['path']))];
+            },array_keys((array)$options->videos),array_values((array)$options->videos));
+//         die(var_dump($_GET));
+        unset($_GET['action']);
+        unset($_GET['key']);
+        if(!empty($_GET)){
+          throw new HttpException(404 ,'Такой страницы нет!');
+          Yii::$app->end();
+        }
         if (!empty($options)) {
             return $this->render('/site/pages', [
                 'letter' => $form,
-                'options' => $options
+                'options' => $options,
+                'parent' => $parent
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');
@@ -73,6 +88,8 @@ class PageController extends Controller {
                     'status' => $status,
                 ];
             }
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
 
         return $this->render('/site/pages', [
@@ -111,6 +128,8 @@ class PageController extends Controller {
                     'status' => $status,
                 ];
             }
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
 
         return $this->render('/site/pages', [

@@ -23,7 +23,7 @@ class AdminModule extends Module {
         {
             Yii::$app->getResponse()->redirect(Yii::$app->getHomeUrl());
             //для перестраховки вернем false
-            return false;
+            return false;//ну совсем пичаль-тоска
         }
     }
 

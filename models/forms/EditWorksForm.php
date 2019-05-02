@@ -10,6 +10,7 @@ class EditWorksForm extends Model {
 
     public $title;
     public $text;
+    public $url;
     public $preview;
     public $preview_text;
     public $cat_id;
@@ -26,10 +27,13 @@ class EditWorksForm extends Model {
     public $active;
     public $hidden;
     public $sort;
+    public $old_url;
 
     public function rules() {
         return [
-            [['title', 'text', 'cat_id', 'preview_items', 'work_items', 'year', 'area', 'cost_install', 'cost_material'], 'required'],
+            [['title','url', 'text', 'cat_id', 'preview_items', 'work_items', 'year', 'area', 'cost_install', 'cost_material'], 'required'],
+            ['url', 'unique','targetClass'=>'\app\models\Works','message'=>Yii::t('app','The value of this field must be unique.'),'when' => function ($form, $attribute) {return $form->$attribute !== $this->old_url;            }],
+            ['url', 'match', 'pattern' => '/^[-a-zA-Z0-9]+$/i','message'=>Yii::t('app','The value can contain only Latin letters and numbers and the hyphen character.')],
             [['preview'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['slides'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
             ['title', 'string', 'max' => 65],
@@ -48,6 +52,10 @@ class EditWorksForm extends Model {
         $scenarios = parent::scenarios();
         $scenarios['items'] = ['preview_items', 'work_items'];
         return $scenarios;
+    }
+    
+    public function setOldUrl($value) {
+        return $this->old_url = $value;
     }
 
     public function upload($path, $image) {

@@ -11,7 +11,7 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'видео сантехнических работ санкрас'
 ]);
-
+$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url'=> ['/works']];
 $this->params['breadcrumbs'][] = 'Видео';
 ?>
 <section class="videos" id="video">
@@ -20,13 +20,16 @@ $this->params['breadcrumbs'][] = 'Видео';
             <h1 class="title exo asphalt">Видео наших работ</h1>
             <div class="tabs">
                 <ul>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>">Все работы</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
-                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty'); ?>">Все работы</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/chastnye-doma'); ?>">Частные дома</a></li>
+                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/kvartiry'); ?>">Квартиры</a></li>
+                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/video-rabot'); ?>">Видео</a></li>
                 </ul>
             </div>
         </div>
+        <?if($blog && $blog->active){?>
+        <div class="seo_text_field"><?=$blog->text?></div>
+        <?}?>
         <div class="vid clear">
             <?php if (!empty($videos)) { ?>
                 <?php foreach ($videos as $video) {?>

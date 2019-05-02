@@ -22,6 +22,9 @@ AppAsset::register($this);
     <meta charset="UTF-8">
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <?php echo Html::csrfMetaTags(); ?>
+    <?$u = parse_url($_SERVER['REQUEST_URI']);?>
+    <?=in_array(trim($u['path'],'/'),['montazh-v-chastnom-dome','montazh-v-kvartire','zastroyshchikam'])?'<meta name="robots" content="noindex, nofollow"/>':''?>
+    
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -55,9 +58,9 @@ AppAsset::register($this);
     </header>
     <!--end header-->
     <div class="content-wrapper">
-<!--        <div class="width">-->
-<!--            --><?php //echo Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], ]); ?>
-<!--        </div>-->
+       <div class="width">
+           <?php echo Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], ]); ?>
+       </div>
         <?php echo $content; ?>
         <div class="call-block">
             <div class="block">
@@ -79,6 +82,11 @@ AppAsset::register($this);
                         'class' => 'phone-mask',
                         'placeholder' => 'Ваш телефон*'
                     ]); ?>
+                    <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                     <?php echo Html::submitButton('перезвоните мне', ['class' => 'pulse']); ?>
                     <?php ActiveForm::end(); ?>
                     <span>*ваши данные никогда не будут переданы третьим лицам</span>
@@ -97,11 +105,11 @@ AppAsset::register($this);
                     <div class="cell info">
                         <div class="exo">Информация</div>
                         <ul>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about'); ?>">О нас</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('works'); ?>">Наши работы</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['about', '#' => 'sertificates']); ?>">Сертификаты</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео работ</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('o-kompanii'); ?>">О компании</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty'); ?>">Наши работы</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('otzyvy'); ?>">Отзывы</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['o-kompanii', '#' => 'sertificates']); ?>">Сертификаты</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/video-rabot'); ?>">Видео работ</a></li>
                         </ul>
                     </div>
                     <div class="cell usl">
@@ -123,16 +131,16 @@ AppAsset::register($this);
                     <div class="cell price">
                         <div class="exo">Цены</div>
                         <ul>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>">Прайс-лист</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
-                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prices', '#' => 'calc']); ?>">Рассчитать стоимость</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('prays-list'); ?>">Прайс-лист</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl('pakety-uslug'); ?>">Пакеты услуг</a></li>
+                            <li><a href="<?php echo Yii::$app->urlManager->createUrl(['prays-list', '#' => 'calc']); ?>">Рассчитать стоимость</a></li>
                         </ul>
                     </div>
                     <div class="cell soc">
-                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fok.ru%2Fgroup%2F57443680583734" class="ok"></a>
+                        <a target="_blank" href="https://ok.ru/group/57443680583734" class="ok"></a>
                         <a target="_blank" href="https://vk.com/sankras" class="vk"></a>
-                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F951386194924056%2F" class="facebook"></a>
-                        <a target="_blank" href="https://vk.com/away.php?to=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCfv_rtyxQfzS4FVRCTQF_4A" class="youtube"></a>
+                        <a target="_blank" href="https://www.facebook.com/groups/951386194924056/" class="facebook"></a>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCEhRxbM0IxcsCc187iQ4WxQ" class="youtube"></a>
                     </div>
             </div>
             <div class="cont clear">
@@ -155,7 +163,7 @@ AppAsset::register($this);
                         <!-- /Yandex.Metrika informer -->
                     </div>
                     <div class="copy">© 2015-<?php echo Yii::$app->formatter->asDate(time(), 'yyyy')?> «SanKras»</div>
-                    <div class="conf"><a href="<?php echo Yii::$app->urlManager->createUrl('privacy-policy'); ?>">Политика конфиденциальности</a></div>
+                    <div class="conf"><a href="<?php echo Yii::$app->urlManager->createUrl('politika-konfidencialnosti'); ?>">Политика конфиденциальности</a></div>
                 </div>
                 <div class="codedex clear">
                     <div class="width">
@@ -216,6 +224,11 @@ AppAsset::register($this);
         }, 15000);
 </script>
 <!--Google analytics-->
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+(function(){ var widget_id = 'BBaqWgXNnb';var d=document;var w=window;function l(){var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+</script>
+<!-- {/literal} END JIVOSITE CODE -->
 <?php $this->endBody() ?>
 </body>
 </html>

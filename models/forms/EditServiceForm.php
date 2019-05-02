@@ -30,6 +30,8 @@ class EditServiceForm extends Model {
     public $slides;
     public $slide_text;
     public $video;
+    public $videos;
+    public $videos_show;
     public $img_video;
     public $benefits;
     public $sort;
@@ -98,6 +100,8 @@ class EditServiceForm extends Model {
             'benefits' => 'Отображение блока с выгодами',
             'sort' => 'Сортировка',
             'active' => 'Активность',
+            'videos_show' => 'Отображать блок видеозаписей',
+            'videos' => 'Список видеозаписей'
         ];
     }
 

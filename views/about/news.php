@@ -13,26 +13,25 @@ $this->registerMetaTag([
     'content' => 'новости компании санкрас'
 ]);
 
-$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
 $this->params['breadcrumbs'][] = 'Новости';
 ?>
 <section class="news" id="about">
     <div class="width">
         <div class="head">
-            <div class="tabs">
+           <? /*<div class="tabs">
                 <ul>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
-            </div>
+            </div>*/?>
             <h1 class="title exo asphalt">Новости</h1>
         </div>
-        <div class="block-news go-wide clear">
+        <div class="block-news go-wide clear"><!--
             <?php if (!empty($news)) { ?>
                 <?php foreach ($news as $new) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/news', 'id' => $new->id]); ?>" class="new">
+                 --><a href="<?php echo Yii::$app->urlManager->createUrl(['novosti/'.$new->url]); ?>" class="new">
                         <?php if (!empty($new->preview)) { ?>
                             <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $new->preview; ?>">
                         <?php } ?>
@@ -41,12 +40,12 @@ $this->params['breadcrumbs'][] = 'Новости';
                             <div class="short"><?php echo strip_tags(StringHelper::truncate($new->text, 230, '...')); ?></div>
                             <span class="date"><?php echo Yii::$app->formatter->asDate($new->date, 'd MMMM yyyy'); ?></span>
                         </div>
-                    </a>
+                    </a><!--
                 <?php } ?>
             <?php } else { ?>
-                <span class="no-video">В этом разделе пока нет новостей. В скором времени они появятся.</span>
+                --><span class="no-video">В этом разделе пока нет новостей. В скором времени они появятся.</span><!--
             <?php } ?>
-        </div>
+        --></div>
         <div class="pagination">
             <?php echo LinkPager::widget([
                 'pagination' => $pager,

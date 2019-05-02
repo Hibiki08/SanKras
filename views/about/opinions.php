@@ -15,20 +15,19 @@ $this->registerMetaTag([
     'content' => 'отзывы компания санкрас'
 ]);
 
-$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about/']];
 $this->params['breadcrumbs'][] = 'Отзывы';
 ?>
 <section class="opinions" id="opinions">
     <div class="width">
         <div class="head">
-            <div class="tabs">
+           <? /*<div class="tabs">
                 <ul>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
-            </div>
+            </div>*/?>
             <h1 class="title exo asphalt">Отзывы</h1>
         </div>
         <div class="opin-block clear">
@@ -87,6 +86,11 @@ $this->params['breadcrumbs'][] = 'Отзывы';
                 <?php echo $form->field($opins, 'text', [
                     'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="написать" title="написать">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш отзыв*'); ?>
+                <?php echo $form->field($opins, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                 <span>*обязательные поля; ваши данные не будут переданы третьим лицам</span>
                 <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
                 <div class="success">

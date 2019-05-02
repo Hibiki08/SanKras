@@ -22,6 +22,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     ],
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название'); ?>
+<?php echo $form->field($edit, 'url')->input('text', ['value' => $model->url])->label('URL*'); ?>
 <?php echo $form->field($edit, 'text')->widget(CKEditor::className(), [
     'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], [
         'preset' => 'full',

@@ -11,11 +11,12 @@ class WriteUsForm extends Model {
     public $phone;
     public $email;
     public $message;
+    public $agree;
 
     public function rules() {
         return [
             [['name', 'phone', 'email', 'message'], 'filter', 'filter' => 'trim'],
-            [['name', 'email', 'message'], 'required'],
+            [['name', 'email', 'message','agree'], 'required'],
             [['email'], 'email'],
         ];
     }

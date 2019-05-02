@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\Works;
 use app\models\WorksCat;
+use app\models\Blog;
 use yii\data\Pagination;
 use app\models\WorksSlides;
 use yii\helpers\Url;
@@ -23,23 +24,25 @@ class WorksController extends Controller {
         $this->myInit();
     }
 
-    public function actionIndex() {
-        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/works'], true)]);
+    public function actionIndex($action='') {
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['/nashi-raboty'], true)]);
 
         $works = new Works();
         $worksCat = new WorksCat();
         $query = $works->getAllCat(['works.active' => 1], '(case when works.sort = 0 then 1 else 0 end), works.sort, works.id DESC', false);
 
-        $group = Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false;
+        if($group = (Yii::$app->request->getQueryParam('group') ? Yii::$app->request->getQueryParam('group') : false)){
+        Yii::$app->getResponse()->redirect(Url::toRoute('/nashi-raboty/'.($group=='house'?'chastnye-doma':'kvartiry')),301);
+        Yii::$app->end();}
         $items = $works->filter($query, []);
 
-        if (!empty($group)) {
-            if ($group == 'house') {
+        if (!empty($action)) {
+            if ($action == 'chastnye-doma') {
                 $cat = $worksCat->findOne(['key' => 'house']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
                 }
-            } elseif ($group == 'flat') {
+            } elseif ($action == 'kvartiry') {
                 $cat = $worksCat->findOne(['key' => 'flat']);
                 if (!empty($cat)) {
                     $items = $works->filter($query, ['works.cat_id' => $cat->id, 'works.active' => 1]);
@@ -48,72 +51,97 @@ class WorksController extends Controller {
                 throw new HttpException(404 ,'Такой страницы нет!');
             }
         }
+        $blog = new Blog();
+        $blog = $blog->findOne(['url'=>$action?$action:'nashi-raboty']);
 
-        $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE]);
+        $pager = new Pagination(['totalCount' => $items->count(), 'pageSize' => self::PAGE_SIZE, 'route'=>'nashi-raboty/'.$action]);
         $pager->pageSizeParam = false;
         $pageCount = ceil($pager->totalCount / $pager->pageSize);
 
         if ($page = Yii::$app->request->getQueryParam('page')) {
             if ($page != $pageCount) {
-                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => $page + 1], true)]);
-                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/nashi-raboty', 'page' => $page + 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/nashi-raboty', 'page' => $page - 1], true)]);
             } elseif ($page == $pageCount) {
-                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/works', 'page' => $page - 1], true)]);
+                $this->view->registerLinkTag(['rel' => 'prev', 'href' => Url::to(['/nashi-raboty', 'page' => $page - 1], true)]);
             }
         } else {
-            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/works', 'page' => 2], true)]);
+            $this->view->registerLinkTag(['rel' => 'next', 'href' => Url::to(['/nashi-raboty', 'page' => 2], true)]);
         }
-
+        
         $works = $items->offset($pager->offset)
             ->limit($pager->limit)
             ->all();
-
+        unset($_GET['page']);
+        unset($_GET['action']);
+        if(!empty($_GET)){
+          throw new HttpException(404 ,'Такой страницы нет!');
+          Yii::$app->end();
+        }
         return $this->render('index', [
+            'blog'  => $blog,
             'works' => $works,
             'pager' => $pager,
+            'action'=> $action
         ]);
     }
 
-    public function actionSingle() {
+    public function actionSingle($url = false) {
         $this->view->registerCssFile('/lib/PgwSlider/pgwslider.min.css');
         $this->view->registerCssFile('/lib/Prokrutka/jquery.mCustomScrollbar.css');
         $this->view->registerJsFile('/lib/Prokrutka/jquery.mCustomScrollbar.concat.min.js');
         $this->view->registerJsFile('/lib/PgwSlider/pgwslider.min.js');
 
         $id = !empty(Yii::$app->request->getQueryParam('id')) ? Yii::$app->request->getQueryParam('id') : false;
-
+        if($id){
+          $work = Works::findOne(['id' => $id, 'active' => 1]);
+          if ($work->id) {
+            Yii::$app->getResponse()->redirect(Url::toRoute('/nashi-raboty/'.$work->url),301);
+            Yii::$app->end();
+          }else{
+            throw new HttpException(404 ,'Такой страницы нет!');
+            Yii::$app->end();
+          }
+        }
+        if ($url){
+          $work = Works::findOne(['url' => $url, 'active' => 1]);
+          $id = isset($work->id) ? $work->id : null;
+        }
         if ($id) {
-            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/single', 'id' => $id], true)]);
-            $work = Works::findOne(['id' => $id, 'active' => 1]);
-            if (!$work) {
-                throw new HttpException(404 ,'Такой страницы нет!');
-            }
+            $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['nashi-raboty/'.$url], true)]);
             $images = WorksSlides::findAll(['work_id' => $id]);
 
             if ($work['sort'] > 0) {
                 $prev = Works::find()->where('((sort = ' . $work['sort'] . ') AND id > ' . $id . ') OR (sort < ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort` DESC, id')->limit(1)->one();
-                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort DESC, id DESC')->limit(1)->one()->id;
+                $prev = !is_null($prev) ? $prev->url : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort DESC, id DESC')->limit(1)->one()->url;
                 $next = Works::find()->where('((sort = ' . $work['sort'] . ') AND id < ' . $id . ') OR (sort > ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id DESC')->limit(1)->one();
-                $next = !is_null($next) ? $next->id : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->id;
+                $next = !is_null($next) ? $next->url : Works::find()->where('(sort <= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('sort, id DESC')->limit(1)->one()->url;
             }
             if ($work['sort'] == 0) {
                 $prev = Works::find()->where('sort = 0 AND id > ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id')->limit(1)->one();
-                $prev = !is_null($prev) ? $prev->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort DESC, id DESC')->limit(1)->one()->id;
+                $prev = !is_null($prev) ? $prev->url : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort DESC, id DESC')->limit(1)->one()->url;
                 $next = Works::find()->where('sort = 0 AND id < ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), `sort`, id DESC')->limit(1)->one();
-                $next = !is_null($next) ? $next->id : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort, id DESC')->limit(1)->one()->id;
+                $next = !is_null($next) ? $next->url : Works::find()->where('(sort >= ' . $work['sort'] . ') AND id != ' . $id . ' AND active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort, id DESC')->limit(1)->one()->url;
             }
-
             $other = Works::find()->where('active = 1')->orderBy('(case when sort = 0 then 1 else 0 end), sort ASC, id DESC');
-            $pager = new Pagination(['totalCount' => $other->count(), 'pageSize' => 3]);
+            $pager = new Pagination(['totalCount' => $other->count(), 'pageSize' => 3, 'route'=>'nashi-raboty/'.$url]);
             $pager->pageSizeParam = false;
             $other = $other->offset($pager->offset)
                 ->limit($pager->limit)
                 ->all();
         } else {
-            Yii::$app->getResponse()->redirect(Url::toRoute('works'));
-            exit;
+            throw new HttpException(404 ,'Такой страницы нет!');
+            Yii::$app->end();
         }
 
+        unset($_GET['page']);
+        unset($_GET['id']);
+        unset($_GET['url']);
+        $a = array_diff_key($_GET,['_pjax'=>'']);
+        if(!empty($a)){
+          throw new HttpException(404 ,'Такой страницы нет!');
+          Yii::$app->end();
+        }
         return $this->render('single', [
             'work' => $work,
             'images' => $images,
@@ -125,7 +153,7 @@ class WorksController extends Controller {
     }
 
     public function actionVideo() {
-        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['works/video'], true)]);
+        $this->view->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(['nashi-raboty/video-rabot'], true)]);
         $videos = Works::find()->where('active = 1 AND video IS NOT NULL')->orderBy(['id' => SORT_DESC]);
         $pager = new Pagination(['totalCount' => $videos->count(), 'pageSize' => self::PAGE_SIZE]);
         $pager->pageSizeParam = false;
@@ -133,8 +161,15 @@ class WorksController extends Controller {
         $videos = $videos->offset($pager->offset)
             ->limit($pager->limit)
             ->all();
-
+        unset($_GET['page']);
+        if(!empty($_GET)){
+          throw new HttpException(404 ,'Такой страницы нет!');
+          Yii::$app->end();
+        }
+        $blog = new Blog();
+        $blog = $blog->findOne(['url'=>'video-rabot']);
         return $this->render('video', [
+            'blog' => $blog,
             'videos' => $videos,
             'pager' => $pager
         ]);

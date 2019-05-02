@@ -13,19 +13,19 @@ $this->registerMetaTag([
     'content' => 'сайт сантехников сантехническии компании бригада сандехников'
 ]);
 
-$this->params['breadcrumbs'][] = 'О нас';
+$this->params['breadcrumbs'][] = 'О компании';
 ?>
 <section class="about" id="about">
     <div class="width">
         <div class="head">
-            <div class="tabs">
+            <?/*<div class="tabs">
                 <ul>
                     <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
                     <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
                 </ul>
-            </div>
+            </div>*/?>
             <h1 class="title exo asphalt">О компании</h1>
         </div>
         <div class="about-block">

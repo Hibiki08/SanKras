@@ -21,7 +21,27 @@ body {
     background: transparent;
 }
 .content-wrapper .breadcrumb {
-    padding-top: 180px;
+    position:relative;
+    padding-top: 140px;
+    margin-bottom: -125px;
+}
+.content-wrapper .breadcrumb li{
+  font-size:14px;
+  color:#34495e;
+  display:inline-block;
+}
+.content-wrapper .breadcrumb li a{
+  color:#717f8e;
+  margin-right:10px;
+}
+.content-wrapper .breadcrumb li::after{
+    content: '›';
+    display:inline-block;
+    font-size:18px;
+    margin-right:10px;
+}
+.content-wrapper .breadcrumb li.active::after{
+  display:none;  
 }
 
 html,body,.wrapper {
@@ -220,10 +240,10 @@ address {
     padding: 11px 20px 14px;
     width: 225px;
 }
-.menu .works .submenu li a {
-    width: 158px;
+.menu .works .submenu li a, .menu .prices .submenu li a {
+    width: 127px;
 }
-.menu .works .submenu {
+.menu .works .submenu, .menu .prices .submenu{
     left: -21px;
 }
 .menu .about .submenu li a {
@@ -2350,7 +2370,7 @@ color: #fff;
     padding-bottom: 60px;
 }
 .options h1 {
-    margin-top: 40px;
+/*     margin-top: 40px; */
 }
 .options h1:nth-of-type(2) {
     margin-top: 60px;
@@ -3414,6 +3434,9 @@ color: #fff;
 }
 
 /*Подробнее #more/////////////////*/
+#more.more-flat{
+  margin-top:150px;
+}
 #more h1.title {
     text-align: left;
     margin-bottom: 40px;
@@ -4049,7 +4072,7 @@ color: #fff;
 }
 
 #about.news .block-news .new {
-    display: block;
+    display: inline-block;
     width: 370px;
     -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
@@ -4063,7 +4086,7 @@ color: #fff;
     margin-right: 30px;
 }
 #about.news .block-news .new {
-    float: left;
+/*     float: left; */
 }
 #about.news .block-news .new:nth-of-type(3n) {
     margin-right: 0;
@@ -4093,6 +4116,7 @@ color: #fff;
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 15px;
+    min-height: 2.6em;
 }
 #about.news .block-news .new:hover .new-title {
     color: #f44336;
@@ -4100,6 +4124,7 @@ color: #fff;
 }
 #about.news .block-news .new .short {
     margin-bottom: 20px;
+    min-height: 8em;
 }
 #about.news .block-news .new .date,
 #about.single .date,
@@ -4648,3 +4673,133 @@ footer .sub-footer .codedex .site a {
 .mCSB_scrollTools .mCSB_draggerRail {
     width: 4px;
 }
+.video_gallary{
+  white-space:nowrap;
+  max-width:100%;
+  margin:auto 50px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.video_gallary>div{
+  display:inline-block;
+  max-width:330px;
+  position:relative;
+  white-space:normal;
+  margin-right:40px;
+  vertical-align:top;
+  text-align:left;
+  font-size: 16px;
+  color: #34495e;
+  font-weight: bold;
+}
+.video_gallary div iframe{
+  display:block;
+  width:330px;
+  height:185px;
+}
+.video_gallary>div>div:first-child{
+  display:block;
+  overflow:hidden;
+  border-radius:15px;
+  margin-bottom:10px;
+} 
+._count, .b_all{font-size: 18px;
+    color: #34495e;
+    font-weight:bold;
+    padding-left:25px;
+    margin-right:20px;}
+.b_all{margin-right:50px;background:url(/css/images/l_ico.png) no-repeat left center;    background-size:16px 16px;}
+._count{background:url(/css/images/p_ico.png) no-repeat left center;    background-size:16px 16px;}
+#all {max-width:850px;}
+#all .wrap {display:inline-block;margin:10px 15px;}
+#all strong{
+  color: #34495e;
+  margin:20px;
+  display:inline-block;
+}
+#all ._count{
+  font-size:14px;
+  margin:0px 0px 20px 0px;
+  font-weight:normal;
+}
+#all a{
+  display:inline-block;
+}
+.field-baseform-agree .help-block,
+.field-writeusform-agree .help-block,
+.field-editopinionsform-agree .help-block
+{
+  color:#ef847d;
+  font-size:12px;
+  text-align:right;
+}
+.field-baseform-agree,
+.field-writeusform-agree,
+.field-editopinionsform-agree{
+  max-width:300px; 
+  margin:0px auto;
+}
+.field-baseform-agree label,
+.field-writeusform-agree label,
+.field-editopinionsform-agree label{
+  font-size:12px;
+  color:#85929e;
+}
+.field-baseform-agree label a,
+.field-writeusform-agree label a,
+.field-editopinionsform-agree label a{
+  color: #34495e;
+  text-decoration:underline;
+}
+.field-baseform-agree input,
+.field-writeusform-agree input,
+.field-editopinionsform-agree input{
+background:white;
+border:1px solid #85929e;
+color:#85929e;
+float:left;
+width:auto !important;
+margin:4px 5px 0px 0px !important;
+padding:0px !important;
+}
+#form-question .field-baseform-agree{
+  margin:0;
+}
+#form_discount .field-baseform-agree{
+  margin: 20px 0px 0px 210px;
+}
+.seo_text_field{
+  column-count: 2;
+  margin-bottom:45px;
+}
+.list_tick li:before, .list_circle li:before, .list_line li:before{
+  display:none;
+}
+.list_tick li, .list_circle li, .list_line li{
+  padding-left:0px !important;
+}
+.list_circle{
+  list-style-type:none;
+  list-style-image:url('/images/blog/news/upload/marker-point.png');
+  list-style-position: inside;
+}
+.list_line{
+  list-style-type:none;
+  list-style-image:url('/images/blog/news/upload/%D1%82%D0%B8%D1%80%D0%B5.png');
+  list-style-position: inside;
+}
+.list_tick{
+  list-style-type:none;
+  list-style-image:url('/images/blog/news/upload/marker-tick-2.png');
+  list-style-position: inside;
+}
+.list_number
+  { list-style-type: none;
+    counter-reset: list 0; }
+.list_number li:before {
+    counter-increment: list; /* Увеличиваем значение счетчика */
+    content: counter(list) ". "; /* Выводим число */
+    color: #f44336;
+    font-weight:bold;
+   }

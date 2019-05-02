@@ -65,12 +65,16 @@ $(document).ready(function() {
         }
     }
 
-    $('.header .drop-down').click(function () {
-        if ($('.menu .list:first-of-type .submenu').hasClass('active')) {
-            $('.menu .list:first-of-type .submenu').removeClass('active');
-        } else {
+    $('.header .drop-down').parent().hover(function () {
+        if (!$('.menu .list:first-of-type .submenu').hasClass('active')) {
+//             $('.menu .list:first-of-type .submenu').removeClass('active');
+//         } else {
             $('.menu .list:first-of-type .submenu').addClass('active');
         }
+    },function(){
+      if ($('.menu .list:first-of-type .submenu').hasClass('active')) {
+        $('.menu .list:first-of-type .submenu').removeClass('active');
+      }
     });
 
     function scrollMenu() {

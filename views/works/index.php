@@ -12,27 +12,34 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => 'примеры сантехнических работ санкрас'
 ]);
-$group = Yii::$app->request->get('group');
 
+
+if($action){
+$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url'=> ['/works']];
+$this->params['breadcrumbs'][] = ($action=='chastnye-doma'?'Частные дома':'Квартиры');}else{
 $this->params['breadcrumbs'][] = 'Наши работы';
+}
 ?>
 <section class="works" id="works">
     <div class="width">
         <div class="head clear">
-            <h1 class="title exo asphalt">Наши работы</h1>
+            <h1 class="title exo asphalt"><?=$action=='chastnye-doma'?'Работы в частных домах':($action=='kvartiry'?'Работы в квартирах':'Наши работы')?></h1>
             <div class="tabs">
                 <ul>
-                    <li class="exo asphalt <?php echo empty($group) ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works']); ?>">Все работы</a></li>
-                    <li class="exo asphalt <?php echo $group == 'house' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'house']); ?>">Частные дома</a></li>
-                    <li class="exo asphalt <?php echo $group == 'flat' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl(['works', 'group' => 'flat']); ?>">Квартиры</a></li>
-                    <li class="exo asphalt" ><a href="<?php echo Yii::$app->urlManager->createUrl('works/video'); ?>">Видео</a></li>
+                    <li class="exo asphalt <?php echo empty($action) ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty'); ?>">Все работы</a></li>
+                    <li class="exo asphalt <?php echo $action == 'chastnye-doma' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl('/nashi-raboty/chastnye-doma'); ?>">Частные дома</a></li>
+                    <li class="exo asphalt <?php echo $action == 'kvartiry' ? 'active' : ''; ?>"><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/kvartiry'); ?>">Квартиры</a></li>
+                    <li class="exo asphalt" ><a href="<?php echo Yii::$app->urlManager->createUrl('nashi-raboty/video-rabot'); ?>">Видео</a></li>
                 </ul>
             </div>
         </div>
+        <?if($blog && $blog->active){?>
+        <div class="seo_text_field"><?=$blog->text?></div>
+        <?}?>
         <div class="wrks clear">
             <?php if (!empty($works)) { ?>
             <?php foreach ($works as $work) {?>
-                <a href="<?php echo Url::to(['works/single', 'id' => $work->id]); ?>">
+                <a href="<?php echo Url::to(['nashi-raboty/'.$work->url]); ?>">
                     <div class="work">
                         <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
                         <div class="work-title exo"><?php echo $work->title; ?></div>

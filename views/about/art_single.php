@@ -11,8 +11,7 @@ $this->registerMetaTag([
     'content' => $article->title
 ]);
 
-$this->params['breadcrumbs'][] = ['label' => 'О нас', 'url'=> ['/about']];
-$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url'=> ['/about/articles']];
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url'=> ['/stati']];
 $this->params['breadcrumbs'][] = $article->title;
 ?>
 <section class="single" id="about">
@@ -28,9 +27,9 @@ $this->params['breadcrumbs'][] = $article->title;
             </div>
             <?php if ($prev && $next != null) { ?>
                 <div class="prev-next clear">
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая статья</span></a>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles']); ?>" class="prev more exo"><div class="img"></div><span>Все статьи</span></a>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $next]); ?>" class="next exo"><span>Следующая статья</span><div class="img"></div></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['stati/'.$prev]); ?>" class="prev exo"><div class="img"></div><span>Предыдущая статья</span></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['stati']); ?>" class="prev more exo"><div class="img"></div><span>Все статьи</span></a>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['stati/'.$next]); ?>" class="next exo"><span>Следующая статья</span><div class="img"></div></a>
                 </div>
             <?php } ?>
         </div>
@@ -38,7 +37,7 @@ $this->params['breadcrumbs'][] = $article->title;
             <div>Другие статьи</div>
             <?php if (!empty($other)) { ?>
                 <?php foreach ($other as $oth) {?>
-                    <a href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'id' => $oth->id]); ?>" class="more">
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['stati/'.$oth->url]); ?>" class="more">
                         <h2><?php echo $oth->title; ?></h2>
                         <div class="short"><?php echo strip_tags(StringHelper::truncate($oth->text, 250, '...'), '<br><p>'); ?></div>
                         <span class="date"><?php echo Yii::$app->formatter->asDate($oth->date, 'd MMMM yyyy'); ?></span>

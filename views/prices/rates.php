@@ -9,18 +9,18 @@ $this->registerMetaTag([
     'content' => 'стоимость сантехнические работы, цена сантехнические работы, коттедж, квартира, частный дом'
 ]);
 
-$this->params['breadcrumbs'][] = ['label' => 'Прайс-лист', 'url'=> ['/prices']];
 $this->params['breadcrumbs'][] = 'Пакеты услуг';
 ?>
 <section class="options" id="options">
+    <h1 class="exo asphalt">Пакеты услуг</h1>
     <div class="width">
-        <div class="tabs">
+<?        /*<div class="tabs">
             <ul>
                 <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('prices'); ?>">Прайс-лист</a></li>
                 <li class="exo asphalt calc"><a href="/prices#calc">Рассчитать стоимость</a></li>
                 <li class="exo asphalt active" ><a href="<?php echo Yii::$app->urlManager->createUrl('prices/rates'); ?>">Пакеты услуг</a></li>
             </ul>
-        </div>
+        </div>*/?>
         <h2 class="exo asphalt">Монтаж отопления и водоснабжения в квартире</h2>
         <table>
             <thead>

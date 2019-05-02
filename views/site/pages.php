@@ -13,7 +13,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $options['tag_keywords']
 ]);
-
+// var_dump($options);
+if($parent) $this->params['breadcrumbs'][] = ['label' => $parent['title'], 'url'=> ['/'.$parent['link'].'/']];
 $this->params['breadcrumbs'][] = $options['title'];
 ?>
 <div class="pages">
@@ -60,6 +61,11 @@ $this->params['breadcrumbs'][] = $options['title'];
                             'class' => 'phone-mask',
                             'placeholder' => 'Ваш телефон*'
                         ]); ?>
+                        <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                         <?php echo $form->field($letter, 'hidden', [
                             'template' => '{input}',
                         ])->hiddenInput(['value' => $options['title']]); ?>
@@ -77,22 +83,51 @@ $this->params['breadcrumbs'][] = $options['title'];
     </header>
     <main>
         <div class="width">
-            <?php if(!empty($options->slides)) { ?>
+            <?php if(!empty($options->slides)) { $c = 0;?>
                 <div class="gallery">
                     <h2><?php echo $options['gallery_title']; ?></h2>
-                    <div id="carousel" class="slider1">
-                        <div class="sliderWrapper">
-                            <div class="Blockswrapper">
-                            <?php foreach ($options->slides as $slide) { ?>
+                    <div class="flexslider" style="margin:0px 50px 10px;">
+                        <ul class="slides">
+                            <?php foreach ($options->slides as $slide) { $c++;?>
+                                <li>
+                                    <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
+                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div style="text-align:right;margin-top:10px;">
+                      <span class="_count"><?=$c?></span> <a class="fancy b_all" href="#all">Посмотреть все</a>
+                    </div>
+                    <div style="display:none">
+                      <div id="all">
+                        <div style="text-align:center">
+                          <strong><?=$options['title'];?></strong><br>
+                          <span class="_count"><?=$c?> фотографии</span>
+                        </div>
+                      <?php foreach ($options->slides as $slide) { ?>
                                 <div class="wrap">
                                     <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
                                         <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
                                     </a>
                                 </div>
                             <?php } ?>
-                            </div>
-                        </div>
+                      </div>
                     </div>
+                </div>
+            <?php } ?>
+            <?php if($options->videos_show) { ?>
+                <div class="gallery" style="margin-top:30px;">
+                    <h2>Видео работ</h2>
+                    <div class="video_gallary"><!--
+                    <?foreach($options->videos as $v){?>
+                      --><div>
+                        <div><iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div><?=$v[0]?></div>
+                      </div><!--
+                    <?}?>
+                    --></div>
                 </div>
             <?php } ?>
             <?php if (!empty($options['main_text'])) { ?>
@@ -195,6 +230,11 @@ $this->params['breadcrumbs'][] = $options['title'];
                             'class' => 'phone-mask',
                             'placeholder' => 'Ваш телефон*'
                         ]); ?>
+                        <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                         <?php echo $form->field($letter, 'hidden', [
                             'template' => '{input}',
                         ])->hiddenInput(['value' => $options['title']]); ?>
@@ -213,15 +253,14 @@ $this->params['breadcrumbs'][] = $options['title'];
 <?php if(!empty($options->slides)) { ?>
 <script type="text/javascript">
     $(window).load(function() {
-        $('.slider1').HbKSlider({
-            sliderSize: 4,
-            autoPlay: false,
-            overStop: true,
-            navigationArrows: true,
-            sliderSpeed: 4000,
-            animationSpeed: 700,
-            animation: 'carousel',
-            imageSize: 280
+        $('.flexslider').flexslider({
+          slideshow: false,
+          animation:'slide',
+          animationSpeed:0,
+          controlNav: false,
+          maxItems:3,
+          itemWidth: 310,
+          itemMargin: 40,
         });
         $("a.fancy").fancybox({
             openEffect	: 'elastic',

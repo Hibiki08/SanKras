@@ -15,43 +15,11 @@ use yii\helpers\Url;
 use yii\web\Response;
 use app\components\Translate;
 
-class NewsController extends AdminController {
-
-    const GET_ACCESS_DENIED = [
-        'index',
-    ];
-
-    const POST_ACCESS_DENIED = [
-        'index',
-        'edit',
-        'active'
-    ];
-
-    public function beforeAction($action)
-    {
-        if (parent::beforeAction($action)) {
-            if (in_array($action->id, self::GET_ACCESS_DENIED)) {
-                unset($_GET['module']);
-                if (!empty(Yii::$app->request->get())) {
-                    throw new HttpException(404, 'Такой страницы нет!');
-                    Yii::$app->end();
-                }
-            }
-
-            if (in_array($action->id, self::POST_ACCESS_DENIED)) {
-                if (!empty(Yii::$app->request->post())) {
-                    throw new HttpException(404, 'Такой страницы нет!');
-                    Yii::$app->end();
-                }
-            }
-        }
-
-        return true;
-    }
+class NodeController extends AdminController {
 
     public function actionIndex() {
         $blog = new Blog();
-        $news = $blog->findByColumn(['cat_id' => BlogCat::NEWS_ID], '', ['date' => SORT_DESC], false);
+        $news = $blog->findByColumn(['cat_id' => 4], '', ['date' => SORT_DESC], false);
 
         $pager = new Pagination(['totalCount' => $news->count(), 'pageSize' => Blog::NEWS_SIZE]);
         $pager->pageSizeParam = false;
@@ -67,7 +35,7 @@ class NewsController extends AdminController {
     }
 
     public function actionEdit() {
-        $id = Yii::$app->request->getQueryParam('id') ? (int)Yii::$app->request->getQueryParam('id') : null;
+        $id = Yii::$app->request->getQueryParam('id') ? Yii::$app->request->getQueryParam('id') : null;
 
         $errors = [];
 
@@ -82,7 +50,7 @@ class NewsController extends AdminController {
 
                     if ($form->upload(Blog::IMG_FOLDER_NEWS, $form->preview)) {
                         if ($id && !empty($model->preview)) {
-                            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS;
+                            $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . 'blog/node/';
                             file_exists($path . $model->preview) ? unlink($path . $model->preview) : false;
                             file_exists($path . 'mini_' . $model->preview) ? unlink($path . 'mini_' . $model->preview) : false;
                             file_exists($path . 'prev_' . $model->preview) ? unlink($path . 'prev_' . $model->preview) : false;
@@ -99,7 +67,7 @@ class NewsController extends AdminController {
                     $model->url = Yii::$app->request->post('EditNewsForm')['url'];
                     $model->text = Yii::$app->request->post('EditNewsForm')['text'];
                     $model->preview = empty($form->preview->name) ? empty(Yii::$app->request->post('EditNewsForm')['hidden']) ? null : Yii::$app->request->post('EditNewsForm')['hidden'] : $translate->translate($form->preview->name);
-                    $model->cat_id = BlogCat::NEWS_ID;
+                    $model->cat_id = 4;
                     $model->active = isset(Yii::$app->request->post('EditNewsForm')['active']) ? 1 : 0;
                     if (isset($id)) {
                         $date = $model->date;
@@ -108,7 +76,7 @@ class NewsController extends AdminController {
                     $model->save();
                     $id = $id ? $id : Yii::$app->db->lastInsertID;
 
-                    Yii::$app->getResponse()->redirect(Url::toRoute(['news/edit', 'id' => $id]));
+                    Yii::$app->getResponse()->redirect(Url::toRoute(['node/edit', 'id' => $id]));
             }
 
             return $this->render('edit', [

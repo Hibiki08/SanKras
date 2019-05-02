@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use app\models\Services;
 use app\models\ServicesSlides;
@@ -17,12 +18,46 @@ use yii\bootstrap\ActiveForm;
 
 class PagesController extends AdminController {
 
+    const GET_ACCESS_DENIED = [
+        'delete-slide',
+    ];
+
+    const POST_ACCESS_DENIED = [
+        'index',
+        'edit',
+        'sort',
+        'delete',
+        'active',
+    ];
+
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (in_array($action->id, self::GET_ACCESS_DENIED)) {
+                unset($_GET['module']);
+                if (!empty(Yii::$app->request->get())) {
+                    throw new HttpException(404, 'Такой страницы нет!');
+                    Yii::$app->end();
+                }
+            }
+
+            if (in_array($action->id, self::POST_ACCESS_DENIED)) {
+                if (!empty(Yii::$app->request->post())) {
+                    throw new HttpException(404, 'Такой страницы нет!');
+                    Yii::$app->end();
+                }
+            }
+        }
+
+        return true;
+    }
+
     public function actionIndex() {
         $status = false;
         $services = new Services();
         $query = $services->getAllServ(false, 'sk_services.parent_id, sk_services.sort ASC, ISNULL(sk_services.sort),  sk_services.id ASC', false);
 
-        $parentId = Yii::$app->request->getQueryParam('parent_id') ? Yii::$app->request->getQueryParam('parent_id') : false;
+        $parentId = Yii::$app->request->getQueryParam('parent_id') ? (int)Yii::$app->request->getQueryParam('parent_id') : false;
 
         if ($parentId) {
             $items = $services->filter($query, ['sk_services.parent_id' => $parentId]);
@@ -61,7 +96,7 @@ class PagesController extends AdminController {
     }
 
     public function actionEdit() {
-        $id = Yii::$app->request->getQueryParam('id') ? Yii::$app->request->getQueryParam('id') : null;
+        $id = Yii::$app->request->getQueryParam('id') ? (int)Yii::$app->request->getQueryParam('id') : null;
 
         $errors = [];
 
@@ -109,6 +144,8 @@ class PagesController extends AdminController {
                     $model->prev_field = $form->prev_field;
                     $model->gallery_title = $form->gallery_title;
                     $model->main_text = $form->main_text;
+                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
+                    $model->videos = !empty($_POST['EditServiceForm']['videos'])?strip_tags(json_encode($_POST['EditServiceForm']['videos'])):NULL;
                     $model->work_text = $form->work_text;
                     $model->price_title = $form->price_title;
                     $model->table_ex = isset(Yii::$app->request->post('EditServiceForm')['table_ex']) ? 1 : 0;
@@ -199,6 +236,8 @@ class PagesController extends AdminController {
             return [
                 'status' => true,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -227,6 +266,8 @@ class PagesController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -248,6 +289,8 @@ class PagesController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -279,6 +322,8 @@ class PagesController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }

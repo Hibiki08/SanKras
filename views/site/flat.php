@@ -257,6 +257,11 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                     'class' => 'phone-mask',
                     'placeholder' => 'Ваш телефон*'
                 ]); ?>
+                <?php echo $form->field($question, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                 <?php echo Html::submitButton('Задать вопрос', ['class' => 'pulse']); ?>
                 <div class="success">
                     <span class="exo">Ваше сообщение отправлено!</span><br>

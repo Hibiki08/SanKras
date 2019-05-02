@@ -40,6 +40,11 @@ $this->registerMetaTag([
                 'class' => 'phone-mask',
                 'placeholder' => 'Ваш телефон*'
             ]); ?>
+            <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
             <?php echo Html::submitButton('заказать консультацию', ['class' => 'pulse']); ?>
             <span>*ваши данные не будут переданы 3-им лицам</span>
             <?php ActiveForm::end(); ?>
@@ -69,7 +74,7 @@ $this->registerMetaTag([
                     <li>Запуск и наладка всей системы</li>
                     <li>Предоставление гарантии</li>
                 </ul>
-                <a href="<?php echo Yii::$app->urlManager->createUrl('flat'); ?>" class="exo">Подробнее</a>
+                <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-kvartire'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service house">
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-house.png" alt="дом">
@@ -84,7 +89,7 @@ $this->registerMetaTag([
                     <li>Ввод в эксплуатацию, запуск и наладка всей системы</li>
                     <li>Предоставление гарантии</li>
                 </ul>
-                <a href="<?php echo Yii::$app->urlManager->createUrl('house'); ?>" class="exo">Подробнее</a>
+                <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-chastnom-dome'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service company">
                 <img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-company.png" alt="застройщики">
@@ -97,7 +102,7 @@ $this->registerMetaTag([
                     <li>Гарантия на выполненные работы</li>
                     <li>Любая сложность заказа</li>
                 </ul>
-                <a href="<?php echo Yii::$app->urlManager->createUrl('company'); ?>" class="exo">Подробнее</a>
+                <a href="<?php echo Yii::$app->urlManager->createUrl('zastroyshchikam'); ?>" class="exo">Подробнее</a>
             </div>
         </div>
     </div>
@@ -189,6 +194,11 @@ $this->registerMetaTag([
                     'class' => 'focus',
                     'placeholder' => 'Ваш e-mail*'
                 ]); ?>
+                <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                 <?php echo Html::submitButton('получить скидку', ['class' => 'pulse']); ?>
                 <?php ActiveForm::end(); ?>
                 <div class="success">
@@ -262,8 +272,8 @@ $this->registerMetaTag([
             </div>
         </div>
         <div class="other">
-            <a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>" class="button">Посмотреть все отзывы</a>
-            <a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>" class="button">Оставить отзыв</a>
+            <a href="<?php echo Yii::$app->urlManager->createUrl('otzyvy'); ?>" class="button">Посмотреть все отзывы</a>
+            <a href="<?php echo Yii::$app->urlManager->createUrl('otzyvy'); ?>" class="button">Оставить отзыв</a>
         </div>
     </div>
 </section>
@@ -313,6 +323,11 @@ $this->registerMetaTag([
                     'class' => 'phone-mask',
                     'placeholder' => 'Ваш телефон*'
                 ]); ?>
+                <?php echo $form->field($letter, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
                 <?php echo Html::submitButton('оставить заявку', ['class' => 'pulse']); ?>
                 <?php ActiveForm::end(); ?>
                 <span>*обязательные поля <br>данные не будут переданы 3-им лицам</span>

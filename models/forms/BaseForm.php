@@ -12,12 +12,13 @@ class BaseForm extends Model {
     public $email;
     public $text;
     public $hidden;
+    public $agree;
 
     public function rules() {
         return [
             [['email'], 'email'],
-            [['email', 'phone', 'name', 'text'], 'required'],
-            ['phone', 'match', 'pattern' => '^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$'],
+            [['email', 'phone', 'name', 'text','agree'], 'required'],
+            ['phone', 'match', 'pattern' => '^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$']
         ];
     }
 

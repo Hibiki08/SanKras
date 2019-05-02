@@ -8,7 +8,7 @@ use app\models\Blog;
 
 $this->title = Yii::$app->request->get('id') ? 'Редактировать' : 'Добавить';
 ?>
-<h1><?php echo 'Статьи > ' . $this->title; ?></h1>
+<h1><?php echo 'Сео-тексты >' . $this->title; ?></h1>
 
 <div class="row-fluid">
     <p class="text-danger"><?php echo $errors ? implode('<br/>', $errors) : ''; ?></p>
@@ -21,8 +21,8 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
     ],
 ]); ?>
-<?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название'); ?>
-<?php echo $form->field($edit, 'url')->input('text', ['value' => $model->url])->label('URL*'); ?>
+<?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Заголовок'); ?>
+<?php echo $form->field($edit, 'url')->dropDownList(['nashi-raboty'=>'Наши работы','chastnye-doma'=>'Частные дома','kvartiry'=>'Квартиры','video-rabot'=>'Видео работ'], ['options' => isset($model->url) ? [$model->url => ['selected ' => true]] : ''])->label('Раздел'); ?>
 <?php echo $form->field($edit, 'text')->widget(CKEditor::className(), [
     'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], [
         'preset' => 'full',
@@ -32,7 +32,6 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
         'value' => $model->text
     ]
 ])->label('Текст'); ?>
-<?php echo $form->field($edit, 'category')->dropDownList($categories, ['options' => isset($model->category->id) ? [$model->category->id => ['selected ' => true]] : ''])->label('Раздел'); ?>
 <?php echo $form->field($edit, 'preview', ['options' => [
     'id' => 'preview-file',
     'class' => 'form-group field-editnewsform-preview'
@@ -41,9 +40,9 @@ if (isset($model->preview)) { ?>
     <label class="col-lg-2 control-label"></label>
     <div class="slides">
         <figure>
-            <img class="img-thumbnail" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . '/mini_' . $model->preview; ?>">
+            <img class="img-thumbnail" src="<?php echo Yii::$app->params['params']['pathToImage'] . 'blog/node/' . 'mini_' . $model->preview; ?>">
         </figure>
-        <span class="glyphicon glyphicon-remove" data-article-id="<?php echo $model->id; ?>"></span>
+        <span class="glyphicon glyphicon-remove" data-new-id="<?php echo $model->id; ?>"></span>
         <?php echo $form->field($edit, 'hidden', ['template'=>'{input}', 'options' => ['class' => '', 'id' => 'preview']])->hiddenInput(['value' => $model->preview]); ?>
     </div>
 <?php } ?>
@@ -53,7 +52,7 @@ if (isset($model->preview)) { ?>
 ])->label('Активность'); ?>
 <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-        <a href="<?php echo Url::toRoute(['articles/index']); ?>" class="btn btn-warning">Вернуться к списку</a>
+        <a href="<?php echo Url::toRoute(['node/index']); ?>" class="btn btn-warning">Вернуться к списку</a>
         <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
@@ -64,12 +63,12 @@ if (isset($model->preview)) { ?>
     $(document).ready(function() {
         $('.glyphicon-remove').click(function() {
             var $this = $(this);
-            var articleId = $(this).data('article-id') ? $(this).data('article-id') : false;
+            var newId = $(this).data('new-id');
             $.ajax({
-                url: '<?php echo Url::toRoute('articles/delete-slide'); ?>',
+                url: '<?php echo Url::toRoute('node/delete-slide'); ?>',
                 type: 'get',
                 dataType: 'json',
-                data: {articleId: articleId},
+                data: {newId: newId},
                 success: function (response) {
                     if (response.status == true) {
                         $this.parent('.slides').find('img').remove();

@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use app\models\Works;
 use app\models\WorksCat;
@@ -76,6 +77,7 @@ class WorksController extends AdminController {
         $model = $id ? $works->getAllCat(['works.id' => $id])[0] : new Works();
 
         if (!empty($model)) {
+            $form->setOldUrl($model->url);
             $categories = $worksCat->findAll(['parent_id' => null]);
             foreach ($categories as $item) {
                 $parentCat[$item->id] = $item->title;
@@ -121,6 +123,7 @@ class WorksController extends AdminController {
                     $newsPrev = !is_null($model->preview) ? $model->preview : false;
 
                     $model->title = $form->title;
+                    $model->url = $form->url;
                     $model->text = $form->text;
                     $model->cat_id = $form->cat_id;
                     $model->year = $form->year;
@@ -206,6 +209,8 @@ class WorksController extends AdminController {
             if ($works->update() !== false) {
                 $response = true;
             }
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -246,6 +251,8 @@ class WorksController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -267,6 +274,8 @@ class WorksController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }
@@ -298,6 +307,8 @@ class WorksController extends AdminController {
             return [
                 'status' => $response,
             ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
         }
         Yii::$app->end();
     }

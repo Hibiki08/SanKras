@@ -108,6 +108,27 @@ if (isset($model->image)) { ?>
         <?php echo $form->field($edit, 'hidden', ['template'=>'{input}', 'options' => ['class' => '', 'id' => 'image']])->hiddenInput(['value' => $model->image]); ?>
     </div>
 <?php } ?>
+<?php echo $form->field($edit, 'videos_show')->input('checkbox', [
+    'value' => '1',
+    'checked' => $model->videos_show == 1 ? 'checked' : false,
+    'class' => 'checkbox',
+])->label('Отображать блок видеозаписей'); ?>
+<div class="form-group field-editserviceform-videos">
+<label class="col-lg-2 control-label">Список видеозаписей</label><div class="col-lg-10 videos-collection">
+<?php
+if(!empty($model->videos)){
+ $vids = json_decode($model->videos);
+ foreach ($vids as $k=>$v){?>
+  <div><input type="hidden" class="form-control" name="EditServiceForm[videos][<?=$k?>]" value="<?=$v?>">
+  <span style="width:60%;"><?=$k?></span>
+  <span class="glyphicon glyphicon-remove"></span></div>
+<?php  
+ }
+}
+?>
+  <div><input type="text" class="form-control" value="" placeholder="Название видео" style="width:70%;display:block;"><input type="text" class="form-control" value="" placeholder="Cсылка видео" style="width:70%;display:block;"> <span class="glyphicon glyphicon-plus" style="color: blue;float: right;margin: -43px 250px 0px 0px;cursor: pointer;"></span></div>
+ </div>
+</div>
 <?php echo @$form->field($edit, 'slides[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить слайды'); ?>
 <?php if (!empty($slides)) { ?>
     <div class="other-slides">
@@ -142,7 +163,7 @@ if (isset($model->image)) { ?>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.glyphicon-remove').click(function() {
+        $('.other-slides .glyphicon-remove').click(function() {
             var $this = $(this);
             var slideId = $(this).data('slide-id') ? $(this).data('slide-id') : false;
             $.ajax({
@@ -163,5 +184,22 @@ if (isset($model->image)) { ?>
                 }
             });
         });
+        $('body').on('click','.videos-collection .glyphicon-plus',function(){
+          d = $(this).closest('div');
+          i = d.find('input');
+          $(d).before('<div><input type="hidden" name="EditServiceForm[videos]['+i[1].value+']" value="'+i[0].value+'"><span style="width:60%;">'+i[0].value+'</span> <span class="glyphicon glyphicon-remove"></span></div>');
+          i.val('');
+        });
+        $('body').on('click','.videos-collection .glyphicon-remove',function(){
+          $(this).closest('div').remove();
+        });
     });
 </script>
+<style>
+.videos-collection div span {
+  display:inline-block;
+}
+.videos-collection > div {
+margin-bottom:0.5em;
+}
+</style>

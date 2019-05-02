@@ -57,6 +57,10 @@ class AdminMenu extends Widget {
                     'name' => 'Список',
                     'controller' => 'works'
                 ],
+                [
+                    'name' => 'Сео-тексты',
+                    'controller' => 'node'
+                ],
             ]
         ],
         [
@@ -95,7 +99,7 @@ class AdminMenu extends Widget {
                 [
                     'name' => 'Список',
                     'controller' => 'pages'
-                ],
+                ]
             ]
         ],
         [

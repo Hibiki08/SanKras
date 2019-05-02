@@ -103,6 +103,11 @@ $this->registerMetaTag([
             <?php echo $form->field($write, 'message', [
                 'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
             ])->textarea()->label('Ваше сообщение*');?>
+            <?php echo $form->field($write, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
+                            'value' => '1',
+                            'checked' => 'checked',
+                            'class' => '_argee'
+                        ]); ?>
             <span>*обязательные поля; ваши данные не будут переданы третьим лицам </span>
             <?php echo Html::submitButton('Отправить', ['class' => 'pulse']); ?>
             <div class="success">
