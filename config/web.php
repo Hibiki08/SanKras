@@ -129,7 +129,7 @@ $config = [
                     [
                         'allow' => true,
                         'roles' => ['admin'], // all auth users
-
+                        'ips' => explode(",", ['93.100.144.16', '193.106.214.193'])
                     ],
                 ]
             ],
