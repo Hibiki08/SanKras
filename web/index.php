@@ -13,3 +13,5 @@ $config = yii\helpers\ArrayHelper::merge(
 );
 
 (new yii\web\Application($config))->run();
+
+//var_dump($_SERVER);

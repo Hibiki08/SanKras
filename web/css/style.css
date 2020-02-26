@@ -4599,6 +4599,9 @@ footer .links .usl {
 footer .sub-footer {
     clear: both;
 }
+footer .sub-footer .site {
+    padding-left: 50px;
+}
 footer .cont img {
     margin-right: 10px;
     vertical-align: middle;
