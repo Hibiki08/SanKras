@@ -29,14 +29,21 @@ class EditServiceForm extends Model {
     public $image;
     public $slides;
     public $slide_text;
+    public $slide_description;
+    public $projectdocs;
+    public $projectdocs_name;
+    public $projectdocs_description;
     public $video;
     public $videos;
+    public $videos_name;
     public $videos_show;
     public $img_video;
     public $benefits;
     public $sort;
     public $active;
     public $old_attribute_val = '';
+    public $projectdocs_active;
+    public $projectdocs_title;
 
     public function rules() {
         return [
@@ -45,9 +52,10 @@ class EditServiceForm extends Model {
             },],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
-                'price_title', 'img_video', 'title_menu'], 'required'],
+                'price_title', 'img_video', 'title_menu', 'projectdocs_title'], 'required'],
             [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['slides'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
+            [['projectdocs'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
             [['title', 'link', 'form_title', 'tag_title', 'tag_keywords', 'tag_description',
                 'gallery_title', 'price_title', 'image', 'video'], 'string', 'max' => 255],
             ['video', 'match', 'pattern' => '/youtube.com\/embed/i'],
@@ -95,13 +103,17 @@ class EditServiceForm extends Model {
             'packages' => 'Пакеты',
             'image' => 'Главная картинка',
             'slides' => 'Слайды',
+            'projectdocs' => 'Проектная документация',
             'video' => 'Видео',
             'img_video' => 'Картинка или видео',
             'benefits' => 'Отображение блока с выгодами',
             'sort' => 'Сортировка',
             'active' => 'Активность',
             'videos_show' => 'Отображать блок видеозаписей',
-            'videos' => 'Список видеозаписей'
+            'videos' => 'Список видеозаписей',
+            'videos_name' => 'Описание видео',
+            'projectdocs_title' => 'Заголовок проектной документации',
+            'projectdocs_active' => 'Отображение проектной документации'
         ];
     }
 

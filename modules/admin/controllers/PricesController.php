@@ -7,6 +7,8 @@ use Yii;
 use yii\web\HttpException;
 use app\models\Prices;
 use app\models\PricesCat;
+use app\components\ImageResize;
+use yii\web\UploadedFile;
 use app\models\forms\EditPricesForm;
 use yii\helpers\Url;
 use yii\web\Response;
@@ -116,36 +118,51 @@ class PricesController extends AdminController {
                 $pagee[0] = ['selected ' => true];
             }
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-                $model->title = $form->title;
-                $model->price = $form->price;
-                $model->unit = $form->unit;
-                $model->cat_id = $form->cat_id;
-                if (is_null($id)) {
-                    $model->sort = $maxSort + 1;
-                }
-                $model->active = isset(Yii::$app->request->post('EditPricesForm')['active']) ? 1 : 0;
-                $model->save();
-
-                $id = $id ? $id : Yii::$app->db->lastInsertID;
-                $pages = Yii::$app->request->post('EditPricesForm')['page'];
-                if (!empty($pages)) {
-                    $i = 0;
-                    $priceInPage->deleteAll(['price_id' => $id]);
-                    $data = [];
-                    if ($pages[0] != 0) {
-                        foreach ($pages as $page) {
-                            $data[$i]['price_id'] = $id;
-                            $data[$i]['page_id'] = $page;
-                            $i++;
-                        }
-                        $priceInPage->insertData(PricesInPage::tableName(), $data);
+                $form->image = UploadedFile::getInstance($form, 'image');
+                if (!$id) {
+                    if (!$form->image->name) {
+                        $errors['emptyImage'] = 'Не выбрано изображение!';
                     }
                 }
-                Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
+				
+                if (empty($errors)) {
+                    if ($form->upload(Prices::IMG_FOLDER)) {
+                        $resize = new ImageResize($form->image->name, Prices::IMG_FOLDER, Prices::IMG_FOLDER, 200, '', 'admin');
+                        $resize->resize();
+                    }
+                    $model->image = !empty($form->image->name) ? "/images/".Prices::IMG_FOLDER.$form->image->name : Yii::$app->request->post('EditPricesForm')['hidden'];
+					$model->title = $form->title;
+					$model->price = $form->price;
+					$model->unit = $form->unit;
+					$model->cat_id = $form->cat_id;
+					if (is_null($id)) {
+						$model->sort = $maxSort + 1;
+					}
+					$model->active = isset(Yii::$app->request->post('EditPricesForm')['active']) ? 1 : 0;
+					$model->save();
+
+					$id = $id ? $id : Yii::$app->db->lastInsertID;
+					$pages = Yii::$app->request->post('EditPricesForm')['page'];
+					if (!empty($pages)) {
+						$i = 0;
+						$priceInPage->deleteAll(['price_id' => $id]);
+						$data = [];
+						if ($pages[0] != 0) {
+							foreach ($pages as $page) {
+								$data[$i]['price_id'] = $id;
+								$data[$i]['page_id'] = $page;
+								$i++;
+							}
+							$priceInPage->insertData(PricesInPage::tableName(), $data);
+						}
+					}
+					Yii::$app->getResponse()->redirect(Url::toRoute(['prices/edit', 'id' => $id]));
+				}
             }
 
             return $this->render('edit', [
                 'edit' => $form,
+                'errors' => $errors,
                 'categories' => $parentCat,
                 'model' => $model,
                 'pagePlace' => $pagePlace,

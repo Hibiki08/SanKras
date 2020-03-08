@@ -33,6 +33,11 @@ body {
 .content-wrapper .breadcrumb li a{
   color:#717f8e;
   margin-right:10px;
+  text-decoration: underline;
+}
+.content-wrapper .breadcrumb li a:hover{
+  color:#f44336;
+  text-decoration: none;
 }
 .content-wrapper .breadcrumb li::after{
     content: '›';
@@ -4709,24 +4714,24 @@ footer .sub-footer .codedex .site a {
 } 
 ._count, .b_all{font-size: 18px;
     color: #34495e;
-    font-weight:bold;
+    font-weight:500;
     padding-left:25px;
     margin-right:20px;}
-.b_all{margin-right:50px;background:url(/css/images/l_ico.png) no-repeat left center;    background-size:16px 16px;}
+.b_all{margin-right:50px;background:url(/css/images/l_ico.png) no-repeat left center;    background-size:16px 16px;text-decoration: underline;}
 ._count{background:url(/css/images/p_ico.png) no-repeat left center;    background-size:16px 16px;}
-#all {max-width:850px;}
-#all .wrap {display:inline-block;margin:10px 15px;}
-#all strong{
+.all {max-width:850px;}
+.all .wrap {display:inline-block;margin:10px 15px;}
+.all strong{
   color: #34495e;
   margin:20px;
   display:inline-block;
 }
-#all ._count{
+.all ._count{
   font-size:14px;
   margin:0px 0px 20px 0px;
   font-weight:normal;
 }
-#all a{
+.all a{
   display:inline-block;
 }
 .field-baseform-agree .help-block,
@@ -4746,7 +4751,7 @@ footer .sub-footer .codedex .site a {
 .field-baseform-agree label,
 .field-writeusform-agree label,
 .field-editopinionsform-agree label{
-  font-size:12px;
+  font-size:11px;
   color:#85929e;
 }
 .field-baseform-agree label a,
@@ -4806,3 +4811,198 @@ padding:0px !important;
     color: #f44336;
     font-weight:bold;
    }
+
+.pages header .block .sidebar-serviceList {
+    max-height: 356px;
+    overflow: auto;
+	font-size: 14px;
+    color: #34495e;
+	padding-right: 15px;
+    box-sizing: border-box;
+}
+.pages header .block .sidebar-serviceList table {
+    border-collapse: collapse;
+}
+.pages header .block .sidebar-serviceList table td {
+    vertical-align: top;
+	padding: 0 5px;
+	padding-top: 15px;
+}
+.pages header .block .sidebar-serviceList table tr:nth-child(2n) td {
+    border-bottom: 1px solid #34495e;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+.pages header .block .sidebar-serviceList table tr:first-child td {
+	padding-top: 0;
+}
+.pages header .block .sidebar-serviceList table tr:last-child td {
+    border-bottom: 0;
+	padding-bottom: 0;
+}
+.pages header .block .sidebar-serviceList table td a {
+    display: block;
+}
+.pages header .block .sidebar-serviceList table td img {
+    max-width: 100%;
+}
+.pages header .block .sidebar-serviceList table td.price {
+    white-space: nowrap;
+	text-align: right;
+    padding-left: 10px;
+}
+.pages header .block .sidebar-serviceList table td.price b {
+    font-size: 22px;
+    font-family: 'Roboto Condensed',sans-serif!important;
+    font-weight: 700;
+}
+.pages header .block .prev_text {
+	width: 320px;
+}
+.pages .form {
+	padding: 30px 30px 35px;
+	width: 270px;
+}
+.pages .form .field img {
+	width: 30px;
+}
+.pages .form .field input {
+	width: 168px;
+	font-size: 14px;
+}
+.pages .form .field .help-block {
+	padding-left: 43px;
+    margin-top: 5px;
+}
+.pages .form h3 {
+	margin-bottom: 25px;
+}
+.form-group:not(.field-baseform-hidden) {
+	margin-top: 10px;
+}
+.form-group.field-baseform-agree {
+	margin: 20px 0 0;
+}
+.sidebar-serviceList h3 {
+	font-size: 22px;
+	padding-left: 5px;
+	padding-bottom: 15px;
+}
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.pages .gallery h2, .pages .prices h2 {
+	margin: 0;
+	padding: 0;
+	color: #343434;
+}
+.pages .gallery header, .pages .prices header {
+	margin-bottom: 25px;
+	padding: 0 50px;
+}
+.b_all {
+	margin-right: 0;
+}
+.gallery .name {
+    padding-top: 12px;
+    font-size: 16px;
+	color: #343434;
+}
+.gallery .name span {
+    font-size: 14px;
+    display: block;
+    color: #585858;
+	padding-top: 5px;
+}
+.fancybox-inner .wrap iframe {
+    max-width: 250px;
+}
+.page-widget .tm img {
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    display: block;
+    border-radius: 5px;
+    width: 125px;
+    height: 130px;
+}
+.page-widget .tm .description {
+    margin-top: 15px;
+}
+.page-widget .tm .name {
+    color: rgb(52, 73, 94);
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed',sans-serif;
+}
+.page-widget .tm .desc {
+    color: rgb(52, 73, 94);
+    font-size: 15px;
+    font-family: 'Roboto Condensed',sans-serif;
+}
+.page-widget .tm {
+    display: inline-block;
+    width: 130px;
+    height: 185px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.teams-wrapper {
+    position: relative;
+	padding-bottom: 25px;
+	margin-bottom: 15px;
+}
+.teams {
+    position: relative;
+	max-height: 400px;
+    overflow: hidden;
+	transition: max-height 0.15s ease-out;
+}
+.teams.active {
+	max-height: 816px;
+	transition: max-height 0.25s ease-out;
+}
+a.showMoreTeam {
+    font-size: 16px;
+    color: rgb(52, 73, 94) !important;
+    font-weight: bold;
+    border-bottom: 1px dashed;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 0;
+	right:0;
+}
+a.showMoreTeam:hover {
+	text-decoration: none;
+	border-bottom: 1px dashed transparent;
+}
+a.showMoreTeam span:last-child {
+	display:none;
+}
+a.showMoreTeam.active span:first-child {
+	display:none;
+}
+a.showMoreTeam.active span:last-child {
+	display:block;
+}
+a.showMoreTeam:before {
+    content: "";
+    background-image: url(/images/system/arrow-top.svg);
+    width: 28px;
+    height: 28px;
+    display: block;
+    position: relative;
+    left: -38px;
+    top: 25px;
+}
+a.showMoreTeam.active:before {
+    content: "";
+    background-image: url(/images/system/arrow-top.svg);
+    width: 28px;
+    height: 28px;
+    display: block;
+    position: relative;
+    left: -38px;
+    top: 25px;
+	transform: rotate(180deg);
+}

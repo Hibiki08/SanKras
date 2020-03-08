@@ -14,6 +14,8 @@ use yii\helpers\Html;
 use app\models\Prices;
 use app\models\Services;
 use app\models\ServicesSlides;
+use app\models\ServicesProjectdocs;
+use app\models\Team;
 use yii\web\HttpException;
 use yii\web\View;
 
@@ -28,18 +30,30 @@ class PageController extends Controller {
         $this->view->registerJsFile('/lib/fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js');
         $this->view->registerJsFile('/lib/fancyBox-18d1712/source/jquery.fancybox.pack.js');
         
+		$team = Team::findAll(['active' => 1]);
+		
         $link = !empty($key) ? $key : $this->key;
         $form = new BaseForm();
         
-            $o = new Services();
-            $options = $o->getOneServ($link, true);
-            if($action){$parent = $o->getOneServ($action, true);}else{$parent = false;}
-            $options->videos = $options->videos?json_decode($options->videos):array();
-            $options->videos = array_map(function ($v,$n){
-              $u = parse_url($v); parse_str($u['query'], $v);
-              return [$n,@$v['v']?$v['v']:end(explode('/',$u['path']))];
-            },array_keys((array)$options->videos),array_values((array)$options->videos));
-//         die(var_dump($_GET));
+        $o = new Services();
+        $options = $o->getOneServ($link, true);
+		
+        if($action)
+			$parent = $o->getOneServ($action, true);
+		else
+			$parent = false;
+			
+        $options->videos = $options->videos ? json_decode($options->videos) : array();
+        $options->videos = array_map(
+			function($v, $n){
+				$u = parse_url($v);
+				parse_str($u['query'], $v);
+				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
+			},
+			array_keys((array)$options->videos), array_values((array)$options->videos)
+		);
+        $options->videos_name = $options->videos_name ? json_decode($options->videos_name) : array();
+		
         unset($_GET['action']);
         unset($_GET['key']);
         if(!empty($_GET)){
@@ -50,7 +64,8 @@ class PageController extends Controller {
             return $this->render('/site/pages', [
                 'letter' => $form,
                 'options' => $options,
-                'parent' => $parent
+                'parent' => $parent,
+				'team' => $team
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

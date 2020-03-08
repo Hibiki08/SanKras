@@ -7,6 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use app\models\Services;
 use app\models\ServicesSlides;
+use app\models\ServicesProjectdocs;
 use app\models\forms\EditServiceForm;
 use yii\helpers\Url;
 use yii\web\Response;
@@ -24,7 +25,7 @@ class PagesController extends AdminController {
 
     const POST_ACCESS_DENIED = [
         'index',
-        'edit',
+        //'edit',
         'sort',
         'delete',
         'active',
@@ -105,6 +106,8 @@ class PagesController extends AdminController {
         $services = new Services();
         $image = new ServicesSlides();
         $slides = $id ? ServicesSlides::findAll(['serv_id' => $id]) : new ServicesSlides();
+        $ServicesProjectdocs = new ServicesProjectdocs();
+        $projectdocs = $id ? ServicesProjectdocs::findAll(['serv_id' => $id]) : new ServicesProjectdocs();
         $model = $id ? $services->getAllServ(['sk_services.id' => $id])[0] : new Services();
 
         if (!empty($model)) {
@@ -126,6 +129,7 @@ class PagesController extends AdminController {
 
             if ($form->load(Yii::$app->request->post()) && $form->validate()) {
                 $form->slides = UploadedFile::getInstances($form, 'slides');
+                $form->projectdocs = UploadedFile::getInstances($form, 'projectdocs');
                 $form->image = UploadedFile::getInstance($form, 'image');
 
                 if (empty($errors)) {
@@ -145,12 +149,15 @@ class PagesController extends AdminController {
                     $model->gallery_title = $form->gallery_title;
                     $model->main_text = $form->main_text;
                     $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
-                    $model->videos = !empty($_POST['EditServiceForm']['videos'])?strip_tags(json_encode($_POST['EditServiceForm']['videos'])):NULL;
+                    $model->videos = !empty($_POST['EditServiceForm']['videos']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos'])) : NULL;
+                    $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos_name'])) : NULL;
                     $model->work_text = $form->work_text;
                     $model->price_title = $form->price_title;
                     $model->table_ex = isset(Yii::$app->request->post('EditServiceForm')['table_ex']) ? 1 : 0;
                     $model->package_ex = isset(Yii::$app->request->post('EditServiceForm')['package_ex']) ? 1 : 0;
                     $model->packages = $form->packages;
+                    $model->projectdocs_title = $form->projectdocs_title;
+                    $model->projectdocs_active = isset(Yii::$app->request->post('EditServiceForm')['projectdocs_active']) ? 1 : 0;
                     if (!empty($form->image->name)) {
                         $model->image = $translate->translate($form->image->name);
                     }
@@ -206,6 +213,43 @@ class PagesController extends AdminController {
                     if ($data) {
                         $image->updateData(ServicesSlides::tableName(), 'text', $data, 'id');
                     }
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['slide_description']) ? Yii::$app->request->post('EditServiceForm')['slide_description'] : false;
+                    if ($data) {
+                        $image->updateData(ServicesSlides::tableName(), 'description', $data, 'id');
+                    }
+					
+                    if (!empty($form->projectdocs)) {
+                        $path = ServicesProjectdocs::IMG_FOLDER . 'page(' . $id . ')/';
+                        $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
+
+                        if ($create) {
+                                $images = [];
+                                $i = 0;
+                                foreach ($form->projectdocs as $doc) {
+                                    if ($form->upload($path, $doc)) {
+                                        $resizeAdminPrev = new ImageResize($doc->name, $path, $path, 172, '', 'mini');
+                                        $resizeAdminPrev->resize();
+                                        $resizeSlider = new ImageResize($doc->name, $path, $path, 250, '', 'mini_slider');
+                                        $resizeSlider->resize();
+
+                                        $images[$i]['image'] = $doc->name;
+                                        $images[$i]['serv_id'] = $id;
+                                        ++$i;
+                                    }
+                                }
+
+                                $ServicesProjectdocs->insertData(ServicesProjectdocs::tableName(), $images);
+                        }
+                    }
+
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['projectdocs_name']) ? Yii::$app->request->post('EditServiceForm')['projectdocs_name'] : false;
+                    if ($data) {
+                        $ServicesProjectdocs->updateData(ServicesProjectdocs::tableName(), 'name', $data, 'id');
+                    }
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['projectdocs_description']) ? Yii::$app->request->post('EditServiceForm')['projectdocs_description'] : false;
+                    if ($data) {
+                        $ServicesProjectdocs->updateData(ServicesProjectdocs::tableName(), 'description', $data, 'id');
+                    }
 
                     Yii::$app->getResponse()->redirect(Url::toRoute(['pages/edit', 'id' => $id]));
                 }
@@ -216,7 +260,8 @@ class PagesController extends AdminController {
                 'errors' => $errors,
                 'model' => $model,
                 'categories' => $parentCat,
-                'slides' => $slides
+                'slides' => $slides,
+                'projectdocs' => $projectdocs
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');
@@ -257,6 +302,36 @@ class PagesController extends AdminController {
                         unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $slideName);
                         unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $slideName);
                         unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $slideName);
+                        $response = true;
+                    }
+                }
+            }
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'status' => $response,
+            ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
+        }
+        Yii::$app->end();
+    }
+
+    public function actionDeleteDoc() {
+        if (Yii::$app->request->isAjax) {
+            $response = false;
+
+            $docId = (int)Yii::$app->request->post('docId');
+
+            if ($docId) {
+                $doc = ServicesProjectdocs::findOne($docId);
+                if (!empty($doc)) {
+                    $path = ServicesProjectdocs::IMG_FOLDER . 'page(' . $doc->serv_id . ')/';
+                    $docName = $doc->image;
+                    if ($doc->delete() !== false) {
+                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $docName);
+                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $docName);
+                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $docName);
                         $response = true;
                     }
                 }

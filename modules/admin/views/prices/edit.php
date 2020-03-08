@@ -15,6 +15,16 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     ],
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название*'); ?>
+<?php echo $form->field($edit, 'image')->fileInput()->label('Картинка*'); ?>
+<?php echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
+<?php if (!empty($model->image)) { ?>
+    <div class="form-group">
+        <label class="col-lg-2"></label>
+        <figure class="col-lg-10">
+            <?php echo Html::img($model->image, ["class" => "img-rounded"]); ?>
+        </figure>
+    </div>
+<?php } ?>
 <?php echo $form->field($edit, 'price')->input('text', ['value' => $model->price])->label('Цена*'); ?>
 <?php echo $form->field($edit, 'unit')->input('text', ['value' => $model->unit])->label('Единица*'); ?>
 <?php echo $form->field($edit, 'cat_id')->dropDownList($categories, ['options' => [$model->cat_id => ['selected ' => true]]])->label('Родительский раздел'); ?>

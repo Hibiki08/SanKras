@@ -9,6 +9,7 @@ use app\components\Translate;
 class EditSlidesForm extends Model {
 
     public $text;
+    public $description;
     public $link;
     public $image;
     public $sort;

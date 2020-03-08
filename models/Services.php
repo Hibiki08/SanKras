@@ -49,6 +49,11 @@ class Services extends AbstractModel {
             ->alias('slides');
     }
 
+    public function getProjectdocs() {
+        return $this->hasMany(ServicesProjectdocs::className(), ['serv_id' => 'id'])
+            ->alias('projectdocs');
+    }
+
     public function getAllForMenu($where = false, $order = 'sort ASC', $active = false) {
         $query = Services::find();
         if ($active) {
@@ -97,6 +102,7 @@ class Services extends AbstractModel {
         }
             $query->joinWith('slides')
                 ->andWhere(['sk_services.link' => $link]);
+            $query->joinWith('projectdocs');
 
         return $query->one();
     }

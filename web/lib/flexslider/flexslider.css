@@ -51,7 +51,6 @@
 .flexslider .slides > li > a.fancy{
   display:block;
   overflow:hidden;
-  border-radius:15px;
 }
 .flexslider .slides img {
   width: 100%;
@@ -120,16 +119,17 @@ html[xmlns] .flexslider .slides {
 .flex-direction-nav a {
   text-decoration: none;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 33px;
   margin: -20px 0 0;
   position: absolute;
-  top: 50%;
+  top: 100px;
   z-index: 10;
   overflow: hidden;
   opacity: 0.3;
   cursor: pointer;
   color: #f4433694;
+  font-size: 0;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -137,16 +137,18 @@ html[xmlns] .flexslider .slides {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.flex-direction-nav a:before {
-  font-family: "flexslider-icon";
-  font-size: 40px;
-  display: inline-block;
-  content: '\f001';
-  color: #f4433694;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+.flexslider2 .flex-direction-nav a {
+	top: 204px;
 }
-.flex-direction-nav a.flex-next:before {
-  content: '\f002';
+.flex-direction-nav a:before {
+    content: "";
+    background-image: url(/images/system/arrow-right.png);
+    width: 20px;
+    height: 33px;
+    display: inline-block;
+}
+.flex-direction-nav .flex-prev:before {
+  background-image: url(/images/system/arrow-left.png);
 }
 .flex-direction-nav .flex-prev {
   left: -50px;
@@ -180,6 +182,12 @@ html[xmlns] .flexslider .slides {
   overflow: hidden;
   cursor: pointer;
   color: #000;
+}
+.flexslider2 .flex-direction-nav .flex-prev {
+	left: 0;
+}
+.flexslider2 .flex-direction-nav .flex-next {
+	right: 0;
 }
 .flex-pauseplay a:before {
   font-family: "flexslider-icon";
@@ -272,4 +280,8 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     right: 10px;
   }
+}
+.flexslider iframe {
+    width: 100%;
+    height: 190px;
 }

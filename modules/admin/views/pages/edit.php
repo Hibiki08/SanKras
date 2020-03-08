@@ -108,27 +108,34 @@ if (isset($model->image)) { ?>
         <?php echo $form->field($edit, 'hidden', ['template'=>'{input}', 'options' => ['class' => '', 'id' => 'image']])->hiddenInput(['value' => $model->image]); ?>
     </div>
 <?php } ?>
-<?php echo $form->field($edit, 'videos_show')->input('checkbox', [
-    'value' => '1',
-    'checked' => $model->videos_show == 1 ? 'checked' : false,
-    'class' => 'checkbox',
-])->label('Отображать блок видеозаписей'); ?>
-<div class="form-group field-editserviceform-videos">
-<label class="col-lg-2 control-label">Список видеозаписей</label><div class="col-lg-10 videos-collection">
-<?php
-if(!empty($model->videos)){
- $vids = json_decode($model->videos);
- foreach ($vids as $k=>$v){?>
-  <div><input type="hidden" class="form-control" name="EditServiceForm[videos][<?=$k?>]" value="<?=$v?>">
-  <span style="width:60%;"><?=$k?></span>
-  <span class="glyphicon glyphicon-remove"></span></div>
-<?php  
- }
-}
-?>
-  <div><input type="text" class="form-control" value="" placeholder="Название видео" style="width:70%;display:block;"><input type="text" class="form-control" value="" placeholder="Cсылка видео" style="width:70%;display:block;"> <span class="glyphicon glyphicon-plus" style="color: blue;float: right;margin: -43px 250px 0px 0px;cursor: pointer;"></span></div>
- </div>
-</div>
+<hr>
+<h4>Видео</h4>
+	<?php echo $form->field($edit, 'videos_show')->input('checkbox', ['value' => '1', 'checked' => $model->videos_show == 1 ? 'checked' : false, 'class' => 'checkbox'])->label('Отображать блок видеозаписей'); ?>
+	<div class="form-group field-editserviceform-videos">
+	<label class="col-lg-2 control-label">Список видеозаписей</label><div class="col-lg-10 videos-collection">
+	<?php
+	if(!empty($model->videos)){
+	 $vids = json_decode($model->videos);
+	 $vids_name = json_decode($model->videos_name);
+	 $i = 0;
+	 foreach ($vids as $k=>$v){?>
+	  <div><input type="hidden" class="form-control" name="EditServiceForm[videos][<?=$k?>]" value="<?=$v?>"><input type="hidden" class="form-control" name="EditServiceForm[videos_name][]" value="<?=$vids_name[$i]?>">
+	  <span style="width:60%;"><?=$v?> - <?=$k?></span>
+	  <span class="glyphicon glyphicon-remove"></span></div>
+	<?php  $i++;
+	 }
+	}
+	?>
+	  <div>
+		<input type="text" class="form-control" value="" placeholder="Название видео" style="width:70%;display:block;">
+		<input type="text" class="form-control" value="" placeholder="Описание видео" style="width:70%;display:block;">
+		<input type="text" class="form-control" value="" placeholder="Cсылка видео" style="width:70%;display:block;">
+		<span class="glyphicon glyphicon-plus" style="color: blue;float: right;margin: -43px 250px 0px 0px;cursor: pointer;"></span>
+	  </div>
+	 </div>
+	</div>
+<hr>
+<h4>Слайдер</h4>
 <?php echo @$form->field($edit, 'slides[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить слайды'); ?>
 <?php if (!empty($slides)) { ?>
     <div class="other-slides">
@@ -140,7 +147,8 @@ if(!empty($model->videos)){
                         <figure>
                             <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . \app\models\ServicesSlides::IMG_FOLDER . 'page(' . $model->id . ')' . '/mini_' . $slide->slide; ?>">
                         </figure>
-                        <?php echo $form->field($edit, 'slide_text[' . $slide->id . ']', ['template'=>'{input}'])->input('text', ['value' => $slide->text, 'class' => 'form-control image'])->label(''); ?>
+                        <?php echo $form->field($edit, 'slide_text[' . $slide->id . ']', ['template'=>'{input}'])->input('text', ['value' => $slide->text, 'class' => 'form-control image', 'placeholder' => 'Название'])->label(''); ?>
+                        <?php echo $form->field($edit, 'slide_description[' . $slide->id . ']', ['template'=>'{input}'])->input('text', ['value' => $slide->description, 'class' => 'form-control image', 'placeholder' => 'Описание'])->label(''); ?>
                         <span class="glyphicon glyphicon-remove" data-slide-id="<?php echo $slide->id; ?>"></span>
                     </div>
                 </div>
@@ -148,6 +156,31 @@ if(!empty($model->videos)){
         <?php } ?>
     </div>
 <?php } ?>
+<hr>
+<h4>Проектная документация</h4>
+<?php echo $form->field($edit, 'projectdocs_active')->input('checkbox', ['checked' => $model->projectdocs_active == 1 ? 'checked' : false, 'class' => 'checkbox',])->label('Активность'); ?>
+<?php echo $form->field($edit, 'projectdocs_title')->input('text', ['value' => $model->projectdocs_title])->label('Заголовок'); ?>
+<?php echo @$form->field($edit, 'projectdocs[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить картинку'); ?>
+<?php if (!empty($projectdocs)) { ?>
+    <div class="other-projectdocs">
+        <?php foreach ($projectdocs as $doc) {
+            if (isset($doc->image)) { ?>
+                <div>
+                    <label class="col-lg-2 control-label"></label>
+                    <div class="slides">
+                        <figure>
+                            <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . \app\models\ServicesProjectdocs::IMG_FOLDER . 'page(' . $model->id . ')' . '/mini_' . $doc->image; ?>">
+                        </figure>
+                        <?php echo $form->field($edit, 'projectdocs_name[' . $doc->id . ']', ['template'=>'{input}'])->input('text', ['value' => $doc->name, 'class' => 'form-control image', 'placeholder' => 'Название'])->label(''); ?>
+                        <?php echo $form->field($edit, 'projectdocs_description[' . $doc->id . ']', ['template'=>'{input}'])->input('text', ['value' => $doc->description, 'class' => 'form-control image', 'placeholder' => 'Описание'])->label(''); ?>
+                        <span class="glyphicon glyphicon-remove" data-doc-id="<?php echo $doc->id; ?>"></span>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php } ?>
+    </div>
+<?php } ?>
+<hr>
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',
@@ -184,10 +217,31 @@ if(!empty($model->videos)){
                 }
             });
         });
+        $('.other-projectdocs .glyphicon-remove').click(function() {
+            var $this = $(this);
+            var docId = $(this).data('doc-id') ? $(this).data('doc-id') : false;
+            $.ajax({
+                url: '<?php echo Url::toRoute('pages/delete-doc'); ?>',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    docId: docId,
+                    _csrf: yii.getCsrfToken()
+                },
+                success: function (response) {
+                    if (response.status == true) {
+                            $this.parent('.slides').prev('label').remove();
+                            $this.parent('.slides').remove();
+                    }
+                },
+                error: function () {
+                }
+            });
+        });
         $('body').on('click','.videos-collection .glyphicon-plus',function(){
           d = $(this).closest('div');
           i = d.find('input');
-          $(d).before('<div><input type="hidden" name="EditServiceForm[videos]['+i[1].value+']" value="'+i[0].value+'"><span style="width:60%;">'+i[0].value+'</span> <span class="glyphicon glyphicon-remove"></span></div>');
+          $(d).before('<div><input type="hidden" name="EditServiceForm[videos]['+i[2].value+']" value="'+i[0].value+'"><input type="hidden" name="EditServiceForm[videos_name][]" value="'+i[1].value+'"><span style="width:60%;">'+i[0].value+' - '+i[2].value+'</span> <span class="glyphicon glyphicon-remove"></span></div>');
           i.val('');
         });
         $('body').on('click','.videos-collection .glyphicon-remove',function(){

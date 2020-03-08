@@ -3,6 +3,9 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\models\Services;
 use app\models\ServicesSlides;
+use app\models\ServicesProjectdocs;
+use yii\imagine\Image;
+use app\models\Team;
 
 $this->title = $options['tag_title'];
 $this->registerMetaTag([
@@ -77,36 +80,102 @@ $this->params['breadcrumbs'][] = $options['title'];
                         <span>Мы перезвоним вам в течение 15&nbsp;минут для уточнения деталей заказа.</span>
                     </div>
                 </div>
-                <div class="prev_text"><?php echo $options['prev_field']; ?></div>
+                <div class="prev_text sidebar-serviceList">
+					<h3>Стоимость работ:</h3>
+					<?php if ((!empty($options->price) && $options['table_ex'] == 1) ||
+						(!empty($options['packages']) && $options['package_ex'] == 1)) { ?>
+						<?php if (!empty($options->price) && $options['table_ex'] == 1) { ?>
+							<table>
+								<?php foreach ($options->price as $price) { ?>
+									<?php foreach ($price['prices'] as $item) { ?>
+										<tr>
+											<td colspan="2"><?php echo $item['title']; ?></td>
+										</tr>
+										<tr>
+											<td><a href="<?=$item['image']?>" rel="gallery2" class="fancy-price"><?php echo Html::img($item['image']); ?></a></td>
+											<td class="price"><b><?php echo number_format($item['price'], 0, "", " "); ?></b> руб.</td>
+										</tr>
+									<?php } ?>
+								<?php } ?>
+							</table>
+						<?php } ?>
+					<?php } ?>
+				</div>
             </div>
         </div>
     </header>
     <main>
         <div class="width">
-            <?php if(!empty($options->slides)) { $c = 0;?>
+            <?php if($options['projectdocs_active'] && !empty($options->projectdocs)) {?>
                 <div class="gallery">
-                    <h2><?php echo $options['gallery_title']; ?></h2>
-                    <div class="flexslider" style="margin:0px 50px 10px;">
+					<header class="flex">
+						<h2><?php echo $options['projectdocs_title']; ?></h2>
+						<div>
+						  <span class="_count"><?=count($options->projectdocs)?></span> <a class="fancy b_all" href="#all1">Посмотреть все</a>
+						</div>
+					</header>
+                    <div class="flexslider2" style="margin:0px 50px 10px;">
                         <ul class="slides">
-                            <?php foreach ($options->slides as $slide) { $c++;?>
+                            <?php foreach ($options->projectdocs as $doc) {?>
                                 <li>
-                                    <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
+                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
                                     </a>
+									<div class="name">
+										<b><?php echo $doc['name']; ?></b>
+										<span><?php echo $doc['description']; ?></span>
+									</div>
                                 </li>
                             <?php } ?>
                         </ul>
                     </div>
-                    <div style="text-align:right;margin-top:10px;">
-                      <span class="_count"><?=$c?></span> <a class="fancy b_all" href="#all">Посмотреть все</a>
-                    </div>
                     <div style="display:none">
-                      <div id="all">
+                      <div class="all" id="all1">
                         <div style="text-align:center">
                           <strong><?=$options['title'];?></strong><br>
-                          <span class="_count"><?=$c?> фотографии</span>
+                          <span class="_count"><?=count($options->projectdocs)?> фотографии</span>
                         </div>
-                      <?php foreach ($options->slides as $slide) { ?>
+							<?php foreach ($options->projectdocs as $doc) { ?>
+                                <div class="wrap">
+                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
+                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                      </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <?php if(!empty($options->slides)) {?>
+                <div class="gallery">
+					<header class="flex">
+						<h2><?php echo $options['gallery_title']; ?></h2>
+						<div>
+						  <span class="_count"><?=count($options->slides)?></span> <a class="fancy b_all" href="#all2">Посмотреть все</a>
+						</div>
+					</header>
+                    <div class="flexslider" style="margin:0px 50px 10px;">
+                        <ul class="slides">
+                            <?php foreach ($options->slides as $slide) {?>
+                                <li>
+                                    <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
+                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                    </a>
+									<div class="name">
+										<b><?php echo $slide['text']; ?></b>
+										<span><?php echo $slide['description']; ?></span>
+									</div>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div style="display:none">
+                      <div class="all" id="all2">
+                        <div style="text-align:center">
+                          <strong><?=$options['title'];?></strong><br>
+                          <span class="_count"><?=count($options->slides)?> фотографии</span>
+                        </div>
+							<?php foreach ($options->slides as $slide) { ?>
                                 <div class="wrap">
                                     <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
                                         <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
@@ -118,23 +187,82 @@ $this->params['breadcrumbs'][] = $options['title'];
                 </div>
             <?php } ?>
             <?php if($options->videos_show) { ?>
-                <div class="gallery" style="margin-top:30px;">
-                    <h2>Видео работ</h2>
-                    <div class="video_gallary"><!--
-                    <?foreach($options->videos as $v){?>
-                      --><div>
-                        <div><iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                        <div><?=$v[0]?></div>
-                      </div><!--
-                    <?}?>
-                    --></div>
+                <div class="gallery">
+					<header class="flex">
+						<h2>Видео работ</h2>
+						<div>
+						  <span class="_count"><?=count($options->videos)?></span> <a class="fancy b_all" href="#all3">Посмотреть все</a>
+						</div>
+					</header>
+                    <div class="flexslider" style="margin:0px 50px 10px;">
+                        <ul class="slides">
+                            <?php foreach ($options->videos as $key => $v) {?>
+                                <li>
+                                    <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<div class="name">
+										<b><?php echo $v[0]; ?></b>
+										<span><?php echo $options->videos_name[$key]; ?></span>
+									</div>
+                                </li>
+                            <?php } ?>
+							<?if(count($options->videos) < 3) {
+								for($i = count($options->videos); $i < 3; $i++)
+								echo "<li><img src=\"/images/system/default-video.png\"></li>";
+							}?>
+                        </ul>
+                    </div>
+                    <div style="display:none">
+                      <div class="all" id="all3">
+                        <div style="text-align:center">
+                          <strong>Видео работ</strong><br>
+                          <span class="_count"><?=count($options->videos)?> видео</span>
+                        </div>
+							<?php foreach ($options->videos as $v) { ?>
+                                <div class="wrap">
+                                    <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            <?php } ?>
+                      </div>
+                    </div>
                 </div>
             <?php } ?>
             <?php if (!empty($options['main_text'])) { ?>
-                <div class="content">
+                <div class="content page-widget">
                         <div class="main-text"><?php echo $options['main_text']; ?></div>
                     <?php if (!empty($options['work_text'])) { ?>
-                        <div class="work-text"><?php echo $options['work_text']; ?></div>
+                        <div class="work-text">
+							<h3>Поделиться:</h3>
+							<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+							<script src="https://yastatic.net/share2/share.js"></script>
+							<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki"></div>
+							<br>
+							<div>
+								<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+								<div class="elfsight-app-aeadbe18-be81-4034-965d-61aa4822a28d"></div>
+								<br>
+								<a href="/about/opinions" style="display:block" target="_blank">
+									<img alt="Нас рекомендуют, читайте отзывы о компании Санкрас" src="/images/blog/news/upload/reviews.png" style="height:485px; width:278px" />
+								</a>
+							</div>
+							<br>
+							<h3>Наша команда:</h3>
+							<div class="teams-wrapper">
+								<div class="teams">
+									<?php foreach ($team as $tm) {?>
+										<div class="tm">
+											<figure><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
+											<div class="description">
+												<div class="name"><?php echo $tm->name; ?>,</div>
+												<div class="desc"> <?php echo $tm->post; ?></div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+								<a href="#" class="showMoreTeam"><span>Развернуть список</span><span>Свернуть список</span></a>
+							</div>
+							<br>
+							<?php echo $options['work_text']; ?>
+						</div>
                         <?php } ?>
                 </div>
             <?php } ?>
@@ -250,7 +378,7 @@ $this->params['breadcrumbs'][] = $options['title'];
         </div>
     </main>
 </div>
-<?php if(!empty($options->slides)) { ?>
+<?php if(!empty($options->slides) || !empty($options->projectdocs) || !empty($options->videos_show)) { ?>
 <script type="text/javascript">
     $(window).load(function() {
         $('.flexslider').flexslider({
@@ -259,8 +387,17 @@ $this->params['breadcrumbs'][] = $options['title'];
           animationSpeed:0,
           controlNav: false,
           maxItems:3,
-          itemWidth: 310,
-          itemMargin: 40,
+          itemWidth: 340,
+          itemMargin: 30,
+        });
+        $('.flexslider2').flexslider({
+          slideshow: false,
+          animation:'slide',
+          animationSpeed:0,
+          controlNav: false,
+          maxItems:3,
+          itemWidth: 340,
+          itemMargin: 30,
         });
         $("a.fancy").fancybox({
             openEffect	: 'elastic',
@@ -271,6 +408,20 @@ $this->params['breadcrumbs'][] = $options['title'];
                 }
             }
         });
+		$('a.fancy-price').fancybox({
+            openEffect	: 'elastic',
+            titleShow : true,
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            }
+		});
+		$(".showMoreTeam").click(function(e) {
+			e.preventDefault();
+			
+			$(this).toggleClass("active").siblings(".teams").toggleClass("active");
+		});
         setTimeout('yaCounter39483720.reachGoal("minuta<?php echo $options['id']; ?>");', 60000);
     });
 </script>

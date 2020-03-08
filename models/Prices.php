@@ -8,6 +8,8 @@ use app\models\PricesCat;
 
 class Prices extends AbstractModel {
 
+    const IMG_FOLDER = 'prices/';
+
     public function getCategory() {
         return $this->hasOne(PricesCat::className(), ['id' => 'cat_id'])
             ->joinWith('parentCat')
