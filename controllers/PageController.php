@@ -23,6 +23,12 @@ class PageController extends Controller {
 
     public $key;
 
+    /**
+     * @param string $key
+     * @param string $action
+     * @return string
+     * @throws HttpException
+     */
     public function actionIndex($key = '', $action = '') {
         $this->view->registerCssFile('/lib/flexslider/flexslider.css');
         $this->view->registerJsFile('/lib/flexslider/flexslider.js');
@@ -34,38 +40,41 @@ class PageController extends Controller {
 		
         $link = !empty($key) ? $key : $this->key;
         $form = new BaseForm();
-        
-        $o = new Services();
-        $options = $o->getOneServ($link, true);
+
+        /** @var Services $service */
+        $service = Services::getOneServ($link, true);
 		
-        if($action)
-			$parent = $o->getOneServ($action, true);
-		else
-			$parent = false;
-			
-        $options->videos = $options->videos ? json_decode($options->videos) : array();
-        $options->videos = array_map(
-			function($v, $n){
-				$u = parse_url($v);
-				parse_str($u['query'], $v);
-				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
-			},
-			array_keys((array)$options->videos), array_values((array)$options->videos)
-		);
-        $options->videos_name = $options->videos_name ? json_decode($options->videos_name) : array();
+        if ($action) {
+            $parent = Services::getOneServ($action, true);
+        } else {
+            $parent = false;
+        }
+
+//        var_dump($service->id);
+//        var_dump($service->videos);die;
+
+//        $options->videos = $options->videos ? json_decode($options->videos) : array();
+//        $options->videos = array_map(
+//			function($v, $n){
+//				$u = parse_url($v);
+//				parse_str($u['query'], $v);
+//				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
+//			},
+//			array_keys((array)$options->videos), array_values((array)$options->videos)
+//		);
+//        $options->videos_name = $options->videos_name ? json_decode($options->videos_name) : array();
 		
         unset($_GET['action']);
         unset($_GET['key']);
         if(!empty($_GET)){
           throw new HttpException(404 ,'Такой страницы нет!');
-          Yii::$app->end();
         }
-        if (!empty($options)) {
+        if (!empty($service)) {
             return $this->render('/site/pages', [
                 'letter' => $form,
-                'options' => $options,
+                'service' => $service,
                 'parent' => $parent,
-				'team' => $team
+				'team' => $team,
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

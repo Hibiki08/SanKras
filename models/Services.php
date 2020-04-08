@@ -3,12 +3,41 @@
 namespace app\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 use app\components\AbstractModel;
 
+/**
+ * @property integer $id
+ * @property string $title
+ * @property string $title_menu
+ * @property string $link
+ * @property integer $parent_id
+ * @property string $form_title
+ * @property string $tag_title
+ * @property string $tag_keywords
+ * @property string $tag_description
+ * @property string $prev_field
+ * @property string $gallery_title
+ * @property string $main_text
+ * @property string $work_text
+ * @property string $price_title
+ * @property integer $table_ex
+ * @property integer $package_ex
+ * @property string $packages
+ * @property string $image
+ * @property integer $video_id
+ * @property integer $videos_show
+ * @property integer $img_video
+ * @property integer $benefits
+ * @property integer $sort
+ * @property integer $active
+ * @property integer $projectdocs_active
+ * @property string $projectdocs_title
+ * @property-read Video[] $videos
+ */
 class Services extends AbstractModel {
     
     const IMG_FOLDER = 'pages/';
+    const SERVICE_VIDEO_REF = 'sk_service_video_ref';
 
     public static function tableName() {
         return 'sk_services';
@@ -92,7 +121,7 @@ class Services extends AbstractModel {
 
     }
 
-    public function getOneServ($link, $active = false) {
+    public static function getOneServ($link, $active = false) {
         $query = Services::find();
         if ($active) {
             $query->joinWith('priceActive')
@@ -107,4 +136,12 @@ class Services extends AbstractModel {
         return $query->one();
     }
 
+    public function getVideos()
+    {
+        return $this->hasMany(Video::className(), [
+            'id' => 'video_id'
+        ])->viaTable(self::SERVICE_VIDEO_REF, [
+            'service_id' => 'id'
+        ]);
+    }
 }
