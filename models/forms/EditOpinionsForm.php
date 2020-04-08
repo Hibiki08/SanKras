@@ -19,7 +19,7 @@ class EditOpinionsForm extends Model {
     public function rules() {
         return [
             [['name', 'text', 'agree'], 'required'],
-            [['photo'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true, 'maxSize' => 1048576],
+            [['photo'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true, 'maxSize' => 1048576],
             [['name', 'description'], 'string', 'max' => 255],
             [['name', 'description', 'text'], 'filter', 'filter' => 'trim'],
         ];

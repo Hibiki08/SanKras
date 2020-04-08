@@ -19,7 +19,7 @@ class EditPricesForm extends Model {
 
     public function rules() {
         return [
-            [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
+            [['image'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true],
             [['title', 'price', 'unit', 'cat_id'], 'required'],
             [['title', 'unit', 'price'], 'filter', 'filter' => 'trim'],
             [['price'], 'number'],

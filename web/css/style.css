@@ -548,6 +548,9 @@ address {
 .slider {
     position: relative;
 }
+.slider .Blockswrapper > div {
+    max-height: 784px;
+}
 .slider .Blockswrapper .fade.wrap,
 .slider .sliderWrapper {
     width: 100% !important;

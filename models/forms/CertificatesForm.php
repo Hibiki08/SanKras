@@ -12,7 +12,7 @@ class CertificatesForm extends Model {
 
     public function rules() {
         return [
-            [['img'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
+            [['img'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true],
         ];
     }
 

@@ -19,7 +19,7 @@ class EditNewsForm extends Model {
 
     public function rules() {
         return [
-            [['preview'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true, 'maxSize' => 1048576],
+            [['preview'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true, 'maxSize' => 1048576],
             [['title','url', 'text'], 'required'],
             ['url', 'unique','targetClass'=>'\app\models\Blog','message'=>Yii::t('app','The value of this field must be unique.'),'when' => function ($form, $attribute) {return $form->$attribute !== $this->old_url;            }],
             ['url', 'match', 'pattern' => '/^[-a-zA-Z0-9]+$/i','message'=>Yii::t('app','The value can contain only Latin letters and numbers and the hyphen character.')],

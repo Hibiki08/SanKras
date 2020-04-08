@@ -18,7 +18,7 @@ class EditTeamForm extends Model {
     public function rules() {
         return [
             [['name', 'post', 'text'], 'required'],
-            [['img'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
+            [['img'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true],
             ['name', 'string', 'max' => 100],
             ['post', 'string', 'max' => 255],
             ['text', '\app\components\ItemsValidations', 'params' => ['max' => 32, 'count' => 6], 'skipOnEmpty' => false]

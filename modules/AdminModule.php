@@ -18,12 +18,8 @@ class AdminModule extends Module {
 
         if (!Yii::$app->user->isGuest) {
             return true;
-        }
-        else
-        {
+        } else {
             Yii::$app->getResponse()->redirect(Yii::$app->getHomeUrl());
-            //для перестраховки вернем false
-            return false;//ну совсем пичаль-тоска
         }
     }
 

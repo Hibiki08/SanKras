@@ -18,7 +18,7 @@ class EditSlidesForm extends Model {
 
     public function rules() {
         return [
-            [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
+            [['image'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true],
             [['sort'], 'integer'],
             [['link', 'text'], 'filter', 'filter' => 'trim'],
         ];
