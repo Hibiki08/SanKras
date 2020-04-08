@@ -15,6 +15,7 @@ class EditPricesForm extends Model {
     public $cat_id;
     public $page;
     public $active;
+    public $delete_image;
 
     public function rules() {
         return [

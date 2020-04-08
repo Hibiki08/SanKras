@@ -114,20 +114,21 @@ $this->params['breadcrumbs'][] = $options['title'];
 						  <span class="_count"><?=count($options->projectdocs)?></span> <a class="fancy b_all" href="#all1">Посмотреть все</a>
 						</div>
 					</header>
-                    <div class="flexslider2" style="margin:0px 50px 10px;">
-                        <ul class="slides">
+                    <div class="flexslider2" style="margin:0px 50px 10px">
+                        <div class="slides owl-carousel owl-theme">
                             <?php foreach ($options->projectdocs as $doc) {?>
-                                <li>
+								<?list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']);?>
+                                <div class="item" style="width:<?=$width?>px">
                                     <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
                                     </a>
 									<div class="name">
 										<b><?php echo $doc['name']; ?></b>
 										<span><?php echo $doc['description']; ?></span>
 									</div>
-                                </li>
+                                </div>
                             <?php } ?>
-                        </ul>
+                        </div>
                     </div>
                     <div style="display:none">
                       <div class="all" id="all1">
@@ -236,13 +237,25 @@ $this->params['breadcrumbs'][] = $options['title'];
 							<script src="https://yastatic.net/share2/share.js"></script>
 							<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki"></div>
 							<br>
-							<div>
-								<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-								<div class="elfsight-app-aeadbe18-be81-4034-965d-61aa4822a28d"></div>
-								<br>
-								<a href="/about/opinions" style="display:block" target="_blank">
-									<img alt="Нас рекомендуют, читайте отзывы о компании Санкрас" src="/images/blog/news/upload/reviews.png" style="height:485px; width:278px" />
-								</a>
+							<div class="opinions-wrapper">
+								<div class="layout"></div>
+								<div class="google-reviews" style="display:none"><h3>Отзывы Google</h3><a href="https://www.google.com/search?q=%D1%81%D0%B0%D0%BD%D0%BA%D1%80%D0%B0%D1%81&oq=%D1%81%D0%B0%D0%BD&aqs=chrome.0.69i59j69i57j69i59l2j0j69i61l3.1106j0j7&sourceid=chrome&ie=UTF-8#lrd=0x40f041ae603d412b:0xac151144a9732c31,1,,," target="_blank">Смотреть все</a><div id="GReviewsContent"></div></div>
+								<div class="opinions">
+									<div class="opinions-head">Нас рекомендуют!</div>
+									<div class="GRating">
+										<span id="starsGReviews"></span> <a href="#" class="showGReviews"><span id="googleCountReviews"></span> отзывов</a>
+									</div>
+									<div class="opinions-desc">Более половины новых<br>клиентов приходят к нам<br>по рекомендации от своих<br>друзей и знакомых. <b>Читайте<br>отзывы о компании СанКрас!</b></div>
+									<img src="/images/system/opinions.png" class="opinions-img">
+									<a href="/about/opinions" target="_blank" class="opinions-link">Читать отзывы</a>
+								</div>
+								<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDLBlB4Ee1GwjoyYFafHHirrnTtA1_9Zpc&libraries=places"></script>
+								<script src="/lib/google-reviews/google-reviews.js"></script>
+								<script>
+									$(document).ready(function() {
+										$("#GReviewsContent").googlePlaces({placeId:"ChIJK0E9YK5B8EARMSxzqUQRFaw"});
+									});
+								</script>
 							</div>
 							<br>
 							<h3>Наша команда:</h3>
@@ -379,6 +392,9 @@ $this->params['breadcrumbs'][] = $options['title'];
     </main>
 </div>
 <?php if(!empty($options->slides) || !empty($options->projectdocs) || !empty($options->videos_show)) { ?>
+<link rel="stylesheet" href="/lib/OwlCarousel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/lib/OwlCarousel/css/owl.theme.default.min.css">
+<script src="/lib/OwlCarousel/js/owl.carousel.js"></script>
 <script type="text/javascript">
     $(window).load(function() {
         $('.flexslider').flexslider({
@@ -390,15 +406,14 @@ $this->params['breadcrumbs'][] = $options['title'];
           itemWidth: 340,
           itemMargin: 30,
         });
-        $('.flexslider2').flexslider({
-          slideshow: false,
-          animation:'slide',
-          animationSpeed:0,
-          controlNav: false,
-          maxItems:3,
-          itemWidth: 340,
-          itemMargin: 30,
-        });
+		$('.owl-carousel').owlCarousel({
+			margin:15,
+			loop:true,
+			autoWidth:true,
+			items:4,
+			nav: true,
+			dots: false
+		});
         $("a.fancy").fancybox({
             openEffect	: 'elastic',
             titleShow : true,
@@ -423,6 +438,18 @@ $this->params['breadcrumbs'][] = $options['title'];
 			$(this).toggleClass("active").siblings(".teams").toggleClass("active");
 		});
         setTimeout('yaCounter39483720.reachGoal("minuta<?php echo $options['id']; ?>");', 60000);
+		$(".showGReviews").click(function(e) {
+			e.preventDefault();
+			
+			$(".google-reviews").fadeIn();
+			$(".layout").fadeIn();
+		});
+		$(".layout").click(function(e) {
+			e.preventDefault();
+			
+			$(".google-reviews").fadeOut();
+			$(".layout").fadeOut();
+		});
     });
 </script>
 <?php } ?>

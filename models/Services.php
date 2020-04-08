@@ -46,12 +46,12 @@ class Services extends AbstractModel {
 
     public function getSlides() {
         return $this->hasMany(ServicesSlides::className(), ['serv_id' => 'id'])
-            ->alias('slides');
+            ->alias('slides')->orderBy(['sort' => SORT_ASC]);
     }
 
     public function getProjectdocs() {
         return $this->hasMany(ServicesProjectdocs::className(), ['serv_id' => 'id'])
-            ->alias('projectdocs');
+            ->alias('projectdocs')->orderBy(['sort' => SORT_ASC]);
     }
 
     public function getAllForMenu($where = false, $order = 'sort ASC', $active = false) {
@@ -103,7 +103,7 @@ class Services extends AbstractModel {
             $query->joinWith('slides')
                 ->andWhere(['sk_services.link' => $link]);
             $query->joinWith('projectdocs');
-
+			
         return $query->one();
     }
 

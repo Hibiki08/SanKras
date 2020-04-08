@@ -150,7 +150,7 @@ class PagesController extends AdminController {
                     $model->main_text = $form->main_text;
                     $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
                     $model->videos = !empty($_POST['EditServiceForm']['videos']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos'])) : NULL;
-                    $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos_name'])) : NULL;
+                    $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? json_encode($_POST['EditServiceForm']['videos_name']) : NULL;
                     $model->work_text = $form->work_text;
                     $model->price_title = $form->price_title;
                     $model->table_ex = isset(Yii::$app->request->post('EditServiceForm')['table_ex']) ? 1 : 0;
@@ -217,6 +217,10 @@ class PagesController extends AdminController {
                     if ($data) {
                         $image->updateData(ServicesSlides::tableName(), 'description', $data, 'id');
                     }
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['slide_sort']) ? Yii::$app->request->post('EditServiceForm')['slide_sort'] : 10;
+                    if ($data) {
+                        $image->updateData(ServicesSlides::tableName(), 'sort', $data, 'id');
+                    }
 					
                     if (!empty($form->projectdocs)) {
                         $path = ServicesProjectdocs::IMG_FOLDER . 'page(' . $id . ')/';
@@ -229,7 +233,7 @@ class PagesController extends AdminController {
                                     if ($form->upload($path, $doc)) {
                                         $resizeAdminPrev = new ImageResize($doc->name, $path, $path, 172, '', 'mini');
                                         $resizeAdminPrev->resize();
-                                        $resizeSlider = new ImageResize($doc->name, $path, $path, 250, '', 'mini_slider');
+                                        $resizeSlider = new ImageResize($doc->name, $path, $path, '', 250, 'mini_slider');
                                         $resizeSlider->resize();
 
                                         $images[$i]['image'] = $doc->name;
@@ -249,6 +253,10 @@ class PagesController extends AdminController {
                     $data = isset(Yii::$app->request->post('EditServiceForm')['projectdocs_description']) ? Yii::$app->request->post('EditServiceForm')['projectdocs_description'] : false;
                     if ($data) {
                         $ServicesProjectdocs->updateData(ServicesProjectdocs::tableName(), 'description', $data, 'id');
+                    }
+                    $data = isset(Yii::$app->request->post('EditServiceForm')['projectdocs_sort']) ? Yii::$app->request->post('EditServiceForm')['projectdocs_sort'] : 10;
+                    if ($data) {
+                        $ServicesProjectdocs->updateData(ServicesProjectdocs::tableName(), 'sort', $data, 'id');
                     }
 
                     Yii::$app->getResponse()->redirect(Url::toRoute(['pages/edit', 'id' => $id]));

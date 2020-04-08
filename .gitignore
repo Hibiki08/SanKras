@@ -51,4 +51,7 @@ phpunit.phar
 .htaccess
 /web/test
 
+#log
+logs
+
 

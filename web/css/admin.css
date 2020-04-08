@@ -161,7 +161,7 @@
     margin-right: 15px;
 }
 .slides .form-group {
-    width: 70%;
+    width: auto;
     margin: 0 10px 0 0;
 }
 #editpricesform-cat_id > option {

@@ -33,6 +33,7 @@ class EditServiceForm extends Model {
     public $projectdocs;
     public $projectdocs_name;
     public $projectdocs_description;
+    public $projectdocs_sort;
     public $video;
     public $videos;
     public $videos_name;
@@ -52,7 +53,7 @@ class EditServiceForm extends Model {
             },],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
-                'price_title', 'img_video', 'title_menu', 'projectdocs_title'], 'required'],
+                'price_title', 'img_video', 'title_menu'], 'required'],
             [['image'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['slides'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
             [['projectdocs'], 'file', 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 10, 'skipOnEmpty' => true],
@@ -63,7 +64,7 @@ class EditServiceForm extends Model {
             [['main_text', 'work_text', 'packages'], 'string'],
             [['title', 'link', 'parent_id', 'form_title', 'tag_title', 'tag_keywords',
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
-                'price_title', 'img_video', 'main_text', 'work_text', 'packages'], 'filter','filter'=>'trim'],
+                'price_title', 'projectdocs_title', 'img_video', 'main_text', 'work_text', 'packages'], 'filter','filter'=>'trim'],
             [['sort'], 'integer'],
         ];
     }

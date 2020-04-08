@@ -131,6 +131,8 @@ class PricesController extends AdminController {
                         $resize->resize();
                     }
                     $model->image = !empty($form->image->name) ? "/images/".Prices::IMG_FOLDER.$form->image->name : Yii::$app->request->post('EditPricesForm')['hidden'];
+					if(Yii::$app->request->post('EditPricesForm')['delete_image'])
+						$model->image = "";
 					$model->title = $form->title;
 					$model->price = $form->price;
 					$model->unit = $form->unit;

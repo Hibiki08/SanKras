@@ -16,6 +16,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название*'); ?>
 <?php echo $form->field($edit, 'image')->fileInput()->label('Картинка*'); ?>
+<?php echo $form->field($edit, 'delete_image')->input('checkbox', ['class' => 'checkbox'])->label('Удалить картинку'); ?>
 <?php echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
 <?php if (!empty($model->image)) { ?>
     <div class="form-group">

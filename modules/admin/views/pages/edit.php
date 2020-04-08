@@ -147,6 +147,7 @@ if (isset($model->image)) { ?>
                         <figure>
                             <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . \app\models\ServicesSlides::IMG_FOLDER . 'page(' . $model->id . ')' . '/mini_' . $slide->slide; ?>">
                         </figure>
+                        <?php echo $form->field($edit, 'slide_sort[' . $slide->id . ']', ['template'=>'{input}'])->input('number', ['value' => $slide->sort, 'class' => 'form-control image', 'placeholder' => 'Сортировка', 'style' => 'width:65px'])->label(''); ?>
                         <?php echo $form->field($edit, 'slide_text[' . $slide->id . ']', ['template'=>'{input}'])->input('text', ['value' => $slide->text, 'class' => 'form-control image', 'placeholder' => 'Название'])->label(''); ?>
                         <?php echo $form->field($edit, 'slide_description[' . $slide->id . ']', ['template'=>'{input}'])->input('text', ['value' => $slide->description, 'class' => 'form-control image', 'placeholder' => 'Описание'])->label(''); ?>
                         <span class="glyphicon glyphicon-remove" data-slide-id="<?php echo $slide->id; ?>"></span>
@@ -171,6 +172,7 @@ if (isset($model->image)) { ?>
                         <figure>
                             <img class="img-rounded" src="<?php echo Yii::$app->params['params']['pathToImage'] . \app\models\ServicesProjectdocs::IMG_FOLDER . 'page(' . $model->id . ')' . '/mini_' . $doc->image; ?>">
                         </figure>
+                        <?php echo $form->field($edit, 'projectdocs_sort[' . $doc->id . ']', ['template'=>'{input}'])->input('number', ['value' => $doc->sort, 'class' => 'form-control image', 'placeholder' => 'Сортировка', 'style' => 'width:65px'])->label(''); ?>
                         <?php echo $form->field($edit, 'projectdocs_name[' . $doc->id . ']', ['template'=>'{input}'])->input('text', ['value' => $doc->name, 'class' => 'form-control image', 'placeholder' => 'Название'])->label(''); ?>
                         <?php echo $form->field($edit, 'projectdocs_description[' . $doc->id . ']', ['template'=>'{input}'])->input('text', ['value' => $doc->description, 'class' => 'form-control image', 'placeholder' => 'Описание'])->label(''); ?>
                         <span class="glyphicon glyphicon-remove" data-doc-id="<?php echo $doc->id; ?>"></span>
