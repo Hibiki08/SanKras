@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                 <div class="preview">
                     <?php if(!empty($options['image']) || !empty($options['video'])) {
                         if (($options['img_video'] == 1) || ($options['img_video'] == 2 && empty($options['video']))) { ?>
-                            <img class="img-video" src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $options['image']; ?>" alt="<?php echo $options['title']; ?>">
+                            <img class="img-video" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $options['image']; ?>" alt="<?php echo $options['title']; ?>">
                         <?php } else {
                         if (($options['img_video'] == 2) || ($options['img_video'] == 1 && empty($options['image']))) { ?>
                             <div class="img-video"><?php echo $options['video']; ?></div>
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                 </div>
                 <div class="form">
                     <div class="close"></div>
-                    <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                    <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                     <div class="visible">
                         <h3><?php echo $options['form_title']; ?></h3>
                         <?php $form = ActiveForm::begin([
@@ -53,13 +53,13 @@ $this->params['breadcrumbs'][] = $options['title'];
                             ]
                         ]);?>
                         <?php echo $form->field($letter, 'name', [
-                            'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                            'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                         ])->input('text', [
                             'class' => 'focus',
                             'placeholder' => 'Ваше имя*'
                         ]); ?>
                         <?php echo $form->field($letter, 'phone', [
-                            'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                            'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                         ])->input('text', [
                             'class' => 'phone-mask',
                             'placeholder' => 'Ваш телефон*'
@@ -120,7 +120,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 								<?list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']);?>
                                 <div class="item" style="width:<?=$width?>px">
                                     <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
                                     </a>
 									<div class="name">
 										<b><?php echo $doc['name']; ?></b>
@@ -139,7 +139,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 							<?php foreach ($options->projectdocs as $doc) { ?>
                                 <div class="wrap">
                                     <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
                                     </a>
                                 </div>
                             <?php } ?>
@@ -160,7 +160,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                             <?php foreach ($options->slides as $slide) {?>
                                 <li>
                                     <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
                                     </a>
 									<div class="name">
 										<b><?php echo $slide['text']; ?></b>
@@ -179,7 +179,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 							<?php foreach ($options->slides as $slide) { ?>
                                 <div class="wrap">
                                     <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
-                                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
                                     </a>
                                 </div>
                             <?php } ?>
@@ -208,7 +208,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                             <?php } ?>
 							<?if(count($options->videos) < 3) {
 								for($i = count($options->videos); $i < 3; $i++)
-								echo "<li><img src=\"/images/system/default-video.png\"></li>";
+								echo "<li><img data-src=\"/images/system/default-video.png\"></li>";
 							}?>
                         </ul>
                     </div>
@@ -246,7 +246,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 										<span id="starsGReviews"></span> <a href="#" class="showGReviews"><span id="googleCountReviews"></span> отзывов</a>
 									</div>
 									<div class="opinions-desc">Более половины новых<br>клиентов приходят к нам<br>по рекомендации от своих<br>друзей и знакомых. <b>Читайте<br>отзывы о компании СанКрас!</b></div>
-									<img src="/images/system/opinions.png" class="opinions-img">
+									<img data-src="/images/system/opinions.png" class="opinions-img">
 									<a href="/about/opinions" target="_blank" class="opinions-link">Читать отзывы</a>
 								</div>
 								<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDLBlB4Ee1GwjoyYFafHHirrnTtA1_9Zpc&libraries=places"></script>
@@ -263,7 +263,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 								<div class="teams">
 									<?php foreach ($team as $tm) {?>
 										<div class="tm">
-											<figure><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
+											<figure><img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
 											<div class="description">
 												<div class="name"><?php echo $tm->name; ?>,</div>
 												<div class="desc"> <?php echo $tm->post; ?></div>
@@ -348,7 +348,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                 </div>
                 <div class="form">
                     <div class="close"></div>
-                    <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                    <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                     <div class="visible">
                         <h3>Остались вопросы?</h3>
                         <span>Заполните форму, мастер перезвонит<br>вам и поможет найти решение!</span>
@@ -360,13 +360,13 @@ $this->params['breadcrumbs'][] = $options['title'];
                             ]
                         ]);?>
                         <?php echo $form->field($letter, 'name', [
-                            'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                            'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                         ])->input('text', [
                             'class' => 'focus',
                             'placeholder' => 'Ваше имя*'
                         ]); ?>
                         <?php echo $form->field($letter, 'phone', [
-                            'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                            'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                         ])->input('text', [
                             'class' => 'phone-mask',
                             'placeholder' => 'Ваш телефон*'

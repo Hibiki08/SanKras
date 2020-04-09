@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = 'Наши работы';
             <?php foreach ($works as $work) {?>
                 <a href="<?php echo Url::to(['nashi-raboty/'.$work->url]); ?>">
                     <div class="work">
-                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
                         <div class="work-title exo"><?php echo $work->title; ?></div>
                         <div class="hover">
                             <div class="hover-title exo"><?php echo $work->title; ?></div>

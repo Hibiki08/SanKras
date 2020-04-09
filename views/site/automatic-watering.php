@@ -19,7 +19,7 @@ $this->registerMetaTag([
             <h1 class="title title-big">Система автополива</h1>
             <div class="more-text clear">
                 <div class="txt txt-1">
-                    <figure><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'automatic-watering.jpg'; ?>" alt="монтаж водоснабжения" title="монтаж водоснабжения"></figure>
+                    <figure><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'automatic-watering.jpg'; ?>" alt="монтаж водоснабжения" title="монтаж водоснабжения"></figure>
                     <p>Компания СанКрас производит монтаж систем автополива в Краснодаре и Краснодарском крае уже более пяти лет.</p>
                     <p>Имея в наличии профессиональный инструмент и штат из квалифицированных специалистов, мы можем всегда гарантировать качественное исполнение монтажа оборудования и его долгосрочную работу.</p>
                     <p>Система автополива на вашем дачном участке  - это комфорт, экономия времени и возможность насладиться отдыхом. Для произведения монтажа системы автополива мы используем материалы ведущих производителей, таких как Hunter, Rain Bird, Tairi, Espa.</p>
@@ -122,7 +122,7 @@ $this->registerMetaTag([
             </div>
             <div class="form clear">
                 <div class="close"></div>
-                <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
                 <span class="title exo"><span>Задайте ваш вопрос мастеру</span> и получите консультацию</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -132,16 +132,16 @@ $this->registerMetaTag([
                     ]
                 ]);?>
                 <?php echo $form->field($question, 'name', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($question, 'text', [
-                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
+                    'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш вопрос*');?>
                 <?php echo $form->field($question, 'phone', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                 ])->input('text', [
                     'value' => '',
                     'class' => 'phone-mask',

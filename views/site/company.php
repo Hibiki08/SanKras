@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
         <div class="width clear">
             <h1 class="title title-big">Сотрудничаем с застройщиками частного сектора</h1>
             <figure>
-                <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
+                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
             <div class="text">
                 <p>Компания СанКрас предлагает выгодные условия сотрудничества для застройщиков. Например, скидки на материал от 20%, низкие цены на монтаж, качественное выполнение работ квалифицированными специалистами. За несколько лет наши сотрудники внедрили множество технологий, позволяющих снизить общую стоимость материала, не затронув при этом работоспособность системы, а также опытным путем выявили оптимальные виды материалов, отвечающих соотношению "цена - качество".</p>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
                 </div>
                 <div class="desc">
                     <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-2.png'; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-2.png'; ?>">
                     </figure>
                     <div class="text">
                         <ul>
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
                 </div>
                 <div class="desc">
                     <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-3.png'; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-3.png'; ?>">
                     </figure>
                     <div class="text">
                         <ul>
@@ -106,7 +106,7 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
             </div>
             <div class="form clear">
                 <div class="close"></div>
-                <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
                 <span class="title exo"><span>Задайте ваш вопрос мастеру</span> и получите консультацию</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -116,16 +116,16 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
                     ]
                 ]);?>
                 <?php echo $form->field($question, 'name', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($question, 'text', [
-                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
+                    'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш вопрос*');?>
                 <?php echo $form->field($question, 'phone', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                 ])->input('text', [
                     'value' => '',
                     'class' => 'phone-mask',

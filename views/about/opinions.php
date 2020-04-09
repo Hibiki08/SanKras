@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = 'Отзывы';
                     <?php foreach ($opinions as $opinion) { ?>
                         <div class="op">
                             <figure>
-                                <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/' . $opinion->photo; ?>" alt="отзыв" title="отзыв">
+                                <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/' . $opinion->photo; ?>" alt="отзыв" title="отзыв">
                             </figure>
                             <div class="text">
                                 <span class="title"><span class="red"><?php echo $opinion->name; ?>,</span> <?php echo $opinion->description; ?></span>
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = 'Отзывы';
             </div>
             <div class="form">
                 <div class="close"></div>
-                <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
                 <span class="exo title">Написать отзыв:</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -68,23 +68,23 @@ $this->params['breadcrumbs'][] = 'Отзывы';
                     ]
                 ]);?>
                 <?php echo $form->field($opins, 'name', [
-                    'template' => '<div class="field name"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field name"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($opins, 'description', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'more.png' . '" alt="кем вы являетесь" title="описание">{input}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'more.png' . '" alt="кем вы являетесь" title="описание">{input}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Кем вы являетесь'
                 ]); ?>
                 <div class="description">Например: владелец частного дома, застройщик</div>
                 <?php echo $form->field($opins, 'photo', [
-                    'template' => '<div class="field photo"><label><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'photo.png' . '" alt="фото" title="добавить фото"><div class="false-input">Ваше фото</div>{input}</label>{error}</div>',
+                    'template' => '<div class="field photo"><label><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'photo.png' . '" alt="фото" title="добавить фото"><div class="false-input">Ваше фото</div>{input}</label>{error}</div>',
                 ])->fileInput()->label('Ваше фото'); ?>
                 <?php echo $form->field($opins, 'text', [
-                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="написать" title="написать">{label}{input}{error}</div>',
+                    'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="написать" title="написать">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш отзыв*'); ?>
                 <?php echo $form->field($opins, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
                             'value' => '1',

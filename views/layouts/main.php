@@ -39,14 +39,14 @@ AppAsset::register($this);
             <div class="width clear">
                 <div>Монтаж отопления, канализации, водоснабжения <a>в Краснодаре и крае, в Адыгее</a></div>
                 <a href="<?php echo Yii::$app->urlManager->createUrl('contacts'); ?>" class="address">
-                    <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
+                    <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'address.png'; ?>" alt="адрес" title="адрес">
                     <address><?php echo Yii::$app->system->get('address'); ?></address>
                 </a>
             </div>
         </div>
         <div class="header width clear">
             <div class="logo">
-                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
+                <a href="<?php echo Yii::$app->homeUrl; ?>"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
             </div>
             <?php echo MainMenu::widget(); ?>
             <div class="phone exo" id="phone">
@@ -65,7 +65,7 @@ AppAsset::register($this);
         <div class="call-block">
             <div class="block">
                 <div class="form">
-                    <div class="loading"><img src="/images/system/spinner4.gif" alt="loading"></div>
+                    <div class="loading"><img data-src="/images/system/spinner4.gif" alt="loading"></div>
                     <div class="close"></div>
                     <span>Заказать звонок</span><br>
                     <span>Введите свой номер телефона,<br>и мы перезвоним вам в течении 15 минут</span>
@@ -77,7 +77,7 @@ AppAsset::register($this);
                         ]
                     ]);?>
                     <?php echo $form->field($letter, 'phone', [
-                        'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
+                        'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
                     ])->input('text', [
                         'class' => 'phone-mask',
                         'placeholder' => 'Ваш телефон*'
@@ -203,7 +203,7 @@ AppAsset::register($this);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img data-src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!--Google analytics-->
 <script>

@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
         <div class="width clear">
             <h1 class="title title-big">Сантехнические работы в частном доме "под ключ"</h1>
             <figure>
-                <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
+                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
             </figure>
             <div class="text">
                 <p>Сантехнические коммуникации в частном доме — это структура, состоящая из таких элементов комфорта, как отопление, водоснабжение и канализация. Для того чтобы каждый из этих элементов работал исправно и не доставлял вам хлопот в будущем, монтаж сантехнических коммуникаций нужно начинать с проектирования.</p>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </div>
                 <div class="desc">
                     <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-2.png'; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-2.png'; ?>">
                     </figure>
                     <div class="text">
                         <ul>
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </div>
                 <div class="desc">
                     <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-3.png'; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-3.png'; ?>">
                     </figure>
                     <div class="text">
                         <ul>
@@ -118,21 +118,21 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 <tbody>
                 <tr>
                     <td>Составление сметы и доставка материала (бесплатно)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
                 </tr>
                 <tr>
                     <td>Расчет теплопотерь здания</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
                 </tr>
                 <tr>
                     <td>Гидравлический расчет системы водоснабжения и отопления, технический проект инженерных сантехнический сетей</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 </tr>
                 <tr>
                     <td>Котёл</td>
@@ -142,15 +142,15 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </tr>
                 <tr>
                     <td>Бойлер косвенного нагрева Viessmann (Германия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 </tr>
                 <tr>
                     <td>Группа безопасности</td>
                     <td>Системы отопления и ГВС</td>
                     <td>Системы отопления</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
                 </tr>
                 <tr>
                     <td>Система отопления</td>
@@ -196,15 +196,15 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </tr>
                 <tr>
                     <td>Погодозависимая автоматика Viessmann (Германия)</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 </tr>
                 <tr>
                     <td>Работа по дизайн проекту</td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
-                    <td class="ico"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>yes.png" alt="yes" title="есть"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
+                    <td class="ico"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'];?>no.png" alt="no" title="нет"></td>
                 </tr>
                 <tr class="guar">
                     <td>Гарантия на монтаж</td>
@@ -252,7 +252,7 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
             </div>
             <div class="form clear">
                 <div class="close"></div>
-                <div class="loading"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
                 <span class="title exo"><span>Задайте ваш вопрос мастеру</span> и получите консультацию</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -262,16 +262,16 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                     ]
                 ]);?>
                 <?php echo $form->field($question, 'name', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($question, 'text', [
-                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
+                    'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш вопрос*');?>
                 <?php echo $form->field($question, 'phone', [
-                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                 ])->input('text', [
                     'value' => '',
                     'class' => 'phone-mask',
