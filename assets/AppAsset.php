@@ -10,6 +10,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         '/css/hibiki.slider.css?r3',
+        '/lib/perfect-scrollbar/css/perfect-scrollbar.css',
         'css/style.css?r96',
         'css/add-style.min.css?r8',
         'css/style.css?r103',
@@ -22,7 +23,6 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'app\assets\OtherAsset',
-//        'yii\bootstrap\BootstrapPluginAsset',
     ];
     public $jsOptions = [
 

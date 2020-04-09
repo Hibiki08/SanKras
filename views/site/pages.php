@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                         <span>Мы перезвоним вам в течение 15&nbsp;минут для уточнения деталей заказа.</span>
                     </div>
                 </div>
-                <div class="prev_text sidebar-serviceList">
+                <div class="prev_text sidebar-serviceList js-scroll">
 					<h3>Стоимость работ:</h3>
 					<?php if ((!empty($options->price) && $options['table_ex'] == 1) ||
 						(!empty($options['packages']) && $options['package_ex'] == 1)) { ?>
@@ -450,6 +450,10 @@ $this->params['breadcrumbs'][] = $options['title'];
 			$(".google-reviews").fadeOut();
 			$(".layout").fadeOut();
 		});
+
     });
 </script>
+    <script type="text/javascript">
+        $('.js-scroll').perfectScrollbar();
+    </script>
 <?php } ?>
