@@ -19,7 +19,7 @@ $this->registerMetaTag([
             <h1 class="title title-big">Установка санфаянса</h1>
             <div class="more-text clear">
                 <div class="txt txt-1">
-                    <figure><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'sanfayans.jpg'; ?>" alt="монтаж водоснабжения" title="монтаж водоснабжения"></figure>
+                    <figure><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'sanfayans.jpg'; ?>" alt="монтаж водоснабжения" title="монтаж водоснабжения"></figure>
                     <p>Компания СанКрас производит установку санфаянса в Краснодаре и Краснодарском крае.</p>
                     <p>Наши специалисты имеют богатый опыт работ по монтажу сантехнического фаянса, только за последний год было установлено более 160 приборов.</p>
                 </div>
@@ -125,7 +125,7 @@ $this->registerMetaTag([
             </div>
             <div class="form clear">
                 <div class="close"></div>
-                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+                <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
                 <span class="title exo"><span>Задайте ваш вопрос мастеру</span> и получите консультацию</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -135,16 +135,16 @@ $this->registerMetaTag([
                     ]
                 ]);?>
                 <?php echo $form->field($question, 'name', [
-                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field"><img class="lazyload" data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($question, 'text', [
-                    'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
+                    'template' => '<div class="field textarea"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
                 ])->textarea()->label('Ваш вопрос*');?>
                 <?php echo $form->field($question, 'phone', [
-                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
                 ])->input('text', [
                     'value' => '',
                     'class' => 'phone-mask',

@@ -14,7 +14,7 @@ use app\models\Slides;
                                 </div>
                             </div>
                         <?php } ?>
-                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . $slide->image; ?>" alt="мы сотрудничаем">
+                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_BOT . $slide->image; ?>" alt="мы сотрудничаем">
                         <?php if (!empty($slide->link)) { ?></a><?php } ?>
                 </div>
             <?php } ?>

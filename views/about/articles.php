@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = 'Статьи';
                 <?php foreach ($articles as $article) {?>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['stati/'.$article->url]); ?>" class="article">
                         <?php if (!empty($article->preview)) { ?>
-                            <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $article->preview; ?>">
+                            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $article->preview; ?>">
                         <?php } ?>
                         <div class="articles-text clear">
                             <div class="article-title"><?php echo $article->title; ?></div>

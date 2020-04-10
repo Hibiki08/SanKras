@@ -30,7 +30,7 @@ $this->title = 'Отзывы';
                 <td><?php echo $opinion->description; ?></td>
                 <td class="photo">
                     <figure>
-                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/mini_' . $opinion->photo; ?>">
+                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/mini_' . $opinion->photo; ?>">
                     </figure></td>
                 <td><?php echo $opinion->text; ?></td>
                 <td class="status"><?php echo $opinion->active ? 'Да' : 'Нет'; ?></td>

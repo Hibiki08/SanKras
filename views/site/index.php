@@ -19,7 +19,7 @@ $this->registerMetaTag([
     <div class="width clear">
         <div class="form asphalt">
             <div class="close"></div>
-            <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+            <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
             <span class="exo">получите <span class="exo"><span class="hidden">бесплатную</span> консультацию</span><span class="hidden"> от мастера</span></span>
             <?php $form = ActiveForm::begin([
                 'enableAjaxValidation' => false,
@@ -29,13 +29,13 @@ $this->registerMetaTag([
                 ]
             ]);?>
             <?php echo $form->field($letter, 'name', [
-                'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
             ])->input('text', [
                 'class' => 'focus',
                 'placeholder' => 'Ваше имя*'
             ]); ?>
             <?php echo $form->field($letter, 'phone', [
-                'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone-grey.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
             ])->input('text', [
                 'class' => 'phone-mask',
                 'placeholder' => 'Ваш телефон*'
@@ -62,7 +62,7 @@ $this->registerMetaTag([
         <span class="asphalt">Мы производим сантехнические работы "под ключ" в квартирах, частных домах<br>и сотрудничаем с застройщиками частного сектора</span>
         <div class="services clear">
             <div class="service flat">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-flat.png" alt="квартира">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-flat.png" alt="квартира">
                 <div class="exo title">Монтаж в квартире:</div>
                 <ul>
                     <li>Консультирование, cоставление сметы</li>
@@ -77,7 +77,7 @@ $this->registerMetaTag([
                 <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-kvartire'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service house">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-house.png" alt="дом">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-house.png" alt="дом">
                 <div class="exo title">Монтаж в частном доме:</div>
                 <ul>
                     <li>Расчет теплопотерь здания, схема проекта</li>
@@ -92,7 +92,7 @@ $this->registerMetaTag([
                 <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-chastnom-dome'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service company">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-company.png" alt="застройщики">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-company.png" alt="застройщики">
                 <div class="exo title">Застройщикам:</div>
                 <ul>
                     <li>Высокие скидки на материал от поставщиков оборудования</li>
@@ -112,22 +112,22 @@ $this->registerMetaTag([
     <div class="grey"></div>
     <div class="columns clear width">
         <div class="col wow zoomIn">
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-1.png" alt="гарантия" title="гарантия">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-1.png" alt="гарантия" title="гарантия">
             <h3><span>гарантия</span><br>от 1 года до 5 лет на работы</h3>
             <div>В течение гарантийного срока мы <strong>бесплатно</strong> устраним возможные неисправности. Однако мы уверены в высоком качестве нашей работы, потому что она <span style="letter-spacing: -1px">выполняется квалифицированными специалистами с использованием надежных материалов.</span></div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.3s">
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-2.png" alt="отношение" title="отношение">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-2.png" alt="отношение" title="отношение">
             <h3><span>Несколько решений</span><br>на выбор с учётом бюджета</h3>
             <div>С учетом всех ваших потребностей мы составляем <strong>несколько оптимальных решений</strong>, из которых вы выбираете наиболее подходящее по соотношению цены и качества. Также мы предлагаем бесплатную доставку и скидку на материал в размере 10%.</div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.6s">
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-3.png" alt="поддержка" title="поддержка">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-3.png" alt="поддержка" title="поддержка">
             <h3><span>обслуживание</span><br>во время эксплуатации</h3>
             <div>После завершения работ мы не прекращаем сотрудничество с вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, <strong>помогаем в настройке оборудования</strong> и при необходимости <strong>проводим профилактику системы</strong>.</div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.9s">
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-4.png" alt="материалы" title="материалы">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-4.png" alt="материалы" title="материалы">
             <h3><span>материалы</span><br>известных производителей</h3>
             <div>Мы работаем с производителями материалов и оборудования, зарекомендовавшими себя на рынке сантехнических услуг и имеющими <strong>сертификат качества</strong> и гарантию. Это такие бренды, как: Rehau, FAR, Frankische, Oventrop, Ostendorf, Wolf, Vogel & Noot, Viessmann, Fondital, Meibes и другие.</div>
         </div>
@@ -178,7 +178,7 @@ $this->registerMetaTag([
         <div class="card" id="card">
             <div class="title-big">Получите дисконтную карту</div>
             <div class="form">
-                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                 <div class="close"></div>
                 <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>
                 <?php $form = ActiveForm::begin([
@@ -189,7 +189,7 @@ $this->registerMetaTag([
                     ]
                 ]);?>
                 <?php echo $form->field($letter, 'email', [
-                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'card-email.png' . '" alt="email" title="email">{input}{error}</div>',
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'card-email.png' . '" alt="email" title="email">{input}{error}</div>',
                 ])->input('email', [
                     'class' => 'focus',
                     'placeholder' => 'Ваш e-mail*'
@@ -214,35 +214,35 @@ $this->registerMetaTag([
     <h3 class="title-small">Простая схема сотрудничества</h3>
     <div class="how clear width">
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-1.png" alt="Звонок и консультация" title="звонок на консультацию">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-1.png" alt="Звонок и консультация" title="звонок на консультацию">
             <figcaption>Заявка с сайта, звонок и<br>консультация</figcaption>
         </figure>
         <figure class="red-arrow">
             <img class="wow fadeInLeft" src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-2.png" alt="Встреча и подбор оптимального решения" title="Встреча и подбор оптимального решения">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-2.png" alt="Встреча и подбор оптимального решения" title="Встреча и подбор оптимального решения">
             <figcaption>Осмотр объекта, подбор<br>решения, составление<br>нескольких смет</figcaption>
         </figure>
         <figure class="red-arrow">
             <img class="wow fadeInLeft" data-wow-delay="0.2s" src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-5.png" alt="Закупка материала и доставка">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-5.png" alt="Закупка материала и доставка">
             <figcaption>Закупка материала и доставка</figcaption>
         </figure>
         <figure class="red-arrow">
             <img class="wow fadeInLeft" data-wow-delay="0.4s" src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-3.png" alt="Монтаж с учётом ваших потребностей" title="Монтаж">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-3.png" alt="Монтаж с учётом ваших потребностей" title="Монтаж">
             <figcaption>Монтаж с учётом ваших потребностей</figcaption>
         </figure>
         <figure class="red-arrow">
             <img class="wow fadeInLeft" data-wow-delay="0.6s" src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-arrow.png" alt="следующий шаг" title="следующий шаг">
         </figure>
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-4.png" alt="Введение в эксплуатацию и обслуживание" title="Введение в эксплуатацию">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>main-how-4.png" alt="Введение в эксплуатацию и обслуживание" title="Введение в эксплуатацию">
             <figcaption>Введение в эксплуатацию и обслуживание</figcaption>
         </figure>
     </div>
@@ -253,7 +253,7 @@ $this->registerMetaTag([
         <h2 class="title-big">отзывы наших клиентов</h2>
         <div class="review wow bounceInLeft">
             <div class="block">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
                 <div class="text">
                     <span><span class="red"><!--noindex--><a href="http://сам-себе-электростанция.рф/" rel="nofollow" target="_blank">Николай Дрига</a><!--/noindex-->,</span> предприниматель и владелец дома<br>с полным автономным энергообеспечением</span>
                     <p>Когда я впервые увидел с какой аккуратностью Артем подходит к решению технических вопросов при монтаже систем отопления и водоснабжения, сразу понял — наш человек! :)  Заказчику всегда предлагается выбор из нескольких вариантов с описанием всех плюсов и минусов каждого, соответственно, человек может делать осознанный выбор в соответствии с индивидуальными особенностями и возможностями.</p>
@@ -281,7 +281,7 @@ $this->registerMetaTag([
     <h2 class="title-big">закажите бесплатный вызов сантехника на замер</h2>
     <div class="master width">
         <figure>
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>call-master.png" alt="вызвать мастера" title="вызвать мастера">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>call-master.png" alt="вызвать мастера" title="вызвать мастера">
         </figure>
         <div class="call clear">
             <div class="about">
@@ -302,7 +302,7 @@ $this->registerMetaTag([
             </div>
             <div class="form">
                 <div class="close"></div>
-                <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                 <span>вызов сантехника</span>
                 <?php $form = ActiveForm::begin([
                     'enableAjaxValidation' => false,
@@ -312,13 +312,13 @@ $this->registerMetaTag([
                     ]
                 ]);?>
                 <?php echo $form->field($letter, 'name', [
-                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="Ваше имя" title="Ваше имя">{input}{error}</div>',
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-name.png' . '" alt="Ваше имя" title="Ваше имя">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'focus',
                     'placeholder' => 'Ваше имя*'
                 ]); ?>
                 <?php echo $form->field($letter, 'phone', [
-                    'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
+                    'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
                 ])->input('text', [
                     'class' => 'phone-mask',
                     'placeholder' => 'Ваш телефон*'
@@ -343,10 +343,10 @@ $this->registerMetaTag([
                     <span>бесплатно</span><br>
                     <span>Вызов сантехника не обязывает вас<br>к дальнейшему сотрудничеству</span>
                 </div>
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-free.png" alt="бесплатно" title="бесплатно">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-free.png" alt="бесплатно" title="бесплатно">
             </div>
             <div class="bf-2 wow bounceInRight">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-fast.png" alt="быстро" title="быстро">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>master-fast.png" alt="быстро" title="быстро">
                 <div>
                     <span>быстро</span><br>
                     <span>Получите точную стоимость<br>в течение 48 часов</span>

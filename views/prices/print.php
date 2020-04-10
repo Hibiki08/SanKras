@@ -3,7 +3,7 @@
 <div class="width">
     <div class="header clear">
         <figure class="logo">
-            <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'print-logo.png'; ?>" alt="лого">
+            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'print-logo.png'; ?>" alt="лого">
         </figure>
         <div class="adress">
             г. Краснодар<br>
