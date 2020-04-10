@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         'js/maskedinput.js?r3',
         '/js/hibiki.slider.js?r3',
         '/lib/lazy-load/src/jquery.lazyloadxt.js',
+        '/lib/lazysizes/lazysizes.min.js',
     ];
     public $depends = [
         'app\assets\OtherAsset',

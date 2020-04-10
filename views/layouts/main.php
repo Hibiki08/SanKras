@@ -46,7 +46,7 @@ AppAsset::register($this);
         </div>
         <div class="header width clear">
             <div class="logo">
-                <a href="<?php echo Yii::$app->homeUrl; ?>"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
+                <a href="<?php echo Yii::$app->homeUrl; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'new-logo.png'; ?>" alt="Логотип" title="лого"></a>
             </div>
             <?php echo MainMenu::widget(); ?>
             <div class="phone exo" id="phone">
@@ -65,7 +65,7 @@ AppAsset::register($this);
         <div class="call-block">
             <div class="block">
                 <div class="form">
-                    <div class="loading"><img data-src="/images/system/spinner4.gif" alt="loading"></div>
+                    <div class="loading"><img class="lazyload" data-src="/images/system/spinner4.gif" alt="loading"></div>
                     <div class="close"></div>
                     <span>Заказать звонок</span><br>
                     <span>Введите свой номер телефона,<br>и мы перезвоним вам в течении 15 минут</span>
@@ -77,7 +77,7 @@ AppAsset::register($this);
                         ]
                     ]);?>
                     <?php echo $form->field($letter, 'phone', [
-                        'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
+                        'template' => '<div class="field"><img src="' . Yii::$app->params['params']['pathToImageSystem'] . 'main-tel.png' . '" alt="Ваш телефон" title="Ваш телефон">{input}{error}</div>',
                     ])->input('text', [
                         'class' => 'phone-mask',
                         'placeholder' => 'Ваш телефон*'
@@ -158,7 +158,7 @@ AppAsset::register($this);
                     <div class="metrika">
                         <!-- Yandex.Metrika informer -->
                         <a href="https://metrika.yandex.ru/stat/?id=39483720&amp;from=informer"
-                           target="_blank" rel="nofollow"><img data-src="//bs.yandex.ru/informer/39483720/3_0_607B99FF_405B79FF_1_pageviews"
+                           target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/39483720/3_0_607B99FF_405B79FF_1_pageviews"
                                                                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39483720" data-lang="ru" /></a>
                         <!-- /Yandex.Metrika informer -->
                     </div>
@@ -203,7 +203,7 @@ AppAsset::register($this);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img data-src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/39483720" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!--Google analytics-->
 <script>

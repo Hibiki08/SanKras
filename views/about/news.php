@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = 'Новости';
                 <?php foreach ($news as $new) {?>
                  --><a href="<?php echo Yii::$app->urlManager->createUrl(['novosti/'.$new->url]); ?>" class="new">
                         <?php if (!empty($new->preview)) { ?>
-                            <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $new->preview; ?>">
+                            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_NEWS . 'prev_' . $new->preview; ?>">
                         <?php } ?>
                         <div class="news-text">
                             <div class="new-title"><?php echo $new->title; ?></div>

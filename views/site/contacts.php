@@ -16,35 +16,35 @@ $this->registerMetaTag([
         <div class="cont">
             <h1>Мы работаем в Краснодаре и&nbsp;крае, в&nbsp;Адыгее</h1>
             <div class="cnt">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-phone.png'; ?>" alt="телефон" title="телефон">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-phone.png'; ?>" alt="телефон" title="телефон">
                 <div>
                     <span>Телефон</span><br>
                     <span><?php echo Yii::$app->system->get('phone'); ?></span>
                 </div>
             </div>
             <div class="cnt">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-skype.png'; ?>" alt="skype" title="skype">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-skype.png'; ?>" alt="skype" title="skype">
                 <div>
                     <span>Skype</span><br>
                     <span><?php echo Yii::$app->system->get('skype'); ?></span>
                 </div>
             </div>
             <div class="cnt">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-email.png'; ?>" alt="email" title="email">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-email.png'; ?>" alt="email" title="email">
                 <div>
                     <span>Email</span><br>
                     <a href="mailto:<?php echo Yii::$app->system->get('email'); ?>"><?php echo Yii::$app->system->get('email'); ?></a>
                 </div>
             </div>
             <div class="cnt">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-time.png'; ?>" alt="время работы" title="время работы">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-time.png'; ?>" alt="время работы" title="время работы">
                 <div>
                     <span>Время работы</span><br>
                     <span>Ежедневно с 8:00 до 21:00</span>
                 </div>
             </div>
             <div class="cnt">
-                <img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-address.png'; ?>" alt="адрес" title="адрес">
+                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'cont-address.png'; ?>" alt="адрес" title="адрес">
                 <div>
                     <span>Адрес</span><br>
                     <span><?php echo Yii::$app->system->get('address'); ?></span>
@@ -72,7 +72,7 @@ $this->registerMetaTag([
         </div>
         <div class="form">
             <div class="close"></div>
-            <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
+            <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'spinner25.gif'; ?>" alt="loading"></div>
             <span>Напишите нам:</span>
             <?php $form = ActiveForm::begin([
                 'enableAjaxValidation' => false,
@@ -82,26 +82,26 @@ $this->registerMetaTag([
                 ]
             ]);?>
             <?php echo $form->field($write, 'name', [
-                'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
+                'template' => '<div class="field"><img class="lazyload" data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-name.png' . '" alt="ваше имя" title="ваше имя">{input}{error}</div>',
             ])->input('text', [
                 'class' => 'focus',
                 'placeholder' => 'Ваше имя*'
             ]); ?>
             <?php echo $form->field($write, 'phone', [
-                'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
+                'template' => '<div class="field"><img class="lazyload" data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-phone.png' . '" alt="ваш телефон" title="ваш телефон">{input}{error}</div>',
             ])->input('text', [
                 'value' => '',
                 'class' => 'phone-mask',
                 'placeholder' => 'Ваш телефон'
             ]); ?>
             <?php echo $form->field($write, 'email', [
-                'template' => '<div class="field"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-email.png' . '" alt="ваш email" title="ваш email">{input}{error}</div>',
+                'template' => '<div class="field"><img class="lazyload" data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-email.png' . '" alt="ваш email" title="ваш email">{input}{error}</div>',
             ])->input('email', [
                 'placeholder' => 'Ваш email*',
                 'class' => 'focus'
             ]); ?>
             <?php echo $form->field($write, 'message', [
-                'template' => '<div class="field textarea"><img data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
+                'template' => '<div class="field textarea"><img class="lazyload" data-src="' . Yii::$app->params['params']['pathToImageSystem'] . 'callback-message.png' . '" alt="ваше сообщение" title="ваше сообщение">{label}{input}{error}</div>',
             ])->textarea()->label('Ваше сообщение*');?>
             <?php echo $form->field($write, 'agree',['template' =>'<label>{input} Согласен(на) на обработку персональных данных в соответствии с <a href="/politika-konfidencialnosti">Политикой конфеденциальности</a></label>{error}' ])->input('checkbox', [
                             'value' => '1',
