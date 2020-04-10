@@ -545,16 +545,6 @@ $(document).ready(function() {
         $(this).parents('table').find('tr').css('display', 'table-row');
         $(this).css('display', 'none');
     });
-
-    // $(document).on('click', '.flex-next, .flex-prev', function () {
-    //     $(this).parents('.flexslider').find('.fancy img').lazyLoadXT();
-    // });
-    //
-    // $(document).on('click', '.ps-next, .ps-prev', function () {
-    //     $(this).parents('.ps-current').find('li img').lazyLoadXT();
-    // });
-    // $('img').lazyLoadXT();
-
 });
 
 //Панель с итогом у Калькулятора

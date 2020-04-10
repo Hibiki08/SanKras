@@ -247,7 +247,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 									</div>
 									<div class="opinions-desc">Более половины новых<br>клиентов приходят к нам<br>по рекомендации от своих<br>друзей и знакомых. <b>Читайте<br>отзывы о компании СанКрас!</b></div>
 									<img data-src="/images/system/opinions.png" class="opinions-img lazyload">
-									<a href="/about/opinions" target="_blank" class="opinions-link">Читать отзывы</a>
+									<a href="https://www.google.com/search?q=%D1%81%D0%B0%D0%BD%D0%BA%D1%80%D0%B0%D1%81&oq=%D1%81%D0%B0%D0%BD&aqs=chrome.0.69i59j69i57j69i59l2j0j69i61l3.1106j0j7&sourceid=chrome&ie=UTF-8#lrd=0x40f041ae603d412b:0xac151144a9732c31,1,,," target="_blank" class="opinions-link">Читать отзывы</a>
 								</div>
 								<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDLBlB4Ee1GwjoyYFafHHirrnTtA1_9Zpc&libraries=places"></script>
 								<script src="/lib/google-reviews/google-reviews.js"></script>
