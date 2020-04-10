@@ -5165,3 +5165,7 @@ a.showMoreTeam.active:before {
 .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
     background-color: rgba(0, 0, 0, 0.65);
 }
+
+.pages .gallery {
+    max-height: 300px;
+}

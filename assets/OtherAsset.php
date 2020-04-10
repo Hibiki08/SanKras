@@ -13,8 +13,7 @@ class OtherAsset extends AssetBundle
 
     ];
     public $js = [
-        'js/script.js?r23',
-        '/lib/perfect-scrollbar/js/perfect-scrollbar.js',
+        'js/script.js?r24',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -546,6 +546,11 @@ $(document).ready(function() {
         $(this).css('display', 'none');
     });
 
+    $(document).on('click', '.flex-next, .flex-prev', function () {
+        console.log(333);
+        $(this).parents('.flexslider').find('.fancy img').lazyLoadXT();
+    });
+
 });
 
 //Панель с итогом у Калькулятора

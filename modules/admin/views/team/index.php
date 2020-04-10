@@ -28,7 +28,7 @@ $this->title = 'Команда';
                 <td><?php echo $tm->post; ?></td>
                 <td class="photo">
                     <figure>
-                        <img src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>">
+                        <img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>">
                     </figure></td>
                 <td class="status"><?php echo $tm->active ? 'Да' : 'Нет'; ?></td>
                 <td>

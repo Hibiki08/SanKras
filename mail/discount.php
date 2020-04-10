@@ -25,15 +25,15 @@ use yii\helpers\Html;
             </ul>
             <div style="float: right;width: 300px;line-height: 1.9;margin-top: 11px;">
                 <div style="float: left">
-                    <div><img src="<?php echo $homeUrl; ?>/images/system/phone-letter.png" alt="Телефон" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="tel:<?php echo $adminPhone; ?>" style="color: #9db7d1;"><?php echo $adminPhone; ?></a></div>
-                    <div style=";color: #9db7d1;"><img src="<?php echo $homeUrl; ?>/images/system/skype-letter.png" alt="skype" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><?php echo $adminSkype; ?></div>
-                    <div><img src="<?php echo $homeUrl; ?>/images/system/mail-letter.png" alt="email" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;"><?php echo $adminEmail; ?></a></div>
-                    <div style="color: #9db7d1;"><img src="<?php echo $homeUrl; ?>/images/system/work-letter.png" alt="Режим работы" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">ежедневно с 8:00 до 21:00</div>
+                    <div><img data-src="<?php echo $homeUrl; ?>/images/system/phone-letter.png" alt="Телефон" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="tel:<?php echo $adminPhone; ?>" style="color: #9db7d1;"><?php echo $adminPhone; ?></a></div>
+                    <div style=";color: #9db7d1;"><img data-src="<?php echo $homeUrl; ?>/images/system/skype-letter.png" alt="skype" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><?php echo $adminSkype; ?></div>
+                    <div><img data-src="<?php echo $homeUrl; ?>/images/system/mail-letter.png" alt="email" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;"><a href="mailto:info@san-kras.ru" style="color: #9db7d1;"><?php echo $adminEmail; ?></a></div>
+                    <div style="color: #9db7d1;"><img data-src="<?php echo $homeUrl; ?>/images/system/work-letter.png" alt="Режим работы" style="margin-left: -30px;margin-right: 10px;display: inline-block;vertical-align: middle;">ежедневно с 8:00 до 21:00</div>
                 </div>
                 <div style="float: right;margin-top: -9px;">
-                    <a href="https://vk.com/sankras" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img src="<?php echo $homeUrl; ?>/images/system/vk.png" alt="vk"></a>
-                    <a href="https://vk.com/away.php?to=https%3A%2F%2Fok.ru%2Fgroup%2F57443680583734" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img src="<?php echo $homeUrl; ?>/images/system/ok.png" alt="ok"></a>
-                    <a href="https://vk.com/away.php?to=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F951386194924056%2F" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img src="<?php echo $homeUrl; ?>/images/system/facebook.png" alt="facebook"></a>
+                    <a href="https://vk.com/sankras" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img data-src="<?php echo $homeUrl; ?>/images/system/vk.png" alt="vk"></a>
+                    <a href="https://vk.com/away.php?to=https%3A%2F%2Fok.ru%2Fgroup%2F57443680583734" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img data-src="<?php echo $homeUrl; ?>/images/system/ok.png" alt="ok"></a>
+                    <a href="https://vk.com/away.php?to=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F951386194924056%2F" target="_blank" style="display: block;margin-bottom: 4px;height: 40px;"><img data-src="<?php echo $homeUrl; ?>/images/system/facebook.png" alt="facebook"></a>
                 </div>
                 <div style="display: table;width: 100%;clear: both;"></div>
             </div>

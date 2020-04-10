@@ -25,7 +25,7 @@ $this->title = 'Верхний слайдер';
             <tr>
                 <td><?php echo $slide->id; ?></td>
                 <td><?php echo $slide->link; ?></td>
-                <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_TOP . 'admin_' . $slide->image; ?>"></td>
+                <td><img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Slides::IMG_FOLDER_SLIDER_TOP . 'admin_' . $slide->image; ?>"></td>
                 <td><input type="text" class="form-control show_position" name="show_position" placeholder="очерёдность" value="<?php echo $slide->sort; ?>" data-id="<?php echo $slide->id; ?>"></td>
                 <td class="status"><?php echo $slide->active ? 'Да' : 'Нет'; ?></td>
                 <td>
