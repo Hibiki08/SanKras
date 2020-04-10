@@ -24,7 +24,7 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
         <label class="col-lg-2"></label>
         <figure class="col-lg-10">
 <!--            <img class="img-rounded" src="--><?php //echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?><!--">-->
-            <a class="fancybox" rel="group" href="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?>"><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/mini_' . $model->photo; ?>"></a>
+            <a class="fancybox" rel="group" href="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/' . $model->photo; ?>"><img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $model->id . ')/mini_' . $model->photo; ?>"></a>
         </figure>
     </div>
 <?php } ?>

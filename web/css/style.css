@@ -5146,3 +5146,6 @@ a.showMoreTeam.active:before {
     font-size: 13px;
     text-decoration: underline;
 }
+.pages .gallery {
+    max-height: 300px;
+}

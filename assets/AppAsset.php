@@ -11,6 +11,7 @@ class AppAsset extends AssetBundle
     public $css = [
         '/css/hibiki.slider.css?r3',
         '/lib/lazy-load/dist/jquery.lazyloadxt.fadein.css',
+//        '/lib/progressive-image/dist/progressive-image.css',
         'css/style.css?r96',
         'css/add-style.min.css?r8',
         'css/style.css?r103',
@@ -20,7 +21,9 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/maskedinput.js?r3',
         '/js/hibiki.slider.js?r3',
+//        '/lib/progressive-image/dist/progressive-image.js',
         '/lib/lazy-load/src/jquery.lazyloadxt.js',
+//        '/lib/lazyload/lazyload.min.js',
     ];
     public $depends = [
         'app\assets\OtherAsset',

@@ -39,7 +39,7 @@ $this->title = 'Список';
             <tr>
                 <td><?php echo $work->id; ?></td>
                 <td><?php echo $work->title; ?></td>
-                <td><img src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' .  $work->id . ')/mini_prev_' . $work->preview; ?>"></td>
+                <td><img data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' .  $work->id . ')/mini_prev_' . $work->preview; ?>"></td>
                 <td><?php echo isset($work->category->title) ? $work->category->title : ''; ?></td>
                 <td><?php echo !empty($work->video) ? 'Да' : 'Нет'; ?></td>
                 <td><input type="text" class="form-control show_position" name="show_position" placeholder="очерёдность" value="<?php echo $work->sort ? $work->sort : 0; ?>" data-id="<?php echo $work->id; ?>"></td>
