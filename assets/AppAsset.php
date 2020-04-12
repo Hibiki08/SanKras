@@ -11,9 +11,8 @@ class AppAsset extends AssetBundle
     public $css = [
         '/css/hibiki.slider.css?r3',
         '/lib/lazy-load/dist/jquery.lazyloadxt.fadein.css',
-        'css/style.css?r97',
         'css/add-style.min.css?r8',
-        'css/style.css?r103',
+        'css/style.css?r104',
         'css/media.css?r31',
         'css/fonts.css?r3',
     ];

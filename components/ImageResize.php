@@ -26,6 +26,7 @@ class ImageResize {
         if (file_exists($this->from . $this->file)) {
             if (exif_imagetype($this->from . $this->file) == IMAGETYPE_GIF ||
                 exif_imagetype($this->from . $this->file) == IMAGETYPE_JPEG ||
+                exif_imagetype($this->from . $this->file) == IMAGETYPE_WEBP ||
                 exif_imagetype($this->from . $this->file) == IMAGETYPE_PNG) {
                 return true;
             }
