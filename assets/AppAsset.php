@@ -10,6 +10,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         '/css/hibiki.slider.css?r3',
+        '/lib/perfect-scrollbar/css/perfect-scrollbar.css',
         '/lib/lazy-load/dist/jquery.lazyloadxt.fadein.css',
         'css/add-style.min.css?r8',
         'css/style.css?r104',
