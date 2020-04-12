@@ -5165,7 +5165,3 @@ a.showMoreTeam.active:before {
 .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
     background-color: rgba(0, 0, 0, 0.65);
 }
-
-.pages .flexslider .slides > li {
-    max-height: 227px;
-}
