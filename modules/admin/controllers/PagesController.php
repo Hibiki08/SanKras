@@ -20,7 +20,7 @@ use yii\bootstrap\ActiveForm;
 class PagesController extends AdminController {
 
     const GET_ACCESS_DENIED = [
-        'delete-slide',
+        'delete-slide'
     ];
 
     const POST_ACCESS_DENIED = [
@@ -38,14 +38,12 @@ class PagesController extends AdminController {
                 unset($_GET['module']);
                 if (!empty(Yii::$app->request->get())) {
                     throw new HttpException(404, 'Такой страницы нет!');
-                    Yii::$app->end();
                 }
             }
 
             if (in_array($action->id, self::POST_ACCESS_DENIED)) {
                 if (!empty(Yii::$app->request->post())) {
                     throw new HttpException(404, 'Такой страницы нет!');
-                    Yii::$app->end();
                 }
             }
         }

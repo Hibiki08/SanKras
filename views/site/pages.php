@@ -7,31 +7,31 @@ use app\models\ServicesProjectdocs;
 use yii\imagine\Image;
 use app\models\Team;
 
-$this->title = $options['tag_title'];
+$this->title = $service['tag_title'];
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => $options['tag_description']
+    'content' => $service['tag_description']
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => $options['tag_keywords']
+    'content' => $service['tag_keywords']
 ]);
-// var_dump($options);
+// var_dump($service);
 if($parent) $this->params['breadcrumbs'][] = ['label' => $parent['title'], 'url'=> ['/'.$parent['link'].'/']];
-$this->params['breadcrumbs'][] = $options['title'];
+$this->params['breadcrumbs'][] = $service['title'];
 ?>
 <div class="pages">
     <header>
         <div class="width">
-            <h1><?php echo $options['title']; ?></h1>
+            <h1><?php echo $service['title']; ?></h1>
             <div class="block">
                 <div class="preview">
-                    <?php if(!empty($options['image']) || !empty($options['video'])) {
-                        if (($options['img_video'] == 1) || ($options['img_video'] == 2 && empty($options['video']))) { ?>
-                            <img class="img-video lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $options['image']; ?>" alt="<?php echo $options['title']; ?>">
+                    <?php if(!empty($service['image']) || !empty($service['video'])) {
+                        if (($service['img_video'] == 1) || ($service['img_video'] == 2 && empty($service['video']))) { ?>
+                            <img class="img-video lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $service['id'] . ')/' . $service['image']; ?>" alt="<?php echo $service['title']; ?>">
                         <?php } else {
-                        if (($options['img_video'] == 2) || ($options['img_video'] == 1 && empty($options['image']))) { ?>
-                            <div class="img-video"><?php echo $options['video']; ?></div>
+                        if (($service['img_video'] == 2) || ($service['img_video'] == 1 && empty($service['image']))) { ?>
+                            <div class="img-video"><?php echo $service['video']; ?></div>
                         <?php }}
                     } ?>
                     <footer>
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                     <div class="close"></div>
                     <div class="loading lazyload"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                     <div class="visible">
-                        <h3><?php echo $options['form_title']; ?></h3>
+                        <h3><?php echo $service['form_title']; ?></h3>
                         <?php $form = ActiveForm::begin([
                             'enableAjaxValidation' => false,
                             'enableClientValidation' => true,
@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                         ]); ?>
                         <?php echo $form->field($letter, 'hidden', [
                             'template' => '{input}',
-                        ])->hiddenInput(['value' => $options['title']]); ?>
+                        ])->hiddenInput(['value' => $service['title']]); ?>
                         <?php echo Html::submitButton('заказать услугу', ['class' => 'pulse']); ?>
                         <?php ActiveForm::end(); ?>
                     </div>
@@ -82,11 +82,11 @@ $this->params['breadcrumbs'][] = $options['title'];
                 </div>
                 <div class="prev_text sidebar-serviceList js-scroll">
 					<h3>Стоимость работ:</h3>
-					<?php if ((!empty($options->price) && $options['table_ex'] == 1) ||
-						(!empty($options['packages']) && $options['package_ex'] == 1)) { ?>
-						<?php if (!empty($options->price) && $options['table_ex'] == 1) { ?>
+					<?php if ((!empty($service->price) && $service['table_ex'] == 1) ||
+						(!empty($service['packages']) && $service['package_ex'] == 1)) { ?>
+						<?php if (!empty($service->price) && $service['table_ex'] == 1) { ?>
 							<table>
-								<?php foreach ($options->price as $price) { ?>
+								<?php foreach ($service->price as $price) { ?>
 									<?php foreach ($price['prices'] as $item) { ?>
 										<tr>
 											<td colspan="2"><?php echo $item['title']; ?></td>
@@ -106,21 +106,21 @@ $this->params['breadcrumbs'][] = $options['title'];
     </header>
     <main>
         <div class="width">
-            <?php if($options['projectdocs_active'] && !empty($options->projectdocs)) {?>
+            <?php if($service['projectdocs_active'] && !empty($service->projectdocs)) {?>
                 <div class="gallery">
 					<header class="flex">
-						<h2><?php echo $options['projectdocs_title']; ?></h2>
+						<h2><?php echo $service['projectdocs_title']; ?></h2>
 						<div>
-						  <span class="_count"><?=count($options->projectdocs)?></span> <a class="fancy b_all" href="#all1">Посмотреть все</a>
+						  <span class="_count"><?=count($service->projectdocs)?></span> <a class="fancy b_all" href="#all1">Посмотреть все</a>
 						</div>
 					</header>
                     <div class="flexslider2" style="margin:0px 50px 10px">
                         <div class="slides owl-carousel owl-theme">
-                            <?php foreach ($options->projectdocs as $doc) {?>
-								<?list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']);?>
+                            <?php foreach ($service->projectdocs as $doc) {?>
+								<?list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . 'mini_slider_' . $doc['image']);?>
                                 <div class="item" style="width:<?=$width?>px">
-                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
+                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
                                     </a>
 									<div class="name">
 										<b><?php echo $doc['name']; ?></b>
@@ -133,13 +133,17 @@ $this->params['breadcrumbs'][] = $options['title'];
                     <div style="display:none">
                       <div class="all" id="all1">
                         <div style="text-align:center">
-                          <strong><?=$options['title'];?></strong><br>
-                          <span class="_count"><?=count($options->projectdocs)?> фотографии</span>
+                          <strong><?=$service['title'];?></strong><br>
+                          <span class="_count"><?=count($service->projectdocs)?> фотографии</span>
                         </div>
-							<?php foreach ($options->projectdocs as $doc) { ?>
+							<?php foreach ($service->projectdocs as $doc) { ?>
                                 <div class="wrap">
-                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                    <a class="fancy" rel="carousel1" href="/images/projectdocs/<?php echo 'page('
+                                        . $service->id . ')/' . $doc->image; ?>" title="<?php echo $doc->name; ?>">
+                                        <?php echo $this->render('/part/_picture-source-template', [
+                                            'imagePath' => '/images/projectdocs/page(' . $service->id . ')/' . 'mini_slider_' . $doc->image,
+                                            'altText' => $doc->name
+                                        ]); ?>
                                     </a>
                                 </div>
                             <?php } ?>
@@ -147,20 +151,26 @@ $this->params['breadcrumbs'][] = $options['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if(!empty($options->slides)) {?>
+            <?php if(!empty($service->slides)) {?>
                 <div class="gallery">
 					<header class="flex">
-						<h2><?php echo $options['gallery_title']; ?></h2>
+						<h2><?php echo $service['gallery_title']; ?></h2>
 						<div>
-						  <span class="_count"><?=count($options->slides)?></span> <a class="fancy b_all" href="#all2">Посмотреть все</a>
+						  <span class="_count"><?=count($service->slides)?></span> <a class="fancy b_all" href="#all2">Посмотреть все</a>
 						</div>
 					</header>
                     <div class="flexslider" style="margin:0px 50px 10px;">
                         <ul class="slides">
-                            <?php foreach ($options->slides as $slide) {?>
+                            <?php foreach ($service->slides as $slide) {?>
+                                <?php $workImagesPath = '/images/sliders/pages/page(' . $service->id . ')/'
+                                    . $slide->slide; ?>
                                 <li>
-                                    <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
-                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                    <a class="fancy" rel="carousel2" href="<?php
+                                    echo $workImagesPath . '.jpg'; ?>" title="<?php echo $slide->text; ?>">
+                                        <?php echo $this->render('/part/_picture-source-template', [
+                                            'imagePath' => $workImagesPath,
+                                            'altText' => $slide->text
+                                        ]); ?>
                                     </a>
 									<div class="name">
 										<b><?php echo $slide['text']; ?></b>
@@ -173,13 +183,18 @@ $this->params['breadcrumbs'][] = $options['title'];
                     <div style="display:none">
                       <div class="all" id="all2">
                         <div style="text-align:center">
-                          <strong><?=$options['title'];?></strong><br>
-                          <span class="_count"><?=count($options->slides)?> фотографии</span>
+                          <strong><?=$service['title'];?></strong><br>
+                          <span class="_count"><?=count($service->slides)?> фотографии</span>
                         </div>
-							<?php foreach ($options->slides as $slide) { ?>
+							<?php foreach ($service->slides as $slide) { ?>
                                 <div class="wrap">
-                                    <a class="fancy" rel="carousel2" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . $slide['slide']; ?>" title="<?php echo $slide['text']; ?>">
-                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesSlides::IMG_FOLDER . 'page(' . $options['id'] . ')/' . 'mini_slider_' . $slide['slide']; ?>"  alt="<?php echo $slide['text']; ?>"/>
+                                    <a class="fancy" rel="carousel2" href="/images/sliders/pages/<?php
+                                    echo 'page(' . $service['id'] . ')/' . $slide->slide; ?>" title="<?php echo $slide->text; ?>">
+                                        <?php echo $this->render('/part/_picture-source-template', [
+                                            'imagePath' => '/images/sliders/pages/page(' . $service->id
+                                                . ')/mini_slider_' . $slide->slide,
+                                            'altText' => $slide->text
+                                        ]); ?>
                                     </a>
                                 </div>
                             <?php } ?>
@@ -187,27 +202,27 @@ $this->params['breadcrumbs'][] = $options['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if($options->videos_show) { ?>
+            <?php if($service->videos_show) { ?>
                 <div class="gallery">
 					<header class="flex">
 						<h2>Видео работ</h2>
 						<div>
-						  <span class="_count"><?=count($options->videos)?></span> <a class="fancy b_all" href="#all3">Посмотреть все</a>
+						  <span class="_count"><?=count($service->videos)?></span> <a class="fancy b_all" href="#all3">Посмотреть все</a>
 						</div>
 					</header>
                     <div class="flexslider" style="margin:0px 50px 10px;">
                         <ul class="slides">
-                            <?php foreach ($options->videos as $key => $v) {?>
+                            <?php foreach ($service->videos as $key => $v) {?>
                                 <li>
                                     <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									<div class="name">
 										<b><?php echo $v[0]; ?></b>
-										<span><?php echo $options->videos_name[$key]; ?></span>
+										<span><?php echo $service->videos_name[$key]; ?></span>
 									</div>
                                 </li>
                             <?php } ?>
-							<?if(count($options->videos) < 3) {
-								for($i = count($options->videos); $i < 3; $i++)
+							<?if(count($service->videos) < 3) {
+								for($i = count($service->videos); $i < 3; $i++)
 								echo "<li><img class=\"lazyload\" data-src=\"/images/system/default-video.png\"></li>";
 							}?>
                         </ul>
@@ -216,9 +231,9 @@ $this->params['breadcrumbs'][] = $options['title'];
                       <div class="all" id="all3">
                         <div style="text-align:center">
                           <strong>Видео работ</strong><br>
-                          <span class="_count"><?=count($options->videos)?> видео</span>
+                          <span class="_count"><?=count($service->videos)?> видео</span>
                         </div>
-							<?php foreach ($options->videos as $v) { ?>
+							<?php foreach ($service->videos as $v) { ?>
                                 <div class="wrap">
                                     <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
@@ -227,10 +242,10 @@ $this->params['breadcrumbs'][] = $options['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if (!empty($options['main_text'])) { ?>
+            <?php if (!empty($service['main_text'])) { ?>
                 <div class="content page-widget">
-                        <div class="main-text"><?php echo $options['main_text']; ?></div>
-                    <?php if (!empty($options['work_text'])) { ?>
+                        <div class="main-text"><?php echo $service['main_text']; ?></div>
+                    <?php if (!empty($service['work_text'])) { ?>
                         <div class="work-text">
 							<h3>Поделиться:</h3>
 							<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
@@ -274,18 +289,18 @@ $this->params['breadcrumbs'][] = $options['title'];
 								<a href="#" class="showMoreTeam"><span>Развернуть список</span><span>Свернуть список</span></a>
 							</div>
 							<br>
-							<?php echo $options['work_text']; ?>
+							<?php echo $service['work_text']; ?>
 						</div>
                         <?php } ?>
                 </div>
             <?php } ?>
         </div>
-            <?php if ((!empty($options->price) && $options['table_ex'] == 1) ||
-                (!empty($options['packages']) && $options['package_ex'] == 1)) { ?>
+            <?php if ((!empty($service->price) && $service['table_ex'] == 1) ||
+                (!empty($service['packages']) && $service['package_ex'] == 1)) { ?>
                 <div class="prices">
                     <div class="width">
-                        <h2><?php echo $options['price_title']; ?></h2>
-                        <?php if (!empty($options->price) && $options['table_ex'] == 1) { ?>
+                        <h2><?php echo $service['price_title']; ?></h2>
+                        <?php if (!empty($service->price) && $service['table_ex'] == 1) { ?>
                             <div class="table">
                                 <table>
                                     <tr class="sub-title">
@@ -293,7 +308,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                                         <td>Ед.</td>
                                         <td class="table-cost">Стоимость</td>
                                     </tr>
-                                    <?php foreach ($options->price as $price) { ?>
+                                    <?php foreach ($service->price as $price) { ?>
                                         <?php foreach ($price['prices'] as $item) { ?>
                                             <tr class="transition">
                                                 <td><?php echo $item['title']; ?></td>
@@ -305,15 +320,15 @@ $this->params['breadcrumbs'][] = $options['title'];
                                 </table>
                             </div>
                         <?php } ?>
-                        <?php if (!empty($options['packages']) && $options['package_ex'] == 1) { ?>
+                        <?php if (!empty($service['packages']) && $service['package_ex'] == 1) { ?>
                             <div class="packages">
-                                <?php echo $options['packages']; ?>
+                                <?php echo $service['packages']; ?>
                             </div>
                         <?php } ?>
                     </div>
                 </div>
             <?php } ?>
-            <?php if ($options['benefits'] == 1) { ?>
+            <?php if ($service['benefits'] == 1) { ?>
                 <div class="benefits">
                     <div class="width">
                         <h3>Оцените преимущества работы с компетентными мастерами:</h3>
@@ -378,7 +393,7 @@ $this->params['breadcrumbs'][] = $options['title'];
                         ]); ?>
                         <?php echo $form->field($letter, 'hidden', [
                             'template' => '{input}',
-                        ])->hiddenInput(['value' => $options['title']]); ?>
+                        ])->hiddenInput(['value' => $service['title']]); ?>
                         <?php echo Html::submitButton('Задать вопрос мастеру', ['class' => 'pulse']); ?>
                         <?php ActiveForm::end(); ?>
                     </div>
@@ -391,7 +406,7 @@ $this->params['breadcrumbs'][] = $options['title'];
         </div>
     </main>
 </div>
-<?php if(!empty($options->slides) || !empty($options->projectdocs) || !empty($options->videos_show)) { ?>
+<?php if(!empty($service->slides) || !empty($service->projectdocs) || !empty($service->videos_show)) { ?>
 <link rel="stylesheet" href="/lib/OwlCarousel/css/owl.carousel.min.css">
 <link rel="stylesheet" href="/lib/OwlCarousel/css/owl.theme.default.min.css">
 <script src="/lib/OwlCarousel/js/owl.carousel.js"></script>
@@ -437,7 +452,7 @@ $this->params['breadcrumbs'][] = $options['title'];
 			
 			$(this).toggleClass("active").siblings(".teams").toggleClass("active");
 		});
-        setTimeout('yaCounter39483720.reachGoal("minuta<?php echo $options['id']; ?>");', 60000);
+        setTimeout('yaCounter39483720.reachGoal("minuta<?php echo $service['id']; ?>");', 60000);
 		$(".showGReviews").click(function(e) {
 			e.preventDefault();
 			

@@ -36,34 +36,33 @@ class PageController extends Controller {
         $form = new BaseForm();
         
         $o = new Services();
-        $options = $o->getOneServ($link, true);
+        $service = $o->getOneServ($link, true);
 		
         if($action)
 			$parent = $o->getOneServ($action, true);
 		else
 			$parent = false;
-			
-        $options->videos = $options->videos ? json_decode($options->videos) : array();
-        $options->videos = array_map(
+
+        $service->videos = $service->videos ? json_decode($service->videos) : array();
+        $service->videos = array_map(
 			function($v, $n){
 				$u = parse_url($v);
 				parse_str($u['query'], $v);
 				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
 			},
-			array_keys((array)$options->videos), array_values((array)$options->videos)
+			array_keys((array)$service->videos), array_values((array)$service->videos)
 		);
-        $options->videos_name = $options->videos_name ? json_decode($options->videos_name) : array();
+        $service->videos_name = $service->videos_name ? json_decode($service->videos_name) : array();
 		
         unset($_GET['action']);
         unset($_GET['key']);
         if(!empty($_GET)){
           throw new HttpException(404 ,'Такой страницы нет!');
-          Yii::$app->end();
         }
-        if (!empty($options)) {
+        if (!empty($service)) {
             return $this->render('/site/pages', [
                 'letter' => $form,
-                'options' => $options,
+                'service' => $service,
                 'parent' => $parent,
 				'team' => $team
             ]);

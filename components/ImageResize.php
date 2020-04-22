@@ -46,6 +46,9 @@ class ImageResize {
             if (exif_imagetype($this->from . $this->file) == IMAGETYPE_PNG) {
                 $type = 'png';
             }
+            if (exif_imagetype($this->from . $this->file) == IMAGETYPE_WEBP) {
+                $type = 'webp';
+            }
             return $type;
         }
         return false;
