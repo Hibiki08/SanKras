@@ -28,7 +28,11 @@ $this->params['breadcrumbs'][] = $service['title'];
                 <div class="preview">
                     <?php if(!empty($service['image']) || !empty($service['video'])) {
                         if (($service['img_video'] == 1) || ($service['img_video'] == 2 && empty($service['video']))) { ?>
-                            <img class="img-video lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Services::IMG_FOLDER . 'page(' . $service['id'] . ')/' . $service['image']; ?>" alt="<?php echo $service['title']; ?>">
+                            <?php echo $this->render('/part/_picture-source-template', [
+                                'imagePath' => '/images/pages/page(' . $service->id . ')/' . $service->image,
+                                'altText' => $service->title,
+                                'class' => 'img-video'
+                            ]); ?>
                         <?php } else {
                         if (($service['img_video'] == 2) || ($service['img_video'] == 1 && empty($service['image']))) { ?>
                             <div class="img-video"><?php echo $service['video']; ?></div>
@@ -92,7 +96,11 @@ $this->params['breadcrumbs'][] = $service['title'];
 											<td colspan="2"><?php echo $item['title']; ?></td>
 										</tr>
 										<tr>
-											<td><a href="<?=$item['image']?>" rel="gallery2" class="fancy-price"><?php echo Html::img($item['image']); ?></a></td>
+											<td><a href="<?=$item['image']?>" rel="gallery2" class="fancy-price"><?php
+                                                    echo $this->render('/part/_picture-source-template', [
+                                                        'imagePath' => $item->image,
+                                                        'altText' => ''
+                                                    ]); ?></a></td>
 											<td class="price"><b><?php echo number_format($item['price'], 0, "", " "); ?></b> руб.</td>
 										</tr>
 									<?php } ?>
@@ -119,8 +127,11 @@ $this->params['breadcrumbs'][] = $service['title'];
                             <?php foreach ($service->projectdocs as $doc) {?>
 								<?list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . 'mini_slider_' . $doc['image']);?>
                                 <div class="item" style="width:<?=$width?>px">
-                                    <a class="fancy" rel="carousel1" href="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
-                                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . ServicesProjectdocs::IMG_FOLDER . 'page(' . $service['id'] . ')/' . 'mini_slider_' . $doc['image']; ?>"  alt="<?php echo $doc['name']; ?>"/>
+                                    <a class="fancy" rel="carousel1" href="/images/projectdocs/<?php echo 'page(' . $service['id'] . ')/' . $doc['image']; ?>" title="<?php echo $doc['name']; ?>">
+                                        <?php echo $this->render('/part/_picture-source-template', [
+                                            'imagePath' => '/images/projectdocs/page(' . $service->id . ')/' . 'mini_slider_' . $doc->image,
+                                            'altText' => $doc->name
+                                        ]); ?>
                                     </a>
 									<div class="name">
 										<b><?php echo $doc['name']; ?></b>
@@ -141,7 +152,8 @@ $this->params['breadcrumbs'][] = $service['title'];
                                     <a class="fancy" rel="carousel1" href="/images/projectdocs/<?php echo 'page('
                                         . $service->id . ')/' . $doc->image; ?>" title="<?php echo $doc->name; ?>">
                                         <?php echo $this->render('/part/_picture-source-template', [
-                                            'imagePath' => '/images/projectdocs/page(' . $service->id . ')/' . 'mini_slider_' . $doc->image,
+                                            'imagePath' => '/images/projectdocs/page(' . $service->id . ')/'
+                                                . 'mini_slider_' . $doc->image,
                                             'altText' => $doc->name
                                         ]); ?>
                                     </a>
@@ -162,13 +174,12 @@ $this->params['breadcrumbs'][] = $service['title'];
                     <div class="flexslider" style="margin:0px 50px 10px;">
                         <ul class="slides">
                             <?php foreach ($service->slides as $slide) {?>
-                                <?php $workImagesPath = '/images/sliders/pages/page(' . $service->id . ')/'
-                                    . $slide->slide; ?>
                                 <li>
-                                    <a class="fancy" rel="carousel2" href="<?php
-                                    echo $workImagesPath . '.jpg'; ?>" title="<?php echo $slide->text; ?>">
+                                    <a class="fancy" rel="carousel2" href="/images/sliders/pages/page(<?php
+                                    echo $service->id . ')/' . $slide->slide; ?>" title="<?php echo $slide->text; ?>">
                                         <?php echo $this->render('/part/_picture-source-template', [
-                                            'imagePath' => $workImagesPath,
+                                            'imagePath' => '/images/sliders/pages/page(' . $service->id . ')/'
+                                                . 'mini_slider_' . $slide->slide,
                                             'altText' => $slide->text
                                         ]); ?>
                                     </a>
@@ -191,8 +202,8 @@ $this->params['breadcrumbs'][] = $service['title'];
                                     <a class="fancy" rel="carousel2" href="/images/sliders/pages/<?php
                                     echo 'page(' . $service['id'] . ')/' . $slide->slide; ?>" title="<?php echo $slide->text; ?>">
                                         <?php echo $this->render('/part/_picture-source-template', [
-                                            'imagePath' => '/images/sliders/pages/page(' . $service->id
-                                                . ')/mini_slider_' . $slide->slide,
+                                            'imagePath' => '/images/sliders/pages/page(' . $service->id . ')/'
+                                            . 'mini_slider_' . $slide->slide,
                                             'altText' => $slide->text
                                         ]); ?>
                                     </a>
@@ -223,7 +234,10 @@ $this->params['breadcrumbs'][] = $service['title'];
                             <?php } ?>
 							<?if(count($service->videos) < 3) {
 								for($i = count($service->videos); $i < 3; $i++)
-								echo "<li><img class=\"lazyload\" data-src=\"/images/system/default-video.png\"></li>";
+								echo '<li>' . $this->render('/part/_picture-source-template', [
+                                            'imagePath' => 'images/system/default-video.png',
+                                            'altText' => ''
+                                        ]) . '</li>';
 							}?>
                         </ul>
                     </div>
@@ -261,7 +275,11 @@ $this->params['breadcrumbs'][] = $service['title'];
 										<span id="starsGReviews"></span> <a href="#" class="showGReviews"><span id="googleCountReviews"></span> отзывов</a>
 									</div>
 									<div class="opinions-desc">Более половины новых<br>клиентов приходят к нам<br>по рекомендации от своих<br>друзей и знакомых. <b>Читайте<br>отзывы о компании СанКрас!</b></div>
-									<img data-src="/images/system/opinions.png" class="opinions-img lazyload">
+                                    <?php echo $this->render('/part/_picture-source-template', [
+                                        'imagePath' => '/images/system/opinions.png',
+                                        'altText' => '',
+                                        'class' => 'opinions-img'
+                                    ]); ?>
 									<a href="https://www.google.com/search?q=%D1%81%D0%B0%D0%BD%D0%BA%D1%80%D0%B0%D1%81&oq=%D1%81%D0%B0%D0%BD&aqs=chrome.0.69i59j69i57j69i59l2j0j69i61l3.1106j0j7&sourceid=chrome&ie=UTF-8#lrd=0x40f041ae603d412b:0xac151144a9732c31,1,,," target="_blank" class="opinions-link">Читать отзывы</a>
 								</div>
 								<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDLBlB4Ee1GwjoyYFafHHirrnTtA1_9Zpc&libraries=places"></script>
@@ -278,7 +296,10 @@ $this->params['breadcrumbs'][] = $service['title'];
 								<div class="teams">
 									<?php foreach ($team as $tm) {?>
 										<div class="tm">
-											<figure><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
+                                            <?php echo $this->render('/part/_picture-source-template', [
+                                                'imagePath' => '/images/team/team(' . $tm->id . ')/team_' . $tm->img,
+                                                'altText' => 'Команда'
+                                            ]); ?>
 											<div class="description">
 												<div class="name"><?php echo $tm->name; ?>,</div>
 												<div class="desc"> <?php echo $tm->post; ?></div>
@@ -363,7 +384,7 @@ $this->params['breadcrumbs'][] = $service['title'];
                 </div>
                 <div class="form">
                     <div class="close"></div>
-                    <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                    <div class="loading"><img data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
                     <div class="visible">
                         <h3>Остались вопросы?</h3>
                         <span>Заполните форму, мастер перезвонит<br>вам и поможет найти решение!</span>

@@ -16,6 +16,7 @@ use yii\web\UploadedFile;
 use app\components\ImageResize;
 use app\components\Translate;
 use yii\bootstrap\ActiveForm;
+use WebPConvert\WebPConvert;
 
 class PagesController extends AdminController {
 
@@ -185,7 +186,8 @@ class PagesController extends AdminController {
                     }
                     if (!empty($form->slides)) {
                         $path = ServicesSlides::IMG_FOLDER . 'page(' . $id . ')/';
-                        $create = file_exists(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path) ? true: mkdir(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path);
+                        $slidePasePath = Yii::$app->basePath . '/web/images/' . $path;
+                        $create = file_exists($slidePasePath) ? true: mkdir($slidePasePath);
 
                         if ($create) {
                                 $images = [];
@@ -194,7 +196,7 @@ class PagesController extends AdminController {
                                     if ($form->upload($path, $slide)) {
                                         $resizeAdminPrev = new ImageResize($slide->name, $path, $path, 172, '', 'mini');
                                         $resizeAdminPrev->resize();
-                                        $resizeSlider = new ImageResize($slide->name, $path, $path, 250, '', 'mini_slider');
+                                        $resizeSlider = new ImageResize($slide->name, $path, $path, 340, '', 'mini_slider');
                                         $resizeSlider->resize();
 
                                         $images[$i]['slide'] = $slide->name;
@@ -304,10 +306,29 @@ class PagesController extends AdminController {
                 if (!empty($slide)) {
                     $path = ServicesSlides::IMG_FOLDER . 'page(' . $slide->serv_id . ')/';
                     $slideName = $slide->slide;
+                    $slideNameParts = explode('.', $slideName);
+                    $pathWithoutType = $slideNameParts[0];
+                    $basePath = Yii::$app->basePath . '/web/images/' . $path;
                     if ($slide->delete() !== false) {
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $slideName);
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $slideName);
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $slideName);
+                        if (file_exists($basePath . $slideName)) {
+                            unlink($basePath . $slideName);
+                        }
+                        if (file_exists($basePath . 'mini_' . $slideName)) {
+                            unlink($basePath . 'mini_' . $slideName);
+                        }
+                        if (file_exists($basePath . 'mini_slider_' . $slideName)) {
+                            unlink($basePath . 'mini_slider_' . $slideName);
+                        }
+                        if (file_exists($basePath . $pathWithoutType . '.webp')) {
+                            unlink($basePath . $pathWithoutType . '.webp');
+                        }
+                        if (file_exists($basePath . 'mini_' . $pathWithoutType . '.webp')) {
+                            unlink($basePath . 'mini_' . $pathWithoutType . '.webp');
+                        }
+                        if (file_exists($basePath . 'mini_slider_' . $pathWithoutType . '.webp')) {
+                            unlink($basePath . 'mini_slider_' . $pathWithoutType . '.webp');
+                        }
+
                         $response = true;
                     }
                 }

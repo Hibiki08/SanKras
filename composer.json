@@ -20,7 +20,8 @@
         "mihaildev/yii2-ckeditor": "*",
         "yiisoft/yii2-debug": "~2.0.0",
         "mihaildev/yii2-elfinder": "*",
-        "yiisoft/yii2-jui": "^2.0"
+        "yiisoft/yii2-jui": "^2.0",
+        "rosell-dk/webp-convert": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

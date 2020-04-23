@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use WebPConvert\WebPConvert;
 use Yii;
 
 class ImageResize {
@@ -106,11 +107,28 @@ class ImageResize {
             $image = 'image' . $type;
 
             $image($desk, $this->to . $this->prx . '_' . $this->file);
+            $fullImageName = explode('.', $this->file);
+            $fileName = $fullImageName[0];
+            WebPConvert::convert(
+                $this->from . $this->file,
+                $this->from . $fileName . '.webp', [
+                    'quality' => 85,
+                    'max-quality' => 85,
+                    'default-quality' => 85,
+                ]
+            );
+            WebPConvert::convert(
+                $this->to . $this->prx . '_' . $this->file,
+                $this->to . $this->prx . '_' . $fileName . '.webp', [
+                    'quality' => 85,
+                    'max-quality' => 85,
+                    'default-quality' => 85,
+                ]
+            );
             imagedestroy($desk);
             return true;
         } else {
             return false;
         }
     }
-
 }

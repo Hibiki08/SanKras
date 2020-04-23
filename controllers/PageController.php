@@ -37,6 +37,10 @@ class PageController extends Controller {
         
         $o = new Services();
         $service = $o->getOneServ($link, true);
+
+        if (!$service) {
+            throw new HttpException(404 ,'Такой страницы нет!');
+        }
 		
         if($action)
 			$parent = $o->getOneServ($action, true);
@@ -59,16 +63,12 @@ class PageController extends Controller {
         if(!empty($_GET)){
           throw new HttpException(404 ,'Такой страницы нет!');
         }
-        if (!empty($service)) {
-            return $this->render('/site/pages', [
-                'letter' => $form,
-                'service' => $service,
-                'parent' => $parent,
-				'team' => $team
-            ]);
-        } else {
-            throw new HttpException(404 ,'Такой страницы нет!');
-        }
+        return $this->render('/site/pages', [
+            'letter' => $form,
+            'service' => $service,
+            'parent' => $parent,
+            'team' => $team
+        ]);
     }
 
     public function actionOrderService() {
