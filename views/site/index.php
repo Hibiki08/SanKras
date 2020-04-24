@@ -62,7 +62,10 @@ $this->registerMetaTag([
         <span class="asphalt">Мы производим сантехнические работы "под ключ" в квартирах, частных домах<br>и сотрудничаем с застройщиками частного сектора</span>
         <div class="services clear">
             <div class="service flat">
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-flat.png" alt="квартира">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/key-flat.png',
+                    'altText' => 'квартира',
+                ]); ?>
                 <div class="exo title">Монтаж в квартире:</div>
                 <ul>
                     <li>Консультирование, cоставление сметы</li>
@@ -77,7 +80,10 @@ $this->registerMetaTag([
                 <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-kvartire'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service house">
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-house.png" alt="дом">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/key-house.png',
+                    'altText' => 'дом',
+                ]); ?>
                 <div class="exo title">Монтаж в частном доме:</div>
                 <ul>
                     <li>Расчет теплопотерь здания, схема проекта</li>
@@ -92,7 +98,10 @@ $this->registerMetaTag([
                 <a href="<?php echo Yii::$app->urlManager->createUrl('montazh-v-chastnom-dome'); ?>" class="exo">Подробнее</a>
             </div>
             <div class="service company">
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>key-company.png" alt="застройщики">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/key-company.png',
+                    'altText' => 'застройщики',
+                ]); ?>
                 <div class="exo title">Застройщикам:</div>
                 <ul>
                     <li>Высокие скидки на материал от поставщиков оборудования</li>
@@ -112,22 +121,34 @@ $this->registerMetaTag([
     <div class="grey"></div>
     <div class="columns clear width">
         <div class="col wow zoomIn">
-            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-1.png" alt="гарантия" title="гарантия">
+            <?php echo $this->render('/part/_picture-source-template', [
+                'imagePath' => '/images/system/better-1.png',
+                'altText' => 'гарантия',
+            ]); ?>
             <h3><span>гарантия</span><br>от 1 года до 5 лет на работы</h3>
             <div>В течение гарантийного срока мы <strong>бесплатно</strong> устраним возможные неисправности. Однако мы уверены в высоком качестве нашей работы, потому что она <span style="letter-spacing: -1px">выполняется квалифицированными специалистами с использованием надежных материалов.</span></div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.3s">
-            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-2.png" alt="отношение" title="отношение">
+            <?php echo $this->render('/part/_picture-source-template', [
+                'imagePath' => '/images/system/better-2.png',
+                'altText' => 'отношение',
+            ]); ?>
             <h3><span>Несколько решений</span><br>на выбор с учётом бюджета</h3>
             <div>С учетом всех ваших потребностей мы составляем <strong>несколько оптимальных решений</strong>, из которых вы выбираете наиболее подходящее по соотношению цены и качества. Также мы предлагаем бесплатную доставку и скидку на материал в размере 10%.</div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.6s">
-            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-3.png" alt="поддержка" title="поддержка">
+            <?php echo $this->render('/part/_picture-source-template', [
+                'imagePath' => '/images/system/better-3.png',
+                'altText' => 'поддержка',
+            ]); ?>
             <h3><span>обслуживание</span><br>во время эксплуатации</h3>
             <div>После завершения работ мы не прекращаем сотрудничество с вами. По всем вопросам, возникающим в ходе эксплуатации системы, мы предоставляем консультацию, <strong>помогаем в настройке оборудования</strong> и при необходимости <strong>проводим профилактику системы</strong>.</div>
         </div>
         <div class="col wow zoomIn" data-wow-delay="0.9s">
-            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>better-4.png" alt="материалы" title="материалы">
+            <?php echo $this->render('/part/_picture-source-template', [
+                'imagePath' => '/images/system/better-4.png',
+                'altText' => 'материалы',
+            ]); ?>
             <h3><span>материалы</span><br>известных производителей</h3>
             <div>Мы работаем с производителями материалов и оборудования, зарекомендовавшими себя на рынке сантехнических услуг и имеющими <strong>сертификат качества</strong> и гарантию. Это такие бренды, как: Rehau, FAR, Frankische, Oventrop, Ostendorf, Wolf, Vogel & Noot, Viessmann, Fondital, Meibes и другие.</div>
         </div>
@@ -178,7 +199,9 @@ $this->registerMetaTag([
         <div class="card" id="card">
             <div class="title-big">Получите дисконтную карту</div>
             <div class="form">
-                <div class="loading"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading"></div>
+                <div class="loading">
+                    <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>spinner4.gif" alt="loading">
+                </div>
                 <div class="close"></div>
                 <span><span>Просто введите свой e-mail</span><br>и получите скидку 12% на монтаж<br>и 10% на материал</span>
                 <?php $form = ActiveForm::begin([
@@ -253,7 +276,10 @@ $this->registerMetaTag([
         <h2 class="title-big">отзывы наших клиентов</h2>
         <div class="review wow bounceInLeft">
             <div class="block">
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-1.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/review-1.png',
+                    'altText' => 'монтаж водоснабжения отзыв',
+                ]); ?>
                 <div class="text">
                     <span><span class="red"><!--noindex--><a href="http://сам-себе-электростанция.рф/" rel="nofollow" target="_blank">Николай Дрига</a><!--/noindex-->,</span> предприниматель и владелец дома<br>с полным автономным энергообеспечением</span>
                     <p>Когда я впервые увидел с какой аккуратностью Артем подходит к решению технических вопросов при монтаже систем отопления и водоснабжения, сразу понял — наш человек! :)  Заказчику всегда предлагается выбор из нескольких вариантов с описанием всех плюсов и минусов каждого, соответственно, человек может делать осознанный выбор в соответствии с индивидуальными особенностями и возможностями.</p>
@@ -264,7 +290,10 @@ $this->registerMetaTag([
         <div class="review rw-2 wow bounceInRight">
             <blockquote><span>Р</span>аботы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают организационные вопросы</blockquote>
             <div class="block">
-                <img data-wow-delay="0.4s" src="<?php echo Yii::$app->params['params']['pathToImage'] . 'system/review-2.png'; ?>" alt="монтаж водоснабжения отзыв" title="отзыв">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/review-2.png',
+                    'altText' => 'монтаж водоснабжения отзыв',
+                ]); ?>
                 <div class="text">
                     <span><span class="red">Роман,</span> руководитель строительной фирмы "Краснодарский дизайн-салон"</span>
                     <p>Долгое время я искал специалиста по сантехнике, на которого можно положиться. Надоедало постоянно перепроверять за мастером и тратить время на то, чтобы держать все под контролем. С Артемом познакомился на одном из объектов. Сразу понравилось как он подходит к монтажу: работы ведутся по проекту, ребята имеют весь необходимый инструмент, работают в защитной экипировке, быстро решают возникающие организационные вопросы. По привычке я все перепроверял, но быстро понял что в этом нет необходимости, возникло доверие и желание сотрудничать. Совместно мы выполнили несколько десятков объектов, за это время ни разу не были сорваны сроки, претензий от заказчиков не поступало.</p>
@@ -281,7 +310,10 @@ $this->registerMetaTag([
     <h2 class="title-big">закажите бесплатный вызов сантехника на замер</h2>
     <div class="master width">
         <figure>
-            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>call-master.png" alt="вызвать мастера" title="вызвать мастера">
+            <?php echo $this->render('/part/_picture-source-template', [
+                'imagePath' => '/images/system/call-master.png',
+                'altText' => 'вызвать мастера',
+            ]); ?>
         </figure>
         <div class="call clear">
             <div class="about">

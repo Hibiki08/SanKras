@@ -16,9 +16,12 @@ class EditOpinionsForm extends Model {
     public $hidden;
     public $agree;
 
+    const SCENARIO_PUBLIC_UPLOADING = 'public_uploading';
+
     public function rules() {
         return [
-            [['name', 'text', 'agree'], 'required'],
+            [['name', 'text'], 'required'],
+            [['agree'], 'required', 'on' => [self::SCENARIO_PUBLIC_UPLOADING]],
             [['photo'], 'file', 'extensions' => ['jpg', 'jpeg', 'gif', 'png', 'webp'], 'skipOnEmpty' => true, 'maxSize' => 1048576],
             [['name', 'description'], 'string', 'max' => 255],
             [['name', 'description', 'text'], 'filter', 'filter' => 'trim'],

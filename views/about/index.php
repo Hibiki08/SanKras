@@ -18,20 +18,15 @@ $this->params['breadcrumbs'][] = 'О компании';
 <section class="about" id="about">
     <div class="width">
         <div class="head">
-            <?/*<div class="tabs">
-                <ul>
-                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
-                </ul>
-            </div>*/?>
             <h1 class="title exo asphalt">О компании</h1>
         </div>
         <div class="about-block">
             <div class="text clear">
                 <div class="txt txt-1">
-                    <figure><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem']; ?>about-1.png" alt="СанКрас" title="SanKras"></figure>
+                    <figure><?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/system/about-1.png',
+                            'altText' => 'СанКрас',
+                        ]); ?></figure>
                     <p>Почему люди доверяют одним компаниями, но не пользуются услугами других? Мы в СанКрас долго думали над этим, пока не поняли, что, наверное, главным критерием при выборе поставщика каких-либо услуг является репутация.</p>
                     <p>Мы подумали, что если делать работу качественно, при этом предоставлять заказчику привилегии, бонусы и не задирать цены, нас станут рекомендовать друзьям. Нам нужно делать работу так, чтобы у заказчиков не возникало проблем с отоплением и</p>
                 </div>
@@ -48,7 +43,10 @@ $this->params['breadcrumbs'][] = 'О компании';
                 <h2 class="title-big">Наша команда</h2>
                 <?php foreach ($team as $tm) {?>
                 <div class="tm">
-                    <figure><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Team::IMG_FOLDER . 'team(' . $tm->id . ')/team_' . $tm->img; ?>" alt="Команда" title="Команда"></figure>
+                    <figure><?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/team/team(' . $tm->id . ')/team_' . $tm->img,
+                            'altText' => 'Команда',
+                        ]); ?></figure>
                     <div class="description">
                         <span class="name exo"><?php echo $tm->name; ?></span><span class="desc exo">, <?php echo $tm->post; ?></span>
                         <?php $items = explode(";\n", $tm->text); ?>
@@ -63,7 +61,12 @@ $this->params['breadcrumbs'][] = 'О компании';
                 <h2 class="title-big">Наши сертификаты</h2>
                 <?php foreach ($certificates as $cert) {?>
                 <div class="sertif">
-                    <a class="fancybox" rel="group" href="<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER  . $cert->img; ?>"><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . 'mini_' . $cert->img; ?>" alt="Сертификат" title="Сертификат"></a>
+                    <a class="fancybox" rel="group" href="/images/certificates/<?php echo $cert->img; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/certificates/mini_' . $cert->img,
+                            'altText' => 'Сертификат',
+                        ]); ?>
+                    </a>
                 </div>
                 <?php } ?>
             </div>

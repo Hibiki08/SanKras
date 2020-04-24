@@ -147,9 +147,8 @@ class WorksController extends AdminController {
                         if ($form->upload($path, $form->preview)) {
                             if ($id && $newsPrev) {
                                 $path = Works::IMG_FOLDER . 'work(' . $model->id . ')/';
-                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $newsPrev);
-                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_prev_' . $newsPrev);
-                                unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'prev_' . $newsPrev);
+                                $basePath = Yii::$app->basePath . '/web/images/' . $path;
+                                $this->unlinkFiles($basePath, $newsPrev, ['mini_prev_', 'prev_']);
                             }
                             $resizeAdminPrev = new ImageResize($form->preview->name, $path, $path, 172, '', 'mini_prev');
                             $resizeAdminPrev->resize();
@@ -228,10 +227,9 @@ class WorksController extends AdminController {
                 $path = Works::IMG_FOLDER . 'work(' . $work_id . ')/';
                 $work->preview = null;
                 $work->active = 0;
+                $basePath = Yii::$app->basePath . '/web/images/' . $path;
                 if ($work->update()) {
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_prev_' . $prevName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'prev_' . $prevName);
+                    $this->unlinkFiles($basePath, $prevName, ['mini_prev_', 'prev_']);
                     $response = true;
                 }
             }
@@ -239,10 +237,9 @@ class WorksController extends AdminController {
                 $slide = WorksSlides::findOne($slide_id);
                 $path = Works::IMG_FOLDER . 'work(' . $slide->work_id . ')/';
                 $slideName = $slide->slide;
+                $basePath = Yii::$app->basePath . '/web/images/' . $path;
                 if ($slide->delete() !== false) {
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $slideName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $slideName);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $slideName);
+                    $this->unlinkFiles($basePath, $slideName, ['mini_', 'mini_slider_']);
                     $response = true;
                 }
             }

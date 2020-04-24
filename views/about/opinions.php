@@ -36,7 +36,10 @@ $this->params['breadcrumbs'][] = 'Отзывы';
                     <?php foreach ($opinions as $opinion) { ?>
                         <div class="op">
                             <figure>
-                                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Opinions::IMG_FOLDER . 'opinion(' . $opinion->id . ')/' . $opinion->photo; ?>" alt="отзыв" title="отзыв">
+                                <?php echo $this->render('/part/_picture-source-template', [
+                                    'imagePath' => '/images/opinions/opinion(' . $opinion->id . ')/' . $opinion->photo,
+                                    'altText' => 'Отзыв',
+                                ]); ?>
                             </figure>
                             <div class="text">
                                 <span class="title"><span class="red"><?php echo $opinion->name; ?>,</span> <?php echo $opinion->description; ?></span>

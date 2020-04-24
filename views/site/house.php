@@ -17,7 +17,10 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
         <div class="width clear">
             <h1 class="title title-big">Сантехнические работы в частном доме "под ключ"</h1>
             <figure>
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/more-house-1.png',
+                    'altText' => 'монтаж в частном доме',
+                ]); ?>
             </figure>
             <div class="text">
                 <p>Сантехнические коммуникации в частном доме — это структура, состоящая из таких элементов комфорта, как отопление, водоснабжение и канализация. Для того чтобы каждый из этих элементов работал исправно и не доставлял вам хлопот в будущем, монтаж сантехнических коммуникаций нужно начинать с проектирования.</p>
@@ -34,7 +37,10 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </div>
                 <div class="desc">
                     <figure>
-                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-2.png'; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/system/more-house-2.png',
+                            'altText' => 'монтаж в частном доме',
+                        ]); ?>
                     </figure>
                     <div class="text">
                         <ul>
@@ -59,7 +65,10 @@ $this->params['breadcrumbs'][] = 'Сантехнические работы в �
                 </div>
                 <div class="desc">
                     <figure>
-                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-house-3.png'; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/system/more-house-3.png',
+                            'altText' => 'монтаж в частном доме',
+                        ]); ?>
                     </figure>
                     <div class="text">
                         <ul>

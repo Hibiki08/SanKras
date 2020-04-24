@@ -147,7 +147,7 @@ class PagesController extends AdminController {
                     $model->prev_field = $form->prev_field;
                     $model->gallery_title = $form->gallery_title;
                     $model->main_text = $form->main_text;
-                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
+//                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
                     $model->videos = !empty($_POST['EditServiceForm']['videos']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos'])) : NULL;
                     $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? json_encode($_POST['EditServiceForm']['videos_name']) : NULL;
                     $model->work_text = $form->work_text;
@@ -161,7 +161,7 @@ class PagesController extends AdminController {
                         $model->image = $translate->translate($form->image->name);
                     }
 //                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
-                    $model->video = $form->video;
+//                    $model->video = $form->video;
                     $model->img_video = $form->img_video;
                     $model->benefits = isset(Yii::$app->request->post('EditServiceForm')['benefits']) ? 1 : 0;
                     $model->active = isset(Yii::$app->request->post('EditServiceForm')['active']) ? 1 : 0;
@@ -306,29 +306,9 @@ class PagesController extends AdminController {
                 if (!empty($slide)) {
                     $path = ServicesSlides::IMG_FOLDER . 'page(' . $slide->serv_id . ')/';
                     $slideName = $slide->slide;
-                    $slideNameParts = explode('.', $slideName);
-                    $pathWithoutType = $slideNameParts[0];
                     $basePath = Yii::$app->basePath . '/web/images/' . $path;
                     if ($slide->delete() !== false) {
-                        if (file_exists($basePath . $slideName)) {
-                            unlink($basePath . $slideName);
-                        }
-                        if (file_exists($basePath . 'mini_' . $slideName)) {
-                            unlink($basePath . 'mini_' . $slideName);
-                        }
-                        if (file_exists($basePath . 'mini_slider_' . $slideName)) {
-                            unlink($basePath . 'mini_slider_' . $slideName);
-                        }
-                        if (file_exists($basePath . $pathWithoutType . '.webp')) {
-                            unlink($basePath . $pathWithoutType . '.webp');
-                        }
-                        if (file_exists($basePath . 'mini_' . $pathWithoutType . '.webp')) {
-                            unlink($basePath . 'mini_' . $pathWithoutType . '.webp');
-                        }
-                        if (file_exists($basePath . 'mini_slider_' . $pathWithoutType . '.webp')) {
-                            unlink($basePath . 'mini_slider_' . $pathWithoutType . '.webp');
-                        }
-
+                        $this->unlinkFiles($basePath, $slideName, ['mini_', 'mini_slider_']);
                         $response = true;
                     }
                 }
@@ -356,9 +336,8 @@ class PagesController extends AdminController {
                     $path = ServicesProjectdocs::IMG_FOLDER . 'page(' . $doc->serv_id . ')/';
                     $docName = $doc->image;
                     if ($doc->delete() !== false) {
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . $docName);
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_' . $docName);
-                        unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . $path . 'mini_slider_' . $docName);
+                        $basePath = Yii::$app->basePath . '/web/images/' . $path;
+                        $this->unlinkFiles($basePath, $docName, ['mini_', 'mini_slider_']);
                         $response = true;
                     }
                 }

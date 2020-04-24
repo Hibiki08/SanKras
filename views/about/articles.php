@@ -19,31 +19,17 @@ $this->params['breadcrumbs'][] = 'Статьи';
 <section class="articles" id="about" style="padding-top:115px;">
     <div class="width">
         <div class="head">
-            <?/*div class="tabs">
-                <ul>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/'); ?>">О нас</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/opinions'); ?>">Отзывы</a></li>
-                    <li class="exo asphalt"><a href="<?php echo Yii::$app->urlManager->createUrl('about/news'); ?>">Новости</a></li>
-                    <li class="exo asphalt active"><a href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Статьи</a></li>
-                </ul>
-            </div>*/?>
             <h1 class="title exo asphalt">Статьи</h1>
-            <?php/* if (!empty($categories)) { ?>
-                <?php $group = !is_null(Yii::$app->request->get('group')) ? Yii::$app->request->get('group') : '' ; ?>
-            <ul class="filter">
-                <li><a class="exo <?php echo empty($group) ? 'red' : 'asphalt'; ?>" href="<?php echo Yii::$app->urlManager->createUrl('about/articles'); ?>">Все статьи</a></li>
-                <?php foreach ($categories as $key => $cat) { ?>
-                    <li><a class="exo <?php echo $group == $key ? 'red' : 'asphalt'; ?>"" href="<?php echo Yii::$app->urlManager->createUrl(['about/articles', 'group' => $key]); ?>"><?php echo $cat; ?></a></li>
-                <?php } ?>
-            </ul>
-            <?php } */?>
         </div>
         <div class="block-articles">
             <?php if (!empty($articles)) { ?>
                 <?php foreach ($articles as $article) {?>
                     <a href="<?php echo Yii::$app->urlManager->createUrl(['stati/'.$article->url]); ?>" class="article">
                         <?php if (!empty($article->preview)) { ?>
-                            <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . 'prev_' . $article->preview; ?>">
+                            <?php echo $this->render('/part/_picture-source-template', [
+                                'imagePath' => '/images/blog/articles/' . $article->preview,
+                                'altText' => '',
+                            ]); ?>
                         <?php } ?>
                         <div class="articles-text clear">
                             <div class="article-title"><?php echo $article->title; ?></div>

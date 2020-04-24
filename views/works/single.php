@@ -23,7 +23,13 @@ $this->params['breadcrumbs'][] = $work->title;
         </div>
         <ul class="pgwSlider">
             <?php foreach ($images as $image) {?>
-            <li><img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $image->work_id . ')' . '/mini_slider_' . $image->slide; ?>" alt="<?php echo $image->text; ?>" data-large-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . 'work(' . $image->work_id . ')' . '/' . $image->slide; ?>"></li>
+                <li><?php echo $this->render('/part/_picture-source-template', [
+                        'imagePath' => '/images/works/work(' . $image->work_id . ')' . '/mini_slider_' . $image->slide,
+                        'altText' => $image->text,
+                        'options' => [
+                            'data-large-src' => '/images/works/work(' . $image->work_id . ')' . '/' . $image->slide
+                        ]
+                    ]); ?></li>
             <?php } ?>
         </ul>
     </div>
@@ -99,7 +105,10 @@ $this->params['breadcrumbs'][] = $work->title;
                                     <?php foreach ($other as $val) {?>
                                         <a data-pjax=0 href="<?php echo Yii::$app->urlManager->createUrl(['nashi-raboty/'.$val->url]); ?>">
                                             <div class="work">
-                                                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $val->id . ')/prev_' . $val->preview; ?>">
+                                                <?php echo $this->render('/part/_picture-source-template', [
+                                                    'imagePath' => '/images/works/work(' . $val->id . ')/prev_' . $val->preview,
+                                                    'altText' => '',
+                                                ]); ?>
                                                 <div class="work-title exo"><?php echo $val->title; ?></div>
                                                 <div class="hover">
                                                     <div class="hover-title exo"><?php echo $val->title; ?></div>

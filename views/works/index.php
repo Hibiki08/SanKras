@@ -41,7 +41,10 @@ $this->params['breadcrumbs'][] = 'Наши работы';
             <?php foreach ($works as $work) {?>
                 <a href="<?php echo Url::to(['nashi-raboty/'.$work->url]); ?>">
                     <div class="work">
-                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImage'] . Works::IMG_FOLDER . '/work(' . $work->id . ')/prev_' . $work->preview; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/works/work(' . $work->id . ')/prev_' . $work->preview,
+                            'altText' => '',
+                        ]); ?>
                         <div class="work-title exo"><?php echo $work->title; ?></div>
                         <div class="hover">
                             <div class="hover-title exo"><?php echo $work->title; ?></div>

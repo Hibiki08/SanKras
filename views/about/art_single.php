@@ -21,7 +21,11 @@ $this->params['breadcrumbs'][] = $article->title;
                 <h1 class="exo"><?php echo $article->title; ?></h1>
                 <span class="date"><?php echo Yii::$app->formatter->asDate($article->date, 'd MMMM yyyy'); ?></span>
                 <?php if (!empty($article->preview)) { ?>
-                    <img class="preview" src="<?php echo Yii::$app->params['params']['pathToImage'] . Blog::IMG_FOLDER_ART . $article->preview; ?>">
+                    <?php echo $this->render('/part/_picture-source-template', [
+                        'imagePath' => '/images/blog/articles/' . $article->preview,
+                        'altText' => '',
+                        'class' => 'preview'
+                    ]); ?>
                 <?php } ?>
                 <div class="text"><?php echo $article->text; ?></div>
             </div>

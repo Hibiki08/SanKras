@@ -87,6 +87,7 @@ class AboutController extends Controller {
             ->all();
 
         $form = new EditOpinionsForm();
+        $form->setScenario(EditOpinionsForm::SCENARIO_PUBLIC_UPLOADING);
         $session = Yii::$app->session;
         if (!$session->isActive) {
             $session->open();
@@ -137,7 +138,6 @@ class AboutController extends Controller {
         $id = !empty(Yii::$app->request->getQueryParam('id')) ? Yii::$app->request->getQueryParam('id') : false;
         if ($id) {
           $new = $blog->where(['id' => $id])->one();
-//           die(var_dump($new));
           if ($new->id) {
             Yii::$app->getResponse()->redirect(Url::toRoute('novosti/'.$new->url),301);
             Yii::$app->end();

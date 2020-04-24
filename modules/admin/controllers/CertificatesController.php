@@ -72,10 +72,10 @@ class CertificatesController extends AdminController {
             $certificates = new Certificates;
             $certificates = $certificates->findOne($id);
         if ($certificates) {
-                $image = $certificates->img;
+            $basePath = Yii::$app->basePath . '/web/images/' . Certificates::IMG_FOLDER;
+            $image = $certificates->img;
                 if ($certificates->delete() !== false) {
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . 'mini_' . $image);
-                    unlink(Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage'] . Certificates::IMG_FOLDER . $image);
+                    $this->unlinkFiles($basePath, $image, ['mini_']);
                     $response = true;
                 }
             }

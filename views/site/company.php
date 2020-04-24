@@ -16,7 +16,10 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
         <div class="width clear">
             <h1 class="title title-big">Сотрудничаем с застройщиками частного сектора</h1>
             <figure>
-                <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-1.png'; ?>" alt="монтаж квартиры" title="монтаж квартиры">
+                <?php echo $this->render('/part/_picture-source-template', [
+                    'imagePath' => '/images/system/more-company-1.png',
+                    'altText' => 'монтаж квартиры',
+                ]); ?>
             </figure>
             <div class="text">
                 <p>Компания СанКрас предлагает выгодные условия сотрудничества для застройщиков. Например, скидки на материал от 20%, низкие цены на монтаж, качественное выполнение работ квалифицированными специалистами. За несколько лет наши сотрудники внедрили множество технологий, позволяющих снизить общую стоимость материала, не затронув при этом работоспособность системы, а также опытным путем выявили оптимальные виды материалов, отвечающих соотношению "цена - качество".</p>
@@ -32,7 +35,10 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
                 </div>
                 <div class="desc">
                     <figure>
-                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-2.png'; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/system/more-company-2.png',
+                            'altText' => '',
+                        ]); ?>
                     </figure>
                     <div class="text">
                         <ul>
@@ -56,7 +62,10 @@ $this->params['breadcrumbs'][] = 'Сотрудничаем с застройщи
                 </div>
                 <div class="desc">
                     <figure>
-                        <img class="lazyload" data-src="<?php echo Yii::$app->params['params']['pathToImageSystem'] . 'more-company-3.png'; ?>">
+                        <?php echo $this->render('/part/_picture-source-template', [
+                            'imagePath' => '/images/system/more-company-3.png',
+                            'altText' => '',
+                        ]); ?>
                     </figure>
                     <div class="text">
                         <ul>
