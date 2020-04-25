@@ -160,7 +160,7 @@ class PagesController extends AdminController {
                     if (!empty($form->image->name)) {
                         $model->image = $translate->translate($form->image->name);
                     }
-                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
+//                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
                     $model->video = $form->video;
                     $model->img_video = $form->img_video;
                     $model->benefits = isset(Yii::$app->request->post('EditServiceForm')['benefits']) ? 1 : 0;
