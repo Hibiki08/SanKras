@@ -147,7 +147,7 @@ class PagesController extends AdminController {
                     $model->prev_field = $form->prev_field;
                     $model->gallery_title = $form->gallery_title;
                     $model->main_text = $form->main_text;
-//                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
+                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
                     $model->videos = !empty($_POST['EditServiceForm']['videos']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos'])) : NULL;
                     $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? json_encode($_POST['EditServiceForm']['videos_name']) : NULL;
                     $model->work_text = $form->work_text;
@@ -160,8 +160,8 @@ class PagesController extends AdminController {
                     if (!empty($form->image->name)) {
                         $model->image = $translate->translate($form->image->name);
                     }
-//                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
-//                    $model->video = $form->video;
+                    $model->image = !empty($form->image->name) ? $translate->translate($form->image->name) : '';
+                    $model->video = $form->video;
                     $model->img_video = $form->img_video;
                     $model->benefits = isset(Yii::$app->request->post('EditServiceForm')['benefits']) ? 1 : 0;
                     $model->active = isset(Yii::$app->request->post('EditServiceForm')['active']) ? 1 : 0;
