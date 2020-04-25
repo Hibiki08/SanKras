@@ -147,7 +147,7 @@ class PagesController extends AdminController {
                     $model->prev_field = $form->prev_field;
                     $model->gallery_title = $form->gallery_title;
                     $model->main_text = $form->main_text;
-                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
+//                    $model->videos_show = $_POST['EditServiceForm']['videos_show']?1:0;
                     $model->videos = !empty($_POST['EditServiceForm']['videos']) ? strip_tags(json_encode($_POST['EditServiceForm']['videos'])) : NULL;
                     $model->videos_name = !empty($_POST['EditServiceForm']['videos_name']) ? json_encode($_POST['EditServiceForm']['videos_name']) : NULL;
                     $model->work_text = $form->work_text;
