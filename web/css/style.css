@@ -931,6 +931,7 @@ address {
     left: -177px;
 }
 .card .form:before {
+    content: '';
     background: url('/images/system/discount.webp') no-repeat;
 }
 .card .form .loading {
