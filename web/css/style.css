@@ -787,11 +787,6 @@ address {
     background-attachment: fixed;
     background-size: 100% auto;
 }
-.simple {
-    background: url('/images/system/main-bg-benefit2.webp') no-repeat;
-    background-attachment: fixed;
-    background-size: 100% auto;
-}
 .simple .title-small {
     font-weight: 300;
     font-size: 28px;
@@ -929,10 +924,6 @@ address {
     position: absolute;
     top: -59px;
     left: -177px;
-}
-.card .form:before {
-    content: '';
-    background: url('/images/system/discount.webp') no-repeat;
 }
 .card .form .loading {
     top: 90px;
@@ -1436,11 +1427,6 @@ address {
     background: url(/images/system/bg-recall-white.png) no-repeat bottom center;
     background-attachment: fixed;
 }
-.cooperation {
-    background-size: 100% auto;
-    background: url(/images/system/bg-recall-white.webp) no-repeat bottom center;
-    background-attachment: fixed;
-}
 .cooperation .width .end {
     float: left;
     width: 380px;
@@ -1481,11 +1467,6 @@ address {
     width: 408px;
     position: relative;
     box-sizing: content-box;
-}
-.cooperation .form {
-    background: url('/images/system/bg-recall-blur.webp') no-repeat bottom center;
-    background-size:  100% auto;
-    background-attachment: fixed;
 }
 .cooperation .form > span:first-of-type {
     line-height: 1.5;
@@ -3747,11 +3728,6 @@ color: #fff;
     background-size: 100% auto;
     background-attachment: fixed;
 }
-#more .questions {
-    background: url('/images/system/more.webp') no-repeat top center;
-    background-size: 100% auto;
-    background-attachment: fixed;
-}
 #more .questions .question {
     float: left;
 }
@@ -4932,10 +4908,6 @@ padding:0px !important;
 .pages .gallery header, .pages .prices header {
 	margin-bottom: 25px;
 	padding: 0 50px;
-}
-.pages .question {
-    background: url(/images/system/question.webp) no-repeat center;
-    background-size: cover;
 }
 .b_all {
 	margin-right: 0;
