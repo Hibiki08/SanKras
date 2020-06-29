@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.10",
+        "yiisoft/yii2": "^2.0@dev",
         "yiisoft/yii2-bootstrap": "*",
         "mihaildev/yii2-ckeditor": "*",
         "yiisoft/yii2-debug": "~2.0.0",
