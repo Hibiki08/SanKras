@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\PricesInPage;
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use app\models\Prices;
 use app\models\PricesCat;
@@ -111,6 +112,7 @@ class PricesController extends AdminController {
         $maxSort = $options->find()->max('sort');
 
         if (!empty($model)) {
+            $errors = [];
             foreach ($model->page as $item) {
                 $pagee[$item['page_id']] = ['selected ' => true];
             }
@@ -130,9 +132,10 @@ class PricesController extends AdminController {
                         $resize = new ImageResize($form->image->name, Prices::IMG_FOLDER, Prices::IMG_FOLDER, 200, '', 'admin');
                         $resize->resize();
                     }
-                    $model->image = !empty($form->image->name) ? "/images/".Prices::IMG_FOLDER.$form->image->name : Yii::$app->request->post('EditPricesForm')['hidden'];
-					if(Yii::$app->request->post('EditPricesForm')['delete_image'])
-						$model->image = "";
+                    if (!empty($form->image)) {
+                        $model->image = "/images/".Prices::IMG_FOLDER.$form->image->name;
+                    }
+
 					$model->title = $form->title;
 					$model->price = $form->price;
 					$model->unit = $form->unit;
@@ -230,6 +233,39 @@ class PricesController extends AdminController {
             ];
         }
         Yii::$app->end();
+    }
+
+    /**
+     * @param $id
+     * @return array
+     * @throws BadRequestHttpException
+     */
+    public function actionDeletePreview($id) {
+        if (Yii::$app->request->isAjax) {
+            $response = false;
+
+            $price = Prices::findOne($id);
+            if ($price) {
+                $prevName = $price->image;
+                $price->image = null;
+
+                if ($price->save()) {
+                    $path = Yii::$app->basePath . '/web' . Yii::$app->params['params']['pathToImage']
+                        . Prices::IMG_FOLDER;
+                    $this->unlinkFiles($path, $prevName, ['admin_']);
+                    $response = true;
+                }
+            } else {
+                throw new BadRequestHttpException('Услуга не найдена');
+            }
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'status' => $response,
+            ];
+        } else {
+            throw new BadRequestHttpException('Ajax only');
+        }
     }
 
 }

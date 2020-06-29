@@ -164,6 +164,9 @@
     width: auto;
     margin: 0 10px 0 0;
 }
+.slides .img-thumbnail {
+    max-width: 170px;
+}
 #editpricesform-cat_id > option {
     font-weight: bold;
 }

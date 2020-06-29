@@ -2,10 +2,22 @@
 
 namespace app\models;
 
+use app\models\PricesCat;
 use Yii;
 use app\components\AbstractModel;
-use app\models\PricesCat;
 
+/**
+ * @property integer $id
+ * @property string $title
+ * @property string $price
+ * @property string $unit
+ * @property integer $cat_id
+ * @property string $key_page
+ * @property integer $sort
+ * @property integer $active
+ * @property string $image
+ *
+ */
 class Prices extends AbstractModel {
 
     const IMG_FOLDER = 'prices/';

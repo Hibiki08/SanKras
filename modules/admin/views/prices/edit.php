@@ -15,14 +15,15 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
     ],
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название*'); ?>
-<?php echo $form->field($edit, 'image')->fileInput()->label('Картинка*'); ?>
-<?php echo $form->field($edit, 'delete_image')->input('checkbox', ['class' => 'checkbox'])->label('Удалить картинку'); ?>
-<?php echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
+<?php echo $form->field($edit, 'image')->fileInput()->label('Картинка'); ?>
+<?php //echo $form->field($edit, 'delete_image')->input('checkbox', ['class' => 'checkbox'])->label('Удалить картинку'); ?>
+<?php //echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
 <?php if (!empty($model->image)) { ?>
-    <div class="form-group">
-        <label class="col-lg-2"></label>
+    <label class="col-lg-2 control-label"></label>
+    <div class="slides">
         <figure class="col-lg-10">
-            <?php echo Html::img($model->image, ["class" => "img-rounded"]); ?>
+            <?php echo Html::img($model->image, ["class" => "img-thumbnail"]); ?>
+            <span class="glyphicon glyphicon-remove" data-id="<?php echo $model->id; ?>"></span>
         </figure>
     </div>
 <?php } ?>
@@ -46,4 +47,25 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 </div>
 
 <?php ActiveForm::end(); ?>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.glyphicon-remove').click(function() {
+            var $this = $(this);
+            $.ajax({
+                type: 'get',
+                url: '<?php echo Url::to('delete-preview'); ?>',
+                data: {id: $this.data('id')},
+                success: function (response) {
+                    if (response.status == true) {
+                        $this.parents('.slides').find('img').remove();
+                        $this.remove();
+                    }
+                },
+                error: function () {
+                }
+            });
+        });
+    });
+</script>
 
