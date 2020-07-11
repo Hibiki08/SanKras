@@ -126,16 +126,17 @@ if (isset($model->image)) { ?>
         <div class="progress progress-striped active">
             <div class="progress-bar progress-bar-info" style="width: 100%"></div>
         </div>
-        <?php if ($model->videos) { ?>
             <div class="js-current-video-block">
-                <?php foreach ($model->videos as $video) { ?>
-                    <?php echo $this->render('_video-item_template', [
-                        'video' => $video,
-                        'model' => $edit,
-                    ]); ?>
+                <?php if ($model->videos) { ?>
+                    <?php foreach ($model->videos as $video) { ?>
+                        <?php echo $this->render('_video-item_template', [
+                            'video' => $video,
+                            'model' => $edit,
+                        ]); ?>
+                    <?php } ?>
                 <?php } ?>
             </div>
-        <?php } ?>
+
         <div class="js-add-video-block">
             <?php echo $form->field($edit, 'blockVideoUrl', [
                 'template' => '{error}<div class="col-lg-7">{input}</div>',
@@ -276,7 +277,7 @@ if (isset($model->image)) { ?>
                 success: function (response) {
                     if (response.status) {
                         $('.js-current-video-block').append(response.response);
-                        parentBlock.find('.js-add-video input').val('');
+                        parentBlock.find('.js-add-video-block input').val('');
                         parentBlock.find('.progress').hide();
                     } else {
                         parentBlock.find('.progress').hide();
