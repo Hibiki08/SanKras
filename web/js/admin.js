@@ -69,6 +69,21 @@ function sortAjax(data, url) {
         });
 }
 
+function errorForm(errors, prefix) {
+    var formName = prefix || null;
+    if(!errors) {
+        return false;
+    }
+    $('.has-error').removeClass('has-error');
+    $('.help-block').html('');
+    $.each(errors, function(field, errors) {
+        var fieldName = ((formName ? formName + '-' : '') + field).toLowerCase();
+        var parentBlock = $('#' + fieldName).closest('.form-group');
+        parentBlock.addClass('has-error');
+        parentBlock.find('.help-block').html(errors);
+    });
+}
+
 $(document).ready(function() {
     $('#sort').click(function() {
         $(this).addClass('disabled');

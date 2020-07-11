@@ -23,6 +23,12 @@ class PageController extends Controller {
 
     public $key;
 
+    /**
+     * @param string $key
+     * @param string $action
+     * @return string
+     * @throws HttpException
+     */
     public function actionIndex($key = '', $action = '') {
         $this->view->registerCssFile('/lib/flexslider/flexslider.css');
         $this->view->registerJsFile('/lib/flexslider/flexslider.js');
@@ -34,41 +40,31 @@ class PageController extends Controller {
 		
         $link = !empty($key) ? $key : $this->key;
         $form = new BaseForm();
-        
-        $o = new Services();
-        $service = $o->getOneServ($link, true);
 
-        if (!$service) {
-            throw new HttpException(404 ,'Такой страницы нет!');
+        /** @var Services $service */
+        $service = Services::getOneServ($link, true);
+
+        if ($action) {
+            $parentService = Services::getOneServ($action, true);
+        } else {
+            $parentService = false;
         }
-		
-        if($action)
-			$parent = $o->getOneServ($action, true);
-		else
-			$parent = false;
 
-        $service->videos = $service->videos ? json_decode($service->videos) : array();
-        $service->videos = array_map(
-			function($v, $n){
-				$u = parse_url($v);
-				parse_str($u['query'], $v);
-				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
-			},
-			array_keys((array)$service->videos), array_values((array)$service->videos)
-		);
-        $service->videos_name = $service->videos_name ? json_decode($service->videos_name) : array();
-		
         unset($_GET['action']);
         unset($_GET['key']);
         if(!empty($_GET)){
           throw new HttpException(404 ,'Такой страницы нет!');
         }
-        return $this->render('/site/pages', [
-            'letter' => $form,
-            'service' => $service,
-            'parent' => $parent,
-            'team' => $team
-        ]);
+        if (!empty($service)) {
+            return $this->render('/site/pages', [
+                'letter' => $form,
+                'service' => $service,
+                'parent' => $parentService,
+				'team' => $team,
+            ]);
+        } else {
+            throw new HttpException(404 ,'Такой страницы нет!');
+        }
     }
 
     public function actionOrderService() {
@@ -150,5 +146,4 @@ class PageController extends Controller {
             'question' => $form
         ]);
     }
-    
 }

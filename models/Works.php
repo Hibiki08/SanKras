@@ -5,6 +5,27 @@ namespace app\models;
 use Yii;
 use app\components\AbstractModel;
 
+/**
+ * @property integer $id
+ * @property string $url
+ * @property string $title
+ * @property string $text
+ * @property string $preview
+ * @property string $preview_text
+ * @property integer $cat_id
+ * @property string $preview_items
+ * @property string $work_items
+ * @property integer $year
+ * @property string $area
+ * @property string $cost_install
+ * @property string $cost_material
+ * @property string $time
+ * @property integer $sort
+ * @property integer $active
+ * @property integer $video_id
+ *
+ * @property-read Video $video
+ */
 class Works extends AbstractModel {
 
     const IMG_FOLDER = 'works/';
@@ -33,4 +54,10 @@ class Works extends AbstractModel {
         }
     }
 
+    public function getVideo()
+    {
+        return $this->hasOne(Video::className(), [
+            'id' => 'video_id'
+        ]);
+    }
 }

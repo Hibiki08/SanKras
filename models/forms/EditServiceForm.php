@@ -3,6 +3,7 @@
 namespace app\models\forms;
 
 use app\models\Services;
+use app\models\Video;
 use Yii;
 use yii\base\Model;
 use app\components\Translate;
@@ -35,7 +36,10 @@ class EditServiceForm extends Model {
     public $projectdocs_description;
     public $projectdocs_sort;
     public $video;
-    public $videos;
+    public $blockVideoUrl;
+    public $blockVideoTitle;
+    public $blockVideoDescription;
+    public $blockVideo;
     public $videos_name;
     public $videos_show;
     public $img_video;
@@ -45,6 +49,9 @@ class EditServiceForm extends Model {
     public $old_attribute_val = '';
     public $projectdocs_active;
     public $projectdocs_title;
+
+    const SCENARIO_ADD_VIDEO = 'add-video';
+    const SCENARIO_SERVICE = 'service';
 
     public function rules() {
         return [
@@ -66,7 +73,21 @@ class EditServiceForm extends Model {
                 'tag_description', 'prev_field', 'gallery_title', 'main_text',
                 'price_title', 'projectdocs_title', 'img_video', 'main_text', 'work_text', 'packages'], 'filter','filter'=>'trim'],
             [['sort'], 'integer'],
+            [['blockVideoUrl', 'blockVideoTitle'], 'required', 'on' => self::SCENARIO_ADD_VIDEO],
+            [['blockVideoDescription'], 'safe', 'on' => self::SCENARIO_ADD_VIDEO],
+            [['blockVideoUrl'], 'match', 'pattern' => '/^https:\/\/youtu.be\/(.+)/i'],
+            [['blockVideo', 'videos_show'], 'safe'],
         ];
+    }
+
+    public function scenarios() {
+        $scenarios = parent::scenarios();
+        $scenarios[self::SCENARIO_ADD_VIDEO] = ['blockVideoUrl', 'blockVideoTitle', 'blockVideoDescription'];
+        $scenarios[self::SCENARIO_SERVICE] = $this->getAttributes(
+            $this->attributes(),
+            $scenarios[self::SCENARIO_ADD_VIDEO]
+        );
+        return $scenarios;
     }
 
     public function setOldAttribute($value) {
@@ -111,11 +132,12 @@ class EditServiceForm extends Model {
             'sort' => 'Сортировка',
             'active' => 'Активность',
             'videos_show' => 'Отображать блок видеозаписей',
-            'videos' => 'Список видеозаписей',
+            'blockVideoUrl' => 'Ссылка на видео',
+            'blockVideoTitle' => 'Название видео',
+            'blockVideoDescription' => 'Описание видео',
             'videos_name' => 'Описание видео',
             'projectdocs_title' => 'Заголовок проектной документации',
             'projectdocs_active' => 'Отображение проектной документации'
         ];
     }
-
 }

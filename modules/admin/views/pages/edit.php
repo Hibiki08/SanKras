@@ -1,4 +1,6 @@
 <?php
+
+use app\models\forms\EditServiceForm;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
 use yii\helpers\Html;
@@ -6,16 +8,15 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 use app\models\Services;
 
+/**  @var Services $model */
+/**  @var EditServiceForm $edit */
+
 $this->title = Yii::$app->request->get('id') ? 'Редактировать' : 'Добавить';
 ?>
 <h1><?php echo 'Посадочные страницы > ' . $this->title; ?></h1>
 
-<div class="row-fluid">
-    <p class="text-danger"><?php echo $errors ? implode('<br/>', $errors) : ''; ?></p>
-</div>
-
 <?php $form = ActiveForm::begin(['enableClientValidation' => true,
-    'options' => ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal', 'id' => 'form'],
+    'options' => ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal', 'id' => 'service-form'],
     'fieldConfig' => [
         'template' => '<label class="col-lg-2 control-label"></label>{error}{label}<div class="col-lg-10">{input}</div>',
         'labelOptions' => ['class' => 'col-lg-2 control-label'],
@@ -29,7 +30,9 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 <?php echo $form->field($edit, 'link')->input('text', ['value' => $model->link])->label('Ссылка на страницу*'); ?>
 <?php //echo $form->field($edit, 'form_title')->input('text', ['value' => $model->form_title])->label('Заголовок формы*'); ?>
 <?php echo $form->field($edit, 'gallery_title')->input('text', ['value' => $model->gallery_title])->label('Заголовок галереи*'); ?>
-<?php echo $form->field($edit, 'price_title')->input('text', ['value' => $model->price_title])->label('Заголовок блока с ценами*'); ?>
+<?php echo $form->field($edit, 'price_title')
+    ->input('text', ['value' => $model->price_title])
+    ->label('Заголовок блока с ценами*'); ?>
 <?php echo $form->field($edit, 'form_title')->widget(CKEditor::className(), [
     'editorOptions' => ElFinder::ckeditorOptions(['elfinder'], [
         'preset' => 'basic',
@@ -110,33 +113,53 @@ if (isset($model->image)) { ?>
 <?php } ?>
 <hr>
 <h4>Видео</h4>
-	<?php echo $form->field($edit, 'videos_show')->input('checkbox', ['value' => '1', 'checked' => $model->videos_show == 1 ? 'checked' : false, 'class' => 'checkbox'])->label('Отображать блок видеозаписей'); ?>
-	<div class="form-group field-editserviceform-videos">
-	<label class="col-lg-2 control-label">Список видеозаписей</label><div class="col-lg-10 videos-collection">
-	<?php
-	if(!empty($model->videos)){
-	 $vids = json_decode($model->videos);
-	 $vids_name = json_decode($model->videos_name);
-	 $i = 0;
-	 foreach ($vids as $k=>$v){?>
-	  <div><input type="hidden" class="form-control" name="EditServiceForm[videos][<?=$k?>]" value="<?=$v?>"><input type="hidden" class="form-control" name="EditServiceForm[videos_name][]" value="<?=$vids_name[$i]?>">
-	  <span style="width:60%;"><?=$v?> - <?=$k?></span>
-	  <span class="glyphicon glyphicon-remove"></span></div>
-	<?php  $i++;
-	 }
-	}
-	?>
-	  <div>
-		<input type="text" class="form-control" value="" placeholder="Название видео" style="width:70%;display:block;">
-		<input type="text" class="form-control" value="" placeholder="Описание видео" style="width:70%;display:block;">
-		<input type="text" class="form-control" value="" placeholder="Cсылка видео" style="width:70%;display:block;">
-		<span class="glyphicon glyphicon-plus" style="color: blue;float: right;margin: -43px 250px 0px 0px;cursor: pointer;"></span>
-	  </div>
-	 </div>
-	</div>
+	<?php echo $form->field($edit, 'videos_show')
+        ->input('checkbox', [
+            'value' => 1,
+            'checked' => $model->videos_show == 1 ? 'checked' : false,
+            'class' => 'checkbox'
+        ])
+        ->label('Отображать блок видеозаписей'); ?>
+<div class="form-group field-editserviceform-videos">
+	<label class="col-lg-2 control-label">Список видеозаписей</label>
+    <div class="col-lg-10 videos-collection" data-id="<?php echo $model->id; ?>">
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-info" style="width: 100%"></div>
+        </div>
+        <?php if ($model->videos) { ?>
+            <div class="js-current-video-block">
+                <?php foreach ($model->videos as $video) { ?>
+                    <?php echo $this->render('_video-item_template', [
+                        'video' => $video,
+                        'model' => $edit,
+                    ]); ?>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <div class="js-add-video-block">
+            <?php echo $form->field($edit, 'blockVideoUrl', [
+                'template' => '{error}<div class="col-lg-7">{input}</div>',
+            ])->input('text', [
+                'placeholder' => 'Ссылка на видео*'
+            ])->label(false); ?>
+            <?php echo $form->field($edit, 'blockVideoTitle', [
+                'template' => '{error}<div class="col-lg-7">{input}</div>',
+            ])->input('text', [
+                'placeholder' => 'Название видео*'
+            ])->label(false); ?>
+            <?php echo $form->field($edit, 'blockVideoDescription', [
+                'template' => '{error}<div class="col-lg-7">{input}</div>',
+            ])->input('text', [
+                'placeholder' => 'Описание видео'
+            ])->label(false); ?>
+            <span class="glyphicon glyphicon-plus js-add-video" style="color: blue;margin-top: 8px;cursor: pointer;"></span>
+        </div>
+    </div>
+</div>
+<!--	</div>-->
 <hr>
 <h4>Слайдер</h4>
-<?php echo @$form->field($edit, 'slides[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить слайды'); ?>
+<?php echo $form->field($edit, 'slides[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить слайды'); ?>
 <?php if (!empty($slides)) { ?>
     <div class="other-slides">
         <?php foreach ($slides as $slide) {
@@ -161,7 +184,7 @@ if (isset($model->image)) { ?>
 <h4>Проектная документация</h4>
 <?php echo $form->field($edit, 'projectdocs_active')->input('checkbox', ['checked' => $model->projectdocs_active == 1 ? 'checked' : false, 'class' => 'checkbox',])->label('Активность'); ?>
 <?php echo $form->field($edit, 'projectdocs_title')->input('text', ['value' => $model->projectdocs_title])->label('Заголовок'); ?>
-<?php echo @$form->field($edit, 'projectdocs[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить картинку'); ?>
+<?php echo $form->field($edit, 'projectdocs[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Загрузить картинку'); ?>
 <?php if (!empty($projectdocs)) { ?>
     <div class="other-projectdocs">
         <?php foreach ($projectdocs as $doc) {
@@ -240,14 +263,54 @@ if (isset($model->image)) { ?>
                 }
             });
         });
-        $('body').on('click','.videos-collection .glyphicon-plus',function(){
-          d = $(this).closest('div');
-          i = d.find('input');
-          $(d).before('<div><input type="hidden" name="EditServiceForm[videos]['+i[2].value+']" value="'+i[0].value+'"><input type="hidden" name="EditServiceForm[videos_name][]" value="'+i[1].value+'"><span style="width:60%;">'+i[0].value+' - '+i[2].value+'</span> <span class="glyphicon glyphicon-remove"></span></div>');
-          i.val('');
-        });
-        $('body').on('click','.videos-collection .glyphicon-remove',function(){
-          $(this).closest('div').remove();
+
+        $(document).on('click', '.videos-collection .js-add-video',function() {
+          var parentBlock = $(this).parents('.videos-collection');
+          var form = $('#service-form');
+          parentBlock.find('.progress').show();
+
+            $.ajax({
+                url: '<?php echo Url::to('add-video'); ?>',
+                type: 'post',
+                data: form.serialize(),
+                success: function (response) {
+                    if (response.status) {
+                        $('.js-current-video-block').append(response.response);
+                        parentBlock.find('.js-add-video input').val('');
+                        parentBlock.find('.progress').hide();
+                    } else {
+                        parentBlock.find('.progress').hide();
+                        errorForm(response.errors, '<?php echo $edit->formName(); ?>');
+                    }
+                },
+                error: function () {
+                    parentBlock.find('.progress').hide();
+                }
+            });
+        }).on('click', '.videos-collection .js-remove-video',function() {
+            var currentElement = $(this);
+            var parentBlock = $(this).parents('.videos-collection');
+            parentBlock.find('.progress').show();
+
+            $.ajax({
+                url: '<?php echo Url::to('remove-video'); ?>',
+                type: 'get',
+                data: {
+                    videoId: currentElement.data('id'),
+                    serviceId: currentElement.closest('.videos-collection').data('id')
+                },
+                success: function (response) {
+                    if (response.status) {
+                        currentElement.closest('.video-item').remove();
+                        parentBlock.find('.progress').hide();
+                    } else {
+                        parentBlock.find('.progress').hide();
+                    }
+                },
+                error: function () {
+                    parentBlock.find('.progress').hide();
+                }
+            });
         });
     });
 </script>

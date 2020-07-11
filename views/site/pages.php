@@ -1,4 +1,6 @@
 <?php
+
+use app\models\Video;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use app\models\Services;
@@ -6,6 +8,8 @@ use app\models\ServicesSlides;
 use app\models\ServicesProjectdocs;
 use yii\imagine\Image;
 use app\models\Team;
+
+/**  @var Services $service */
 
 $this->title = $service['tag_title'];
 $this->registerMetaTag([
@@ -16,7 +20,6 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $service['tag_keywords']
 ]);
-// var_dump($service);
 if($parent) $this->params['breadcrumbs'][] = ['label' => $parent['title'], 'url'=> ['/'.$parent['link'].'/']];
 $this->params['breadcrumbs'][] = $service['title'];
 ?>
@@ -213,7 +216,7 @@ $this->params['breadcrumbs'][] = $service['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if($service->videos_show) { ?>
+            <?php if ($service->videos_show && $service->videos) { ?>
                 <div class="gallery">
 					<header class="flex">
 						<h2>Видео работ</h2>
@@ -223,22 +226,18 @@ $this->params['breadcrumbs'][] = $service['title'];
 					</header>
                     <div class="flexslider" style="margin:0px 50px 10px;">
                         <ul class="slides">
-                            <?php foreach ($service->videos as $key => $v) {?>
+                            <?php foreach ($service->videos as $video) {?>
                                 <li>
-                                    <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<div class="name">
-										<b><?php echo $v[0]; ?></b>
-										<span><?php echo $service->videos_name[$key]; ?></span>
-									</div>
+                                    <iframe src="https://www.youtube.com/embed/<?php echo $video->getVideoKey(); ?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <div class="name">
+                                        <b><?php echo $video->title; ?></b>
+                                    </div>
                                 </li>
                             <?php } ?>
-							<?if(count($service->videos) < 3) {
-								for($i = count($service->videos); $i < 3; $i++)
-								echo '<li>' . $this->render('/part/_picture-source-template', [
-                                            'imagePath' => 'images/system/default-video.png',
-                                            'altText' => ''
-                                        ]) . '</li>';
-							}?>
+                            <?if(count($service->videos) < 3) {
+                                for($i = count($service->videos); $i < 3; $i++)
+                                echo "<li><img src=\"/images/system/default-video.png\"></li>";
+                            }?>
                         </ul>
                     </div>
                     <div style="display:none">
@@ -247,9 +246,9 @@ $this->params['breadcrumbs'][] = $service['title'];
                           <strong>Видео работ</strong><br>
                           <span class="_count"><?=count($service->videos)?> видео</span>
                         </div>
-							<?php foreach ($service->videos as $v) { ?>
+							<?php foreach ($service->videos as $video) { ?>
                                 <div class="wrap">
-                                    <iframe src="https://www.youtube.com/embed/<?=$v[1]?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src="https://www.youtube.com/embed/<?php echo $video->getVideoKey(); ?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             <?php } ?>
                       </div>
