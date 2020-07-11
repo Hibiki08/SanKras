@@ -351,27 +351,28 @@ class PagesController extends AdminController {
     {
         if (Yii::$app->request->isAjax) {
             $service = Services::findOne($serviceId);
-            if (!$service) {
-                throw new ForbiddenHttpException('Посадочная страница не найдена');
-            }
-
             \Yii::$app->response->format = Response::FORMAT_JSON;
-            $video = Video::findOne($videoId);
-            if ($video) {
-                $transaction = Yii::$app->db->beginTransaction();
-                try {
-                    $service->unlink('videos', $video, true);
-                    $transaction->commit();
-                    return [
-                        'status' => true,
-                    ];
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                    throw $e;
+            if ($service) {
+                $video = Video::findOne($videoId);
+                if ($video) {
+                    $transaction = Yii::$app->db->beginTransaction();
+                    try {
+                        $service->unlink('videos', $video, true);
+                        $transaction->commit();
+                        return [
+                            'status' => true,
+                        ];
+                    } catch (Exception $e) {
+                        $transaction->rollBack();
+                        throw $e;
+                    }
                 }
+                return [
+                    'status' => false,
+                ];
             }
             return [
-                'status' => false,
+                'status' => true,
             ];
         } else {
             throw new BadRequestHttpException('Ajax only');
