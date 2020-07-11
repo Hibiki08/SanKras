@@ -22,9 +22,8 @@ use app\components\AbstractModel;
  * @property string $time
  * @property integer $sort
  * @property integer $active
- * @property integer $video_id
+ * @property string $video
  *
- * @property-read Video $video
  */
 class Works extends AbstractModel {
 
@@ -52,12 +51,5 @@ class Works extends AbstractModel {
         } else {
             return $query;
         }
-    }
-
-    public function getVideo()
-    {
-        return $this->hasOne(Video::className(), [
-            'id' => 'video_id'
-        ]);
     }
 }
