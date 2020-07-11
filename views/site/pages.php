@@ -191,7 +191,7 @@ $this->params['breadcrumbs'][] = $service['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if($service->videos_show && $service->videos) { ?>
+            <?php if ($service->videos_show && $service->videos) { ?>
                 <div class="gallery">
 					<header class="flex">
 						<h2>Видео работ</h2>

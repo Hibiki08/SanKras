@@ -136,6 +136,9 @@ class Services extends AbstractModel {
         return $query->one();
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getVideos()
     {
         return $this->hasMany(Video::className(), [

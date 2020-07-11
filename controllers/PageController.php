@@ -45,25 +45,11 @@ class PageController extends Controller {
         $service = Services::getOneServ($link, true);
 		
         if ($action) {
-            $parent = Services::getOneServ($action, true);
+            $parentService = Services::getOneServ($action, true);
         } else {
-            $parent = false;
+            $parentService = false;
         }
 
-//        var_dump($service->id);
-//        var_dump($service->videos);die;
-
-//        $options->videos = $options->videos ? json_decode($options->videos) : array();
-//        $options->videos = array_map(
-//			function($v, $n){
-//				$u = parse_url($v);
-//				parse_str($u['query'], $v);
-//				return [$n, @$v['v'] ? $v['v'] : end(explode('/', $u['path']))];
-//			},
-//			array_keys((array)$options->videos), array_values((array)$options->videos)
-//		);
-//        $options->videos_name = $options->videos_name ? json_decode($options->videos_name) : array();
-		
         unset($_GET['action']);
         unset($_GET['key']);
         if(!empty($_GET)){
@@ -73,7 +59,7 @@ class PageController extends Controller {
             return $this->render('/site/pages', [
                 'letter' => $form,
                 'service' => $service,
-                'parent' => $parent,
+                'parent' => $parentService,
 				'team' => $team,
             ]);
         } else {
@@ -160,5 +146,4 @@ class PageController extends Controller {
             'question' => $form
         ]);
     }
-    
 }
