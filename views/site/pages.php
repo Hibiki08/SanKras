@@ -45,6 +45,8 @@ $this->params['breadcrumbs'][] = $service['title'];
                         <div>Выезд бесплатно</div>
                         <div>В удобное время</div>
                         <div>Гарантия до 5&nbsp;лет</div>
+                        <div>Помощь в подборе оборудования</div>
+                        <div>Бесплатная доставка</div>
                     </footer>
                 </div>
                 <div class="form">
@@ -89,27 +91,24 @@ $this->params['breadcrumbs'][] = $service['title'];
                 </div>
                 <div class="prev_text sidebar-serviceList js-scroll">
 					<h3>Стоимость работ:</h3>
-					<?php if ((!empty($service->price) && $service['table_ex'] == 1) ||
-						(!empty($service['packages']) && $service['package_ex'] == 1)) { ?>
-						<?php if (!empty($service->price) && $service['table_ex'] == 1) { ?>
-							<table>
-								<?php foreach ($service->price as $price) { ?>
-									<?php foreach ($price['prices'] as $item) { ?>
-										<tr>
-											<td colspan="2"><?php echo $item['title']; ?></td>
-										</tr>
-										<tr>
-											<td><a href="<?=$item['image']?>" rel="gallery2" class="fancy-price"><?php
-                                                    echo $this->render('/part/_picture-source-template', [
-                                                        'imagePath' => $item->image,
-                                                        'altText' => ''
-                                                    ]); ?></a></td>
-											<td class="price"><b><?php echo number_format($item['price'], 0, "", " "); ?></b> руб.</td>
-										</tr>
-									<?php } ?>
+					<?php if ((!empty($service->prices) && $service['table_ex']) ||
+						(!empty($service['packages']) && $service['package_ex'])) { ?>
+							<div>
+								<?php foreach ($service->prices as $price) { ?>
+                                    <div class="price-item">
+                                        <span><?php echo $price->title; ?></span>
+                                        <a href="<?php echo $price->image; ?>" rel="gallery2" class="fancy-price"><?php
+                                            echo $this->render('/part/_picture-source-template', [
+                                                'imagePath' => $price->image,
+                                                'altText' => ''
+                                            ]); ?></a>
+                                        <div class="price-item-detail">
+                                            <span><b><?php echo $price->unit; ?>:</b></span><br>
+                                            <span class="price"><b><?php echo number_format($price->price, 0, "", " "); ?></b> руб.</span>
+                                        </div>
+                                    </div>
 								<?php } ?>
-							</table>
-						<?php } ?>
+							</div>
 					<?php } ?>
 				</div>
             </div>

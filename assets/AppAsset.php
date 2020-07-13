@@ -11,8 +11,8 @@ class AppAsset extends AssetBundle
     public $css = [
         '/css/hibiki.slider.css?r3',
         '/lib/perfect-scrollbar/css/perfect-scrollbar.css',
-        'css/add-style.min.css?r9',
-        'css/style.css?r107',
+        'css/add-style.min.css?r10',
+        'css/style.css?r108',
         'css/media.css?r31',
         'css/fonts.css?r3',
     ];

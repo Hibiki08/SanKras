@@ -35,6 +35,7 @@ use app\components\AbstractModel;
  *
  * @property-read Video[] $videos
  * @property-read ServiceGoogleSheet $googleSheet
+ * @property-read Prices[] $prices
  */
 class Services extends AbstractModel {
     
@@ -45,10 +46,12 @@ class Services extends AbstractModel {
         return 'sk_services';
     }
 
-    public function getPrice() {
-        return $this->hasMany(PricesInPage::className(), ['page_id' => 'id'])
-            ->joinWith('prices')
-            ->alias('price');
+    public function getPrices() {
+        return $this->hasMany(Prices::className(), [
+            'id' => 'price_id'
+        ])->viaTable(PricesInPage::tableName(), [
+            'page_id' => 'id'
+        ]);
     }
 
     public function getChildItems() {
