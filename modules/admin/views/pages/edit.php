@@ -10,6 +10,7 @@ use app\models\Services;
 
 /**  @var Services $model */
 /**  @var EditServiceForm $edit */
+/**  @var \app\models\ServiceGoogleSheet $serviceGoogleSheet */
 
 $this->title = Yii::$app->request->get('id') ? 'Редактировать' : 'Добавить';
 ?>
@@ -207,6 +208,19 @@ if (isset($model->image)) { ?>
     </div>
 <?php } ?>
 <hr>
+
+<h4>Google таблица</h4>
+<?php echo $form->field($serviceGoogleSheet, 'share_link')
+    ->input('text', [
+        'value' => $serviceGoogleSheet->share_link
+    ]); ?>
+<?php echo $form->field($serviceGoogleSheet, 'active')
+    ->input('checkbox', [
+        'checked' => $serviceGoogleSheet->active == 1 ? 'checked' : false,
+        'class' => 'checkbox',
+    ]); ?>
+<hr>
+
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',

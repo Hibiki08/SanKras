@@ -5173,3 +5173,55 @@ a.showMoreTeam.active:before {
 .flexslider .slides img {
     max-height: 191px;
 }
+
+.google-table {
+    margin-top: 60px;
+    border-bottom: 1px dashed #99a4ae;
+    text-align: center;
+    position: relative;
+}
+
+.google-table iframe {
+    width: 100%;
+    border: none;
+    height: 190px;
+    transition: all 0.5s;
+}
+
+.google-table h2 {
+    color: #343434;
+    font-size: 22px;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.google-table .google-table-block {
+    padding-bottom: 20px;
+}
+
+.google-table .show-more {
+    height: 30px;
+    background: #eaecef url(/images/system/page-down.png) no-repeat 8px center;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #99a4ae;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 7px 15px 5px 30px;
+    cursor: pointer;
+    bottom: -15px;
+    position: absolute;
+    margin-left: -60px;
+}
+
+.google-table.google-table__opened iframe {
+    height: 600px;
+}
+
+.google-table.google-table__opened .show-more {
+    background: #eaecef url(/images/system/page-up.png) no-repeat 8px center;
+}

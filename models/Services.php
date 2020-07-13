@@ -32,7 +32,9 @@ use app\components\AbstractModel;
  * @property integer $active
  * @property integer $projectdocs_active
  * @property string $projectdocs_title
+ *
  * @property-read Video[] $videos
+ * @property-read ServiceGoogleSheet $googleSheet
  */
 class Services extends AbstractModel {
     
@@ -144,6 +146,16 @@ class Services extends AbstractModel {
         return $this->hasMany(Video::className(), [
             'id' => 'video_id'
         ])->viaTable(self::SERVICE_VIDEO_REF, [
+            'service_id' => 'id'
+        ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGoogleSheet()
+    {
+        return $this->hasOne(ServiceGoogleSheet::className(), [
             'service_id' => 'id'
         ]);
     }

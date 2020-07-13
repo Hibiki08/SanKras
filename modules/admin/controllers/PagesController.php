@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\ServiceGoogleSheet;
 use app\models\Video;
 use Yii;
 use yii\db\Exception;
@@ -114,6 +115,7 @@ class PagesController extends AdminController {
         $ServicesProjectdocs = new ServicesProjectdocs();
         $projectdocs = $id ? ServicesProjectdocs::findAll(['serv_id' => $id]) : new ServicesProjectdocs();
         $model = $id ? $services->getAllServ(['sk_services.id' => $id])[0] : new Services();
+        $serviceGoogleSheet = $model->googleSheet ?: new ServiceGoogleSheet();
 
         if (!empty($model)) {
             $form->setOldAttribute($model->link);
@@ -132,7 +134,8 @@ class PagesController extends AdminController {
                 }
             }
 
-            if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            if ($form->load(Yii::$app->request->post()) && $form->validate()
+                && $serviceGoogleSheet->load(Yii::$app->request->post()) && $serviceGoogleSheet->validate()) {
                 $form->slides = UploadedFile::getInstances($form, 'slides');
                 $form->projectdocs = UploadedFile::getInstances($form, 'projectdocs');
                 $form->image = UploadedFile::getInstance($form, 'image');
@@ -180,6 +183,14 @@ class PagesController extends AdminController {
                                     }
                                 }
                             }
+                        }
+
+                        if ($serviceGoogleSheet->share_link) {
+                            $serviceGoogleSheet->service_id = $model->id;
+                            $serviceGoogleSheet->active = isset(Yii::$app->request->post(
+                                $serviceGoogleSheet->formName()
+                            )['active']) ? 1 : 0;
+                            $serviceGoogleSheet->save(false);
                         }
                     }
                     $id = $id ?: $model->id;
@@ -288,7 +299,8 @@ class PagesController extends AdminController {
                 'model' => $model,
                 'categories' => $parentCat,
                 'slides' => $slides,
-                'projectdocs' => $projectdocs
+                'projectdocs' => $projectdocs,
+                'serviceGoogleSheet' => $serviceGoogleSheet,
             ]);
         } else {
             throw new HttpException(404 ,'Такой страницы нет!');

@@ -545,6 +545,16 @@ $(document).ready(function() {
         $(this).parents('table').find('tr').css('display', 'table-row');
         $(this).css('display', 'none');
     });
+
+    $(document).on('click', '.js-show-more', function () {
+        var parentBlock = $(this).closest('.google-table');
+        parentBlock.toggleClass('google-table__opened');
+        if (parentBlock.hasClass('google-table__opened')) {
+            $(this).text('Свернуть');
+        } else {
+            $(this).text('Развернуть');
+        }
+    });
 });
 
 //Панель с итогом у Калькулятора

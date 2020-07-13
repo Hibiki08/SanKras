@@ -50,6 +50,9 @@ class EditServiceForm extends Model {
     public $projectdocs_active;
     public $projectdocs_title;
 
+    public $googleSheet;
+    public $showGoogleSheet;
+
     const SCENARIO_ADD_VIDEO = 'add-video';
     const SCENARIO_SERVICE = 'service';
 
@@ -76,7 +79,11 @@ class EditServiceForm extends Model {
             [['blockVideoUrl', 'blockVideoTitle'], 'required', 'on' => self::SCENARIO_ADD_VIDEO],
             [['blockVideoDescription'], 'safe', 'on' => self::SCENARIO_ADD_VIDEO],
             [['blockVideoUrl'], 'match', 'pattern' => '/^https:\/\/youtu.be\/(.+)/i'],
-            [['blockVideo', 'videos_show'], 'safe'],
+            [['blockVideo', 'videos_show', 'showGoogleSheet'], 'safe'],
+            [['googleSheet'],
+                'match',
+                'pattern' => '/https:\/\/docs.google.com\/spreadsheets\/d\/e\/(.+)\/pubhtml\?(.+)/i'
+            ],
         ];
     }
 
