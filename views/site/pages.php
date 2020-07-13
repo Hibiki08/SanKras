@@ -166,15 +166,6 @@ $this->params['breadcrumbs'][] = $service['title'];
                     </div>
                 </div>
             <?php } ?>
-            <?php if ($service->googleSheet && $service->googleSheet->active)  { ?>
-            <div class="google-table">
-                <h2>Стоимость работ и материалов:</h2>
-                <div class="google-table-block">
-                    <iframe src="https://docs.google.com/spreadsheets/d/e/<?php echo $service->googleSheet->getHash(); ?>/pubhtml?widget=false&amp;headers=false&chrome=false"></iframe>
-                </div>
-                <span class="show-more js-show-more">Развернуть</span>
-            </div>
-            <?php } ?>
             <?php if(!empty($service->slides)) {?>
                 <div class="gallery">
 					<header class="flex">
@@ -262,6 +253,15 @@ $this->params['breadcrumbs'][] = $service['title'];
                             <?php } ?>
                       </div>
                     </div>
+                </div>
+            <?php } ?>
+            <?php if ($service->googleSheet && $service->googleSheet->active)  { ?>
+                <div class="google-table">
+                    <h2>Стоимость работ и материалов:</h2>
+                    <div class="google-table-block">
+                        <iframe src="https://docs.google.com/spreadsheets/d/e/<?php echo $service->googleSheet->getHash(); ?>/pubhtml?widget=false&amp;headers=false&chrome=false"></iframe>
+                    </div>
+                    <span class="show-more js-show-more">Развернуть</span>
                 </div>
             <?php } ?>
             <?php if (!empty($service['main_text'])) { ?>
