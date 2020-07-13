@@ -212,7 +212,8 @@ if (isset($model->image)) { ?>
 <h4>Google таблица</h4>
 <?php echo $form->field($serviceGoogleSheet, 'share_link')
     ->input('text', [
-        'value' => $serviceGoogleSheet->share_link
+        'value' => $serviceGoogleSheet->share_link,
+        'placeholder' => '<iframe src="https://docs.google.com/spreadsheets/d/e/reKjTK2XIxBa1dEKTdLWA/pubhtml?widget=true&amp;headers=false"></iframe>'
     ]); ?>
 <?php echo $form->field($serviceGoogleSheet, 'active')
     ->input('checkbox', [
