@@ -259,3 +259,12 @@
     margin-right: 10px;
     display: inline-block;
 }
+
+.price-in-page {
+    height: 300px;
+    overflow: auto;
+}
+
+.price-in-page label {
+    font-weight: normal;
+}

@@ -23,6 +23,7 @@ class EditPricesForm extends Model {
             [['title', 'price', 'unit', 'cat_id'], 'required'],
             [['title', 'unit', 'price'], 'filter', 'filter' => 'trim'],
             [['price'], 'number'],
+            [['page'], 'each', 'rule' => ['integer']],
         ];
     }
 
@@ -43,7 +44,8 @@ class EditPricesForm extends Model {
             'image' => 'Картинка',
             'price' => 'Цена',
             'unit' => 'Единица',
-            'key_page' => 'Страница отображения'
+            'key_page' => 'Страница отображения',
+            'page' => 'Выводить на страницах',
         ];
     }
 

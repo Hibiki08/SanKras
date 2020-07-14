@@ -16,8 +16,6 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 ]); ?>
 <?php echo $form->field($edit, 'title')->input('text', ['value' => $model->title])->label('Название*'); ?>
 <?php echo $form->field($edit, 'image')->fileInput()->label('Картинка'); ?>
-<?php //echo $form->field($edit, 'delete_image')->input('checkbox', ['class' => 'checkbox'])->label('Удалить картинку'); ?>
-<?php //echo $form->field($edit, 'hidden', ['template'=>'{input}'])->hiddenInput(['value' => $model->image]); ?>
 <?php if (!empty($model->image)) { ?>
     <label class="col-lg-2 control-label"></label>
     <div class="slides">
@@ -30,11 +28,15 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
 <?php echo $form->field($edit, 'price')->input('text', ['value' => $model->price])->label('Цена*'); ?>
 <?php echo $form->field($edit, 'unit')->input('text', ['value' => $model->unit])->label('Единица*'); ?>
 <?php echo $form->field($edit, 'cat_id')->dropDownList($categories, ['options' => [$model->cat_id => ['selected ' => true]]])->label('Родительский раздел'); ?>
-<?php echo $form->field($edit, 'page[]')->listBox($pagePlace, [
-    'options' => $page,
-    'size' => 10,
-    'multiple' => true
-])->label('Отображение на странице'); ?>
+<?php echo $form->field($edit, 'page[]', [
+    'template' => '<label class="col-lg-2 control-label"></label>{error}{label}<div class="col-lg-10 price-in-page">{input}</div>',
+])->checkboxList($pagePlace, [
+    'item' => function ($index, $label, $name, $checked, $value) use ($checkedItems, $edit) {
+        return '<label class="col-md-12 checkbox"><input type="checkbox" name="' . Html::getInputName($edit, 'page[]')
+            . '" value="' . $value . '"'
+            . (in_array($value, $checkedItems) ? ' checked' : '') . '>' . $label . '</label>';
+    }
+]); ?>
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',
