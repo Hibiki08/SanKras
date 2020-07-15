@@ -17,6 +17,7 @@ use app\components\AbstractModel;
  * @property integer $active
  * @property string $image
  *
+ * @property-read PricesInPage[] $page
  */
 class Prices extends AbstractModel {
 

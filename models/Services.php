@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\components\AbstractModel;
+use yii\db\Expression;
 
 /**
  * @property integer $id
@@ -51,6 +52,25 @@ class Services extends AbstractModel {
             'id' => 'price_id'
         ])->viaTable(PricesInPage::tableName(), [
             'page_id' => 'id'
+        ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrderedPricesInPage()
+    {
+        return $this->getPricesInPage()
+            ->orderBy(new Expression('`order` IS NULL, `order` ASC'));
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPricesInPage()
+    {
+        return $this->hasMany(PricesInPage::className(), [
+           'page_id' => 'id'
         ]);
     }
 

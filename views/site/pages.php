@@ -94,17 +94,18 @@ $this->params['breadcrumbs'][] = $service['title'];
 					<?php if ((!empty($service->prices) && $service['table_ex']) ||
 						(!empty($service['packages']) && $service['package_ex'])) { ?>
 							<div>
-								<?php foreach ($service->prices as $price) { ?>
+                                <?php /**@var \app\models\PricesInPage $priceInPage */?>
+								<?php foreach ($service->getOrderedPricesInPage()->all() as $priceInPage) { ?>
                                     <div class="price-item">
-                                        <span><?php echo $price->title; ?></span>
-                                        <a href="<?php echo $price->image; ?>" rel="gallery2" class="fancy-price"><?php
+                                        <span><?php echo $priceInPage->price->title; ?></span>
+                                        <a href="<?php echo $priceInPage->price->image; ?>" rel="gallery2" class="fancy-price"><?php
                                             echo $this->render('/part/_picture-source-template', [
-                                                'imagePath' => $price->image,
+                                                'imagePath' => $priceInPage->price->image,
                                                 'altText' => ''
                                             ]); ?></a>
                                         <div class="price-item-detail">
-                                            <span><b><?php echo $price->unit; ?>:</b></span><br>
-                                            <span class="price"><b><?php echo number_format($price->price, 0, "", " "); ?></b> руб.</span>
+                                            <span><b><?php echo $priceInPage->price->unit; ?>:</b></span><br>
+                                            <span class="price"><b><?php echo number_format($priceInPage->price->price, 0, "", " "); ?></b> руб.</span>
                                         </div>
                                     </div>
 								<?php } ?>

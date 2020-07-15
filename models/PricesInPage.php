@@ -6,7 +6,25 @@ use Yii;
 use yii\db\ActiveRecord;
 use app\components\AbstractModel;
 
+/**
+ * @property integer $id
+ * @property integer $price_id
+ * @property string $page_id
+ * @property integer $order
+ *
+ * @property-read Services $service
+ * @property-read Prices $price
+ */
 class PricesInPage extends AbstractModel {
+
+    public $sort;
+
+    public function rules()
+    {
+        return [
+            [['sort'], 'each', 'rule' => ['integer']],
+        ];
+    }
 
     public static function tableName() {
         return 'sk_prices_in_page';
@@ -24,4 +42,33 @@ class PricesInPage extends AbstractModel {
         return $query;
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getService()
+    {
+        return $this->hasOne(Services::className(), [
+            'id' => 'page_id'
+        ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPrice()
+    {
+        return $this->hasOne(Prices::className(), [
+            'id' => 'price_id'
+        ]);
+    }
+
+    /**
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'sort' => 'Порядок отображения на посадочных страницах'
+        ];
+    }
 }

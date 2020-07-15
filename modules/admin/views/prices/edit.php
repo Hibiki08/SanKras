@@ -1,7 +1,14 @@
 <?php
+
+use app\models\PricesInPage;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
+
+/** @var \app\models\Prices $model */
+/** @var array $checkedItems */
+/** @var array $pagePlace */
+/** @var \app\models\PricesInPage $priceInPage */
 
 $this->title = Yii::$app->request->get('id') ? 'Редактировать' : 'Добавить';
 ?>
@@ -37,6 +44,28 @@ $this->title = Yii::$app->request->get('id') ? 'Редактировать' : '�
             . (in_array($value, $checkedItems) ? ' checked' : '') . '>' . $label . '</label>';
     }
 ]); ?>
+<?php if ($priceInPage) { ?>
+<div class="form-group">
+    <label class="col-lg-2 control-label">Порядок отображения на посадочных страницах</label>
+    <?php /** @var PricesInPage $page */
+    foreach ($priceInPage as $page) { ?>
+        <?php echo $form->field($page, 'sort[' . $page->page_id . ']', [
+            'options' => [
+                'class' => '',
+            ],
+            'template' => '<label class="col-lg-2" style="margin:0"></label>{error}
+            <div class="col-lg-10" style="display: flex;margin-bottom: 5px">
+                <input type="number" class="form-control" style="width: 65px;margin-right: 10px" value="'
+                . ($page->order ?: 0) . '" name="' . $page->formName() . '[sort][' . $page->page_id . ']">
+                <span>' . $page->service->title . '</span>
+            </div>',
+        ])->input(
+            'number', [
+            'value' => $page->order,
+            ])->label(''); ?>
+    <?php } ?>
+</div>
+<?php } ?>
 <?php echo $form->field($edit, 'active')->input('checkbox', [
     'checked' => $model->active == 1 ? 'checked' : false,
     'class' => 'checkbox',

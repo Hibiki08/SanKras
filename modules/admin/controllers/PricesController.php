@@ -124,7 +124,8 @@ class PricesController extends AdminController {
         } else {
             array_unshift($checkedItems, 0);
         }
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        if ($form->load(Yii::$app->request->post()) && $form->validate()
+            && $priceInPage->load(Yii::$app->request->post()) && $priceInPage->validate()) {
             $form->image = UploadedFile::getInstance($form, 'image');
             if (!$id) {
                 if (!$form->image) {
@@ -154,6 +155,7 @@ class PricesController extends AdminController {
 
                 $id = $id ? $id : Yii::$app->db->lastInsertID;
                 $pages = $form->page;
+//                var_dump($pages);die;
                 if (!empty($pages)) {
                     $i = 0;
                     $priceInPage->deleteAll(['price_id' => $id]);
@@ -165,6 +167,21 @@ class PricesController extends AdminController {
                             $i++;
                         }
                         $priceInPage->insertData(PricesInPage::tableName(), $data);
+                    }
+                }
+
+                if ($priceInPage->sort) {
+                    foreach ($priceInPage->sort as $pageId => $order) {
+                        /** @var PricesInPage $priceInPageOrder */
+                        $priceInPageOrder = PricesInPage::find()->where([
+                            'price_id' => $id,
+                            'page_id' => $pageId,
+                        ])->one();
+                        if ($priceInPageOrder) {
+                            $priceInPageOrder->order = $order;
+                            $priceInPageOrder->save(false);
+
+                        }
                     }
                 }
                 $transaction->commit();
@@ -181,7 +198,8 @@ class PricesController extends AdminController {
             'categories' => $parentCat,
             'model' => $model,
             'pagePlace' => $pagePlace,
-            'checkedItems' => $checkedItems
+            'checkedItems' => $checkedItems,
+            'priceInPage' => $model->page,
         ]);
     }
 
