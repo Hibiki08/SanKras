@@ -5258,3 +5258,14 @@ a.showMoreTeam.active:before {
 .google-table.google-table__opened .show-more {
     background: #eaecef url(/images/system/page-up.png) no-repeat 8px center;
 }
+
+.pages .content .work-text {
+    padding-top: 0;
+}
+
+.pages .content .work-text > div {
+    margin-bottom: 30px;
+}
+.pages .share-in-social {
+    margin-top: 40px;
+}

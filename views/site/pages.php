@@ -269,11 +269,6 @@ $this->params['breadcrumbs'][] = $service['title'];
                         <div class="main-text"><?php echo $service['main_text']; ?></div>
                     <?php if (!empty($service['work_text'])) { ?>
                         <div class="work-text">
-							<h3>Поделиться:</h3>
-							<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-							<script src="https://yastatic.net/share2/share.js"></script>
-							<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki"></div>
-							<br>
 							<div class="opinions-wrapper">
 								<div class="layout"></div>
 								<div class="google-reviews" style="display:none"><h3>Отзывы Google</h3><a href="https://www.google.com/search?q=%D1%81%D0%B0%D0%BD%D0%BA%D1%80%D0%B0%D1%81&oq=%D1%81%D0%B0%D0%BD&aqs=chrome.0.69i59j69i57j69i59l2j0j69i61l3.1106j0j7&sourceid=chrome&ie=UTF-8#lrd=0x40f041ae603d412b:0xac151144a9732c31,1,,," target="_blank">Смотреть все</a><div id="GReviewsContent"></div></div>
@@ -319,6 +314,12 @@ $this->params['breadcrumbs'][] = $service['title'];
 							</div>
 							<br>
 							<?php echo $service['work_text']; ?>
+                            <div class="share-in-social">
+                                <h3>Поделиться:</h3>
+                                <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                                <script src="https://yastatic.net/share2/share.js"></script>
+                                <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki"></div>
+                            </div>
 						</div>
                         <?php } ?>
                 </div>
