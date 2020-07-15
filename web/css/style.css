@@ -280,6 +280,9 @@ address {
 .menu .list:not(:first-of-type):hover .submenu {
     display: flex;
 }
+.menu .list:first-of-type .submenu .items {
+    width: 100%;
+}
 
     /*Контент/////////////////////*/
 .key {

@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
         '/css/hibiki.slider.css?r3',
         '/lib/perfect-scrollbar/css/perfect-scrollbar.css',
         'css/add-style.min.css?r10',
-        'css/style.css?r108',
+        'css/style.css?r109',
         'css/media.css?r31',
         'css/fonts.css?r3',
     ];
