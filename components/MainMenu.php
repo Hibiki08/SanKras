@@ -11,7 +11,6 @@ class MainMenu extends Widget {
     public function run() {
         $controller = Yii::$app->controller->id;
         $action = Yii::$app->controller->action->id;
-//        $services = $services->getAllForMenu(['active' => 1], 'sk_services.parent_id, sk_services.sort ASC, ISNULL(sk_services.sort),  sk_services.id ASC');
         $services = (new Services())->getAllForMenu([
             Services::tableName(). '.active' => 1],
             [

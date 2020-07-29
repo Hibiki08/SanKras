@@ -231,6 +231,7 @@ $this->params['breadcrumbs'][] = $service['title'];
                                     <iframe src="https://www.youtube.com/embed/<?php echo $video->getVideoKey(); ?>?showinfo=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     <div class="name">
                                         <b><?php echo $video->title; ?></b>
+                                        <span><?php echo $video->description; ?></span>
                                     </div>
                                 </li>
                             <?php } ?>
@@ -256,12 +257,12 @@ $this->params['breadcrumbs'][] = $service['title'];
                 </div>
             <?php } ?>
             <?php if ($service->googleSheet && $service->googleSheet->active)  { ?>
-                <div class="google-table">
+                <div class="google-table google-table__opened">
                     <h2>Стоимость работ и материалов:</h2>
                     <div class="google-table-block">
                         <iframe src="https://docs.google.com/spreadsheets/d/e/<?php echo $service->googleSheet->getHash(); ?>/pubhtml?widget=false&amp;headers=false&chrome=false"></iframe>
                     </div>
-                    <span class="show-more js-show-more">Развернуть</span>
+                    <span class="show-more js-show-more">Свернуть</span>
                 </div>
             <?php } ?>
             <?php if (!empty($service['main_text'])) { ?>

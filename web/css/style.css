@@ -5269,3 +5269,7 @@ a.showMoreTeam.active:before {
 .pages .share-in-social {
     margin-top: 40px;
 }
+
+.menu .list:first-of-type .submenu .items {
+    flex-wrap: wrap;
+}

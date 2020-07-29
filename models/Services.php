@@ -109,7 +109,7 @@ class Services extends AbstractModel {
     }
 
     public function getAllForMenu($where = false, $order = 'sort ASC', $active = false) {
-        $query = Services::find();
+        $query = self::find();
         if ($active) {
             $query->joinWith(['childItems' => function ($query) {
                 $query->andOnCondition(['childItems.active' => 1]);
@@ -125,6 +125,8 @@ class Services extends AbstractModel {
         if ($where) {
             $query->where($where);
         }
+
+        $query->andWhere([Services::tableName() . '.parent_id' => null]);
         return $query->all();
     }
 

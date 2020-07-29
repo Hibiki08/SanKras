@@ -125,7 +125,9 @@ class PricesController extends AdminController {
             array_unshift($checkedItems, 0);
         }
         if ($form->load(Yii::$app->request->post()) && $form->validate()
-            && $priceInPage->load(Yii::$app->request->post()) && $priceInPage->validate()) {
+            && (isset(Yii::$app->request->post()['PricesInPage'])
+                ? $priceInPage->load(Yii::$app->request->post()) && $priceInPage->validate()
+                : true)) {
             $form->image = UploadedFile::getInstance($form, 'image');
             if (!$id) {
                 if (!$form->image) {
@@ -155,7 +157,6 @@ class PricesController extends AdminController {
 
                 $id = $id ? $id : Yii::$app->db->lastInsertID;
                 $pages = $form->page;
-//                var_dump($pages);die;
                 if (!empty($pages)) {
                     $i = 0;
                     $priceInPage->deleteAll(['price_id' => $id]);
@@ -190,6 +191,10 @@ class PricesController extends AdminController {
                 $transaction->rollBack();
                 throw $e;
             }
+        } else {
+//            var_dump($priceInPage->getErrors());
+//            var_dump($form->getErrors());
+//            die;
         }
 
         return $this->render('edit', [
