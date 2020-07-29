@@ -12,7 +12,7 @@
                     <div class="items">
                         <?php foreach ($services as $serv) { ?>
                             <ul class="ul">
-                                <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv->link); ?>"><?php echo $serv->title_menu . '(' . $serv->sort . ')'; ?></a>
+                                <li><a class="title" href="<?php echo Yii::$app->urlManager->createUrl($serv->link); ?>"><?php echo $serv->title_menu; ?></a>
                                     <?php if (!empty($serv->childItems)) { ?>
                                         <ul class="sub"><?php foreach ($serv->childItems as $child) { ?>
                                                 <li><a href="/<?php echo $serv['link'] .  '/' . $child->link; ?>"><?php echo $child->title_menu; ?></a>
