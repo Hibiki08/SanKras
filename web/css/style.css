@@ -4730,7 +4730,13 @@ footer .sub-footer .codedex .site a {
 .b_all{margin-right:50px;background:url(/css/images/l_ico.png) no-repeat left center;    background-size:16px 16px;text-decoration: underline;}
 ._count{background:url(/css/images/p_ico.png) no-repeat left center;    background-size:16px 16px;}
 .all {max-width:850px;}
-.all .wrap {display:inline-block;margin:10px 15px;}
+.all .wrap {
+    display:inline-block;
+    margin:10px 15px;
+}
+.all .wrap picture img {
+    max-width: 250px;
+}
 .all strong{
   color: #34495e;
   margin:20px;

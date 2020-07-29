@@ -223,7 +223,7 @@ class PagesController extends AdminController {
                                 if ($form->upload($path, $slide)) {
                                     $resizeAdminPrev = new ImageResize($slide->name, $path, $path, 172, '', 'mini');
                                     $resizeAdminPrev->resize();
-                                    $resizeSlider = new ImageResize($slide->name, $path, $path, 250, '', 'mini_slider');
+                                    $resizeSlider = new ImageResize($slide->name, $path, $path, 340, '', 'mini_slider');
                                     $resizeSlider->resize();
 
                                     $images[$i]['slide'] = $slide->name;
