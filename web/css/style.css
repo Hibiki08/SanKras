@@ -5241,13 +5241,12 @@ a.showMoreTeam.active:before {
 
 .google-table .show-more {
     height: 30px;
-    background: #eaecef url(/images/system/page-down.png) no-repeat 8px center;
+    background: #eaecef url(/images/system/page-down2.png) no-repeat 8px center;
     -moz-border-radius: 16px;
     border-radius: 16px;
     display: inline-block;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: #99a4ae;
     font-size: 14px;
     font-weight: 300;
     padding: 7px 15px 5px 30px;
@@ -5257,12 +5256,17 @@ a.showMoreTeam.active:before {
     margin-left: -60px;
 }
 
+.pages .packages table tr:first-of-type td:first-of-type:after,
+.google-table .show-more {
+    color: #34495e;
+}
+
 .google-table.google-table__opened iframe {
     height: 600px;
 }
 
 .google-table.google-table__opened .show-more {
-    background: #eaecef url(/images/system/page-up.png) no-repeat 8px center;
+    background: #eaecef url(/images/system/page-up2.png) no-repeat 8px center;
 }
 
 .pages .content .work-text {
